@@ -186,6 +186,27 @@
 
  
 	
+
+
+    <div id="comment">   
+    </div>
+
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+
+    <script src="//unpkg.com/valine@v1.1.8-beta/dist/Valine.min.js"></script>
+
+    <script>
+        new Valine({
+        el: '#comment',
+        notify:false, 
+        verify:false, 
+        app_id: '0MXJkqsVLWCBmshTkV8691NW-gzGzoHsz',
+        app_key: 'D3cJIssiebkaVkzFKIM4hHox',  
+        path:window.location.pathname, 
+        avatar:'mm' ,
+        guest_info:['nick','mail']
+        });
+    </script>
 	
 </article>
 
