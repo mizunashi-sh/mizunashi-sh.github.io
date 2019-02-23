@@ -107,7 +107,7 @@
 <blockquote>
 <p>Power Station Of Art, Huangpu, Shanghai</p>
 </blockquote>
-<p><b>注意:在不同操作系统之间移植C/C++程序可能需要修改既有代码</b><br>在Linux下进行C/C++编程是一个不错的选择，但是有时候使用Linux却并不方便–配置双系统比较麻烦，而使用虚拟机的话性能可能会不尽如人意。<br>好在Windows上也有很多不错的开发环境，CodeBlocks也提供Windows版本。因此，除了一些特殊情况，完全可以在Windows下使用CodeBlocks进行C/C++编程。<br>在Windows下安装和配置CodeBlocks与在Linux上稍有不同，下面是详细步骤。</p>
+<p><b>注意:在不同操作系统之间移植C/C++程序可能需要修改既有代码</b><br>在Linux下进行C/C++编程是一个不错的选择，但是有时候使用Linux却并不方便–配置双系统比较麻烦，而使用虚拟机的话性能可能会不尽如人意。<br>好在Windows上也有很多不错的开发环境，CodeBlocks也提供Windows版本。因此，除了一些特殊情况，完全可以在Windows下使用CodeBlocks进行C/C++编程。<br>在Windows下安装和配置CodeBlocks与在Linux上稍有不同，下面是详细步骤。<br><a id="more"></a></p>
 <h2 id="安装MinGW"><a href="#安装MinGW" class="headerlink" title="安装MinGW"></a>安装MinGW</h2><p>CodeBlocks默认不包括编译器，而需要使用事先已安装好的编译器。大多数Linux发行版都预装了C/C++编译器，所以CodeBlocks在Linux上安装后可以直接编写并编译程序。然而遗憾的是，Windows并没有预装C/C++编译器。<br>因此，需要自己安装合适的C/C++编译器，这里安装的编译器是MinGW。<br>MinGW(Minimalist GNU for Windows)，又称mingw32，是将GCC编译器和GNU Binutils移植到Win32平台下的产物，包括一系列头文件(Win32API)、库和可执行文件。GCC支持的语言大多在MinGW也受支持，其中涵盖C、C++、Objective-C、Fortran及Ada。<br>MinGW安装程序可以在<a href="https://osdn.net/projects/mingw/downloads/68260/mingw-get-setup.exe/" target="_blank" rel="noopener">这里</a>下载。<br>打开安装程序后，点击Install安装，然后一路Continue即可。<br><img src="https://mizunashi-sh.github.io/image-hosting/blog/codeblocks-inst-guide/setup-tool-index.PNG" alt="Image"><br>安装成功后会自动弹出MinGW Installer Manager，桌面上也会出现相关图标。通过这个管理器可以安装或移除想要的软件包。<br>安装C/C++编译器，需要进行如下操作。<br>在左侧菜单打开All Packages-&gt;MinGW-&gt;MinGW Base System-&gt;MinGW Compiler Suite，在需要安装的软件包的条目中，单击右键，点选菜单中的Mark for Installation以勾选。<br>在这里需要勾选以</p>
 <ul>
 <li>mingw32-binutils-</li>
