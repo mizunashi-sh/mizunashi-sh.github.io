@@ -90,7 +90,7 @@
 		
 		
 			<i class="iconfont icon-words"></i>
-			<span class="post-info-entry">1249
+			<span class="post-info-entry">2006
 			</span>
 		
 	</div>
@@ -123,7 +123,7 @@
 		
 
 			
-					<p><b>适用教材:A First Course in Abstract Algebra</b><br><a id="more"></a></p>
+					<p><b>适用教材:A First Course in Abstract Algebra</b><br>如有疏漏，敬请指正<br><a id="more"></a></p>
 <h2 id="群"><a href="#群" class="headerlink" title="群"></a>群</h2><h3 id="二元运算"><a href="#二元运算" class="headerlink" title="二元运算"></a>二元运算</h3><p>集合$G$上的二元运算可被定义为函数的形式，且函数满足：<br>$$G \times G \rightarrow G$$<br>二元运算满足代换律，即如果$x=x’$且$y=y’$，那么$x \ast y=x’ \ast y’$</p>
 <h3 id="群的定义"><a href="#群的定义" class="headerlink" title="群的定义"></a>群的定义</h3><p>群是一个配备了运算$\ast$和特殊元素$e\in G$的集合$G$，且满足如下条件：</p>
 <ul>
@@ -159,6 +159,32 @@
 </ul>
 <h3 id="阶"><a href="#阶" class="headerlink" title="阶"></a>阶</h3><p>设$G$是一个群且$a \in G$，若存在一个$k \geq 1$，使得$a^{k}=1$，则最小的$k \geq 1$称为$a$的阶，如果$k$不存在，则称$a$的阶无穷大。</p>
 <h4 id="定理-1"><a href="#定理-1" class="headerlink" title="定理"></a>定理</h4><p>设$G$是一个群且$a \in G$有有限的阶$k$。若$a^{n}=1$，那么$k \mid n$。</p>
+<h2 id="子群"><a href="#子群" class="headerlink" title="子群"></a>子群</h2><h3 id="定义-1"><a href="#定义-1" class="headerlink" title="定义"></a>定义</h3><p>设集合H是群G的子集，当满足以下条件时：</p>
+<ul>
+<li>$1 \in H$</li>
+<li>若$x,y \in H$，则$xy \in H$，即$H$对$\ast$封闭</li>
+<li>若$x \in H$，那么$x^{-1} \in H$</li>
+</ul>
+<p>若$H \neq G$，则称H为真子群；若$H \neq { 1 }$，则称H非平凡。</p>
+<h3 id="定理-2"><a href="#定理-2" class="headerlink" title="定理"></a>定理</h3><ul>
+<li>每一个子群$H \lesseqgtr G$也是群</li>
+<li>群G的子集H是子群当且仅当H非空，且对任意$x,y \in H$，有$xy^{-1} \in H$</li>
+<li>有限群G的非空子集H是子群当且仅当H对于定义在G上的运算封闭</li>
+</ul>
+<h2 id="循环群"><a href="#循环群" class="headerlink" title="循环群"></a>循环群</h2><h3 id="定义-2"><a href="#定义-2" class="headerlink" title="定义"></a>定义</h3><p>若G是一个群且$a \in G$，令<br>$$\langle a \rangle ={ a^{n}:n \in \mathbb{Z} }$$<br>则$\langle a \rangle$是由a生成的G的循环子群<br>当存在$a \in G$使得$G=\langle a \rangle$，称G为循环的，a是G的一个生成元</p>
+<h3 id="定理-3"><a href="#定理-3" class="headerlink" title="定理"></a>定理</h3><ul>
+<li>若$G=\langle a \rangle$是一个阶为n的循环群，那么$a^{k}$为G的生成元当且仅当$gcd(k,n)=1$</li>
+<li>循环群的子群也是循环的</li>
+<li>令G为有限群且$a \in G$，那么a的阶是$\langle a \rangle$中元素的个数</li>
+</ul>
+<p>注意：若G是一个有限群，那么$\mid G \mid$就是G的阶</p>
+<h2 id="陪集"><a href="#陪集" class="headerlink" title="陪集"></a>陪集</h2><h3 id="定义-3"><a href="#定义-3" class="headerlink" title="定义"></a>定义</h3><p>若H是群G的子群且$a \in G$，令<br>$$aH={ ah:h \in H }$$<br>为G的陪集aH，aH是G的子集<br>aH中所用的运算为定义在群G中的运算</p>
+<h3 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h3><p>令H是群G的子群，且$a,b \in G$</p>
+<ul>
+<li>$aH=bH$当且仅当$b^{-1}a \in H$。特别地，$aH=H$当且仅当$a \in H$</li>
+<li>若$aH \cap bH \neq \varnothing$，则$aH=bH$</li>
+<li>对所有$a \in G$，有$\mid aH \mid = \mid H \mid$</li>
+</ul>
   	
 					
 	  </div>     
@@ -276,10 +302,10 @@
 	<div class="toc-container">
 			<div class="toc-sidebar">
 			<p class="toc-title">
-				CONTENT
+				Contents
 			</p>
 			<div class="toc-list">
-				<ol class="toc-inner"><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#群"><span class="toc-inner-text">群</span></a><ol class="toc-inner-child"><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#二元运算"><span class="toc-inner-text">二元运算</span></a></li><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#群的定义"><span class="toc-inner-text">群的定义</span></a></li><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#阿贝尔群"><span class="toc-inner-text">阿贝尔群</span></a></li><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#群的性质"><span class="toc-inner-text">群的性质</span></a></li><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#加法群"><span class="toc-inner-text">加法群</span></a></li><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#群的指数"><span class="toc-inner-text">群的指数</span></a><ol class="toc-inner-child"><li class="toc-inner-item toc-inner-level-4"><a class="toc-inner-link" href="#定义"><span class="toc-inner-text">定义</span></a></li><li class="toc-inner-item toc-inner-level-4"><a class="toc-inner-link" href="#定理"><span class="toc-inner-text">定理</span></a></li></ol></li><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#阶"><span class="toc-inner-text">阶</span></a><ol class="toc-inner-child"><li class="toc-inner-item toc-inner-level-4"><a class="toc-inner-link" href="#定理-1"><span class="toc-inner-text">定理</span></a></li></ol></li></ol></li></ol>
+				<ol class="toc-inner"><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#群"><span class="toc-inner-text">群</span></a><ol class="toc-inner-child"><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#二元运算"><span class="toc-inner-text">二元运算</span></a></li><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#群的定义"><span class="toc-inner-text">群的定义</span></a></li><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#阿贝尔群"><span class="toc-inner-text">阿贝尔群</span></a></li><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#群的性质"><span class="toc-inner-text">群的性质</span></a></li><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#加法群"><span class="toc-inner-text">加法群</span></a></li><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#群的指数"><span class="toc-inner-text">群的指数</span></a><ol class="toc-inner-child"><li class="toc-inner-item toc-inner-level-4"><a class="toc-inner-link" href="#定义"><span class="toc-inner-text">定义</span></a></li><li class="toc-inner-item toc-inner-level-4"><a class="toc-inner-link" href="#定理"><span class="toc-inner-text">定理</span></a></li></ol></li><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#阶"><span class="toc-inner-text">阶</span></a><ol class="toc-inner-child"><li class="toc-inner-item toc-inner-level-4"><a class="toc-inner-link" href="#定理-1"><span class="toc-inner-text">定理</span></a></li></ol></li></ol></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#子群"><span class="toc-inner-text">子群</span></a><ol class="toc-inner-child"><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#定义-1"><span class="toc-inner-text">定义</span></a></li><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#定理-2"><span class="toc-inner-text">定理</span></a></li></ol></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#循环群"><span class="toc-inner-text">循环群</span></a><ol class="toc-inner-child"><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#定义-2"><span class="toc-inner-text">定义</span></a></li><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#定理-3"><span class="toc-inner-text">定理</span></a></li></ol></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#陪集"><span class="toc-inner-text">陪集</span></a><ol class="toc-inner-child"><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#定义-3"><span class="toc-inner-text">定义</span></a></li><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#性质"><span class="toc-inner-text">性质</span></a></li></ol></li></ol>
 			</div>
 		</div>
 	</div>
@@ -297,7 +323,7 @@
     
     <div class="search-container sildeUpMin">
         <div class="search-header">
-            <input type="text" placeholder="输入你想搜索的" id="search-input" class="search-input">
+            <input type="text" placeholder="Typing Something here." id="search-input" class="search-input">
             <span class="search-cancel">
                 <i class="iconfont icon-cancel">
             </i></span>
@@ -314,31 +340,31 @@
          
             
 
-            <a class="mobile-menu-link" href="/">首页
+            <a class="mobile-menu-link" href="/">Home
             </a>
             
          
             
 
-            <a class="mobile-menu-link" href="/archives">归档
+            <a class="mobile-menu-link" href="/archives">Archives
             </a>
             
          
             
 
-            <a class="mobile-menu-link" href="/tags">标签
+            <a class="mobile-menu-link" href="/tags">Tags
             </a>
             
          
             
 
-            <a class="mobile-menu-link" href="/about">关于
+            <a class="mobile-menu-link" href="/about">About
             </a>
             
          
                           
 
-            <a class="mobile-menu-link mobile-menu-search" href="#">搜索 </a>                 
+            <a class="mobile-menu-link mobile-menu-search" href="#">Search </a>                 
             
          
       
