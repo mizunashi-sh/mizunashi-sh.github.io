@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=yes">
   
   
-  <title>  在罗店 |   Mizunashi&#39;s Blog </title>
+  <title>  (更新中)抽象代数习题--群论部分 |   Mizunashi&#39;s Blog </title>
 
  
   
@@ -80,23 +80,43 @@
 <div class="post-header">
 	<div class="post-header-inner">
 		<p class="post-title">	
-			在罗店
+			(更新中)抽象代数习题--群论部分
 		</p>
 		<div class="post-info">	
 			<span class="post-info-entry">
-				Feb 28, 2019
+				Mar 24, 2019
 			</span>
 
 			
 			
 				<i class="iconfont icon-words"></i>
-				<span class="post-info-entry">4877
+				<span class="post-info-entry">1331
 				</span>
 			
 		</div>
 	</div>
 </div> 
 	
+
+    <script type="text/x-mathjax-config">
+        var post = document.getElementsByClassName("post")[0];  
+        MathJax.Hub.Config({
+            showProcessingMessages: false,
+            messageStyle: "none",    
+            tex2jax: {
+                inlineMath:  [ ["$", "$"] , ["\\(","\\)"]],
+                displayMath: [ ["$$","$$"] , ["\\[","\\]"]],
+                skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code','a'],
+            },
+            "HTML-CSS": {            
+                showMathMenu: false
+            }
+        });
+        MathJax.Hub.Queue(["Typeset",MathJax.Hub,post]);
+    </script>
+    <style>.MathJax{outline:0;}</style>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML" async></script>
  
 
 	  <div class="typo post-content slideDownMin">
@@ -104,20 +124,37 @@
 		
 
 			
-					<script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
-<div id="hbe-security">
-  <div class="hbe-input-container">
-  <input type="password" class="hbe-form-control" id="pass" placeholder="Enter the password to continue.">
-    <label for="pass">Enter the password to continue.</label>
-    <div class="bottom-line"></div>
-  </div>
-</div>
-<div id="decryptionError" style="display: none;">Incorrect Password!</div>
-<div id="noContentError" style="display: none;">No content to display!</div>
-<div id="encrypt-blog" style="display:none">
-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
-</div>
-<script src="/lib/crypto-js.js"></script><script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">  	
+					<p>如有疏漏，敬请指正<br><a id="more"></a></p>
+<h2 id="1"><a href="#1" class="headerlink" title="1"></a>1</h2><p><b>题目：</b><br>Compute the order and inverse of $(12)(43)(13542)(15)(13)(23)$.<br><b>解答：</b><br>化简得$(12)(43)(13542)(15)(13)(23)=(154)(23)$<br>故阶为$k=lcm(3,2)=6$<br>逆为$((154)(23))^{-1}=(32)(451)$<br>注意：默认为从右向左运算</p>
+<h2 id="2"><a href="#2" class="headerlink" title="2"></a>2</h2><p><b>题目：</b><br>How many permutations of order 2 are there in $S_{n}$?<br><b>解答：</b><br>$$\sum\limits_{k=1}^{\left \lfloor \frac{n}{2} \right \rfloor}\frac{n!}{(n-2k)!k!2^{k}}$$</p>
+<h2 id="3"><a href="#3" class="headerlink" title="3"></a>3</h2><p><b>题目：</b><br>$GL(2,Q)$ denotes the set of the nonsingular (having nonzero determinant, 行列式非 0) rational square matrix of length 2 under matrix product.     </p>
+<ol>
+<li>Show that it’s a group.     </li>
+<li>Compute the order of A=[0, -1; 1, 0] and B=[0, 1; -1, 1] .     </li>
+<li>What’s the order of AB ? </li>
+</ol>
+<p><b>解答：</b> </p>
+<ol>
+<li>Show that it’s a group. </li>
+</ol>
+<p>令$A,B \in GL(2,Q)，在$GL(2,Q)$中定义的运算为矩阵乘法</p>
+<p>易证：$\mid AB \mid = \mid A \mid \mid B \mid$，由于$\mid A \mid \neq 0, \mid B \mid \neq 0$，因此$\mid AB \mid \neq 0$，因此$AB \in GL(2,Q)$</p>
+<p>令A,B,C为$m \times m$矩阵</p>
+<p>由矩阵乘法的定义不难得出$(AB)C$和$A(BC)$为$m \times m$矩阵，A(BC)第i行第j列元素为</p>
+<p>$$\sum\limits_{s=1}^{m}a_{is} \left(\sum\limits_{t=1}^{m}b_{st}c_{tj} \right)=\sum\limits_{t=1}^{m} \left(\sum_{s=1}^{m}a_{is}b_{st}\right) c_{tj}, i=1,2, \cdots ,m,j=1,2, \cdots ,m$$<br>即为(AB)C的第i行第j列元素</p>
+<p>因此方阵乘法具有结合性</p>
+<p>存在单位矩阵$E$，使得$\forall A \in GL(2,Q),EA=A$</p>
+<p>$\forall A \in GL(2,Q),\mid A \mid \neq 0$，且A为方阵，因此存在$A^{-1}$，使得$A^{-1}A=E$<br>又因为$\mid A^{-1} \mid = \frac{1}{\mid A \mid}$且$\mid A \mid \neq 0$，所以$A^{-1} \in GL(2,Q)$</p>
+<p>因此，$GL(2,Q)$是群</p>
+<ol start="2">
+<li>Compute the order of A=[0, -1; 1, 0] and B=[0, 1; -1, 1] .</li>
+</ol>
+<p>A的阶为4<br>B的阶为6</p>
+<ol start="3">
+<li>What’s the order of AB ?</li>
+</ol>
+<p>用数学归纳法容易证明：<br>$$(AB)^{n}=<br>\begin {bmatrix}<br>1 &amp; -n \\<br>0 &amp; 1<br>\end {bmatrix}<br>$$<br>因此阶为无穷大</p>
+  	
 					
 	  </div>     
 	  
@@ -181,7 +218,7 @@ U2FsdGVkX1+1qxZ6V3F5gXzlAwfqJCYh3oo0iynbohjrZNCI8GmxCgJA5xDG9Lc6QHhN9VnoGHNOR5Ih
 
         
           <i class="iconfont icon-tag"></i>     
-            <a class="tag-link" href="/tags/Travel-Notes/">Travel Notes</a>    
+            <a class="tag-link" href="/tags/Abstract-Algebra/">Abstract Algebra</a>    
         	
   </div>
 
@@ -191,24 +228,16 @@ U2FsdGVkX1+1qxZ6V3F5gXzlAwfqJCYh3oo0iynbohjrZNCI8GmxCgJA5xDG9Lc6QHhN9VnoGHNOR5Ih
 <nav class="post-footer-nav">
   <div class="post-footer-link">
   
-      <a href="/2019/02/23/在Windows下安装和配置CodeBlocks/" id="post-nav-older" class="post-nav-link-wrap">
+      <a href="/2019/03/07/Abstract-Algebra-Notes-Groups/" id="post-nav-older" class="post-nav-link-wrap">
         <strong class="post-nav-caption">older</strong>
         
           <span class="post-nav-title">
-            在Windows下安装和配置CodeBlocks
+            (更新中)抽象代数学习笔记--群
           </span>
       </a>
   
   </div>
   <div class="post-footer-link">
-    
-        <a href="/2019/03/01/Generate-codes-with-MATLAB-Coder/" id="post-nav-newer" class="post-nav-link-wrap">
-          <strong class="post-nav-caption">newer</strong>
-             
-            <span class="post-nav-title">
-              使用MATLAB Coder生成C/C++代码
-            </span>
-        </a>
     
   </div>
 
@@ -245,7 +274,7 @@ U2FsdGVkX1+1qxZ6V3F5gXzlAwfqJCYh3oo0iynbohjrZNCI8GmxCgJA5xDG9Lc6QHhN9VnoGHNOR5Ih
 				Contents
 			</p>
 			<div class="toc-list">
-				
+				<ol class="toc-inner"><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#1"><span class="toc-inner-text">1</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#2"><span class="toc-inner-text">2</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#3"><span class="toc-inner-text">3</span></a></li></ol>
 			</div>
 		</div>
 	</div>
