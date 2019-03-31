@@ -90,7 +90,7 @@
 			
 			
 				<i class="iconfont icon-words"></i>
-				<span class="post-info-entry">2641
+				<span class="post-info-entry">3329
 				</span>
 			
 		</div>
@@ -196,6 +196,18 @@
 <li>对所有$n \in \mathbb{Z}$，有$f(x^{n})=f(x)^{n}$</li>
 </ul>
 <h3 id="核与像"><a href="#核与像" class="headerlink" title="核与像"></a>核与像</h3><p>令$f:G \to H$是一个同态，定义<br>$$\mathbf{kernel} f= \lbrace x \in G: f(x)=1 \rbrace$$<br>为核，简写为$\mathbf{ker} f$<br>定义<br>$$\mathbf{image} f= \lbrace h \in H: h= f(x) \quad \mathrm{for \quad some \quad} x \in G \rbrace$$<br>为像，简写为$\mathbf{im} f$</p>
+<h2 id="共轭"><a href="#共轭" class="headerlink" title="共轭"></a>共轭</h2><p>对每一个$k \in K, g \in G$，若<br>$$gkg^{-1} \in K$$<br>则称那么子群K是群G的正规子群，记为$K \vartriangleleft G$<br>如果G是群且$a \in G$，那么a的共轭是具有如下形式的G的任何一个元素<br>$$gag^{-1},g \in G$$<br>注意：$a=hbh^{-1}$且$h=g^{-1}$<br>如果G是一个群且$g \in G$，定义共轭$\gamma_{g}:G \to G$如下<br>$$\gamma_{g}(a)=gag^{-1}$$<br>对于任意$a \in G$</p>
+<h3 id="定理-4"><a href="#定理-4" class="headerlink" title="定理"></a>定理</h3><ul>
+<li>若G是一个群且$g \in G$，那么共轭$\gamma_{g}:G \to G$是一个同构</li>
+<li>共轭元素有相同的阶</li>
+</ul>
+<h2 id="同余类"><a href="#同余类" class="headerlink" title="同余类"></a>同余类</h2><p>给定$m \geq 2$和$a \in \mathbb{Z}$，那么a模m的同余类是$\mathbb{Z}$的子集$[a]$<br>$$[a]=\lbrace b \in \mathbb{Z} : b \equiv a \quad \mathrm{mod} \quad m \rbrace = \lbrace a+km: k \in \mathbb{Z} \rbrace$$<br>所有这样的模m同余的同余类表示为$\mathbb{I}_{m}$</p>
+<p>$[a]=[b]$在$\mathbb{I}_{m}$中当且仅当$b \equiv a \quad \mathrm{mod} \quad m$</p>
+<h3 id="定理-5"><a href="#定理-5" class="headerlink" title="定理"></a>定理</h3><ul>
+<li>若$a \in \mathbb{Z}$，那么存在$0 \leq r&lt;m$，使得$[a]=[r]$</li>
+<li>若$0 \leq r’ &lt; r &lt; m$，那么$[r’] \neq [r]$</li>
+<li>$\mathbb{I}_{m}$有m个元素，分别是$[0],[1], \cdots ,[m-1]$</li>
+</ul>
   	
 					
 	  </div>     
@@ -317,17 +329,6 @@
     </script>
 	
 </article>
-
-	<div class="toc-container">
-			<div class="toc-sidebar">
-			<p class="toc-title">
-				Contents
-			</p>
-			<div class="toc-list">
-				<ol class="toc-inner"><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#群"><span class="toc-inner-text">群</span></a><ol class="toc-inner-child"><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#二元运算"><span class="toc-inner-text">二元运算</span></a></li><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#群的定义"><span class="toc-inner-text">群的定义</span></a></li><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#阿贝尔群"><span class="toc-inner-text">阿贝尔群</span></a></li><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#群的性质"><span class="toc-inner-text">群的性质</span></a></li><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#加法群"><span class="toc-inner-text">加法群</span></a></li><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#群的指数"><span class="toc-inner-text">群的指数</span></a><ol class="toc-inner-child"><li class="toc-inner-item toc-inner-level-4"><a class="toc-inner-link" href="#定理"><span class="toc-inner-text">定理</span></a></li></ol></li><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#阶"><span class="toc-inner-text">阶</span></a><ol class="toc-inner-child"><li class="toc-inner-item toc-inner-level-4"><a class="toc-inner-link" href="#定理-1"><span class="toc-inner-text">定理</span></a></li></ol></li></ol></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#子群"><span class="toc-inner-text">子群</span></a><ol class="toc-inner-child"><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#定理-2"><span class="toc-inner-text">定理</span></a></li></ol></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#循环群"><span class="toc-inner-text">循环群</span></a><ol class="toc-inner-child"><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#定理-3"><span class="toc-inner-text">定理</span></a></li></ol></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#陪集"><span class="toc-inner-text">陪集</span></a><ol class="toc-inner-child"><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#性质"><span class="toc-inner-text">性质</span></a></li><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#拉格朗日子群定理"><span class="toc-inner-text">拉格朗日子群定理</span></a><ol class="toc-inner-child"><li class="toc-inner-item toc-inner-level-4"><a class="toc-inner-link" href="#推论"><span class="toc-inner-text">推论</span></a></li></ol></li></ol></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#群同态"><span class="toc-inner-text">群同态</span></a><ol class="toc-inner-child"><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#性质-1"><span class="toc-inner-text">性质</span></a></li><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#核与像"><span class="toc-inner-text">核与像</span></a></li></ol></li></ol>
-			</div>
-		</div>
-	</div>
 
           </div> 
       </div>            
