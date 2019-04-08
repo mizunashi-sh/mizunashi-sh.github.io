@@ -90,7 +90,7 @@
 			
 			
 				<i class="iconfont icon-words"></i>
-				<span class="post-info-entry">1741
+				<span class="post-info-entry">4615
 				</span>
 			
 		</div>
@@ -126,35 +126,72 @@
 			
 					<p>如有疏漏，敬请指正<br><a id="more"></a></p>
 <h2 id="1"><a href="#1" class="headerlink" title="1"></a>1</h2><p><b>题目：</b><br>Compute the order and inverse of $(12)(43)(13542)(15)(13)(23)$.<br><b>解答：</b><br>化简得$(12)(43)(13542)(15)(13)(23)=(154)(23)$<br>故阶为$k=lcm(3,2)=6$<br>逆为$((154)(23))^{-1}=(32)(451)$<br>注意：默认为从右向左运算</p>
-<h2 id="2"><a href="#2" class="headerlink" title="2"></a>2</h2><p><b>题目：</b><br>How many permutations of order 2 are there in $S_{n}$?<br><b>解答：</b><br>$$\sum\limits_{k=1}^{\left \lfloor \frac{n}{2} \right \rfloor}\frac{n!}{(n-2k)!k!2^{k}}$$</p>
-<h2 id="3"><a href="#3" class="headerlink" title="3"></a>3</h2><p><b>题目：</b><br>$GL(2,Q)$ denotes the set of the nonsingular (having nonzero determinant, 行列式非 0) rational square matrix of length 2 under matrix product.     </p>
+<h2 id="2"><a href="#2" class="headerlink" title="2"></a>2</h2><p><b>题目：</b><br>How many permutations of order 2 are there in $S_{n}$?<br><b>解答：</b></p>
+<script type="math/tex; mode=display">\sum\limits_{k=1}^{\left \lfloor \frac{n}{2} \right \rfloor}\frac{n!}{(n-2k)!k!2^{k}}</script><h2 id="3"><a href="#3" class="headerlink" title="3"></a>3</h2><p><b>题目：</b><br>$GL(2,Q)$ denotes the set of the nonsingular (having nonzero determinant, 行列式非 0) rational square matrix of length 2 under matrix product.     </p>
 <ol>
 <li>Show that it’s a group.     </li>
 <li>Compute the order of A=[0, -1; 1, 0] and B=[0, 1; -1, 1] .     </li>
 <li>What’s the order of AB ? </li>
 </ol>
-<p><b>解答：</b> </p>
-<ol>
-<li>Show that it’s a group. </li>
-</ol>
-<p>令$A,B \in GL(2,Q)$，在$GL(2,Q)$中定义的运算为矩阵乘法</p>
+<p><b>解答：</b><br><b>(1)</b><br>令$A,B \in GL(2,Q)$，在$GL(2,Q)$中定义的运算为矩阵乘法</p>
 <p>易证：$\mid AB \mid = \mid A \mid \mid B \mid$，由于$\mid A \mid \neq 0, \mid B \mid \neq 0$，因此$\mid AB \mid \neq 0$，因此$AB \in GL(2,Q)$</p>
 <p>令A,B,C为$m \times m$矩阵</p>
 <p>由矩阵乘法的定义不难得出$(AB)C$和$A(BC)$为$m \times m$矩阵，A(BC)第i行第j列元素为</p>
-<p>$$\sum\limits_{s=1}^{m}a_{is} \left(\sum\limits_{t=1}^{m}b_{st}c_{tj} \right)=\sum\limits_{t=1}^{m} \left(\sum_{s=1}^{m}a_{is}b_{st}\right) c_{tj}, i=1,2, \cdots ,m,j=1,2, \cdots ,m$$<br>即为(AB)C的第i行第j列元素</p>
+<script type="math/tex; mode=display">\sum\limits_{s=1}^{m}a_{is} \left(\sum\limits_{t=1}^{m}b_{st}c_{tj} \right)=\sum\limits_{t=1}^{m} \left(\sum_{s=1}^{m}a_{is}b_{st}\right) c_{tj}, i=1,2, \cdots ,m,j=1,2, \cdots ,m</script><p>即为(AB)C的第i行第j列元素</p>
 <p>因此方阵乘法具有结合性</p>
 <p>存在单位矩阵$E$，使得$\forall A \in GL(2,Q),EA=A$</p>
 <p>$\forall A \in GL(2,Q),\mid A \mid \neq 0$，且A为方阵，因此存在$A^{-1}$，使得$A^{-1}A=E$<br>又因为$\mid A^{-1} \mid = \frac{1}{\mid A \mid}$且$\mid A \mid \neq 0$，所以$A^{-1} \in GL(2,Q)$</p>
-<p>因此，$GL(2,Q)$是群</p>
-<ol start="2">
-<li>Compute the order of A=[0, -1; 1, 0] and B=[0, 1; -1, 1] .</li>
+<p>因此，$GL(2,Q)$是群<br><b>(2)</b><br>A的阶为4<br>B的阶为6<br><b>(3)</b><br>用数学归纳法容易证明：</p>
+<script type="math/tex; mode=display">(AB)^{n}=
+\begin {bmatrix}
+1 & -n \\\
+0 & 1
+\end {bmatrix}</script><p>因此阶为无穷大</p>
+<h2 id="4"><a href="#4" class="headerlink" title="4"></a>4</h2><p><b>题目：</b><br>Under matrix product, the special linear group is defined as:                    </p>
+<script type="math/tex; mode=display">SL(2,R) =\lbrace A∈GL(2,R) :det(A)=1 \rbrace</script><p>Prove that it’s a subgroup of $GL(2,R)$.<br><b>解答：</b><br>对任意$X \in SL(2,R)$，有$X \in GL(2,R)$，因而$SL(2,R) \subseteq GL(2,R)$<br>因为单位矩阵$E$的行列式值$\mid E \mid = 1$<br>所以$E \in SL(2,R)$<br>对任意$X,Y \in SL(2,R)$，有$\mid XY \mid = \mid X \mid \mid Y \mid =1$<br>所以$XY \in SL(2,R)$<br>对任意$X \in SL(2,R)$，有$\mid X^{-1} \mid = \frac{1}{\mid X \mid}=1$<br>所以$X^{-1} \in SL(2,R)$<br>综上：$SL(2,R)$是$GL(2,R)$的子群</p>
+<h2 id="5"><a href="#5" class="headerlink" title="5"></a>5</h2><p><b>题目：</b></p>
+<ol>
+<li>The stochastic group $\sum (n,R)$ is a subset of $GL(n,R)$ that each column sums to 1. Prove that it’s a group. </li>
+<li>The doubly stochastic group $\sum ‘(n,R)$ is a subset of $GL(n,R)$ that each column and each row sum to 1. Prove that it’s a subgroup of $\sum (n,R)$. </li>
 </ol>
-<p>A的阶为4<br>B的阶为6</p>
-<ol start="3">
-<li>What’s the order of AB ?</li>
+<p><b>解答：</b><br>待补充</p>
+<h2 id="6"><a href="#6" class="headerlink" title="6"></a>6</h2><p><b>题目：</b><br>已知</p>
+<script type="math/tex; mode=display">\alpha=
+\begin{pmatrix}
+1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 \\\
+6 & 4 & 7 & 2 & 5 & 1 & 8 & 9 & 3
+\end{pmatrix}</script><p>求$\alpha^{-1}$和$\alpha^{3}$<br><b>解答：</b><br>待补充</p>
+<h2 id="7"><a href="#7" class="headerlink" title="7"></a>7</h2><p><b>题目：</b><br>Show that determinant is a surjective (but not injective) homomorphism, from matrix product on non-singular $k \times k$ matrices to multiplication on non-zero real numbers</p>
+<script type="math/tex; mode=display">det:GL(k, \mathbb{R} ) \to \mathbb{R}^{\times}</script><p>Note: $\mathbf{ker} det$ is the special linear group $SL(k, \mathbb{R} ) = \lbrace A \in GL(k, \mathbb{R} ):det(A)=1 \rbrace$.<br><b>解答：</b><br>在$GL(k, \mathbb{R} )$中定义运算为矩阵乘法，在$\mathbb{R}$中定义运算为乘法运算<br>对任意$X,Y \in GL(k, \mathbb{R} )$<br>有$det(XY)= \mid XY \mid$<br>由分块矩阵的性质可得</p>
+<script type="math/tex; mode=display">\mid XY \mid = \mid X \mid \mid Y \mid</script><p>即$det(XY)=det(X)det(Y)$<br>因此函数$det$是一个同态<br>对于任意$r \in \mathbb{R}$，都存在$x \in GL(k, \mathbb{R} )$使得$det(x)=r$，其中</p>
+<script type="math/tex; mode=display">
+x= \begin{bmatrix}
+1 & 0 & \cdots & 0 \\\
+0 & 1 & \cdots & 0 \\\
+\vdots & \vdots & \ddots & \vdots \\\
+0 & 0 & \cdots & r 
+\end{bmatrix}</script><p>因此$det$是满射<br>又因为$\mathbf{ker} det=SL(k, \mathbb{R} ) \neq \lbrace E \rbrace$<br>所以$det$不是单射</p>
+<h2 id="8"><a href="#8" class="headerlink" title="8"></a>8</h2><p><b>题目：</b><br>The real addition group $(\mathbb{R},+)$ is mapped to $H=((0,1),*)$ on interval $(0,1)$ by sigmoid function $f(x)= \frac{1}{1+e^{-x}}$, where the operation $\ast$ is:</p>
+<script type="math/tex; mode=display">a \ast b=\frac{1}{1+\frac{(1-a)(1-b)}{ab}}</script><ol>
+<li>Does H have the 1-element? What is it? </li>
+<li>Does every element in H have an inverse element? </li>
+<li>Is the sigmoid function between G and H an isomorphism? </li>
 </ol>
-<p>用数学归纳法容易证明：<br>$$(AB)^{n}=<br>\begin {bmatrix}<br>1 &amp; -n \\<br>0 &amp; 1<br>\end {bmatrix}<br>$$<br>因此阶为无穷大</p>
-<h2 id="4"><a href="#4" class="headerlink" title="4"></a>4</h2><p><b>题目：</b><br>Under matrix product, the special linear group is defined as:<br>$$SL(2,R) =\lbrace A∈GL(2,R) :det(A)=1 \rbrace$$<br>Prove that it’s a subgroup of $GL(2,R)$.<br><b>解答：</b><br>对任意$X \in SL(2,R)$，有$X \in GL(2,R)$，因而$SL(2,R) \subseteq GL(2,R)$<br>因为单位矩阵$E$的行列式值$\mid E \mid = 1$<br>所以$E \in SL(2,R)$<br>对任意$X,Y \in SL(2,R)$，有$\mid XY \mid = \mid X \mid \mid Y \mid =1$<br>所以$XY \in SL(2,R)$<br>对任意$X \in SL(2,R)$，有$\mid X^{-1} \mid = \frac{1}{\mid X \mid}=1$<br>所以$X^{-1} \in SL(2,R)$<br>综上：$SL(2,R)$是$GL(2,R)$的子群</p>
+<p><b>解答：</b><br><b>(1)</b><br>假设单位元$1_{H}$存在，即存在$1_{H} \in H$，对任意$b \in H$使得</p>
+<script type="math/tex; mode=display">1_{H} \ast b=\frac{1}{1+\frac{(1-1_{H})(1-b)}{1_{H}b}}=b</script><p>解得$1_{H}=\frac{1}{2} \in H$<br>因此，存在单位元$1_{H}=\frac{1}{2}$<br><b>(2)</b><br>假设对任意$a \in H$，都存在$a’ \in H$，使得$a \ast a’ = 1_{H}$<br>即</p>
+<script type="math/tex; mode=display">a \ast a'=\frac{1}{1+\frac{(1-a)(1-a')}{aa'}}=\frac{1}{2}</script><p>解得$a’=1-a$<br>因为$a \in (0,1)$，所以$1-a \in (0,1)$，即$a’ \in (0,1)$<br>所以，对任意$a \in H$，都存在$a’ \in H$，使得$a \ast a’ = 1_{H}$<br><b>(3)</b><br>求得</p>
+<script type="math/tex; mode=display">f(a+b)=\frac{1}{1+e^{-a-b}}</script><p>而</p>
+<script type="math/tex; mode=display">
+f(a) \ast f(b)= \frac{1}{2+(1+e^{-a})(1+e^{-b})-(1+e^{-a})-(1+e^{-b})}= \frac{1}{1+e^{-a-b}}</script><p>因此$f(a+b)=f(a) \ast f(b)$，即$f$是一个同态<br>对任意$y \in (0,1)$，都有$x=-ln(\frac{1}{y}-1)$<br>计算可得$x \in \mathbb{R}$<br>因此$f$是满射<br>解方程$\frac{1}{1+e^{-x}}= \frac{1}{2}$<br>可得$x=0$，这是$(\mathbb{R},+)$的单位元<br>因此$\mathbf{ker} f={1_{\mathbb{R}}}$，即$f$是单射<br>综上，$f$是双射，即$f$是一个同构</p>
+<h2 id="9"><a href="#9" class="headerlink" title="9"></a>9</h2><p><b>题目：</b><br>Group $( \mathbb{R} ,+)$ is mapped to $K=(\mathbb{R}^{+}, \&amp;)$ by softplus function $f(x)=ln(1+e^{x})$. </p>
+<ol>
+<li>Find a proper operation &amp; which makes it a homomorphism. </li>
+<li>Prove that K is an abelian group with the above &amp;. </li>
+</ol>
+<p><b>解答：</b><br><b>(1)</b></p>
+<script type="math/tex; mode=display">a \& b=ln(e^{a+b}-e^{a}-e^{b}+2)</script><p><b>(2)</b><br>对任意$a,b \in K$，因为$a,b &gt; 0$，$e^{a},e^{b} &gt; 1$，即$(1-e^{a})(1-e^{b})&gt;0$<br>所以$1-e^{a}-e^{b}+e^{a+b} &gt; 0$，即$e^{a+b}-e^{a}-e^{b}+2 &gt; 1$<br>所以$a \&amp; b=ln(e^{a+b}-e^{a}-e^{b}+2)&gt;0$<br>可得运算$\&amp;$对$K$封闭<br>根据运算$\&amp;$的定义</p>
+<script type="math/tex; mode=display">(a \& b) \& c =ln(e^{a+b+c}-e^{a+b}-e^{a+c}-e^{b+c}+e^{a}+e^{b}+e^{c}) =a \& (b \& c)</script><p>因此运算$\&amp;$满足结合律<br>存在单位元$1_{K}=ln2$，使得对所有$a \in K$，都有$1_{K} \&amp; a=a$<br>对任意$a \in K$，假设逆元存在，即存在$a’ \in K$，使得$a \&amp; a’ = ln2$<br>解得</p>
+<script type="math/tex; mode=display">a' = ln \left( \frac{e^{a}}{e^{a}-1} \right)</script><p>因为$a \in \mathbb{R}^{+}$，所以$e^{a}-1&gt;0$<br>又因为$e^{a}&gt;e^{a}-1$，所以$\frac{e^{a}}{e^{a}-1} &gt; 1$，所以$a’ \in \mathbb{R}^{+}$<br>即对任意$a \in K$，都有$a’ \in K$<br>综上所述，$K$是群<br>因为$a \&amp; b =ln(e^{a+b}-e^{a}-e^{b}+2) =b \&amp; a$<br>所以$K$也是阿贝尔群</p>
   	
 					
 	  </div>     
@@ -275,7 +312,7 @@
 				Contents
 			</p>
 			<div class="toc-list">
-				<ol class="toc-inner"><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#1"><span class="toc-inner-text">1</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#2"><span class="toc-inner-text">2</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#3"><span class="toc-inner-text">3</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#4"><span class="toc-inner-text">4</span></a></li></ol>
+				<ol class="toc-inner"><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#1"><span class="toc-inner-text">1</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#2"><span class="toc-inner-text">2</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#3"><span class="toc-inner-text">3</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#4"><span class="toc-inner-text">4</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#5"><span class="toc-inner-text">5</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#6"><span class="toc-inner-text">6</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#7"><span class="toc-inner-text">7</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#8"><span class="toc-inner-text">8</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#9"><span class="toc-inner-text">9</span></a></li></ol>
 			</div>
 		</div>
 	</div>
