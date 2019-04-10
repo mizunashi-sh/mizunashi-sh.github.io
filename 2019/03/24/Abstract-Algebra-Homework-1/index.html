@@ -90,7 +90,7 @@
 			
 			
 				<i class="iconfont icon-words"></i>
-				<span class="post-info-entry">4615
+				<span class="post-info-entry">5476
 				</span>
 			
 		</div>
@@ -192,6 +192,11 @@ f(a) \ast f(b)= \frac{1}{2+(1+e^{-a})(1+e^{-b})-(1+e^{-a})-(1+e^{-b})}= \frac{1}
 <script type="math/tex; mode=display">a \& b=ln(e^{a+b}-e^{a}-e^{b}+2)</script><p><b>(2)</b><br>对任意$a,b \in K$，因为$a,b &gt; 0$，$e^{a},e^{b} &gt; 1$，即$(1-e^{a})(1-e^{b})&gt;0$<br>所以$1-e^{a}-e^{b}+e^{a+b} &gt; 0$，即$e^{a+b}-e^{a}-e^{b}+2 &gt; 1$<br>所以$a \&amp; b=ln(e^{a+b}-e^{a}-e^{b}+2)&gt;0$<br>可得运算$\&amp;$对$K$封闭<br>根据运算$\&amp;$的定义</p>
 <script type="math/tex; mode=display">(a \& b) \& c =ln(e^{a+b+c}-e^{a+b}-e^{a+c}-e^{b+c}+e^{a}+e^{b}+e^{c}) =a \& (b \& c)</script><p>因此运算$\&amp;$满足结合律<br>存在单位元$1_{K}=ln2$，使得对所有$a \in K$，都有$1_{K} \&amp; a=a$<br>对任意$a \in K$，假设逆元存在，即存在$a’ \in K$，使得$a \&amp; a’ = ln2$<br>解得</p>
 <script type="math/tex; mode=display">a' = ln \left( \frac{e^{a}}{e^{a}-1} \right)</script><p>因为$a \in \mathbb{R}^{+}$，所以$e^{a}-1&gt;0$<br>又因为$e^{a}&gt;e^{a}-1$，所以$\frac{e^{a}}{e^{a}-1} &gt; 1$，所以$a’ \in \mathbb{R}^{+}$<br>即对任意$a \in K$，都有$a’ \in K$<br>综上所述，$K$是群<br>因为$a \&amp; b =ln(e^{a+b}-e^{a}-e^{b}+2) =b \&amp; a$<br>所以$K$也是阿贝尔群</p>
+<h2 id="10"><a href="#10" class="headerlink" title="10"></a>10</h2><p><b>题目：</b><br>Show that for any $n \in \mathbb{Z}$,  $(n \mathbb{Z},+) \vartriangleleft (\mathbb{Z},+)$,  and $\mathbb{Z} /n \mathbb{Z}$ is $\mathbb{I}_{n}$<br><b>解答：</b><br>易知，$n \mathbb{Z}$和$\mathbb{Z}$的单位元为$0$<br>则对每一个$k \in n \mathbb{Z}$和$g \in \mathbb{Z}$,都有</p>
+<script type="math/tex; mode=display">g+k+(-g)=k \in n \mathbb{Z}</script><p>因此，$n \mathbb{Z} \vartriangleleft \mathbb{Z}$，即$n \mathbb{Z}$是$\mathbb{Z}$的正规子群<br>又因为</p>
+<script type="math/tex; mode=display">\mathbb{Z} = n \mathbb{Z} \cup (n \mathbb{Z} +1) \cup (n \mathbb{Z} +2) \cup \cdots \cup (n \mathbb{Z} +n-1)</script><p>因此$\mathbb{Z} /n \mathbb{Z}$ is $\mathbb{I}_{n}$</p>
+<h2 id="11"><a href="#11" class="headerlink" title="11"></a>11</h2><p><b>题目：</b><br>if $N \vartriangleleft G$, then for any subgroup H of group G, HN is also a subgroup.<br><b>解答：</b><br>若$hn \in HN$，那么$n’ = hnh^{-1} \in N$<br>因为$N \vartriangleleft G$，且$hn=hnh^{-1}h=n’h \in NH$<br>因此$HN \subseteq NH$<br>同理$NH \subseteq HN$<br>因此$HN=NH$<br>因为$1 \in H$且$1 \in N$，所以有$1=1 \cdot 1 \in HN$<br>若$hn \in HN$，那么有$(hn)^{-1}=n^{-1}h^{-1} \in NH =HN$<br>若$hn,h_{1}n_{1} \in HN$<br>那么$h_{1}^{-1}nh_{1}=n’ \in N$并且</p>
+<script type="math/tex; mode=display">hnh_{1}n_{1}=hh_{1}(h_{1}^{-1}nh_{1})n_{1}=(hh_{i})(n'n_{1}) \in HN</script><p>因此$HN$是$G$的子群</p>
   	
 					
 	  </div>     
@@ -312,7 +317,7 @@ f(a) \ast f(b)= \frac{1}{2+(1+e^{-a})(1+e^{-b})-(1+e^{-a})-(1+e^{-b})}= \frac{1}
 				Contents
 			</p>
 			<div class="toc-list">
-				<ol class="toc-inner"><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#1"><span class="toc-inner-text">1</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#2"><span class="toc-inner-text">2</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#3"><span class="toc-inner-text">3</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#4"><span class="toc-inner-text">4</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#5"><span class="toc-inner-text">5</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#6"><span class="toc-inner-text">6</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#7"><span class="toc-inner-text">7</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#8"><span class="toc-inner-text">8</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#9"><span class="toc-inner-text">9</span></a></li></ol>
+				<ol class="toc-inner"><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#1"><span class="toc-inner-text">1</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#2"><span class="toc-inner-text">2</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#3"><span class="toc-inner-text">3</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#4"><span class="toc-inner-text">4</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#5"><span class="toc-inner-text">5</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#6"><span class="toc-inner-text">6</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#7"><span class="toc-inner-text">7</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#8"><span class="toc-inner-text">8</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#9"><span class="toc-inner-text">9</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#10"><span class="toc-inner-text">10</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#11"><span class="toc-inner-text">11</span></a></li></ol>
 			</div>
 		</div>
 	</div>
