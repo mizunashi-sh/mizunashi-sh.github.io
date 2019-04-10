@@ -90,7 +90,7 @@
 			
 			
 				<i class="iconfont icon-words"></i>
-				<span class="post-info-entry">5476
+				<span class="post-info-entry">6834
 				</span>
 			
 		</div>
@@ -154,7 +154,41 @@
 <li>The stochastic group $\sum (n,R)$ is a subset of $GL(n,R)$ that each column sums to 1. Prove that it’s a group. </li>
 <li>The doubly stochastic group $\sum ‘(n,R)$ is a subset of $GL(n,R)$ that each column and each row sum to 1. Prove that it’s a subgroup of $\sum (n,R)$. </li>
 </ol>
-<p><b>解答：</b><br>待补充</p>
+<p><b>解答：</b><br><b>(1)</b><br>不失一般性，定义</p>
+<script type="math/tex; mode=display">
+A=
+\begin{bmatrix}
+a_{11} & a_{12} & \cdots & a_{1n} \\\
+a_{21} & a_{22} & \cdots & a_{2n} \\\
+\vdots & \vdots & \ddots & \vdots \\\
+a_{n1} & a_{n2} & \cdots & a_{nn}
+\end{bmatrix}</script><script type="math/tex; mode=display">
+B=
+\begin{bmatrix}
+b_{11} & b_{12} & \cdots & b_{1n} \\\
+b_{21} & b_{22} & \cdots & b_{2n} \\\
+\vdots & \vdots & \ddots & \vdots \\\
+b_{n1} & b_{n2} & \cdots & b_{nn}
+\end{bmatrix}</script><p>在集合$\sum (n,R)$上定义矩阵乘法运算<br>因此，矩阵AB的每列之和为</p>
+<script type="math/tex; mode=display">\sum_{j=1}^{n} \sum_{i=1}^{n} a_{ij} b_{jk} , k=1,2, \cdots ,n</script><p>化简得</p>
+<script type="math/tex; mode=display">\sum_{j=1}^{n} b_{jk} \sum_{i=1}^{n} a_{ij} =1</script><p>因此矩阵乘法对$\sum (n,R)$封闭<br>易知，矩阵乘法具有结合性<br>易知，对所有矩阵$A \in \sum (n,R)$，有单位矩阵$E \in \sum (n,R)$使得EA=E<br>因为$\sum (n,R)$是$GL(n,R)$的子集，因此对于任意$A \in \sum (n,R)$，存在$A^{-1}$使得$A^{-1}A=E$<br>易知存在$A^{-1} \in \sum (n,R)$<br>综上，$\sum (n,R)$是群<br><b>(2)</b></p>
+<script type="math/tex; mode=display">
+A=
+\begin{bmatrix}
+a_{11} & a_{12} & \cdots & a_{1n} \\\
+a_{21} & a_{22} & \cdots & a_{2n} \\\
+\vdots & \vdots & \ddots & \vdots \\\
+a_{n1} & a_{n2} & \cdots & a_{nn}
+\end{bmatrix}</script><script type="math/tex; mode=display">
+B=
+\begin{bmatrix}
+b_{11} & b_{12} & \cdots & b_{1n} \\\
+b_{21} & b_{22} & \cdots & b_{2n} \\\
+\vdots & \vdots & \ddots & \vdots \\\
+b_{n1} & b_{n2} & \cdots & b_{nn}
+\end{bmatrix}</script><p>在集合$\sum ‘ (n,R)$上定义矩阵乘法运算<br>因此，矩阵AB的每列之和为</p>
+<script type="math/tex; mode=display">\sum_{j=1}^{n} \sum_{i=1}^{n} a_{ij} b_{jk} , k=1,2, \cdots ,n</script><p>化简得</p>
+<script type="math/tex; mode=display">\sum_{j=1}^{n} b_{jk} \sum_{i=1}^{n} a_{ij} =1</script><p>同理，每行之和为1<br>因此矩阵乘法对$\sum ‘ (n,R)$封闭<br>易知，矩阵乘法具有结合性<br>易知，对所有矩阵$A \in \sum ‘ (n,R)$，有单位矩阵$E \in \sum ‘ (n,R)$使得EA=E<br>因为$\sum ‘ (n,R)$是$GL(n,R)$的子集，因此对于任意$A \in \sum ‘ (n,R)$，存在$A^{-1}$使得$A^{-1}A=E$<br>易知存在$A^{-1} \in \sum ‘ (n,R)$<br>由定义可知$\sum ‘ (n,R) \subseteq \sum (n,R)$<br>综上，$\sum ‘ (n,R)$是$\sum (n,R)$的子群</p>
 <h2 id="6"><a href="#6" class="headerlink" title="6"></a>6</h2><p><b>题目：</b><br>已知</p>
 <script type="math/tex; mode=display">\alpha=
 \begin{pmatrix}
@@ -314,7 +348,7 @@ f(a) \ast f(b)= \frac{1}{2+(1+e^{-a})(1+e^{-b})-(1+e^{-a})-(1+e^{-b})}= \frac{1}
 	<div class="toc-container">
 			<div class="toc-sidebar">
 			<p class="toc-title">
-				目錄
+				Contents
 			</p>
 			<div class="toc-list">
 				<ol class="toc-inner"><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#1"><span class="toc-inner-text">1</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#2"><span class="toc-inner-text">2</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#3"><span class="toc-inner-text">3</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#4"><span class="toc-inner-text">4</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#5"><span class="toc-inner-text">5</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#6"><span class="toc-inner-text">6</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#7"><span class="toc-inner-text">7</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#8"><span class="toc-inner-text">8</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#9"><span class="toc-inner-text">9</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#10"><span class="toc-inner-text">10</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#11"><span class="toc-inner-text">11</span></a></li></ol>
@@ -335,7 +369,7 @@ f(a) \ast f(b)= \frac{1}{2+(1+e^{-a})(1+e^{-b})-(1+e^{-a})-(1+e^{-b})}= \frac{1}
     
     <div class="search-container sildeUpMin">
         <div class="search-header">
-            <input type="text" placeholder="输入你想搜索的" id="search-input" class="search-input">
+            <input type="text" placeholder="Typing Something here." id="search-input" class="search-input">
             <span class="search-cancel">
                 <i class="iconfont icon-cancel">
             </i></span>
@@ -352,31 +386,31 @@ f(a) \ast f(b)= \frac{1}{2+(1+e^{-a})(1+e^{-b})-(1+e^{-a})-(1+e^{-b})}= \frac{1}
          
             
 
-            <a class="mobile-menu-link" href="/">首頁
+            <a class="mobile-menu-link" href="/">Home
             </a>
             
          
             
 
-            <a class="mobile-menu-link" href="/archives">歸檔
+            <a class="mobile-menu-link" href="/archives">Archives
             </a>
             
          
             
 
-            <a class="mobile-menu-link" href="/tags">標籤
+            <a class="mobile-menu-link" href="/tags">Tags
             </a>
             
          
             
 
-            <a class="mobile-menu-link" href="/about">關於
+            <a class="mobile-menu-link" href="/about">About
             </a>
             
          
                           
 
-            <a class="mobile-menu-link mobile-menu-search" href="#">搜索 </a>                 
+            <a class="mobile-menu-link mobile-menu-search" href="#">Search </a>                 
             
          
       
@@ -403,7 +437,7 @@ f(a) \ast f(b)= \frac{1}{2+(1+e^{-a})(1+e^{-b})-(1+e^{-a})-(1+e^{-b})}= \frac{1}
 		Mizunashi
         <br>
         
-        <a href="/about">關於</a> | <a href="/sitemap.xml">網站地圖</a> | <a href="/changelog.html">Changelog</a> | 
+        <a href="/about">About</a> | <a href="/sitemap.xml">Sitemap</a> | <a href="/changelog.html">Changelog</a> | 
         <a href="/atom.xml">RSS</a>
 
         <br>
