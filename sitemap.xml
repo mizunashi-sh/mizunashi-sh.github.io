@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://mizunashi.me//changelog.html</loc>
+    
+    <lastmod>2019-04-14T05:41:22.891Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://mizunashi.me/about/index.html</loc>
+    
+    <lastmod>2019-04-13T13:09:42.538Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://mizunashi.me//404.html</loc>
+    
+    <lastmod>2019-04-13T13:09:13.876Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://mizunashi.me/2019/02/16/The-zeroth-blog/</loc>
     
     <lastmod>2019-04-11T14:55:01.233Z</lastmod>
@@ -23,30 +44,9 @@
   </url>
   
   <url>
-    <loc>https://mizunashi.me//changelog.html</loc>
-    
-    <lastmod>2019-04-11T03:43:22.743Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://mizunashi.me/2019/03/07/Abstract-Algebra-Notes-Groups/</loc>
     
     <lastmod>2019-04-08T08:00:00.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://mizunashi.me//404.html</loc>
-    
-    <lastmod>2019-04-01T07:18:10.194Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://mizunashi.me/about/index.html</loc>
-    
-    <lastmod>2019-04-01T07:15:32.154Z</lastmod>
     
   </url>
   
