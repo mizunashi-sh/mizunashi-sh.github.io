@@ -8,7 +8,6 @@
     -webkit-transition: all .2s ease;
     -o-transition: all .2s ease;
     transition: all .2s ease;
-    text-decoration: none
 }
 
 .friend-wrap:hover {
@@ -27,14 +26,12 @@
     font-size: .9rem;
     font-style: normal;
     color: #727272;
-    text-decoration: none
 }
 
 .friend-wrap>.friend-name:hover {
     font-size: .9rem;
     font-style: normal;
     color: #e26d6d;
-    text-decoration: none
 }
 
 .friend-wrap {
