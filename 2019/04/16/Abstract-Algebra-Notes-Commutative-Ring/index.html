@@ -1,0 +1,409 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html>
+  <head><meta name="generator" content="Hexo 3.8.0">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  
+  
+  <title>  抽象代数学习笔记--交换环部分 |   Mizunashi&#39;s Blog </title>
+
+ 
+  
+    <link rel="icon" href="/images/favicon.png">
+  
+
+
+  <link rel="stylesheet" href="/nayo.min.css"> 
+</head>  
+  <body>   
+    
+      <header class="header">
+	
+  <nav class="header-inner">        
+
+    <span class="iconfont icon-menu mobile-toggle"></span>   	
+
+    <div class="header-logo">
+      <a href="/">
+        <img class="header-logo-img" src="/images/logo.png">
+      </a>
+    </div>
+
+    <div class="header-menu">          
+              
+          
+            <a class="header-menu-link" id="header-menu-home" href="/">
+              <i class="iconfont icon-home">  
+            </i></a>     
+          
+              
+          
+            <a class="header-menu-link" id="header-menu-archives" href="/archives">
+              <i class="iconfont icon-archives">  
+            </i></a>     
+          
+              
+          
+            <a class="header-menu-link" id="header-menu-tags" href="/tags">
+              <i class="iconfont icon-tags">  
+            </i></a>     
+          
+              
+          
+            <a class="header-menu-link" id="header-menu-about" href="/about">
+              <i class="iconfont icon-about">  
+            </i></a>     
+          
+              
+          
+              <a class="header-menu-link" id="header-menu-search">
+                <i class="iconfont icon-search">  
+              </i></a>
+          
+                  
+    </div>  
+    
+  </nav>
+</header>
+
+   
+
+      <div class="container">       
+          
+          
+            <div class="container-inner">  
+          
+
+          <article class="post">
+  
+	
+<div class="post-header">
+	<div class="post-header-inner">
+		<p class="post-title">	
+			抽象代数学习笔记--交换环部分
+		</p>
+		<div class="post-info">	
+			<span class="post-info-entry">
+				Apr 16, 2019
+			</span>
+
+			
+			
+				<i class="iconfont icon-words"></i>
+				<span class="post-info-entry">1801
+				</span>
+			
+		</div>
+	</div>
+</div> 
+	
+
+    <script type="text/x-mathjax-config">
+        var post = document.getElementsByClassName("post")[0];  
+        MathJax.Hub.Config({
+            showProcessingMessages: false,
+            messageStyle: "none",    
+            tex2jax: {
+                inlineMath:  [ ["$", "$"] , ["\\(","\\)"]],
+                displayMath: [ ["$$","$$"] , ["\\[","\\]"]],
+                skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code','a'],
+            },
+            "HTML-CSS": {            
+                showMathMenu: false
+            }
+        });
+        MathJax.Hub.Queue(["Typeset",MathJax.Hub,post]);
+    </script>
+    <style>.MathJax{outline:0;}</style>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML" async></script>
+ 
+
+	  <div class="typo post-content slideDownMin">
+
+		
+
+			
+					<p><b>适用教材:A First Course in Abstract Algebra</b><br>如有疏漏，敬请指正<br><a id="more"></a></p>
+<h2 id="交换环"><a href="#交换环" class="headerlink" title="交换环"></a>交换环</h2><p>一个交换环$R$是一个集合，这个集合配备了两个运算$+$和$\cdot$，且满足如下性质:</p>
+<ul>
+<li>对所有$a,b \in R$，有$a+b=b+a$</li>
+<li>对所有$a,b,c \in R$，有$a+(b+c)=(a+b)+c$</li>
+<li>存在元素$0 \in R$，使得对所有$a \in R$，有$0+a=a$</li>
+<li>对每一个$a \in R$，都有$a’ \in R$使得$a’+a=0$(即$(R,+)$是一个阿贝尔群)</li>
+<li>对所有$a,b \in R$，有$a \cdot b=b \cdot a$</li>
+<li>对所有$a,b,c \in R$，有$a \cdot (b \cdot c)=(a \cdot b) \cdot c$</li>
+<li>存在元素$1 \in R$，使得对每一个$a \in R$，都有$1 \cdot a=a$</li>
+<li>对所有$a,b,c \in R$，都有$a \cdot (b+c) = a \cdot b+a \cdot c$</li>
+</ul>
+<h3 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h3><ul>
+<li>对每一个$a \in R$，有$0 \cdot a=0$</li>
+<li>若$-a$满足$-a+a=0$，那么$(-1) \cdot (-a) = a$</li>
+<li>对每一个$a \in R$，有$(-1) \cdot a =-a$</li>
+<li>对所有$a,b \in R$，定义$a-b = a+(-b)$</li>
+</ul>
+<h2 id="环"><a href="#环" class="headerlink" title="环"></a>环</h2><p>一个环$R$是一个集合，这个集合配备了两个运算$+$和$\cdot$，且满足如下性质:</p>
+<ul>
+<li>$(R,+)$是一个阿贝尔群，且运算$+$的单位元是$0$</li>
+<li>对所有$a,b,c \in R$，都有$a \cdot (b+c) = a \cdot b+a \cdot c,(b+c) \cdot a=b \cdot a+c \cdot a$</li>
+<li>$(R, \cdot )$满足结合律(但不一定可交换)</li>
+</ul>
+<h2 id="适用于交换环的二项式定理"><a href="#适用于交换环的二项式定理" class="headerlink" title="适用于交换环的二项式定理"></a>适用于交换环的二项式定理</h2><p>若$a,b \in R$，且$R$一个交换环，对所有$n \geq 0$，有</p>
+<script type="math/tex; mode=display">(a+b)^{n}=\sum^{n}_{r=0} C^{r}_{n} a^{r} b^{n-r}</script><p>注意:$C^{r}_{n} a^{r} b^{n-r}$指$a^{r} b^{n-r}$进行加运算$C^{r}_{n}$次</p>
+<h2 id="零环与整环"><a href="#零环与整环" class="headerlink" title="零环与整环"></a>零环与整环</h2><p>定义交换环$R$为零环，满足如下性质</p>
+<script type="math/tex; mode=display">1=0 \quad \mathrm{and} \quad R = \lbrace 0 \rbrace</script><p>定义交换环$R$为整环，满足如下性质</p>
+<ul>
+<li>$1 \neq 0$</li>
+<li>若$c \cdot a=c \cdot b$，且$c \neq 0$，则$a=b$(消去律)</li>
+</ul>
+<p><b>定理:</b>交换环$R$是整环当且仅当其不是零环，且$R$中任何两个非零元素的乘积是非零的</p>
+<h2 id="子环"><a href="#子环" class="headerlink" title="子环"></a>子环</h2><p>交换环$R$的子集$S$是$R$的子环，满足如下性质：</p>
+<ul>
+<li>$1 \in S$</li>
+<li>若$a,b \in S$，那么$a-b \in S$</li>
+<li>若$a,b \in S$，那么$ab \in S$</li>
+</ul>
+<p><b>定理:</b>交换环$R$的子环$S$也是交换环<br><b>提示:</b>把子环$S$视为$(R,+)$的子群并且$0 \in S$，那么$S$的结合性，交换性和分配性可由对$+$与$\cdot$的封闭性确保</p>
+<h2 id="函数上的交换环"><a href="#函数上的交换环" class="headerlink" title="函数上的交换环"></a>函数上的交换环</h2><p>待补充</p>
+<h2 id="同余类上的交换环"><a href="#同余类上的交换环" class="headerlink" title="同余类上的交换环"></a>同余类上的交换环</h2><p>满足如下性质:</p>
+<ul>
+<li>$\mathbb{I}_{m}$是一个交换环</li>
+<li>$\mathbb{I}_{m}$是整环当且仅当$m$是质数</li>
+</ul>
+<h2 id="交换环除法"><a href="#交换环除法" class="headerlink" title="交换环除法"></a>交换环除法</h2><p>若$a,b \in R$，若存在$a \in R$，使得$b=ca$，则称a整除b，用$a \mid b$表示</p>
+<h3 id="性质-1"><a href="#性质-1" class="headerlink" title="性质"></a>性质</h3><p>令$R$是交换环，且$a,b,c \in R$，则</p>
+<ul>
+<li>若$a \mid b$且$b \mid c$，那么$a \mid c$</li>
+<li>若$a \mid b$且$b \mid c$，那么$a$可以整除每一个可以用$sb+tc$表示的元素，其中$s,t \in R$</li>
+</ul>
+<h2 id="可逆元"><a href="#可逆元" class="headerlink" title="可逆元"></a>可逆元</h2><p>元素$u \in R$，若$u \mid 1$，即存在$v \in R$使得$uv=1$，$v$被称为$u$的逆，可被表示为$u^{-1}$</p>
+<h3 id="性质-2"><a href="#性质-2" class="headerlink" title="性质"></a>性质</h3><ul>
+<li>可逆元的逆唯一</li>
+<li>若u是可逆元，则对任何$w \neq 0$，有$uw \neq 0$</li>
+<li>R中的可逆元组成的集合对运算$\cdot$形成阿贝尔群</li>
+</ul>
+<h3 id="定理"><a href="#定理" class="headerlink" title="定理"></a>定理</h3><ul>
+<li>设$R$是一个整环，若元素$a,b \in R$非零，那么$a \mid b$且$b \mid a$当且仅当对某个可逆元$u \in R$，有$b=ua$</li>
+<li>若a是整数，则$[a]$是$\mathbb{I}_{m}$的可逆元当且仅当$gcd(a,m)=1$</li>
+<li>若$p$是质数，那么$\mathbb{I}_{p}$每一个非零的$[a]$都是可逆元</li>
+</ul>
+<p><b>注:</b>若$sa+tm=1$，那么$[a]^{-1}=[s]$</p>
+  	
+					
+	  </div>     
+	  
+
+	<div class="post-footer">
+
+
+  <div class="post-footer-other">
+       
+    
+      <span class="post-footer-item">
+        <span class="share-btn">
+	<span class="iconfont icon-share"></span>
+</span>
+<div class="-mob-share sildeUpMin">
+	<ul class="-mob-inner">
+	   			             
+        <li class="iconfont 
+		icon-share-weixin 
+		-mob-share-weixin 
+		-mob-share-link"></li>		
+   	   			             
+        <li class="iconfont 
+		icon-share-weibo 
+		-mob-share-weibo 
+		-mob-share-link"></li>		
+   	   			             
+        <li class="iconfont 
+		icon-share-facebook 
+		-mob-share-facebook 
+		-mob-share-link"></li>		
+   	   			             
+        <li class="iconfont 
+		icon-share-twitter 
+		-mob-share-twitter 
+		-mob-share-link"></li>		
+   	   			             
+        <li class="iconfont 
+		icon-share-tumblr 
+		-mob-share-tumblr 
+		-mob-share-link"></li>		
+   	   			             
+        <li class="iconfont 
+		icon-share-google 
+		-mob-share-google 
+		-mob-share-link"></li>		
+   	   
+	</ul>
+</div>	
+
+
+<script id="-mob-share" src="https://f1.webshare.mob.com/code/mob-share.js?appkey=2a31e660f849e"></script>
+      </span>  
+               
+  </div>  
+    
+
+
+  <div class="post-footer-meta">
+        	
+
+        
+          <i class="iconfont icon-tag"></i>     
+            <a class="tag-link" href="/tags/Abstract-Algebra/">Abstract Algebra</a>    
+        	
+  </div>
+
+</div>
+
+
+<nav class="post-footer-nav">
+  <div class="post-footer-link">
+  
+      <a href="/2019/04/15/Critical-Thinking-Homework-2/" id="post-nav-older" class="post-nav-link-wrap">
+        <strong class="post-nav-caption">older</strong>
+        
+          <span class="post-nav-title">
+            Thoughts about Recommendation Algorithms from the Perspec...
+          </span>
+      </a>
+  
+  </div>
+  <div class="post-footer-link">
+    
+  </div>
+
+</nav>
+ 
+	
+
+
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+
+    <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+    <div id="vcomments"></div>
+
+    <script>
+        new Valine({
+            el: '#vcomments',
+            notify: false, 
+            verify: false, 
+            appId: '0MXJkqsVLWCBmshTkV8691NW-gzGzoHsz',
+            appKey: 'D3cJIssiebkaVkzFKIM4hHox',  
+            path: window.location.pathname, 
+            avatar: '',
+            meta: ['nick','mail','link'],
+            lang: 'en'
+        });
+    </script>
+	
+</article>
+
+	<div class="toc-container">
+			<div class="toc-sidebar">
+			<p class="toc-title">
+				CONTENT
+			</p>
+			<div class="toc-list">
+				<ol class="toc-inner"><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#交换环"><span class="toc-inner-text">交换环</span></a><ol class="toc-inner-child"><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#性质"><span class="toc-inner-text">性质</span></a></li></ol></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#环"><span class="toc-inner-text">环</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#适用于交换环的二项式定理"><span class="toc-inner-text">适用于交换环的二项式定理</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#零环与整环"><span class="toc-inner-text">零环与整环</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#子环"><span class="toc-inner-text">子环</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#函数上的交换环"><span class="toc-inner-text">函数上的交换环</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#同余类上的交换环"><span class="toc-inner-text">同余类上的交换环</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#交换环除法"><span class="toc-inner-text">交换环除法</span></a><ol class="toc-inner-child"><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#性质-1"><span class="toc-inner-text">性质</span></a></li></ol></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#可逆元"><span class="toc-inner-text">可逆元</span></a><ol class="toc-inner-child"><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#性质-2"><span class="toc-inner-text">性质</span></a></li><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#定理"><span class="toc-inner-text">定理</span></a></li></ol></li></ol>
+			</div>
+		</div>
+	</div>
+
+          </div> 
+      </div>            
+    
+    <a id="page-backTop">
+      <span>
+        <i class="iconfont icon-backtotop"></i>
+      </span>
+    </a> 
+
+  
+    
+    <div class="search-container sildeUpMin">
+        <div class="search-header">
+            <input type="text" placeholder="输入你想搜索的" id="search-input" class="search-input">
+            <span class="search-cancel">
+                <i class="iconfont icon-cancel">
+            </i></span>
+        </div>
+        <div id="search-result" class="search-result"></div>
+    </div>
+ 
+     <div class="mobile-menu">      
+
+      
+      <img class="mobile-menu-icon" src="/images/favicon.png">  
+      
+
+         
+            
+
+            <a class="mobile-menu-link" href="/">首页
+            </a>
+            
+         
+            
+
+            <a class="mobile-menu-link" href="/archives">归档
+            </a>
+            
+         
+            
+
+            <a class="mobile-menu-link" href="/tags">标签
+            </a>
+            
+         
+            
+
+            <a class="mobile-menu-link" href="/about">关于
+            </a>
+            
+         
+                          
+
+            <a class="mobile-menu-link mobile-menu-search" href="#">搜索 </a>                 
+            
+         
+      
+</div>
+        
+    
+
+
+
+     
+    
+
+
+
+
+<footer id="footer">	    
+
+		
+		<div class="footer-copyright">
+		&copy;
+		
+		2019		
+	
+		Mizunashi
+        <br>
+        
+        <a href="/about">关于</a> | <a href="/sitemap.xml">网站地图</a> | <a href="/changelog.html">Changelog</a> | 
+        <a href="/atom.xml">RSS</a>
+
+        <br>
+
+		Theme  <a href="https://github.com/Lemonreds/hexo-theme-Nayo" target="_blank">Nayo</a>
+		</div>			
+	 
+</footer>   
+
+    <script src="/nayo.bundle.js"></script>           
+  </body>        
+</html>
