@@ -90,7 +90,7 @@
 			
 			
 				<i class="iconfont icon-words"></i>
-				<span class="post-info-entry">1801
+				<span class="post-info-entry">2919
 				</span>
 			
 		</div>
@@ -164,7 +164,12 @@
 <li>若$a,b \in S$，那么$ab \in S$</li>
 </ul>
 <p><b>定理:</b>交换环$R$的子环$S$也是交换环<br><b>提示:</b>把子环$S$视为$(R,+)$的子群并且$0 \in S$，那么$S$的结合性，交换性和分配性可由对$+$与$\cdot$的封闭性确保</p>
-<h2 id="函数上的交换环"><a href="#函数上的交换环" class="headerlink" title="函数上的交换环"></a>函数上的交换环</h2><p>待补充</p>
+<h2 id="函数上的交换环"><a href="#函数上的交换环" class="headerlink" title="函数上的交换环"></a>函数上的交换环</h2><p>在这一部分，我们用两个例题来了解函数上的交换环<br><b>例1:</b><br>令$\mathcal{F} (\mathbb{R})$为所有$\mathbb{R} \to \mathbb{R}$上的所有函数组成的集合，这个集合配备了<b>逐点加法</b>和<b>逐点乘法</b>运算<br>对于函数$f,g \in \mathcal{F} (\mathbb{R})$，逐点加法和逐点乘法定义如下:</p>
+<script type="math/tex; mode=display">f+g: a \mapsto f(a)+g(a) \mathrm{and} fg: a \mapsto f(a)g(a)</script><p>逐点加法与逐点乘法恰适用于微积分学研究的函数，举个例子:</p>
+<script type="math/tex; mode=display">(fg)'=f'g+fg'</script><p>其中，$+$运算即是逐点加法运算，而式子中的$f’g$也是$f’$和$g$的逐点乘积<br>下面证明$\mathcal{F} (\mathbb{R})$是交换环<br>$\mathcal{F} (\mathbb{R})$中的0元为$z(a)=0, a \in \mathbb{R}$<br>$\mathcal{F} (\mathbb{R})$中的1元为$\epsilon (a)=1, a \in \mathbb{R}$<br>其余请自行证明<br>下面证明$\mathcal{F} (\mathbb{R})$不是整环<br>定义$f$为</p>
+<script type="math/tex; mode=display">f(a)=\begin{cases} a,a \leq 0 \\\ 0,a \geq 0 \end{cases}</script><p>定义$g$为</p>
+<script type="math/tex; mode=display">g(a)=\begin{cases} 0,a \leq 0 \\\ a,a \geq 0 \end{cases}</script><p>显然，f和g都不是零元<br>对每一个$a \in \mathbb{R}$，有</p>
+<script type="math/tex; mode=display">fg:a \mapsto f(a)g(a) =0</script><p>因此$fg=z$<br>因此$\mathcal{F} (\mathbb{R})$不是整环<br><b>例2:</b><br>若对所有$a \in \mathbb{R}$，都有$f’(a)$存在的话，则$f: \mathbb{R} \to \mathbb{R}$是可微的<br>令$\mathcal{D} (\mathbb{R})$为$\mathbb{R} \to \mathbb{R}$上所有可微函数组成的集合<br>下证$\mathcal{D} (\mathbb{R})$是$\mathcal{F} (\mathbb{R})$的子环<br>已知$\epsilon$在$\mathcal{D} (\mathbb{R})$中，因为$\epsilon ‘ = z$<br>若$f,g \in \mathcal{D} (\mathbb{R})$，那么$f+g \in \mathcal{D} (\mathbb{R})$，因为$(f+g)’=f’+g’$<br>同理$fg \in \mathcal{D} (\mathbb{R})$，因为$(fg)’=f’g+fg’$<br>因此$\mathcal{D} (\mathbb{R})$是$\mathcal{F} (\mathbb{R})$的子环</p>
 <h2 id="同余类上的交换环"><a href="#同余类上的交换环" class="headerlink" title="同余类上的交换环"></a>同余类上的交换环</h2><p>满足如下性质:</p>
 <ul>
 <li>$\mathbb{I}_{m}$是一个交换环</li>
@@ -305,7 +310,7 @@
 	<div class="toc-container">
 			<div class="toc-sidebar">
 			<p class="toc-title">
-				Contents
+				CONTENT
 			</p>
 			<div class="toc-list">
 				<ol class="toc-inner"><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#交换环"><span class="toc-inner-text">交换环</span></a><ol class="toc-inner-child"><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#性质"><span class="toc-inner-text">性质</span></a></li></ol></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#环"><span class="toc-inner-text">环</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#适用于交换环的二项式定理"><span class="toc-inner-text">适用于交换环的二项式定理</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#零环与整环"><span class="toc-inner-text">零环与整环</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#子环"><span class="toc-inner-text">子环</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#函数上的交换环"><span class="toc-inner-text">函数上的交换环</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#同余类上的交换环"><span class="toc-inner-text">同余类上的交换环</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#交换环除法"><span class="toc-inner-text">交换环除法</span></a><ol class="toc-inner-child"><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#性质-1"><span class="toc-inner-text">性质</span></a></li></ol></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#可逆元"><span class="toc-inner-text">可逆元</span></a><ol class="toc-inner-child"><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#性质-2"><span class="toc-inner-text">性质</span></a></li><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#定理"><span class="toc-inner-text">定理</span></a></li></ol></li></ol>
@@ -326,7 +331,7 @@
     
     <div class="search-container sildeUpMin">
         <div class="search-header">
-            <input type="text" placeholder="Typing Something here." id="search-input" class="search-input">
+            <input type="text" placeholder="输入你想搜索的" id="search-input" class="search-input">
             <span class="search-cancel">
                 <i class="iconfont icon-cancel">
             </i></span>
@@ -343,31 +348,31 @@
          
             
 
-            <a class="mobile-menu-link" href="/">Home
+            <a class="mobile-menu-link" href="/">首页
             </a>
             
          
             
 
-            <a class="mobile-menu-link" href="/archives">Archives
+            <a class="mobile-menu-link" href="/archives">归档
             </a>
             
          
             
 
-            <a class="mobile-menu-link" href="/tags">Tags
+            <a class="mobile-menu-link" href="/tags">标签
             </a>
             
          
             
 
-            <a class="mobile-menu-link" href="/about">About
+            <a class="mobile-menu-link" href="/about">关于
             </a>
             
          
                           
 
-            <a class="mobile-menu-link mobile-menu-search" href="#">Search </a>                 
+            <a class="mobile-menu-link mobile-menu-search" href="#">搜索 </a>                 
             
          
       
@@ -394,7 +399,7 @@
 		Mizunashi
         <br>
         
-        <a href="/about">About</a> | <a href="/sitemap.xml">Sitemap</a> | <a href="/changelog.html">Changelog</a> | 
+        <a href="/about">关于</a> | <a href="/sitemap.xml">网站地图</a> | <a href="/changelog.html">Changelog</a> | 
         <a href="/atom.xml">RSS</a>
 
         <br>
