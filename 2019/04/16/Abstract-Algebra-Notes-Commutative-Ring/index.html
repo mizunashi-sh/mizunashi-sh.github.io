@@ -90,7 +90,7 @@
 			
 			
 				<i class="iconfont icon-words"></i>
-				<span class="post-info-entry">2929
+				<span class="post-info-entry">3835
 				</span>
 			
 		</div>
@@ -193,6 +193,28 @@
 <li>若$p$是质数，那么$\mathbb{I}_{p}$每一个非零的$[a]$都是可逆元</li>
 </ul>
 <p><b>注:</b>若$sa+tm=1$，那么$[a]^{-1}=[s]$</p>
+<h2 id="域"><a href="#域" class="headerlink" title="域"></a>域</h2><p>一个域F是一个交换环，在域中$1 \neq 0$，且每一个非零元素$a$都是一个可逆元<br>即存在$a^{-1} \in F$使得$a^{-1} a=1$</p>
+<h3 id="定理-1"><a href="#定理-1" class="headerlink" title="定理"></a>定理</h3><ul>
+<li>每一个域$F$都是一个整环</li>
+<li>交换环$\mathbb{I}_{m}$是一个域当且仅当$m$是质数<br><b>注:</b>当$p$为质数时，$\mathbb{I}_{p}$也可表示为$\mathbb{F}_{p}$</li>
+</ul>
+<h3 id="分式域"><a href="#分式域" class="headerlink" title="分式域"></a>分式域</h3><p><b>引理:</b><br>若$R$是一个域并且$X=\lbrace (a,b) \in R \times R:b \neq 0 \rbrace$，那么$X$上的关系$\equiv$可如下定义:</p>
+<script type="math/tex; mode=display">(a,b) \equiv (c,d) \quad \mathrm{if} \quad ad=bc</script><p>关系$\equiv$是一个等价关系</p>
+<p>由一个整环$R$定义一个域$F$:</p>
+<ul>
+<li>对所有$a,b \in R, b \neq 0$，定义$F={[a,b]}$</li>
+<li>定义相等:若$ad=bc$，则$[a,b]=[c,d]$</li>
+<li>定义$+$运算为$[a,d]+[c,d]=[ad+bc,bd]$</li>
+<li>定义$\cdot$运算为$[a,b] \cdot [c,d]=[ac,bd]$</li>
+<li>定义$[0,1]$，或$[0,b],b \neq 0$为零元</li>
+<li>定义$[1,1]$，或$[b,b],b \neq 0$为一元</li>
+</ul>
+<p>$F$是域请自行证明<br>由$R$生成的分式域表示为$Frac(R)$<br>元素$[a,b] \in Frac(R)$可用$a/b$表示，类似的，$a/1$可被化简为$a$，$0/a(a \neq 0)$可被化简为0，$1/a(a \neq 0)$可被表示为$a^{-1}$<br>$Frac(\mathbb{Z})=\mathbb{Q}$</p>
+<h2 id="子域"><a href="#子域" class="headerlink" title="子域"></a>子域</h2><p>域$K$的子域是$K$的一个子环，并且这个子环也是一个域</p>
+<h3 id="定理-2"><a href="#定理-2" class="headerlink" title="定理"></a>定理</h3><ul>
+<li>域$K$的子集$k$是一个子域，当且仅当$k$是一个对逆元运算封闭的子环，即若$a \in k$并且$a \neq 0$，那么$a^{-1} \in k$</li>
+<li>若$\lbrace F_{i}:i \in I \rbrace$是域$K$的任何子域所构成的集合簇，那么$k=\bigcap_{i \in I} F_{i}$也是$K$的一个子域<br><b>注:</b>若$K$是一个域，那么$K$的所有子域的交集$k$被称作$K$的素域</li>
+</ul>
   	
 					
 	  </div>     
@@ -310,10 +332,10 @@
 	<div class="toc-container">
 			<div class="toc-sidebar">
 			<p class="toc-title">
-				目錄
+				Contents
 			</p>
 			<div class="toc-list">
-				<ol class="toc-inner"><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#交换环"><span class="toc-inner-text">交换环</span></a><ol class="toc-inner-child"><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#性质"><span class="toc-inner-text">性质</span></a></li></ol></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#环"><span class="toc-inner-text">环</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#适用于交换环的二项式定理"><span class="toc-inner-text">适用于交换环的二项式定理</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#零环与整环"><span class="toc-inner-text">零环与整环</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#子环"><span class="toc-inner-text">子环</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#函数上的交换环"><span class="toc-inner-text">函数上的交换环</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#同余类上的交换环"><span class="toc-inner-text">同余类上的交换环</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#交换环除法"><span class="toc-inner-text">交换环除法</span></a><ol class="toc-inner-child"><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#性质-1"><span class="toc-inner-text">性质</span></a></li></ol></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#可逆元"><span class="toc-inner-text">可逆元</span></a><ol class="toc-inner-child"><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#性质-2"><span class="toc-inner-text">性质</span></a></li><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#定理"><span class="toc-inner-text">定理</span></a></li></ol></li></ol>
+				<ol class="toc-inner"><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#交换环"><span class="toc-inner-text">交换环</span></a><ol class="toc-inner-child"><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#性质"><span class="toc-inner-text">性质</span></a></li></ol></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#环"><span class="toc-inner-text">环</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#适用于交换环的二项式定理"><span class="toc-inner-text">适用于交换环的二项式定理</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#零环与整环"><span class="toc-inner-text">零环与整环</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#子环"><span class="toc-inner-text">子环</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#函数上的交换环"><span class="toc-inner-text">函数上的交换环</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#同余类上的交换环"><span class="toc-inner-text">同余类上的交换环</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#交换环除法"><span class="toc-inner-text">交换环除法</span></a><ol class="toc-inner-child"><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#性质-1"><span class="toc-inner-text">性质</span></a></li></ol></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#可逆元"><span class="toc-inner-text">可逆元</span></a><ol class="toc-inner-child"><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#性质-2"><span class="toc-inner-text">性质</span></a></li><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#定理"><span class="toc-inner-text">定理</span></a></li></ol></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#域"><span class="toc-inner-text">域</span></a><ol class="toc-inner-child"><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#定理-1"><span class="toc-inner-text">定理</span></a></li><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#分式域"><span class="toc-inner-text">分式域</span></a></li></ol></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#子域"><span class="toc-inner-text">子域</span></a><ol class="toc-inner-child"><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#定理-2"><span class="toc-inner-text">定理</span></a></li></ol></li></ol>
 			</div>
 		</div>
 	</div>
@@ -331,7 +353,7 @@
     
     <div class="search-container sildeUpMin">
         <div class="search-header">
-            <input type="text" placeholder="输入你想搜索的" id="search-input" class="search-input">
+            <input type="text" placeholder="Typing Something here." id="search-input" class="search-input">
             <span class="search-cancel">
                 <i class="iconfont icon-cancel">
             </i></span>
@@ -348,31 +370,31 @@
          
             
 
-            <a class="mobile-menu-link" href="/">首頁
+            <a class="mobile-menu-link" href="/">Home
             </a>
             
          
             
 
-            <a class="mobile-menu-link" href="/archives">歸檔
+            <a class="mobile-menu-link" href="/archives">Archives
             </a>
             
          
             
 
-            <a class="mobile-menu-link" href="/tags">標籤
+            <a class="mobile-menu-link" href="/tags">Tags
             </a>
             
          
             
 
-            <a class="mobile-menu-link" href="/about">關於
+            <a class="mobile-menu-link" href="/about">About
             </a>
             
          
                           
 
-            <a class="mobile-menu-link mobile-menu-search" href="#">搜索 </a>                 
+            <a class="mobile-menu-link mobile-menu-search" href="#">Search </a>                 
             
          
       
@@ -399,7 +421,7 @@
 		Mizunashi
         <br>
         
-        <a href="/about">關於</a> | <a href="/sitemap.xml">網站地圖</a> | <a href="/changelog.html">Changelog</a> | 
+        <a href="/about">About</a> | <a href="/sitemap.xml">Sitemap</a> | <a href="/changelog.html">Changelog</a> | 
         <a href="/atom.xml">RSS</a>
 
         <br>
