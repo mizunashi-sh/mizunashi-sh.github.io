@@ -90,7 +90,7 @@
 			
 			
 				<i class="iconfont icon-words"></i>
-				<span class="post-info-entry">3835
+				<span class="post-info-entry">6084
 				</span>
 			
 		</div>
@@ -215,6 +215,35 @@
 <li>域$K$的子集$k$是一个子域，当且仅当$k$是一个对逆元运算封闭的子环，即若$a \in k$并且$a \neq 0$，那么$a^{-1} \in k$</li>
 <li>若$\lbrace F_{i}:i \in I \rbrace$是域$K$的任何子域所构成的集合簇，那么$k=\bigcap_{i \in I} F_{i}$也是$K$的一个子域<br><b>注:</b>若$K$是一个域，那么$K$的所有子域的交集$k$被称作$K$的素域</li>
 </ul>
+<h2 id="多项式"><a href="#多项式" class="headerlink" title="多项式"></a>多项式</h2><p><b>引理:</b>若$R$是一个交换环，那么在$R$上的一个序列可被定义为一个函数$\sigma :\mathbb{N} \to R$<br>一个序列$\sigma$可由它的值定义，对每一个$i \in \mathbb{N}$，令$\sigma (i)=s_{i} \in R$，那么</p>
+<script type="math/tex; mode=display">\sigma = (s_{0},s_{1},s_{2}, \cdots ,s_{i} , \cdots)</script><p>$s_{i} \in R$被称为序列的系数，序列$\sigma = \tau$当且仅当$\sigma (i)= \tau (i),i \geq 0$<br>这样的话，很容易把多项式$s_{0}+s_{1}x+s_{2}x^{2}+ \cdots +s_{n}x^{n}$对应到序列$(s_{0},s_{1},s_{2}, \cdots ,s_{n} ,0,0, \cdots)$<br><b>下面给出多项式的定义</b></p>
+<p>若存在整数$n \geq 0$，使得对所有$i &gt; n$都有$s_{i} = 0$，则称交换环$R$上的序列$\sigma = (s_{0}, s_{1}, s_{2}, \cdots, s_{i}, \cdots)$为一个多项式，即</p>
+<script type="math/tex; mode=display">\sigma = (s_{0}, s_{1}, \cdots, s_{n},0,0, \cdots)</script><p>一个多项式只有有限个非零系数<br>序列$\sigma=(0,0,0, \cdots)$被称为零多项式，可表示为$\sigma=0$<br>若多项式$\sigma \neq 0$，那么存在自然数$n$使得$s_{n} \neq 0$，且对任何$i &gt; n$有$s_{i}=0$，那么称$s_{n}$是$\sigma$的最高系数，$n$是$\sigma$的次数，用$deg(\sigma)$表示<br><b>注意:$deg(\sigma)=0$表示$s_{0} \neq 0$</b><br>若最高系数$s_{n}=1$，则称该多项式是首一的</p>
+<h3 id="多项式乘法"><a href="#多项式乘法" class="headerlink" title="多项式乘法"></a>多项式乘法</h3><p>若$R$是一个交换环，且对$i \geq 0, j \geq 0$有$r, s_{i}, t_{j} \in R$，那么</p>
+<script type="math/tex; mode=display">(s_{0}+s_{1}r+ \cdots )(t_{0}+t_{1}r+ \cdots)=a_{0}+a_{1}r+ \cdots +a_{k}r^{k}+ \cdots</script><p>其中$a_{k}= \sum_{i+j=k} s_{i}t_{j}$，对所有$k \geq 0$</p>
+<h2 id="多项式环"><a href="#多项式环" class="headerlink" title="多项式环"></a>多项式环</h2><p>若$R$是一个交换环，那么由$R$中元素作为系数的所有多项式的集合可用$R[x]$表示<br>多项式环中加法定义如下:</p>
+<script type="math/tex; mode=display">(s_{0},s_{1}, \cdots ,s_{m}, 0 , \cdots)+(t_{0},t_{1}, \cdots ,t_{n}, 0 , \cdots)=(s_{0}+t_{0},s_{1}+t_{1}, \cdots)</script><p>多项式乘法的定义见上<br>环中的零元为$(0,0, \cdots )$，一元为$(1,0, \cdots)$</p>
+<h3 id="定理-3"><a href="#定理-3" class="headerlink" title="定理"></a>定理</h3><ul>
+<li>若$R$是交换环，那么$R[x]$也是交换环且$R$是其子环</li>
+<li>若$R$是整环，那么$R[x]$也是整环</li>
+</ul>
+<p>令$R$是一个交换环，且令$\sigma, \tau \in R[x]$是非零多项式，则</p>
+<ul>
+<li>Either $\sigma \tau =0$ or $deg(\sigma \tau) \leq deg(\sigma) + deg(\tau)$</li>
+<li>若$R$是一个整环，那么$\sigma \tau \neq 0$且$deg(\sigma \tau) = deg(\sigma) +deg(\tau)$</li>
+</ul>
+<h2 id="未知数"><a href="#未知数" class="headerlink" title="未知数"></a>未知数</h2><p>令未知数为元素</p>
+<script type="math/tex; mode=display">x=(0,1,0,0, \cdots) \in R[x]</script><h3 id="定理-4"><a href="#定理-4" class="headerlink" title="定理"></a>定理</h3><ul>
+<li>若$\sigma=(s_{0},s_{1}, \cdots,s_{j},\cdots)$，那么$x \sigma=(0,s_{0},s_{1}, \cdots, s_{j}, \cdots)$</li>
+<li>若$n \geq 1$，则$x^{n}$的各个元素全是0，除了第n个元素为1</li>
+<li>若$r \in R$，则$(r,0,0, \cdots)(s_{0},s_{1}, \cdots ,s_{j}, \cdots)=(rs_{0},rs_{1}, \cdots ,rs_{j}, \cdots)$</li>
+</ul>
+<h2 id="多项式函数"><a href="#多项式函数" class="headerlink" title="多项式函数"></a>多项式函数</h2><p>每个多项式$f(x)=s_{0}+s_{1}x+s_{2}x^{2}+ \cdots +s_{n}x^{n} \in R[n]$都定义了一个函数$f:R \to R$:若$r \in R$，有$f(r)=s_{0}+s_{1}r+s_{2}r^{2}+ \cdots +s_{n}r^{n} \in R$<br>多项式$f(x)=s_{0}+s_{1}x+s_{2}x^{2}+ \cdots +s_{n}x^{n}$和$g(x)=t_{0}+t_{1}x+t_{2}x^{2}+ \cdots +t_{m}x^{m}$相等当且仅当对所有$i \in \mathbb{N}$，有$s_{i}=t_{i}$<br>令$F$为域，则$F[x]$的分式域，用$F(x)$表示，被称为$F$上的有理函数域</p>
+<h3 id="定理-5"><a href="#定理-5" class="headerlink" title="定理"></a>定理</h3><ul>
+<li>$F(x)$中的元素有$f(x)/g(x)$的形式，其中$f(x),g(x) \in F[x]$且$g(x) \neq 0$</li>
+<li>若$p$是素数，那么有理函数域$\mathbb{F}_{p} (x)$是一个有限域，其素域为$\mathbb{F}_{p}$</li>
+</ul>
+<h2 id="多变量多项式"><a href="#多变量多项式" class="headerlink" title="多变量多项式"></a>多变量多项式</h2><p>令$A=R[x]$，那么多项式环$A[y]$可被称为定义在$R$上的多变量多项式环，可表示为$R[x,y]$<br>例如，多项式$cy^{2}+(bx+e)y+(ax^{2}+dx+f)$，是一个由$R[x]$中元素作为系数的多项式<br>$R[x_{1},x_{2}, \cdots, x_{n}]$也类似</p>
   	
 					
 	  </div>     
@@ -337,17 +366,6 @@
 	
 </article>
 
-	<div class="toc-container">
-			<div class="toc-sidebar">
-			<p class="toc-title">
-				CONTENT
-			</p>
-			<div class="toc-list">
-				<ol class="toc-inner"><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#交换环"><span class="toc-inner-text">交换环</span></a><ol class="toc-inner-child"><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#性质"><span class="toc-inner-text">性质</span></a></li></ol></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#环"><span class="toc-inner-text">环</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#适用于交换环的二项式定理"><span class="toc-inner-text">适用于交换环的二项式定理</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#零环与整环"><span class="toc-inner-text">零环与整环</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#子环"><span class="toc-inner-text">子环</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#函数上的交换环"><span class="toc-inner-text">函数上的交换环</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#同余类上的交换环"><span class="toc-inner-text">同余类上的交换环</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#交换环除法"><span class="toc-inner-text">交换环除法</span></a><ol class="toc-inner-child"><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#性质-1"><span class="toc-inner-text">性质</span></a></li></ol></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#可逆元"><span class="toc-inner-text">可逆元</span></a><ol class="toc-inner-child"><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#性质-2"><span class="toc-inner-text">性质</span></a></li><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#定理"><span class="toc-inner-text">定理</span></a></li></ol></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#域"><span class="toc-inner-text">域</span></a><ol class="toc-inner-child"><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#定理-1"><span class="toc-inner-text">定理</span></a></li><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#分式域"><span class="toc-inner-text">分式域</span></a></li></ol></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#子域"><span class="toc-inner-text">子域</span></a><ol class="toc-inner-child"><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#定理-2"><span class="toc-inner-text">定理</span></a></li></ol></li></ol>
-			</div>
-		</div>
-	</div>
-
           </div> 
       </div>            
     
@@ -361,7 +379,7 @@
     
     <div class="search-container sildeUpMin">
         <div class="search-header">
-            <input type="text" placeholder="输入你想搜索的" id="search-input" class="search-input">
+            <input type="text" placeholder="Typing Something here." id="search-input" class="search-input">
             <span class="search-cancel">
                 <i class="iconfont icon-cancel">
             </i></span>
@@ -378,31 +396,31 @@
          
             
 
-            <a class="mobile-menu-link" href="/">首页
+            <a class="mobile-menu-link" href="/">Home
             </a>
             
          
             
 
-            <a class="mobile-menu-link" href="/archives">归档
+            <a class="mobile-menu-link" href="/archives">Archives
             </a>
             
          
             
 
-            <a class="mobile-menu-link" href="/tags">标签
+            <a class="mobile-menu-link" href="/tags">Tags
             </a>
             
          
             
 
-            <a class="mobile-menu-link" href="/about">关于
+            <a class="mobile-menu-link" href="/about">About
             </a>
             
          
                           
 
-            <a class="mobile-menu-link mobile-menu-search" href="#">搜索 </a>                 
+            <a class="mobile-menu-link mobile-menu-search" href="#">Search </a>                 
             
          
       
@@ -429,7 +447,7 @@
 		Mizunashi
         <br>
         
-        <a href="/about">关于</a> | <a href="/sitemap.xml">网站地图</a> | <a href="/changelog.html">Changelog</a> | 
+        <a href="/about">About</a> | <a href="/sitemap.xml">Sitemap</a> | <a href="/changelog.html">Changelog</a> | 
         <a href="/atom.xml">RSS</a>
 
         <br>
