@@ -90,7 +90,7 @@
 			
 			
 				<i class="iconfont icon-words"></i>
-				<span class="post-info-entry">7014
+				<span class="post-info-entry">8486
 				</span>
 			
 		</div>
@@ -267,6 +267,38 @@
 <li>若$x,y \in \mathbf{ker} f$，有$x+y \in \mathbf{ker} f$</li>
 <li>若$x \in \mathbf{ker} f$且$a \in A$，有$ax \in \mathbf{ker}f$</li>
 </ul>
+<h2 id="理想"><a href="#理想" class="headerlink" title="理想"></a>理想</h2><p>交换环$R$上的理想$I$是$R$的子集且有</p>
+<ul>
+<li>$0 \in I$</li>
+<li>若$a,b \in I$，那么$a+b \in I$</li>
+<li>若$a \in I$且$r \in R$，那么$ra \in I$</li>
+</ul>
+<p>理想$I \neq R$称为真理想<br>若$ab \in I$，则有$a \in I$或$b \in I$，且$I$为真理想，则$I$为素理想</p>
+<h3 id="主理想"><a href="#主理想" class="headerlink" title="主理想"></a>主理想</h3><p>若$b_{1},b_{2}, \cdots ,b_{n}$在$R$中，那么它们所有线性组合的集合</p>
+<script type="math/tex; mode=display">I= \lbrace r_{1}b_{1}+r_{2}b_{2}+ \cdots + r_{n}b_{n}:r_{i} \in R \quad \mathrm{for} \quad \mathrm{all} \quad i \rbrace</script><p>是$R$上的一个理想，可以写作$I=(b_{1},b_{2},\cdots,b_{n})$<br>特殊的，如果$n=1$，那么</p>
+<script type="math/tex; mode=display">I=(b)=\lbrace rb:r \in R \rbrace</script><p>是$R$上的一个理想，称为由$b$生成的主理想<br>很显然$R=(1)$且$\lbrace 0 \rbrace =(0)$，在整数集$\mathbb{Z}$上，主理想$(2)$是所有偶数组成的集合<br>$\mathbb{Z}$上的每一个理想都是主理想<br><b>拓展:</b>证明$\lbrace r_{1}b_{1}+r_{2}b_{2}:r_{1},r_{2} \in \mathbb{Z} \rbrace = \lbrace rd : r \in \mathbb{Z} \rbrace$，其中$d=gcd(b_{1},b_{2})$</p>
+<h3 id="推论"><a href="#推论" class="headerlink" title="推论"></a>推论</h3><ul>
+<li>环同态$f: A \to R$是单射当且仅当$\mathbf{ker} f =\lbrace 0 \rbrace$</li>
+<li>若$f:k \to R$是环同态，且$R$不是一个零环，且当$k$是一个域，那么$f$是一个单射</li>
+</ul>
+<h3 id="理想与环"><a href="#理想与环" class="headerlink" title="理想与环"></a>理想与环</h3><ul>
+<li>若$R$是交换环，且存在可逆元$u \in R$使得$a=ub$，那么$(a)=(b)$</li>
+<li>若$R$是一个整环，那么$(a)=(b)$可以推出存在可逆元$u \in R$使得$a=ub$</li>
+<li>非零交换环$R$是一个域，当且仅当它仅有的理想是$\lbrace 0 \rbrace$和$R$</li>
+<li>交换环$R$上的理想$\lbrace 0 \rbrace$是一个素理想，当且仅当$R$是整环</li>
+<li>$(p)$为$\mathbb{Z}$上的素理想，且有$p=0$或$p$是一个素数</li>
+</ul>
+<h2 id="多项式除法算法"><a href="#多项式除法算法" class="headerlink" title="多项式除法算法"></a>多项式除法算法</h2><p><b>引理:</b>若$f(x)=s_{n}x^{n}+ \cdots +s_{1}x+s_{0}$是一个次数为$n$的多项式，那么它的首项是</p>
+<script type="math/tex; mode=display">LT(f)=s_{n}x^{n}</script><p>令$k$是一个域，令$f(x)=s_{n}x^{n}+ \cdots +s_{1}x+s_{0}$和$g(x)=t_{m}x^{m}+ \cdots +t_{1}x+t_{0}$是$k[x]$上的多项式，满足$deg(f) \leq deg(g)$，即$n \leq m$<br>那么有$s_{n}^{-1} \in k$，因为$k$是一个域，且</p>
+<script type="math/tex; mode=display">\frac{LT(g)}{LT(f)}=s_{n}^{-1}t_{m}x^{m-n} \in k[x]</script><p>这样可得出$LT(f) \mid LT(g)$</p>
+<p><b>算法的证明:</b>令$R$是一个交换环，令$f(x),g(x) \in R[x]$，并令$f(x)$的最高系数是$R$上的可逆元，有</p>
+<ul>
+<li>有多项式$q(x),r(x) \in R[x]$使得$g(x)=q(x)f(x)+r(x)$，其中有$r(x)=0$或$deg(r) &lt; deg(f)$</li>
+<li>若$R$是一个整环，那么上文中提到的$q(x)$和$r(x)$是独特的</li>
+</ul>
+<p>证明从略</p>
+<p><b>算法的实现:</b><br>以下是伪代码实现</p>
+<center><img src="https://mizunashi.me/image-hosting/blog/others/polynomial-division-algorithm.PNG"></center>
   	
 					
 	  </div>     
