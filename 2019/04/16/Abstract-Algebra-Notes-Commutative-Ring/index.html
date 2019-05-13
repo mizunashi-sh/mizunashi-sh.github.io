@@ -90,7 +90,7 @@
 			
 			
 				<i class="iconfont icon-words"></i>
-				<span class="post-info-entry">6084
+				<span class="post-info-entry">7014
 				</span>
 			
 		</div>
@@ -244,6 +244,29 @@
 <li>若$p$是素数，那么有理函数域$\mathbb{F}_{p} (x)$是一个有限域，其素域为$\mathbb{F}_{p}$</li>
 </ul>
 <h2 id="多变量多项式"><a href="#多变量多项式" class="headerlink" title="多变量多项式"></a>多变量多项式</h2><p>令$A=R[x]$，那么多项式环$A[y]$可被称为定义在$R$上的多变量多项式环，可表示为$R[x,y]$<br>例如，多项式$cy^{2}+(bx+e)y+(ax^{2}+dx+f)$，是一个由$R[x]$中元素作为系数的多项式<br>$R[x_{1},x_{2}, \cdots, x_{n}]$也类似</p>
+<h2 id="环同态"><a href="#环同态" class="headerlink" title="环同态"></a>环同态</h2><p>若$A$和$R$是交换环，那么一个环同态就是一个函数$f:A \to R$，且有</p>
+<ul>
+<li>$f(1)=1$</li>
+<li>对所有$a,a’ \in A$有$f(a+a’)=f(a)+f(a’)$</li>
+<li>对所有$a,a’ \in A$有$f(aa’)=f(a)f(a’)$</li>
+</ul>
+<p>如果一个同态也是双射，则这个同态也是一个同构。交换环$A$和$R$同构可表示为$A \cong R$</p>
+<h3 id="性质-3"><a href="#性质-3" class="headerlink" title="性质"></a>性质</h3><p>若$f: A \to R$是一个环同构，那么对所有$a \in A$有</p>
+<ul>
+<li>对所有$n \geq 0$，有$f(a^{n})=f(a)^{n}$</li>
+<li>若$a$是一个可逆元，那么$f(a)$也是一个可逆元并且$f(a^{-1})=f(a)^{-1}$</li>
+<li>若$a$是一个可逆元，那么对所有$n \geq 1$有$f(a^{-n})=f(a)^{-n}$</li>
+<li>若定义$U(A)$为$A$中的可逆元组成的群，有$f(U(A)) \subseteq U(R)$，且若$f$是一个同构，有$U(A) \cong U(R)$</li>
+</ul>
+<h3 id="计值映射"><a href="#计值映射" class="headerlink" title="计值映射"></a>计值映射</h3><p>若$R$是一个交换环并且$s \in R$，那么计值映射$e_{s}:R[x] \to R$是同态<br>计值映射$e_{s}$定义为$e_{s}(f(x))=f(s)$，即$e_{s}(\sum_{i}r_{i}x^{i})=\sum_{i}r_{i}s^{i}$</p>
+<h3 id="核与像"><a href="#核与像" class="headerlink" title="核与像"></a>核与像</h3><p>若$f: A \to R$是一个环同态，那么它的核为</p>
+<script type="math/tex; mode=display">\mathbf{ker}f=\lbrace a \in A \quad \mathrm{with} \quad f(a)=0 \rbrace</script><p>它的像为</p>
+<script type="math/tex; mode=display">\mathbf{im} f=\lbrace r \in R:r=f(a) \quad \mathrm{for} \quad \mathrm{some} \quad a \in A \rbrace</script><p>核与像满足如下性质:若$f: A \to R$是一个环同态，且$R$是一个非零环，那么$\mathbf{im}f$是$R$的子环且$\mathbf{ker} f$是$A$的真子集，满足如下条件</p>
+<ul>
+<li>$0 \in \mathbf{ker}f$</li>
+<li>若$x,y \in \mathbf{ker} f$，有$x+y \in \mathbf{ker} f$</li>
+<li>若$x \in \mathbf{ker} f$且$a \in A$，有$ax \in \mathbf{ker}f$</li>
+</ul>
   	
 					
 	  </div>     
