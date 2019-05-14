@@ -90,7 +90,7 @@
 			
 			
 				<i class="iconfont icon-words"></i>
-				<span class="post-info-entry">8486
+				<span class="post-info-entry">10111
 				</span>
 			
 		</div>
@@ -299,6 +299,35 @@
 <p>证明从略</p>
 <p><b>算法的实现:</b><br>以下是伪代码实现</p>
 <center><img src="https://mizunashi.me/image-hosting/blog/others/polynomial-division-algorithm.PNG"></center>
+
+<h2 id="多项式的根"><a href="#多项式的根" class="headerlink" title="多项式的根"></a>多项式的根</h2><p>若$f(x) \in k[x]$，且$k$是一个域，那么在$k$上的$f(x)$的根是一个元素$a \in k$，且有$f(a)=0$<br>对任何$a \in k$，都存在$q(x) \in k[x]$使得</p>
+<script type="math/tex; mode=display">f(x)=q(x)(x-a)+f(a)</script><p>若$f(x) \in k[x]$，且$k$是一个域，那么$a \in k$是$f(x)$的根当且仅当$x-a$整除$f(x)$</p>
+<h3 id="定理-6"><a href="#定理-6" class="headerlink" title="定理"></a>定理</h3><p>令$k$是一个域且$f(x) \in k[x]$，有</p>
+<ul>
+<li>若$f(x)$的次数为$n$，那么$f(x)$在$k$上最多有$n$个根</li>
+<li>若$f(x)$的次数为$n$，并且$a_{1},a_{2}, \cdots ,a_{n} \in k$是$f(x)$的独特的根，那么有$c \in k$满足$f(x)=c(x-a_{1})(x-a_{2}) \cdots (x-a_{n})$</li>
+</ul>
+<h2 id="多项式的最大公约式"><a href="#多项式的最大公约式" class="headerlink" title="多项式的最大公约式"></a>多项式的最大公约式</h2><p>若$k$是一个域，$f(x),g(x) \in k[x]$，那么公约式$c(x) \in k[x]$满足$c(x) \mid f(x)$和$c(x) \mid g(x)$<br>若$f(x)=0=g(x)$，那么它们的最大公约式为0，若两个多项式中至少有一个非零，那么它们的最大公约式(用$(f,g)$表示)，是一个首一的公约式$d(x) \in k[x]$，且对每一个公约式$c(x)$，有$deg(c) \leq deg(d)$<br>若$k$是一个域，且$f(x),g(x) \in k[x]$，那么它们的最大公约式是$f(x)$和$g(x)$的线性组合(可被表示为$h(x)=s(x)f(x)+t(x)g(x)$，且$s(x),t(x) \in k[x]$)</p>
+<h3 id="定理-7"><a href="#定理-7" class="headerlink" title="定理"></a>定理</h3><p>令$k$是一个域，且$f(x),g(x) \in k[x]$，有</p>
+<ul>
+<li>一个首一的公约式$d(x)$是最大公约式，当且仅当$d(x)$能整除每一个公约式</li>
+<li>任何两个多项式$f(x)$和$g(x)$都有唯一的最大公约式</li>
+</ul>
+<h3 id="欧几里得算法"><a href="#欧几里得算法" class="headerlink" title="欧几里得算法"></a>欧几里得算法</h3><p>若$k$是一个域且$f(x),g(x) \in k[x]$，那么存在一个计算$gcd(f(x),g(x))$的算法，也存在一个计算最大公约式的线性组合表示的算法</p>
+<h2 id="多项式的理想"><a href="#多项式的理想" class="headerlink" title="多项式的理想"></a>多项式的理想</h2><p>若$k$是一个域，那么$k[x]$上的每一个理想$I$都是主理想。若$I \neq 0$，那么有一个首一的多项式可以生成$I$<br>一个交换环$R$是一个主理想整环，如果$R$是一个整环，且在这个整环里每个理想都是主理想。主理想整环可以简写为PID(<b>principal ideal domain</b>)</p>
+<h2 id="不可约简项"><a href="#不可约简项" class="headerlink" title="不可约简项"></a>不可约简项</h2><p>交换环$R$上的元素$p$是不可约简项，若$p$既不是0也不是可逆元。如果在$R$上有$p=ab$，那么$a$或$b$是可逆元<br>若$k$是一个域，那么一个非常数多项式$p(x) \in k[x]$是不可约简项，当且仅当$p(x)$不能以$p(x)=f(x)g(x)$的形式被分解，其中$f(x)$和$g(x)$的次数均小于$p(x)$的次数，且$f(x)$和$g(x)$也是非常数多项式</p>
+<h2 id="欧氏环"><a href="#欧氏环" class="headerlink" title="欧氏环"></a>欧氏环</h2><p>交换环$R$是一个欧氏环当其为一个整环并且有一个函数</p>
+<script type="math/tex; mode=display">\vartheta: R^{\times} \to \mathbb{N}</script><p>这个函数被称为<b>degree function</b>，且满足</p>
+<ul>
+<li>对所有$f,g \in R^{\times}$，有$\vartheta (f) &lt; \vartheta (fg)$</li>
+<li>对所有$f,g \in R$，其中$f \in R^{\times}$，那么存在$q,r \in R$满足$g=qf+r$，且有$r=0$或$\vartheta (r) &lt; \vartheta (f)$</li>
+</ul>
+<p>$R^{\times}$表示$R$中所有非零元素组成的集合</p>
+<h3 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h3><ul>
+<li>每一个域$R$都是欧氏环，且$\vartheta =0$</li>
+<li>$\mathbb{Z}$是欧氏环，且对$m \in \mathbb{Z}$，有$\vartheta (m)=m$</li>
+<li>对一个域$k$，$k[x]$是欧氏环，且对$f \in k[x]$，有$\vartheta(f)=deg(f)$</li>
+</ul>
   	
 					
 	  </div>     
@@ -398,7 +427,7 @@
  
 	
 
-
+    <i>Your comment will be shown after being reviewed.</i>
     <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
 
     <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
@@ -451,25 +480,25 @@
          
             
 
-            <a class="mobile-menu-link" href="/">首页
+            <a class="mobile-menu-link" href="/">首頁
             </a>
             
          
             
 
-            <a class="mobile-menu-link" href="/archives">归档
+            <a class="mobile-menu-link" href="/archives">歸檔
             </a>
             
          
             
 
-            <a class="mobile-menu-link" href="/tags">标签
+            <a class="mobile-menu-link" href="/tags">標籤
             </a>
             
          
             
 
-            <a class="mobile-menu-link" href="/about">关于
+            <a class="mobile-menu-link" href="/about">關於
             </a>
             
          
@@ -502,7 +531,7 @@
 		Mizunashi
         <br>
         
-        <a href="/about">关于</a> | <a href="/sitemap.xml">网站地图</a> | <a href="/changelog.html">Changelog</a> | 
+        <a href="/about">關於</a> | <a href="/sitemap.xml">網站地圖</a> | <a href="/changelog.html">Changelog</a> | 
         <a href="/atom.xml">RSS</a>
 
         <br>
