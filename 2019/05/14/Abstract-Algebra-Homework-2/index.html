@@ -90,13 +90,33 @@
 			
 			
 				<i class="iconfont icon-words"></i>
-				<span class="post-info-entry">1289
+				<span class="post-info-entry">1299
 				</span>
 			
 		</div>
 	</div>
 </div> 
 	
+
+    <script type="text/x-mathjax-config">
+        var post = document.getElementsByClassName("post")[0];  
+        MathJax.Hub.Config({
+            showProcessingMessages: false,
+            messageStyle: "none",    
+            tex2jax: {
+                inlineMath:  [ ["$", "$"] , ["\\(","\\)"]],
+                displayMath: [ ["$$","$$"] , ["\\[","\\]"]],
+                skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code','a'],
+            },
+            "HTML-CSS": {            
+                showMathMenu: false
+            }
+        });
+        MathJax.Hub.Queue(["Typeset",MathJax.Hub,post]);
+    </script>
+    <style>.MathJax{outline:0;}</style>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML" async></script>
  
 
 	  <div class="typo post-content slideDownMin">
@@ -104,7 +124,8 @@
 		
 
 			
-					<h2 id="1"><a href="#1" class="headerlink" title="1"></a>1</h2><p><b>题目:</b><br>Find a subset of $\mathbb{Z}$ closed on $+$ and $\cdot$ , and it includes an integer $k&gt;0$, but is not a ring. What would happen if it’s a subset including $–k$?<br><b>解答:</b><br><b>(1)</b><br>可以构造集合$\langle k \rangle$或者$\mathbb{Z}^{+}$，它们都对$+$与$\cdot$封闭，但是找不到加法单位元<br><b>(2)</b><br>如果将$k$改为$-k$，则找不到这样的子集$S \subseteq \mathbb{Z}$满足题干中所述条件</p>
+					<p>如有疏漏，敬请指正<br><a id="more"></a></p>
+<h2 id="1"><a href="#1" class="headerlink" title="1"></a>1</h2><p><b>题目:</b><br>Find a subset of $\mathbb{Z}$ closed on $+$ and $\cdot$ , and it includes an integer $k&gt;0$, but is not a ring. What would happen if it’s a subset including $–k$?<br><b>解答:</b><br><b>(1)</b><br>可以构造集合$\langle k \rangle$或者$\mathbb{Z}^{+}$，它们都对$+$与$\cdot$封闭，但是找不到加法单位元<br><b>(2)</b><br>如果将$k$改为$-k$，则找不到这样的子集$S \subseteq \mathbb{Z}$满足题干中所述条件</p>
 <h2 id="2"><a href="#2" class="headerlink" title="2"></a>2</h2><p><b>题目:</b><br>Show whether a subring of a ring / integral domain / field is also a ring / integral domain / field.<br><b>解答:</b><br><b>(1)</b><br>设$R$是一个环，$S$是其任意一个子环<br>那么有$1_{R} \in S$<br>且对任意$a,b \in S$，都有$a-b \in S, a \cdot b \in S$<br>下证$(S,+)$是一个阿贝尔群<br>由于$1_{R} \in S$，则有$1_{R} - 1_{R} = 0_{R} \in S$<br>若$b \in S$，那么就有$0_{R}-b = -b \in S$<br>若$a \in S$，那么有</p>
 <script type="math/tex; mode=display">a-(-b)=a+(-1_{R})(-1_{R})b=a+b \in S</script><p>因此$S$对$+$封闭<br>因为$S \subseteq R$，因此对任意$a,b,c \in S \subseteq R$，都有</p>
 <script type="math/tex; mode=display">a+b=b+a \quad \mathrm{and} \quad a+(b+c)=(a+b)+c</script><p>对于每一个$b \in S$，已知$-b \in S$<br>那么有$b-b=b+(-b)=0_{R}$<br>因此$(S,+)$是一个阿贝尔群<br>因为$S \subseteq R$，因此对任意$a,b,c \in S \subseteq R$，都有</p>
