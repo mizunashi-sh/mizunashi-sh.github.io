@@ -90,7 +90,7 @@
 			
 			
 				<i class="iconfont icon-words"></i>
-				<span class="post-info-entry">2087
+				<span class="post-info-entry">3681
 				</span>
 			
 		</div>
@@ -136,6 +136,46 @@
 <h2 id="5"><a href="#5" class="headerlink" title="5"></a>5</h2><p><b>题目:</b><br>Show that if $R$ is a nonzero commutative ring, then $R[x]$ is not a field.<br><b>解答:</b><br>假设$R[x]$是一个域<br>令$a_{0}+a_{1}x+ \cdots +a_{n}x^{n} \in R[x]$<br>由$R[x]$是一个域，有$x \in R[x]$使得</p>
 <script type="math/tex; mode=display">x(a_{0}+a_{1}x+ \cdots +a_{n}x^{n})=1</script><p>即</p>
 <script type="math/tex; mode=display">0+a_{0}x+a_{1}x^{2}+ \cdots +a_{n}x^{n+1}=1+0x+0x^{2}+ \cdots +0x^{n+1}</script><p>可得$a_{0}=a_{1}= \cdots =a_{n}=0,0=1$，矛盾！<br>因此若$R$是一个非零交换环，则$R[x]$不是一个域</p>
+<h2 id="6"><a href="#6" class="headerlink" title="6"></a>6</h2><p><b>题目:</b><br> If $R$ is a commutative ring and $f(x)=\sum a_{i}x^{i} \in R[x]$ has degree $n \geq 1$, define its derivative $f(x)’$ by: $f(x)’=a_{1}+2a_{2}x+ \cdots +na_{n}x^{n-1}$. Prove that the following rules hold:   </p>
+<ul>
+<li>$(f+g)’=f’+g’$</li>
+<li>$(rf)’=rf’$ if $r∈R$     </li>
+<li>$(fg)’=f’g+fg’$       </li>
+<li>$(f^{m})’=mf^{m-1}f’$ for all $m∈\mathbb{Z}^{+}$ </li>
+</ul>
+<p><b>解答:</b><br>可得</p>
+<script type="math/tex; mode=display">f'(x)=\sum_{i=0}^{n} i a_{i}x^{i-1}</script><p>令$g(x)=\sum_{i=0}^{m} b_{i}x^{i}$<br>则</p>
+<script type="math/tex; mode=display">g'(x)=\sum_{i=0}^{m} i b_{i}x^{i-1}</script><p><b>(1)</b><br>计算得</p>
+<script type="math/tex; mode=display">
+f(x)+g(x)= 
+\begin{cases}
+\sum_{i=0}^{min(m,n)} (a_{i}+b_{i})x^{i}+ \sum_{j=min(m,n)}^{m}  b_{j} x^{j}, m>n \\
+\sum_{i=0}^{min(m,n)} (a_{i}+b_{i})x^{i}+ \sum_{j=min(m,n)}^{n}  a_{j} x^{j}, m \leq n
+\end{cases}</script><p>因此</p>
+<script type="math/tex; mode=display">
+(f(x)+g(x))' = 
+\begin{cases}
+\sum_{i=0}^{min(m,n)} i(a_{i}+b_{i})x^{i-1}+ \sum_{j=min(m,n)}^{m}  jb_{j} x^{j-1}, m>n \\
+\sum_{i=0}^{min(m,n)} i(a_{i}+b_{i})x^{i-1}+ \sum_{j=min(m,n)}^{n}  ja_{j} x^{j-1}, m \leq n
+\end{cases} \\
+=\sum_{i=0}^{n} i a_{i}x^{i-1}+ \sum_{j=0}^{m} j b_{j}x^{j-1}\\
+=f'(x)+g'(x) \\</script><p>综上，$(f+g)’=f’+g’$<br><b>(2)</b><br>计算得</p>
+<script type="math/tex; mode=display">rf(x)=r \sum_{i=0}^{n} a_{i}x^{i}</script><p>则</p>
+<script type="math/tex; mode=display">(rf(x))'=(\sum_{i=0}^{n} ra_{i}x^{i})'=\sum_{i=0}^{n} i ra_{i}x^{i-1} = r\sum_{i=0}^{n} i a_{i}x^{i-1}=rf'(x)</script><p>综上，$(rf)’=rf’$<br><b>(3)</b><br>计算得</p>
+<script type="math/tex; mode=display">f(x)g(x)=\sum_{i=0}^{m+n} \left( \sum_{p+q=i} a_{p}b_{q} \right) x^{i}</script><p>因此</p>
+<script type="math/tex; mode=display">(f(x)g(x))'=\sum_{i=0}^{m+n} i \left( \sum_{p+q=i} a_{p}b_{q} \right) x^{i-1}</script><p>而</p>
+<script type="math/tex; mode=display">
+f'(x)g(x)+f(x)g'(x)
+=\sum_{i=0}^{n} ia_{i}x^{i-1} \sum_{j=0}^{m} b_{j}x^{j}+\sum_{i=0}^{n} a_{i}x^{i} \sum_{j=0}^{m} jb_{j}x^{j-1}\\
+=\sum_{i=0}^{m+n} i \left( \sum_{p+q=i} a_{p}b_{q} \right) x^{i-1}\\
+=(f(x)g(x))'</script><p>综上，$(fg)’=f’g+fg’$<br><b>(4)</b><br>当$m=1$时该等式为</p>
+<script type="math/tex; mode=display">f'=1f^{0}f'</script><p>显然成立<br>假设$m=k$时该等式成立，即</p>
+<script type="math/tex; mode=display">(f^{k})'=kf^{k-1}f'</script><p>则当$m=k+1$时有</p>
+<script type="math/tex; mode=display">
+(f^{k+1})'=(f^{k}f)' 
+=(f^{k})'f+f^{k}f'
+=kf^{k}f'+f^{k}f'
+=(k+1)f^{k}f'</script><p>满足该等式<br>综上，$(f^{m})’=mf^{m-1}f’$</p>
   	
 					
 	  </div>     
@@ -256,7 +296,7 @@
 				Contents
 			</p>
 			<div class="toc-list">
-				<ol class="toc-inner"><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#1"><span class="toc-inner-text">1</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#2"><span class="toc-inner-text">2</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#3"><span class="toc-inner-text">3</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#4"><span class="toc-inner-text">4</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#5"><span class="toc-inner-text">5</span></a></li></ol>
+				<ol class="toc-inner"><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#1"><span class="toc-inner-text">1</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#2"><span class="toc-inner-text">2</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#3"><span class="toc-inner-text">3</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#4"><span class="toc-inner-text">4</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#5"><span class="toc-inner-text">5</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#6"><span class="toc-inner-text">6</span></a></li></ol>
 			</div>
 		</div>
 	</div>
