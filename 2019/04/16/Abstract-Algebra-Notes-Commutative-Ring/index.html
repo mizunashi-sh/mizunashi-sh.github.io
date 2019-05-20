@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=yes">
   
   
-  <title>  (更新中)抽象代数学习笔记--交换环部分 |   Mizunashi&#39;s Blog </title>
+  <title>  抽象代数学习笔记--交换环部分 |   Mizunashi&#39;s Blog </title>
 
  
   
@@ -80,7 +80,7 @@
 <div class="post-header">
 	<div class="post-header-inner">
 		<p class="post-title">	
-			(更新中)抽象代数学习笔记--交换环部分
+			抽象代数学习笔记--交换环部分
 		</p>
 		<div class="post-info">	
 			<span class="post-info-entry">
@@ -90,7 +90,7 @@
 			
 			
 				<i class="iconfont icon-words"></i>
-				<span class="post-info-entry">10801
+				<span class="post-info-entry">11163
 				</span>
 			
 		</div>
@@ -336,7 +336,14 @@
 <script type="math/tex; mode=display">[a]=\lbrace b \in R:b \equiv a \; \mathrm{mod} \; I \rbrace</script><p>这是$a$关于$R$的等价类<br>所有模$I$的同余类组成的集合可以表示为$R/I$</p>
 <h2 id="商环"><a href="#商环" class="headerlink" title="商环"></a>商环</h2><p>如果$I$是交换环$R$上的理想，那么$R/I$是交换环<br>$R/I$上的加法和乘法运算定义如下:</p>
 <script type="math/tex; mode=display">[a]+[b]=[a+b] \quad \mathrm{and} \quad [a] \cdot [b]=[ab]</script><p>这个$R/I$被称为$R$模$I$的商环<br>$\mathbb{I}_{m}$上的同余类也可以用如下形式表示:</p>
-<script type="math/tex; mode=display">[a]=\lbrace b \in \mathbb{Z}:b=a+km \; \mathrm{for} \; k \in \mathbb{Z} \rbrace =a+(m)</script>  	
+<script type="math/tex; mode=display">[a]=\lbrace b \in \mathbb{Z}:b=a+km \; \mathrm{for} \; k \in \mathbb{Z} \rbrace =a+(m)</script><h3 id="第一环同构定理"><a href="#第一环同构定理" class="headerlink" title="第一环同构定理"></a>第一环同构定理</h3><p>若$\varphi:R \to S$是一个环同态，那么$\mathbf{ker} \varphi$是$R$上的理想，$\mathbf{im} \varphi$是$S$的子环，并且存在一个同构</p>
+<script type="math/tex; mode=display">\widetilde{\varphi}:R/ \mathbf{ker} \varphi \to \mathbf{im} \varphi</script><p>这个同构定义为$\widetilde{\varphi}(a+ \mathbf{ker} \varphi)=\varphi(a)$</p>
+<h2 id="极大理想"><a href="#极大理想" class="headerlink" title="极大理想"></a>极大理想</h2><p>交换环$R$上的理想$I$是极大理想，如果$I$是一个真理想并且没有理想$J$使得$I \subset J \subset R$</p>
+<h3 id="举例-1"><a href="#举例-1" class="headerlink" title="举例"></a>举例</h3><ul>
+<li>$\lbrace 0 \rbrace$是$R$上的极大理想，当且仅当$R$是域</li>
+<li>如果$R$是一个主理想整环，那么每一个非零素理想都是极大理想</li>
+</ul>
+  	
 					
 	  </div>     
 	  
@@ -471,7 +478,7 @@
     
     <div class="search-container sildeUpMin">
         <div class="search-header">
-            <input type="text" placeholder="输入你想搜索的" id="search-input" class="search-input">
+            <input type="text" placeholder="Typing Something here." id="search-input" class="search-input">
             <span class="search-cancel">
                 <i class="iconfont icon-cancel">
             </i></span>
@@ -488,31 +495,31 @@
          
             
 
-            <a class="mobile-menu-link" href="/">首页
+            <a class="mobile-menu-link" href="/">Home
             </a>
             
          
             
 
-            <a class="mobile-menu-link" href="/archives">归档
+            <a class="mobile-menu-link" href="/archives">Archives
             </a>
             
          
             
 
-            <a class="mobile-menu-link" href="/tags">标签
+            <a class="mobile-menu-link" href="/tags">Tags
             </a>
             
          
             
 
-            <a class="mobile-menu-link" href="/about">关于
+            <a class="mobile-menu-link" href="/about">About
             </a>
             
          
                           
 
-            <a class="mobile-menu-link mobile-menu-search" href="#">搜索 </a>                 
+            <a class="mobile-menu-link mobile-menu-search" href="#">Search </a>                 
             
          
       
@@ -539,7 +546,7 @@
 		Mizunashi
         <br>
         
-        <a href="/about">关于</a> | <a href="/sitemap.xml">网站地图</a> | <a href="/changelog.html">Changelog</a> | 
+        <a href="/about">About</a> | <a href="/sitemap.xml">Sitemap</a> | <a href="/changelog.html">Changelog</a> | 
         <a href="/atom.xml">RSS</a>
 
         <br>
