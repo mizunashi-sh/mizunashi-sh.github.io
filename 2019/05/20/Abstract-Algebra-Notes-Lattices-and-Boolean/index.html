@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=yes">
   
   
-  <title>  在罗店 |   Mizunashi&#39;s Blog </title>
+  <title>  (更新中)抽象代数学习笔记--格与布尔代数 |   Mizunashi&#39;s Blog </title>
 
  
   
@@ -80,23 +80,43 @@
 <div class="post-header">
 	<div class="post-header-inner">
 		<p class="post-title">	
-			在罗店
+			(更新中)抽象代数学习笔记--格与布尔代数
 		</p>
 		<div class="post-info">	
 			<span class="post-info-entry">
-				Feb 28, 2019
+				May 20, 2019
 			</span>
 
 			
 			
 				<i class="iconfont icon-words"></i>
-				<span class="post-info-entry">4877
+				<span class="post-info-entry">1070
 				</span>
 			
 		</div>
 	</div>
 </div> 
 	
+
+    <script type="text/x-mathjax-config">
+        var post = document.getElementsByClassName("post")[0];  
+        MathJax.Hub.Config({
+            showProcessingMessages: false,
+            messageStyle: "none",    
+            tex2jax: {
+                inlineMath:  [ ["$", "$"] , ["\\(","\\)"]],
+                displayMath: [ ["$$","$$"] , ["\\[","\\]"]],
+                skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code','a'],
+            },
+            "HTML-CSS": {            
+                showMathMenu: false
+            }
+        });
+        MathJax.Hub.Queue(["Typeset",MathJax.Hub,post]);
+    </script>
+    <style>.MathJax{outline:0;}</style>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML" async></script>
  
 
 	  <div class="typo post-content slideDownMin">
@@ -104,20 +124,34 @@
 		
 
 			
-					<script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
-<div id="hbe-security">
-  <div class="hbe-input-container">
-  <input type="password" class="hbe-form-control" id="pass" placeholder="Enter the password to continue.">
-    <label for="pass">Enter the password to continue.</label>
-    <div class="bottom-line"></div>
-  </div>
-</div>
-<div id="decryptionError" style="display: none;">Incorrect Password!</div>
-<div id="noContentError" style="display: none;">No content to display!</div>
-<div id="encrypt-blog" style="display:none">
-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
-</div>
-<script src="/lib/crypto-js.js"></script><script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">  	
+					<p><b>适用教材:A First Course in Abstract Algebra</b><br>如有疏漏，敬请指正</p>
+<a id="more"></a>
+<h2 id="偏序集"><a href="#偏序集" class="headerlink" title="偏序集"></a>偏序集</h2><p>一个集合$X$是偏序集，如果在其上有一个二元关系$x \preceq y$，且该关系满足对所有$x,y,z \in X$，有</p>
+<ul>
+<li>自反性：$x \preceq x$</li>
+<li>反对称性：若$x \preceq y$，且$y \preceq x$，那么$x=y$</li>
+<li>传递性：若$x \preceq y$且$y \preceq z$，那么$x \preceq z$</li>
+</ul>
+<p>若对于任意$a,b \in X$，必有$a \preceq b$或$b \preceq a$，则$X$是一个全序集</p>
+<h2 id="上下界"><a href="#上下界" class="headerlink" title="上下界"></a>上下界</h2><p>令$Y$是偏序集$X$的子集</p>
+<p>元素$u$是$Y$的上界，如果对于所有$a \in Y$，都有$a \preceq u$<br>如果对所有上界$v$都有$u \preceq v$，那么$u$是上确界</p>
+<p>下界及下确界也可以类似定义</p>
+<h2 id="格"><a href="#格" class="headerlink" title="格"></a>格</h2><p>格是一个偏序集$\mathcal{L}$，且满足$\mathcal{L}$中的每一对元素都有上确界和下确界</p>
+<p>$a,b \in \mathcal{L}$的上确界被称为$a$和$b$的并，记作$a \vee b$<br>$a,b \in \mathcal{L}$的下确界被称为$a$和$b$的交，记作$a \land b$</p>
+<h3 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h3><ul>
+<li>所有全序集都是格</li>
+<li>$U$是一个集合，定义$A \preceq B$为$A \subseteq B$，那么$\mathcal{P}(U)$是一个格，且$A \land B=A \cap B,A \vee B=A \cup B$</li>
+<li>若$G$是一个群，定义$\mathcal{L}=Sub(G)$是$G$的所有子群组成的集合，定义$A \preceq B$为$A \leq B$，即$A$是$B$的子群。那么$\mathcal{L}$是一个格，有$A \land B=A \cap B$，$A \vee B$是由$A \cup B$生成的子群</li>
+<li>$\lbrace \varnothing , \lbrace 0 \rbrace ,\lbrace 1 \rbrace \rbrace$是偏序集，但不是格</li>
+</ul>
+<h3 id="定理"><a href="#定理" class="headerlink" title="定理"></a>定理</h3><ul>
+<li>对偶性:若命题对于一个格为真，则将命题与格中的$\preceq$和$\succeq$，$\vee$和$\land$互换后，命题依然为真</li>
+<li>交换律:$a \vee b=b \vee a, a \land b=b \land a$</li>
+<li>结合律:$a \vee (b \vee c)=(a \vee b) \vee c, a \land (b \land c)=(a \land b) \land c$</li>
+<li>幂等律:$a \vee a=a,a \land a=a$</li>
+<li>吸收律:$a \vee (a \land b)=a,a \land (a \vee b)=a$</li>
+</ul>
+  	
 					
 	  </div>     
 	  
@@ -181,7 +215,7 @@ U2FsdGVkX1+/+iGiLEyhptUVacO/XA3pauXi/Wb/B9OQ7WhRENizUx0Dxv+8xwT40HVM1CxlBNacL74q
 
         
           <i class="iconfont icon-tag"></i>     
-            <a class="tag-link" href="/tags/Travel-Notes/">Travel Notes</a>    
+            <a class="tag-link" href="/tags/Abstract-Algebra/">Abstract Algebra</a>    
         	
   </div>
 
@@ -191,24 +225,16 @@ U2FsdGVkX1+/+iGiLEyhptUVacO/XA3pauXi/Wb/B9OQ7WhRENizUx0Dxv+8xwT40HVM1CxlBNacL74q
 <nav class="post-footer-nav">
   <div class="post-footer-link">
   
-      <a href="/2019/02/16/The-zeroth-blog/" id="post-nav-older" class="post-nav-link-wrap">
+      <a href="/2019/05/14/Abstract-Algebra-Homework-2/" id="post-nav-older" class="post-nav-link-wrap">
         <strong class="post-nav-caption">older</strong>
         
           <span class="post-nav-title">
-            The zeroth blog
+            (更新中)抽象代数习题--交换环部分
           </span>
       </a>
   
   </div>
   <div class="post-footer-link">
-    
-        <a href="/2019/03/01/Generate-codes-with-MATLAB-Coder/" id="post-nav-newer" class="post-nav-link-wrap">
-          <strong class="post-nav-caption">newer</strong>
-             
-            <span class="post-nav-title">
-              使用MATLAB Coder生成C/C++代码
-            </span>
-        </a>
     
   </div>
 
@@ -245,7 +271,7 @@ U2FsdGVkX1+/+iGiLEyhptUVacO/XA3pauXi/Wb/B9OQ7WhRENizUx0Dxv+8xwT40HVM1CxlBNacL74q
 				Contents
 			</p>
 			<div class="toc-list">
-				
+				<ol class="toc-inner"><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#偏序集"><span class="toc-inner-text">偏序集</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#上下界"><span class="toc-inner-text">上下界</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#格"><span class="toc-inner-text">格</span></a><ol class="toc-inner-child"><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#举例"><span class="toc-inner-text">举例</span></a></li><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#定理"><span class="toc-inner-text">定理</span></a></li></ol></li></ol>
 			</div>
 		</div>
 	</div>
