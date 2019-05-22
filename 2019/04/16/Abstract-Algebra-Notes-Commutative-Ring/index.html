@@ -90,7 +90,7 @@
 			
 			
 				<i class="iconfont icon-words"></i>
-				<span class="post-info-entry">11163
+				<span class="post-info-entry">11174
 				</span>
 			
 		</div>
@@ -313,7 +313,9 @@
 <li>一个首一的公约式$d(x)$是最大公约式，当且仅当$d(x)$能整除每一个公约式</li>
 <li>任何两个多项式$f(x)$和$g(x)$都有唯一的最大公约式</li>
 </ul>
-<h3 id="欧几里得算法"><a href="#欧几里得算法" class="headerlink" title="欧几里得算法"></a>欧几里得算法</h3><p>若$k$是一个域且$f(x),g(x) \in k[x]$，那么存在一个计算$gcd(f(x),g(x))$的算法，也存在一个计算最大公约式的线性组合表示的算法</p>
+<h3 id="欧几里得算法"><a href="#欧几里得算法" class="headerlink" title="欧几里得算法"></a>欧几里得算法</h3><p>若$k$是一个域且$f(x),g(x) \in k[x]$，那么存在一个计算$gcd(f(x),g(x))$的算法，也存在一个计算最大公约式的线性组合表示的算法<br>以下是伪代码实现：</p>
+<center><img src="https://mizunashi.me/image-hosting/blog/others/euclidean-algorithm-polynomial.png"></center>
+
 <h2 id="多项式的理想"><a href="#多项式的理想" class="headerlink" title="多项式的理想"></a>多项式的理想</h2><p>若$k$是一个域，那么$k[x]$上的每一个理想$I$都是主理想。若$I \neq 0$，那么有一个首一的多项式可以生成$I$<br>一个交换环$R$是一个主理想整环，如果$R$是一个整环，且在这个整环里每个理想都是主理想。主理想整环可以简写为PID(<b>principal ideal domain</b>)</p>
 <h2 id="不可约简项"><a href="#不可约简项" class="headerlink" title="不可约简项"></a>不可约简项</h2><p>交换环$R$上的元素$p$是不可约简项，若$p$既不是0也不是可逆元。如果在$R$上有$p=ab$，那么$a$或$b$是可逆元<br>若$k$是一个域，那么一个非常数多项式$p(x) \in k[x]$是不可约简项，当且仅当$p(x)$不能以$p(x)=f(x)g(x)$的形式被分解，其中$f(x)$和$g(x)$的次数均小于$p(x)$的次数，且$f(x)$和$g(x)$也是非常数多项式</p>
 <h2 id="欧氏环"><a href="#欧氏环" class="headerlink" title="欧氏环"></a>欧氏环</h2><p>交换环$R$是一个欧氏环当其为一个整环并且有一个函数</p>
