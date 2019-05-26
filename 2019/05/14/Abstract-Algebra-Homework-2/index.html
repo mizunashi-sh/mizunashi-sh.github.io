@@ -90,7 +90,7 @@
 			
 			
 				<i class="iconfont icon-words"></i>
-				<span class="post-info-entry">3681
+				<span class="post-info-entry">4065
 				</span>
 			
 		</div>
@@ -131,8 +131,9 @@
 <script type="math/tex; mode=display">a+b=b+a \quad \mathrm{and} \quad a+(b+c)=(a+b)+c</script><p>对于每一个$b \in S$，已知$-b \in S$<br>那么有$b-b=b+(-b)=0_{R}$<br>因此$(S,+)$是一个阿贝尔群<br>因为$S \subseteq R$，因此对任意$a,b,c \in S \subseteq R$，都有</p>
 <script type="math/tex; mode=display">a \cdot (b+c) = a \cdot b+a \cdot c \quad \mathrm{and} \quad (b+c) \cdot a=b \cdot a+c \cdot a</script><p>已知$a \cdot b \in S$<br>由于$S \subseteq R$，同理可得$(S, \cdot )$满足结合律<br>综上所述，环的子环也是环<br><b>(2)</b><br>设$R$是一个整环，$S$是其任意一个子环<br>那么有$1_{R} \in S$<br>且对任意$a,b \in S$，都有$a-b \in S, a \cdot b \in S$<br>因为$R$是交换环，所以$S$也是交换环<br>由于$1_{R} \in S$，则有$1_{R} - 1_{R} = 0_{R} \in S$<br>由整环定义可知$1_{R} \neq 0_{R} \in S$<br>因为$S \subseteq R$，因此对任意$a,b,c \in S \subseteq R$，若$c \cdot a= c \cdot b$，有</p>
 <script type="math/tex; mode=display">a=b</script><p>因此整环的子环是整环<br><b>(3)</b><br>域的子环不一定是域<br>例如，$\mathbb{R}$是域，$\mathbb{Z}$是$\mathbb{R}$的子环，但是$\mathbb{Z}$不是域，因为对部分$a \in \mathbb{Z}$，不存在$a^{-1} \in \mathbb{Z}$使得$a^{-1} \cdot a=1$</p>
-<h2 id="3"><a href="#3" class="headerlink" title="3"></a>3</h2><p><b>题目:</b><br>Show that $F=( \lbrace a+b \sqrt{2} : a,b \in \mathbb{Q} \rbrace, +, \cdot )$ is a field<br><b>解答:</b><br>待补充</p>
-<h2 id="4"><a href="#4" class="headerlink" title="4"></a>4</h2><p><b>题目:</b><br>If $R$ is an integral domain but not a field, and $S$ is a set satisfying $R \subset S \subset Frac(R)$, prove that $S$ is not a field.<br><b>解答:</b><br>易知，$R$上的运算定义在$Frac(R)$上有相同定义<br>因为$Frac(R)$是域，因此$Frac(R)$也是一个整环<br>假设存在域$S$，使得$R \subset S \subset Frac(R)$<br>则$S$也是一个整环，可得$Frac(R)$中的运算对$S$封闭<br>则对任意$a,b \in Frac(R)$，有$a,b \in S$<br>对任意$a+b,ab,a/b \in Frac(R)$，有$a,b \in S$<br>因此$Frac(R) \subseteq S$，与$S \subset Frac(R)$矛盾<br>综上:不存在域$S$，使得$R \subset S \subset Frac(R)$</p>
+<h2 id="3"><a href="#3" class="headerlink" title="3"></a>3</h2><p><b>题目:</b><br>Show that $F=( \lbrace a+b \sqrt{2} : a,b \in \mathbb{Q} \rbrace, +, \cdot )$ is a field<br><b>解答:</b><br>令$F$中的零元$0_{F}$为$0$，一元$1_{F}$为$1$<br>易知，$F$上定义的$+$和$\cdot$运算可交换，可结合且满足分配律<br>对每一个$p \in F$，不失一般性，令$p=x+y \sqrt{2}$<br>因此，存在$p’ = -x-y \sqrt{2} \in F$，使得$p’+p=0$<br>因此$F$是交换环<br>易知在$F$中$1_{F} \neq 0_{F}$<br>对每一个$p=x+y \sqrt{2} \neq 0 \in F$，存在</p>
+<script type="math/tex; mode=display">p^{-1}=\frac{x}{x^{2}-2y^{2}}-\frac{y}{x^{2}-2y^{2}} \sqrt{2} \in F</script><p>使得$p^{-1}p=1$<br>当$x = \sqrt{2} y$时，有$p=2y \sqrt{2}$，不符合定义<br>当$x=- \sqrt{2} y$时，有$p=0$，不符合定义<br>因此$x^{2}-2y^{2} \neq 0$<br>综上所述，$F$是一个域</p>
+<h2 id="4"><a href="#4" class="headerlink" title="4"></a>4</h2><p><b>题目:</b><br>If $R$ is an integral domain but not a field, and $S$ is a set satisfying $R \subset S \subset Frac(R)$, prove that $S$ is not a field.<br><b>解答:</b><br>易知，$R$上的运算定义在$Frac(R)$上有相同定义<br>因为$Frac(R)$是域，因此$Frac(R)$也是一个整环<br>假设存在域$S$，使得$R \subset S \subset Frac(R)$<br>则$S$也是一个整环，可得$Frac(R)$中的运算对$S$封闭<br>则对任意$a,b \in Frac(R)$，有$a,b \in S$<br>对任意$a+b,ab,a/b \in Frac(R)$，有$a+b,ab,a/b \in S$<br>因此$Frac(R) \subseteq S$，与$S \subset Frac(R)$矛盾<br>综上:不存在域$S$，使得$R \subset S \subset Frac(R)$</p>
 <h2 id="5"><a href="#5" class="headerlink" title="5"></a>5</h2><p><b>题目:</b><br>Show that if $R$ is a nonzero commutative ring, then $R[x]$ is not a field.<br><b>解答:</b><br>假设$R[x]$是一个域<br>令$a_{0}+a_{1}x+ \cdots +a_{n}x^{n} \in R[x]$<br>由$R[x]$是一个域，有$x \in R[x]$使得</p>
 <script type="math/tex; mode=display">x(a_{0}+a_{1}x+ \cdots +a_{n}x^{n})=1</script><p>即</p>
 <script type="math/tex; mode=display">0+a_{0}x+a_{1}x^{2}+ \cdots +a_{n}x^{n+1}=1+0x+0x^{2}+ \cdots +0x^{n+1}</script><p>可得$a_{0}=a_{1}= \cdots =a_{n}=0,0=1$，矛盾！<br>因此若$R$是一个非零交换环，则$R[x]$不是一个域</p>
@@ -301,7 +302,7 @@ f'(x)g(x)+f(x)g'(x)
 	<div class="toc-container">
 			<div class="toc-sidebar">
 			<p class="toc-title">
-				Contents
+				CONTENT
 			</p>
 			<div class="toc-list">
 				<ol class="toc-inner"><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#1"><span class="toc-inner-text">1</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#2"><span class="toc-inner-text">2</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#3"><span class="toc-inner-text">3</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#4"><span class="toc-inner-text">4</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#5"><span class="toc-inner-text">5</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#6"><span class="toc-inner-text">6</span></a></li></ol>
@@ -322,7 +323,7 @@ f'(x)g(x)+f(x)g'(x)
     
     <div class="search-container sildeUpMin">
         <div class="search-header">
-            <input type="text" placeholder="Typing Something here." id="search-input" class="search-input">
+            <input type="text" placeholder="输入你想搜索的" id="search-input" class="search-input">
             <span class="search-cancel">
                 <i class="iconfont icon-cancel">
             </i></span>
@@ -339,31 +340,31 @@ f'(x)g(x)+f(x)g'(x)
          
             
 
-            <a class="mobile-menu-link" href="/">Home
+            <a class="mobile-menu-link" href="/">首页
             </a>
             
          
             
 
-            <a class="mobile-menu-link" href="/archives">Archives
+            <a class="mobile-menu-link" href="/archives">归档
             </a>
             
          
             
 
-            <a class="mobile-menu-link" href="/tags">Tags
+            <a class="mobile-menu-link" href="/tags">标签
             </a>
             
          
             
 
-            <a class="mobile-menu-link" href="/about">About
+            <a class="mobile-menu-link" href="/about">关于
             </a>
             
          
                           
 
-            <a class="mobile-menu-link mobile-menu-search" href="#">Search </a>                 
+            <a class="mobile-menu-link mobile-menu-search" href="#">搜索 </a>                 
             
          
       
@@ -390,7 +391,7 @@ f'(x)g(x)+f(x)g'(x)
 		Mizunashi
         <br>
         
-        <a href="/about">About</a> | <a href="/sitemap.xml">Sitemap</a> | <a href="/changelog.html">Changelog</a> | 
+        <a href="/about">关于</a> | <a href="/sitemap.xml">网站地图</a> | <a href="/changelog.html">Changelog</a> | 
         <a href="/atom.xml">RSS</a>
 
         <br>
