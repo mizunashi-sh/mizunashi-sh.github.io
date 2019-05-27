@@ -90,7 +90,7 @@
 			
 			
 				<i class="iconfont icon-words"></i>
-				<span class="post-info-entry">1070
+				<span class="post-info-entry">1850
 				</span>
 			
 		</div>
@@ -150,6 +150,26 @@
 <li>结合律:$a \vee (b \vee c)=(a \vee b) \vee c, a \land (b \land c)=(a \land b) \land c$</li>
 <li>幂等律:$a \vee a=a,a \land a=a$</li>
 <li>吸收律:$a \vee (a \land b)=a,a \land (a \vee b)=a$</li>
+</ul>
+<h2 id="布尔代数"><a href="#布尔代数" class="headerlink" title="布尔代数"></a>布尔代数</h2><p><b>引理:</b>一个偏序集$X$可能会有</p>
+<ul>
+<li>最大元素$I$:对任何$a \in X$，有$a \preceq I$</li>
+<li>最小元素$O$:对任何$a \in X$，有$O \preceq a$</li>
+</ul>
+<p>如果一个配备了这样的$I$和$O$的格$L$满足:<br>对任何$a \in L$，存在$a’ \in L$，使得$a \vee a’=I$且$a \land a’=O$<br>则称$L$是有补的</p>
+<p>如果一个格$L$满足:<br>对任意$a,b,c \in L$，满足$a \land (b \vee c)=(a \land b) \vee (a \land c)$(将每个位置的$\vee$与$\land$互换亦可)<br>则称这个格满足分配律</p>
+<p><b>定义:</b>布尔代数是一个配备了最大元素$I$与最小元素$O$的格$B$，且$B$有补并满足分配律<br>一个偏序集$B$是布尔代数当且仅当其满足交换律，结合律，分配律，并配备最大元素$I$和最小元素$O$，且有补</p>
+<h3 id="举例-1"><a href="#举例-1" class="headerlink" title="举例"></a>举例</h3><ul>
+<li>集合$X$的幂集$\mathcal{P} (X)$是布尔代数</li>
+<li>配备了关系$\leq$的整数集$\lbrace 0,1,2,3,4 \rbrace$是一个格，但不是布尔代数，因为其不是有补的</li>
+</ul>
+<h3 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h3><p>若$B$是布尔代数，那么有</p>
+<ul>
+<li>对任意$a,b,c \in B$，若$a \vee b=a \vee c$且$a \land b=a \land c$，那么$b=c$</li>
+<li>对任意$a \in B$，$a’$唯一，且有$(a’)’=a$</li>
+<li>$I’=O$且$O’=I$</li>
+<li>$(a \vee b)’ = a’ \land b’$且$(a \land b)’=a’ \vee b’$</li>
+<li>$a \preceq b \Leftrightarrow a \land b’ = O \Leftrightarrow a’ \vee b =I$，它的等价表示为$\urcorner (a \preceq b) \Leftrightarrow a \land b’ \neq O \Leftrightarrow a’ \vee b \neq I$</li>
 </ul>
   	
 					
@@ -268,10 +288,10 @@
 	<div class="toc-container">
 			<div class="toc-sidebar">
 			<p class="toc-title">
-				Contents
+				目錄
 			</p>
 			<div class="toc-list">
-				<ol class="toc-inner"><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#偏序集"><span class="toc-inner-text">偏序集</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#上下界"><span class="toc-inner-text">上下界</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#格"><span class="toc-inner-text">格</span></a><ol class="toc-inner-child"><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#举例"><span class="toc-inner-text">举例</span></a></li><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#定理"><span class="toc-inner-text">定理</span></a></li></ol></li></ol>
+				<ol class="toc-inner"><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#偏序集"><span class="toc-inner-text">偏序集</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#上下界"><span class="toc-inner-text">上下界</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#格"><span class="toc-inner-text">格</span></a><ol class="toc-inner-child"><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#举例"><span class="toc-inner-text">举例</span></a></li><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#定理"><span class="toc-inner-text">定理</span></a></li></ol></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#布尔代数"><span class="toc-inner-text">布尔代数</span></a><ol class="toc-inner-child"><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#举例-1"><span class="toc-inner-text">举例</span></a></li><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#性质"><span class="toc-inner-text">性质</span></a></li></ol></li></ol>
 			</div>
 		</div>
 	</div>
@@ -289,7 +309,7 @@
     
     <div class="search-container sildeUpMin">
         <div class="search-header">
-            <input type="text" placeholder="Typing Something here." id="search-input" class="search-input">
+            <input type="text" placeholder="输入你想搜索的" id="search-input" class="search-input">
             <span class="search-cancel">
                 <i class="iconfont icon-cancel">
             </i></span>
@@ -306,31 +326,31 @@
          
             
 
-            <a class="mobile-menu-link" href="/">Home
+            <a class="mobile-menu-link" href="/">首頁
             </a>
             
          
             
 
-            <a class="mobile-menu-link" href="/archives">Archives
+            <a class="mobile-menu-link" href="/archives">歸檔
             </a>
             
          
             
 
-            <a class="mobile-menu-link" href="/tags">Tags
+            <a class="mobile-menu-link" href="/tags">標籤
             </a>
             
          
             
 
-            <a class="mobile-menu-link" href="/about">About
+            <a class="mobile-menu-link" href="/about">關於
             </a>
             
          
                           
 
-            <a class="mobile-menu-link mobile-menu-search" href="#">Search </a>                 
+            <a class="mobile-menu-link mobile-menu-search" href="#">搜索 </a>                 
             
          
       
@@ -357,7 +377,7 @@
 		Mizunashi
         <br>
         
-        <a href="/about">About</a> | <a href="/sitemap.xml">Sitemap</a> | <a href="/changelog.html">Changelog</a> | 
+        <a href="/about">關於</a> | <a href="/sitemap.xml">網站地圖</a> | <a href="/changelog.html">Changelog</a> | 
         <a href="/atom.xml">RSS</a>
 
         <br>
