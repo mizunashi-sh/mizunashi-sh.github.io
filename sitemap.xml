@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://mizunashi.me//changelog.html</loc>
+    
+    <lastmod>2019-05-27T13:32:04.169Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://mizunashi.me/guestbook/index.html</loc>
     
     <lastmod>2019-05-27T13:01:58.010Z</lastmod>
@@ -54,13 +61,6 @@
     <loc>https://mizunashi.me/2019/04/14/RSS-Collections/</loc>
     
     <lastmod>2019-04-14T15:59:00.301Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://mizunashi.me//changelog.html</loc>
-    
-    <lastmod>2019-04-14T05:41:22.891Z</lastmod>
     
   </url>
   
