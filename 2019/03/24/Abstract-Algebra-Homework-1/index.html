@@ -108,7 +108,7 @@
 			
 			
 				<i class="iconfont icon-words"></i>
-				<span class="post-info-entry">8171
+				<span class="post-info-entry">8175
 				</span>
 			
 		</div>
@@ -254,7 +254,7 @@ f(a) \ast f(b)= \frac{1}{2+(1+e^{-a})(1+e^{-b})-(1+e^{-a})-(1+e^{-b})}= \frac{1}
 <li>HK is a subgroup iff HK=KH </li>
 <li>If G is an abelian group, and $H \cap K= \lbrace 1 \rbrace$ , then $HK \cong H \times K$</li>
 </ol>
-<p><b>解答：</b><br><b>(1)</b><br>若$HK &lt; G$，下证$HK=KH$<br>对任意$h \in H, k \in K$，有$(kh)^{-1} = h^{-1}k^{-1} \in HK$<br>由$HK &lt; G$之$HK$对逆元封闭，所以$kh=(h^{-1}k^{-1})^{-1} \in HK$<br>由$kh$的任意性，$KH \subset HK$<br>对任意$h \in H, k \in K$，由$HK &lt; G$知$k^{-1} h^{-1} \in HK$<br>特别地，存在$x \in H, y \in K, xy=k^{-1}h^{-1}$<br>两边同时取逆，$hk=y^{-1}x^{-1} \in KH$，由$hk$的任意性知$HK \subset KH$<br>因此$HK=KH$<br>若$HK = KH$，下证$HK &lt; G$<br>对于任意$h_{1}k_{1},h_{2}k_{2} \in HK$，有$h_{1}k_{1}(h_{2}k_{2})^{-1}=h_{1}k_{1}k_{2}^{-1}h_{2}^{-1}$<br>由$HK = KH$知，存在$h \in H, k \in K$使得$hk=k_{1}k_{2}^{-1}h_{2}^{-1}$<br>所以$h_{1}k_{1}(h_{2}k_{2})^{-1}=h_{1}hk \in HK$<br>特别地，$HK &lt; G$<br>综上，$HK$是子群当且仅当$HK=KH$<br><b>(2)</b><br>因为$G$是一个阿贝尔群<br>所以$H$和$K$都是$G$的正规子群<br>若$hk=h’k’$，那么$h’^{-1}h=k’k^{-1} \in H \cap K = \lbrace 1 \rbrace$<br>因此$h’=h,k’=k$<br>令$g=hk \in G=HK,h \in H,k \in K$<br>定义函数$\varphi : G \to H \times K$，其中$\varphi (g)=(h,k)$<br>令$g’=h’k’$，那么$gg’=hkh’k’=hh’kk’$<br>因此</p>
+<p><b>解答：</b><br><b>(1)</b><br>若$HK &lt; G$，下证$HK=KH$<br>对任意$h \in H, k \in K$，有$(kh)^{-1} = h^{-1}k^{-1} \in HK$<br>由$HK &lt; G$之$HK$对逆元封闭，所以$kh=(h^{-1}k^{-1})^{-1} \in HK$<br>由$kh$的任意性，$KH \subseteq HK$<br>对任意$h \in H, k \in K$，由$HK &lt; G$知$k^{-1} h^{-1} \in HK$<br>特别地，存在$x \in H, y \in K, xy=k^{-1}h^{-1}$<br>两边同时取逆，$hk=y^{-1}x^{-1} \in KH$，由$hk$的任意性知$HK \subseteq KH$<br>因此$HK=KH$<br>若$HK = KH$，下证$HK &lt; G$<br>对于任意$h_{1}k_{1},h_{2}k_{2} \in HK$，有$h_{1}k_{1}(h_{2}k_{2})^{-1}=h_{1}k_{1}k_{2}^{-1}h_{2}^{-1}$<br>由$HK = KH$知，存在$h \in H, k \in K$使得$hk=k_{1}k_{2}^{-1}h_{2}^{-1}$<br>所以$h_{1}k_{1}(h_{2}k_{2})^{-1}=h_{1}hk \in HK$<br>特别地，$HK &lt; G$<br>综上，$HK$是子群当且仅当$HK=KH$<br><b>(2)</b><br>因为$G$是一个阿贝尔群<br>所以$H$和$K$都是$G$的正规子群<br>若$hk=h’k’$，那么$h’^{-1}h=k’k^{-1} \in H \cap K = \lbrace 1 \rbrace$<br>因此$h’=h,k’=k$<br>令$g=hk \in G=HK,h \in H,k \in K$<br>定义函数$\varphi : G \to H \times K$，其中$\varphi (g)=(h,k)$<br>令$g’=h’k’$，那么$gg’=hkh’k’=hh’kk’$<br>因此</p>
 <script type="math/tex; mode=display">\varphi (gg') = \varphi (hkh'k')=\varphi(hh'kk') = (hh',kk')=(h,k)(h',k')= \varphi(g) \varphi(g')</script><p>因此函数$\varphi$是一个同态<br>由于$K$是一个正规子群，那么有$(hkh^{-1})k^{-1} \in K$<br>由于$H$是一个正规子群，那么有$h(kh^{-1}k^{-1}) \in H$<br>但因为$H \cap K = \lbrace 1 \rbrace$，所以$hkh^{-1}k^{-1}=1$且$hk=kh$<br>若$(h,k) \in H \times K$，那么$\varphi (h)=(h,k)$<br>因此$\varphi$满射<br>若$\varphi (g)=(1,1)$，那么$g=1$<br>因此$\mathbf{ker} \varphi =1$，$\varphi$单射<br>综上所述，$\varphi$是一个同构，即可得$HK \cong H \times K$</p>
   	
 					
@@ -381,7 +381,7 @@ f(a) \ast f(b)= \frac{1}{2+(1+e^{-a})(1+e^{-b})-(1+e^{-a})-(1+e^{-b})}= \frac{1}
 	<div class="toc-container">
 			<div class="toc-sidebar">
 			<p class="toc-title">
-				CONTENT
+				Contents
 			</p>
 			<div class="toc-list">
 				<ol class="toc-inner"><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#1"><span class="toc-inner-text">1</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#2"><span class="toc-inner-text">2</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#3"><span class="toc-inner-text">3</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#4"><span class="toc-inner-text">4</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#5"><span class="toc-inner-text">5</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#6"><span class="toc-inner-text">6</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#7"><span class="toc-inner-text">7</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#8"><span class="toc-inner-text">8</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#9"><span class="toc-inner-text">9</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#10"><span class="toc-inner-text">10</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#11"><span class="toc-inner-text">11</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#12"><span class="toc-inner-text">12</span></a></li></ol>
@@ -402,7 +402,7 @@ f(a) \ast f(b)= \frac{1}{2+(1+e^{-a})(1+e^{-b})-(1+e^{-a})-(1+e^{-b})}= \frac{1}
     
     <div class="search-container sildeUpMin">
         <div class="search-header">
-            <input type="text" placeholder="输入你想搜索的" id="search-input" class="search-input">
+            <input type="text" placeholder="Typing Something here." id="search-input" class="search-input">
             <span class="search-cancel">
                 <i class="iconfont icon-cancel">
             </i></span>
@@ -419,37 +419,37 @@ f(a) \ast f(b)= \frac{1}{2+(1+e^{-a})(1+e^{-b})-(1+e^{-a})-(1+e^{-b})}= \frac{1}
          
             
 
-            <a class="mobile-menu-link" href="/">首页
+            <a class="mobile-menu-link" href="/">Home
             </a>
             
          
             
 
-            <a class="mobile-menu-link" href="/archives">归档
+            <a class="mobile-menu-link" href="/archives">Archives
             </a>
             
          
             
 
-            <a class="mobile-menu-link" href="/tags">标签
+            <a class="mobile-menu-link" href="/tags">Tags
             </a>
             
          
             
 
-            <a class="mobile-menu-link" href="/about">关于
+            <a class="mobile-menu-link" href="/about">About
             </a>
             
          
             
 
-            <a class="mobile-menu-link" href="/guestbook">留言板
+            <a class="mobile-menu-link" href="/guestbook">Guestbook
             </a>
             
          
                           
 
-            <a class="mobile-menu-link mobile-menu-search" href="#">搜索 </a>                 
+            <a class="mobile-menu-link mobile-menu-search" href="#">Search </a>                 
             
          
       
@@ -476,7 +476,7 @@ f(a) \ast f(b)= \frac{1}{2+(1+e^{-a})(1+e^{-b})-(1+e^{-a})-(1+e^{-b})}= \frac{1}
 		Mizunashi&#39;s Blog
         <br>
         
-        <a href="/about">关于</a> | <a href="/sitemap.xml">网站地图</a> | <a href="/privacy.html">Privacy Policy</a> | 
+        <a href="/about">About</a> | <a href="/sitemap.xml">Sitemap</a> | <a href="/privacy.html">Privacy Policy</a> | 
         <a href="/changelog.html">Changelog</a> | <a href="/atom.xml">RSS</a>
 
         <br>
