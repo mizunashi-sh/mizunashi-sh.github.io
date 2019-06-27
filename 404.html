@@ -54,5 +54,13 @@
     <p>The requested contents <b><script type="text/javascript">document.write(window.location.pathname)</script></b> were not found.</p>
     <p>This is all we know.</p>
     <br />
+    <script type="application/javascript">
+        function getip(json){
+            document.write("Your IP address is: <b>", json.ip,"</b>");
+        }
+    </script>
+        
+    <script type="application/javascript" src="https://api.ip.sb/jsonip?callback=getip"></script>
+    <br />
     <i><script type="text/javascript">document.write(Date())</script></i>
 </body>
