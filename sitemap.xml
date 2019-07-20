@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://mizunashi.me/about/index.html</loc>
+    
+    <lastmod>2019-07-20T12:03:01.964Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://mizunashi.me/2019/07/05/2019-ECNU-Math-Modelling-Contest/</loc>
     
     <lastmod>2019-07-05T16:02:19.029Z</lastmod>
@@ -54,13 +61,6 @@
     <loc>https://mizunashi.me/2019/05/14/Abstract-Algebra-Homework-2/</loc>
     
     <lastmod>2019-05-27T06:18:42.240Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://mizunashi.me/about/index.html</loc>
-    
-    <lastmod>2019-05-12T03:02:51.817Z</lastmod>
     
   </url>
   
