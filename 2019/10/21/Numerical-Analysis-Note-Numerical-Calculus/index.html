@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=yes">
   
   
-  <title>  (更新中)数值分析学习笔记--数值积分与数值微分 |   Mizunashi&#39;s Blog </title>
+  <title>  数值分析学习笔记--数值积分与数值微分 |   Mizunashi&#39;s Blog </title>
 
  
   
@@ -98,7 +98,7 @@
 <div class="post-header">
 	<div class="post-header-inner">
 		<p class="post-title">	
-			(更新中)数值分析学习笔记--数值积分与数值微分
+			数值分析学习笔记--数值积分与数值微分
 		</p>
 		<div class="post-info">	
 			<span class="post-info-entry">
@@ -108,7 +108,7 @@
 			
 			
 				<i class="iconfont icon-words"></i>
-				<span class="post-info-entry">6382
+				<span class="post-info-entry">7575
 				</span>
 			
 		</div>
@@ -176,8 +176,9 @@
 <p>其几何意义是用过3点的抛物线面积近似代替积分的曲边面积。</p>
 <p>Simpson公式具有三阶代数精度。</p>
 <p>Simpson积分公式的误差为</p>
-<script type="math/tex; mode=display">E_2(f)=-\frac{f^{(4)}(\eta)}{2880} (b-a)^5,a \leq \eta \leq b</script><h3 id="Newton-Cotes积分系数"><a href="#Newton-Cotes积分系数" class="headerlink" title="Newton-Cotes积分系数"></a>Newton-Cotes积分系数</h3><p>记</p>
-<script type="math/tex; mode=display">c_i^{(n)}=\frac{(-1)^{n-i}}{i!(n-i)!n} \int_{0}^{n} t(t-1) \cdots (t-i+1)(t-i-1) \cdots (t-n) dt</script><p>为Newton-Cotes系数。在取等距节点时，$c_i^{(n)}$与积分节点和积分区间无直接关系，只与插值的节点总数有关。</p>
+<script type="math/tex; mode=display">E_2(f)=-\frac{f^{(4)}(\eta)}{2880} (b-a)^5,a \leq \eta \leq b</script><h3 id="Newton-Cotes积分系数"><a href="#Newton-Cotes积分系数" class="headerlink" title="Newton-Cotes积分系数"></a>Newton-Cotes积分系数</h3><p>构造插值函数$L_n(x)$，得</p>
+<script type="math/tex; mode=display">\int_{a}^{b}L_n(x)dx=\sum_{i=0}^{n} \alpha_i f(x_i)</script><p>记</p>
+<script type="math/tex; mode=display">\alpha_i=(b-a)c_i^{(n)}</script><script type="math/tex; mode=display">c_i^{(n)}=\frac{(-1)^{n-i}}{i!(n-i)!n} \int_{0}^{n} t(t-1) \cdots (t-i+1)(t-i-1) \cdots (t-n) dt</script><p>为Newton-Cotes系数。在取等距节点时，$c_i^{(n)}$与积分节点和积分区间无直接关系，只与插值的节点总数有关。</p>
 <p>Newton-Cotes积分系数$\lbrace c_k^{(n)},k=0,1, \cdots ,n \rbrace$，当$n \leq 7$时数值积分公式$I_n(f)=(b-a) \sum_{k=0}^{n} c_k^{(n)}f(x_k)$是稳定的。</p>
 <h2 id="复化数值积分"><a href="#复化数值积分" class="headerlink" title="复化数值积分"></a>复化数值积分</h2><h3 id="复化梯形积分"><a href="#复化梯形积分" class="headerlink" title="复化梯形积分"></a>复化梯形积分</h3><p>复化梯形积分是计算数值积分的最朴素方法。</p>
 <p>对$[a,b]$作等距分割，$h=\frac{b-a}{n}$，$\lbrace x_i=a+ih,i=0,1, \cdots ,n \rbrace$，记$n$等分的复化梯形公式为$T_n(f)$，则</p>
@@ -228,7 +229,19 @@
 <script type="math/tex; mode=display">\alpha_{i}^{(n)}=\int_{-1}^{1}\frac{(x-x_1^{(n)}) \cdots (x-x_{i-1}^{(n)})(x-x_{i+1}^{(n)}) \cdots (x-x_n^{(n)})}{(x_i^{(n)}-x_1^{(n)}) \cdots (x_i^{(n)}-x_{i-1}^{(n)})(x_i^{(n)}-x_{i+1}^{(n)}) \cdots (x_i^{(n)}-x_n^{(n)})}dx</script><p>对于一般的数值积分$I(f)=\int_{a}^{b} f(x)dx$，Gauss积分公式可由线性代换获得，即</p>
 <script type="math/tex; mode=display">G_n(f)=\frac{b-a}{2} \sum_{i=1}^n \alpha_{i}^{(n)} f \left( \frac{(a+b)+(b-a)x_i^{(n)}}{2} \right)</script><p>$x_i^{(n)}$和$\alpha_i^{(n)}$可以通过查表获得。</p>
 <p>Gauss型积分具有较好的性质，比如说高阶公式的稳定性质。</p>
-  	
+<h2 id="数值微分"><a href="#数值微分" class="headerlink" title="数值微分"></a>数值微分</h2><p>在数值计算中，导数用差商作为近似值。最简单的计算方法是用函数的差商近似函数的导数，即取极限的近似值。<br>以下是三种差商形式的数值微分公式以及相应的截断误差：</p>
+<ul>
+<li>向前差商<br>用向前差商近似导数有<script type="math/tex; mode=display">f'(x_0) \approx \frac{f(x_0+h)-f(x_0)}{h}</script>用泰勒展开可得截断误差$R(x)=-\frac{h}{2}f’’(\xi)=O(h)$</li>
+<li>向后差商<br>用向后差商近似导数有<script type="math/tex; mode=display">f'(x)=\frac{f(x_0)-f(x_0-h)}{h}</script>截断误差为$R(x)=O(h)$</li>
+<li>中心差商<br>用中心差商近似导数有<script type="math/tex; mode=display">f'(x)=\frac{f(x_0+h)-f(x_0-h)}{2h}</script>截断误差为$R(x)=-\frac{h^2}{6}f’’’(\xi)=O(h^2)$</li>
+</ul>
+<p>差商$\frac{f(x_0+h)-f(x_0)}{h}$表示过$(x_0,f(x_0))$和$(x_0+h,f(x_0+h))$两点直线的斜率，用近似值内接弦的斜率代替准确值切线的斜率。</p>
+<h3 id="设定最佳步长"><a href="#设定最佳步长" class="headerlink" title="设定最佳步长"></a>设定最佳步长</h3><p>在计算数值导数时，误差由截断误差与舍入误差组成。如果通过误差表达式确定步长，则可行性较差。因此，通常用事后估计的方法选取步长。</p>
+<p>例如，记$D(h,x),D \left( \frac{h}{2},x \right)$为步长为$h,\frac{h}{2}$的差商计算公式$f’(x)$，给定误差界$\epsilon$，当$| D(h,x)-D \left( \frac{h}{2},x \right)|&lt;\epsilon$时，步长$h$就是最合适的步长。</p>
+<h3 id="插值型数值微分"><a href="#插值型数值微分" class="headerlink" title="插值型数值微分"></a>插值型数值微分</h3><p>设$\lbrace x_i,i=0,1, \cdots ,n \rbrace$为$[a,b]$上的节点，给定$\lbrace(x_i,f(x_i)),i=0,1, \cdots ,n \rbrace$。以$(x_i,f(x_i))$为插值点构造插值多项式并近似导数。</p>
+<script type="math/tex; mode=display">f(x)=L_n(x)=\sum_{i=0}^nl_i(x)f(x_i)</script><script type="math/tex; mode=display">f'(x)=L_n'(x)=\sum_{i=0}^nl_i'(x)f(x_i)</script><p>当$x=x_j$时，$f’(x_j)=L_n’(x)=\sum_{i=0}^nl_i’(x_j)f(x_i),j=0,1,\cdots,n$</p>
+<p>误差项为</p>
+<script type="math/tex; mode=display">R(x)=\frac{d}{dx}\left(\frac{f^{(n+1)}(\xi)}{(n+1)!} \prod_{i=0}^{n}(x-x_i) \right)</script><script type="math/tex; mode=display">R(x_j)=\prod_{i=0 \; \mathrm{and} \; i \neq j}^{n} (x_j-x_i) \frac{f^{(n+1)}(\xi)}{(n+1)!}</script>  	
 					
 	  </div>     
 	  
@@ -347,7 +360,7 @@
 				Contents
 			</p>
 			<div class="toc-list">
-				<ol class="toc-inner"><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#绪论"><span class="toc-inner-text">绪论</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#插值型数值积分"><span class="toc-inner-text">插值型数值积分</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#牛顿-柯特斯积分"><span class="toc-inner-text">牛顿-柯特斯积分</span></a><ol class="toc-inner-child"><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#梯形积分"><span class="toc-inner-text">梯形积分</span></a></li><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#Simpson积分"><span class="toc-inner-text">Simpson积分</span></a></li><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#Newton-Cotes积分系数"><span class="toc-inner-text">Newton-Cotes积分系数</span></a></li></ol></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#复化数值积分"><span class="toc-inner-text">复化数值积分</span></a><ol class="toc-inner-child"><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#复化梯形积分"><span class="toc-inner-text">复化梯形积分</span></a></li><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#复化Simpson积分"><span class="toc-inner-text">复化Simpson积分</span></a></li><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#自动误差控制"><span class="toc-inner-text">自动误差控制</span></a></li><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#Romberg积分"><span class="toc-inner-text">Romberg积分</span></a></li></ol></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#重积分计算"><span class="toc-inner-text">重积分计算</span></a><ol class="toc-inner-child"><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#二重积分的复化梯形公式"><span class="toc-inner-text">二重积分的复化梯形公式</span></a></li><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#二重积分的复化Simpson公式"><span class="toc-inner-text">二重积分的复化Simpson公式</span></a></li></ol></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#Gauss型积分"><span class="toc-inner-text">Gauss型积分</span></a><ol class="toc-inner-child"><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#Legendre多项式"><span class="toc-inner-text">Legendre多项式</span></a></li><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#Gauss-Legendre积分"><span class="toc-inner-text">Gauss-Legendre积分</span></a></li></ol></li></ol>
+				<ol class="toc-inner"><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#绪论"><span class="toc-inner-text">绪论</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#插值型数值积分"><span class="toc-inner-text">插值型数值积分</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#牛顿-柯特斯积分"><span class="toc-inner-text">牛顿-柯特斯积分</span></a><ol class="toc-inner-child"><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#梯形积分"><span class="toc-inner-text">梯形积分</span></a></li><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#Simpson积分"><span class="toc-inner-text">Simpson积分</span></a></li><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#Newton-Cotes积分系数"><span class="toc-inner-text">Newton-Cotes积分系数</span></a></li></ol></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#复化数值积分"><span class="toc-inner-text">复化数值积分</span></a><ol class="toc-inner-child"><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#复化梯形积分"><span class="toc-inner-text">复化梯形积分</span></a></li><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#复化Simpson积分"><span class="toc-inner-text">复化Simpson积分</span></a></li><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#自动误差控制"><span class="toc-inner-text">自动误差控制</span></a></li><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#Romberg积分"><span class="toc-inner-text">Romberg积分</span></a></li></ol></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#重积分计算"><span class="toc-inner-text">重积分计算</span></a><ol class="toc-inner-child"><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#二重积分的复化梯形公式"><span class="toc-inner-text">二重积分的复化梯形公式</span></a></li><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#二重积分的复化Simpson公式"><span class="toc-inner-text">二重积分的复化Simpson公式</span></a></li></ol></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#Gauss型积分"><span class="toc-inner-text">Gauss型积分</span></a><ol class="toc-inner-child"><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#Legendre多项式"><span class="toc-inner-text">Legendre多项式</span></a></li><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#Gauss-Legendre积分"><span class="toc-inner-text">Gauss-Legendre积分</span></a></li></ol></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#数值微分"><span class="toc-inner-text">数值微分</span></a><ol class="toc-inner-child"><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#设定最佳步长"><span class="toc-inner-text">设定最佳步长</span></a></li><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#插值型数值微分"><span class="toc-inner-text">插值型数值微分</span></a></li></ol></li></ol>
 			</div>
 		</div>
 	</div>
