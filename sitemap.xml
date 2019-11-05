@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://mizunashi.me/about/index.html</loc>
+    
+    <lastmod>2019-11-05T14:13:29.786Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://mizunashi.me/2019/10/28/Numerical-Analysis-Note-LeastSquare/</loc>
     
     <lastmod>2019-10-28T08:29:41.156Z</lastmod>
@@ -26,13 +33,6 @@
     <loc>https://mizunashi.me/2019/10/02/Numerical-Analysis-Note-Interpolation/</loc>
     
     <lastmod>2019-10-09T15:07:02.178Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://mizunashi.me/about/index.html</loc>
-    
-    <lastmod>2019-07-22T14:57:52.000Z</lastmod>
     
   </url>
   
