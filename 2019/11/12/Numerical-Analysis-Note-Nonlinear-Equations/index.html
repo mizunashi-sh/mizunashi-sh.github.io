@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=yes">
   
   
-  <title>  在罗店 |   Mizunashi&#39;s Blog </title>
+  <title>  数值分析学习笔记--非线性方程求解 |   Mizunashi&#39;s Blog </title>
 
  
   
@@ -98,23 +98,43 @@
 <div class="post-header">
 	<div class="post-header-inner">
 		<p class="post-title">	
-			在罗店
+			数值分析学习笔记--非线性方程求解
 		</p>
 		<div class="post-info">	
 			<span class="post-info-entry">
-				Feb 28, 2019
+				Nov 12, 2019
 			</span>
 
 			
 			
 				<i class="iconfont icon-words"></i>
-				<span class="post-info-entry">4877
+				<span class="post-info-entry">1932
 				</span>
 			
 		</div>
 	</div>
 </div> 
 	
+
+    <script type="text/x-mathjax-config">
+        var post = document.getElementsByClassName("post")[0];  
+        MathJax.Hub.Config({
+            showProcessingMessages: false,
+            messageStyle: "none",    
+            tex2jax: {
+                inlineMath:  [ ["$", "$"] , ["\\(","\\)"]],
+                displayMath: [ ["$$","$$"] , ["\\[","\\]"]],
+                skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code','a'],
+            },
+            "HTML-CSS": {            
+                showMathMenu: false
+            }
+        });
+        MathJax.Hub.Queue(["Typeset",MathJax.Hub,post]);
+    </script>
+    <style>.MathJax{outline:0;}</style>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML" async></script>
  
 
 	  <div class="typo post-content slideDownMin">
@@ -122,20 +142,46 @@
 		
 
 			
-					<script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
-<div id="hbe-security">
-  <div class="hbe-input-container">
-  <input type="password" class="hbe-form-control" id="pass" placeholder="Enter the password to continue.">
-    <label for="pass">Enter the password to continue.</label>
-    <div class="bottom-line"></div>
-  </div>
-</div>
-<div id="decryptionError" style="display: none;">Incorrect Password!</div>
-<div id="noContentError" style="display: none;">No content to display!</div>
-<div id="encrypt-blog" style="display:none">
-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
-</div>
-<script src="/lib/crypto-js.js"></script><script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">  	
+					<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Cosine_fixed_point.svg/500px-Cosine_fixed_point.svg.png" alt></p>
+<blockquote>
+<p>不动点迭代</p>
+</blockquote>
+<a id="more"></a>
+<p>如有疏漏，敬请指正。</p>
+<p>对于非线性方程，我们往往可以通过迭代法计算其近似数值解。由于非线性方程的根一般不止一个。因此在求解非线性方程时，要给定初始值或求解范围。</p>
+<h2 id="二分迭代"><a href="#二分迭代" class="headerlink" title="二分迭代"></a>二分迭代</h2><p>二分迭代是一个很简单直观的非线性方程求解算法，其理论基础是介值定理，即设函数$f(x)$在$[a,b]$上连续，且$f(a)f(b)&lt;0$，则$f(x)$在$[a,b]$上至少有一个零点。在计算中，可以通过对分区间，缩小区间范围来搜索零点。</p>
+<p>在实务中，常用$sgn(f(a)) \cdot sgn(f(x))&gt;0$替代$f(a) \cdot f(x)&gt;0$，以避免数值溢出。</p>
+<p>对分法算法较为简单，但是需要注意的是，即使$f(x)$在$[a,b]$上有零点，也未必有$f(a)f(b)&lt;0$，这限制了对分法的使用范围。</p>
+<h2 id="不动点迭代法"><a href="#不动点迭代法" class="headerlink" title="不动点迭代法"></a>不动点迭代法</h2><p>对于给定的方程$f(x)=0$，可以将其转化为等价形式$x=\varphi (x)$。给定初值$x_0$，由此构造迭代序列$x_{k+1}=\varphi(x_k),k=1,2, \cdots$，若$\varphi(x)$连续且迭代收敛，即</p>
+<script type="math/tex; mode=display">\lim_{k \to \infty} x_{k+1}=\lim_{k \to \infty} \varphi(x_k)=\alpha</script><p>则有$\alpha = \varphi (\alpha)$，而$\alpha$就是方程$f(x)=0$的根。</p>
+<p>若$\varphi$定义在$[a,b]$上，如果$\varphi$满足</p>
+<ul>
+<li>当$x \in [a,b]$时有$a \leq \varphi(x) \leq b$</li>
+<li>$\varphi (x)$在$[a,b]$上可导，且存在正数$L&lt;1$，使得对任意的$x \in [a,b]$，有$| \varphi(x) | \leq L$</li>
+</ul>
+<p>则在$[a,b]$上有唯一的点$x^<em>$满足$x^</em>=\varphi(x^<em>)$，称$x^</em>$为$\varphi(x)$的不动点。迭代格式$x_{k+1}=\varphi(x_k)$对任意初值$x_0 \in [a,b]$均收敛于$x^*$，误差估计式为</p>
+<script type="math/tex; mode=display">| x^*-x_k | \leq \frac{L^k}{1-L} |x_1-x_0|</script><p>构造收敛迭代格式，有两个要素：</p>
+<ul>
+<li>等价形式$x=\varphi (x)$应该满足$| \varphi (x^*) |&lt;1$</li>
+<li>初值必须取自$x^*$的充分小邻域，这个邻域大小决定于函数$f(x)$以及等价形式$x = \varphi (x)$</li>
+</ul>
+<h2 id="牛顿迭代"><a href="#牛顿迭代" class="headerlink" title="牛顿迭代"></a>牛顿迭代</h2><p>牛顿迭代是一种常用的不动点迭代方式。</p>
+<p>首先，对$f(x)$在$x_0$进行泰勒展开，有</p>
+<script type="math/tex; mode=display">f(x)=f(x_0)+f'(x_0)(x-x_0)+\frac{f''(x_0)}{2!} (x-x_0)^2 + \cdots</script><p>取上式线性部分作为$f(x) \approx 0$的近似值，有</p>
+<script type="math/tex; mode=display">x_1=x_0-\frac{f(x_0)}{f'(x_0)}</script><p>其中我们设$f’(x_0) \neq 0$。</p>
+<p>一直迭代下去，可得</p>
+<script type="math/tex; mode=display">x_{k+1}=x_k-\frac{f(x_k)}{f'(x_k)}</script><p>对应于$f(x)=0$的Newton迭代方程是$\varphi (x)=x-\frac{f(x)}{f’(x)}$</p>
+<script type="math/tex; mode=display">\varphi '(x)=\frac{f(x)f''(x)}{(f'(x))^2}</script><p>若$\alpha$是$f(x)$的单根，有$| \varphi ‘ (\alpha) |=0$，且只要初值$x_0$充分接近$\alpha$，就有$| \varphi ‘ (x_0) |&lt;1$，牛顿迭代收敛。</p>
+<p>如果存在$M&gt;0$，使得</p>
+<script type="math/tex; mode=display">\lim_{k \to \infty} \frac{|e_{k+1}|}{|e_k|^n}=\lim_{k \to \infty} \frac{|x_{k+1}- \alpha|}{|x_k - \alpha|^n}=M</script><p>那么记迭代收敛的阶为n。</p>
+<p>分析可知，牛顿迭代是二阶迭代方法。</p>
+<p>若$\alpha$是$f(x)$的p重根，以下迭代格式是二阶方法</p>
+<script type="math/tex; mode=display">x_{k+1}=x_k-p\frac{f(x_k)}{f'(x_k)},k=1,2, \cdots</script><p>牛顿迭代格式的收敛与否和初始值密切相关，当初始值在某根附近时迭代才能收敛到这个根。</p>
+<p>如果方程没有实数根，那么迭代也不收敛。</p>
+<h2 id="弦截法"><a href="#弦截法" class="headerlink" title="弦截法"></a>弦截法</h2><p>在牛顿迭代格式中，用差商替代导数，并且给定两个初始值$x_0$和$x_1$，得到弦截法的迭代格式：</p>
+<script type="math/tex; mode=display">x_{k+1}=x_k-\frac{f(x_k)(x_k-x_{k-1})}{f(x_k)-f(x_{k-1})},k=1,2, \cdots</script><p>使用这个方法迭代求根，每次只需计算一次函数值，但这个方法的迭代速度慢于牛顿迭代法。</p>
+<p>弦截法为1.618阶迭代方法。</p>
+  	
 					
 	  </div>     
 	  
@@ -199,7 +245,7 @@ U2FsdGVkX1+iZbszojOGeVOmJIVAt7OyqEU3dM1WOYwjgtSR9/um2BSeabRcDVVKCafDsxMnJToAizNs
 
         
           <i class="iconfont icon-tag"></i>     
-            <a class="tag-link" href="/tags/Travel-Notes/">Travel Notes</a>    
+            <a class="tag-link" href="/tags/Numerical-Analysis/">Numerical Analysis</a>    
         	
   </div>
 
@@ -209,24 +255,16 @@ U2FsdGVkX1+iZbszojOGeVOmJIVAt7OyqEU3dM1WOYwjgtSR9/um2BSeabRcDVVKCafDsxMnJToAizNs
 <nav class="post-footer-nav">
   <div class="post-footer-link">
   
-      <a href="/2019/02/16/The-zeroth-blog/" id="post-nav-older" class="post-nav-link-wrap">
+      <a href="/2019/10/28/Numerical-Analysis-Note-LeastSquare/" id="post-nav-older" class="post-nav-link-wrap">
         <strong class="post-nav-caption">older</strong>
         
           <span class="post-nav-title">
-            The zeroth blog
+            数值分析学习笔记--最小二乘拟合
           </span>
       </a>
   
   </div>
   <div class="post-footer-link">
-    
-        <a href="/2019/03/07/Abstract-Algebra-Notes-Groups/" id="post-nav-newer" class="post-nav-link-wrap">
-          <strong class="post-nav-caption">newer</strong>
-             
-            <span class="post-nav-title">
-              抽象代数学习笔记--群
-            </span>
-        </a>
     
   </div>
 
@@ -262,7 +300,7 @@ U2FsdGVkX1+iZbszojOGeVOmJIVAt7OyqEU3dM1WOYwjgtSR9/um2BSeabRcDVVKCafDsxMnJToAizNs
 				Contents
 			</p>
 			<div class="toc-list">
-				
+				<ol class="toc-inner"><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#二分迭代"><span class="toc-inner-text">二分迭代</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#不动点迭代法"><span class="toc-inner-text">不动点迭代法</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#牛顿迭代"><span class="toc-inner-text">牛顿迭代</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#弦截法"><span class="toc-inner-text">弦截法</span></a></li></ol>
 			</div>
 		</div>
 	</div>
