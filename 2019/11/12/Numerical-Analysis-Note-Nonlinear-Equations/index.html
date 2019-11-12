@@ -108,7 +108,7 @@
 			
 			
 				<i class="iconfont icon-words"></i>
-				<span class="post-info-entry">1932
+				<span class="post-info-entry">1971
 				</span>
 			
 		</div>
@@ -159,11 +159,11 @@
 <li>当$x \in [a,b]$时有$a \leq \varphi(x) \leq b$</li>
 <li>$\varphi (x)$在$[a,b]$上可导，且存在正数$L&lt;1$，使得对任意的$x \in [a,b]$，有$| \varphi(x) | \leq L$</li>
 </ul>
-<p>则在$[a,b]$上有唯一的点$x^<em>$满足$x^</em>=\varphi(x^<em>)$，称$x^</em>$为$\varphi(x)$的不动点。迭代格式$x_{k+1}=\varphi(x_k)$对任意初值$x_0 \in [a,b]$均收敛于$x^*$，误差估计式为</p>
-<script type="math/tex; mode=display">| x^*-x_k | \leq \frac{L^k}{1-L} |x_1-x_0|</script><p>构造收敛迭代格式，有两个要素：</p>
+<p>则在$[a,b]$上有唯一的点$x^{\ast}$满足$x^*=\varphi(x^{\ast})$，称$x^{\ast}$为$\varphi(x)$的不动点。迭代格式$x_{k+1}=\varphi(x_k)$对任意初值$x_0 \in [a,b]$均收敛于$x^{\ast}$，误差估计式为</p>
+<script type="math/tex; mode=display">| x^{\ast}-x_k | \leq \frac{L^k}{1-L} |x_1-x_0|</script><p>构造收敛迭代格式，有两个要素：</p>
 <ul>
-<li>等价形式$x=\varphi (x)$应该满足$| \varphi (x^*) |&lt;1$</li>
-<li>初值必须取自$x^*$的充分小邻域，这个邻域大小决定于函数$f(x)$以及等价形式$x = \varphi (x)$</li>
+<li>等价形式$x=\varphi (x)$应该满足$| \varphi (x^{\ast}) |&lt;1$</li>
+<li>初值必须取自$x^{\ast}$的充分小邻域，这个邻域大小决定于函数$f(x)$以及等价形式$x = \varphi (x)$</li>
 </ul>
 <h2 id="牛顿迭代"><a href="#牛顿迭代" class="headerlink" title="牛顿迭代"></a>牛顿迭代</h2><p>牛顿迭代是一种常用的不动点迭代方式。</p>
 <p>首先，对$f(x)$在$x_0$进行泰勒展开，有</p>
@@ -171,7 +171,7 @@
 <script type="math/tex; mode=display">x_1=x_0-\frac{f(x_0)}{f'(x_0)}</script><p>其中我们设$f’(x_0) \neq 0$。</p>
 <p>一直迭代下去，可得</p>
 <script type="math/tex; mode=display">x_{k+1}=x_k-\frac{f(x_k)}{f'(x_k)}</script><p>对应于$f(x)=0$的Newton迭代方程是$\varphi (x)=x-\frac{f(x)}{f’(x)}$</p>
-<script type="math/tex; mode=display">\varphi '(x)=\frac{f(x)f''(x)}{(f'(x))^2}</script><p>若$\alpha$是$f(x)$的单根，有$| \varphi ‘ (\alpha) |=0$，且只要初值$x_0$充分接近$\alpha$，就有$| \varphi ‘ (x_0) |&lt;1$，牛顿迭代收敛。</p>
+<script type="math/tex; mode=display">\varphi '(x)=\frac{f(x)f''(x)}{(f'(x))^2}</script><p>若$\alpha$是$f(x)$的单根，有$| \varphi  ‘(\alpha) |=0$，且只要初值$x_0$充分接近$\alpha$，就有$| \varphi ‘(x_0) |&lt;1$，牛顿迭代收敛。</p>
 <p>如果存在$M&gt;0$，使得</p>
 <script type="math/tex; mode=display">\lim_{k \to \infty} \frac{|e_{k+1}|}{|e_k|^n}=\lim_{k \to \infty} \frac{|x_{k+1}- \alpha|}{|x_k - \alpha|^n}=M</script><p>那么记迭代收敛的阶为n。</p>
 <p>分析可知，牛顿迭代是二阶迭代方法。</p>
