@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://mizunashi.me/about/index.html</loc>
+    
+    <lastmod>2019-12-09T14:03:37.377Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://mizunashi.me/2019/11/27/Numerical-Analysis-Notes-Linear-Equations-Iteration/</loc>
     
-    <lastmod>2019-11-27T15:21:27.010Z</lastmod>
+    <lastmod>2019-12-09T14:01:47.122Z</lastmod>
     
   </url>
   
@@ -12,13 +19,6 @@
     <loc>https://mizunashi.me/2019/11/20/Numerical-Analysis-Notes-Linear-Equations-Direct/</loc>
     
     <lastmod>2019-11-20T07:50:56.824Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://mizunashi.me/about/index.html</loc>
-    
-    <lastmod>2019-11-17T15:56:39.355Z</lastmod>
     
   </url>
   
