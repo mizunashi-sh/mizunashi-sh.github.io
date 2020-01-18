@@ -108,7 +108,7 @@
 			
 			
 				<i class="iconfont icon-words"></i>
-				<span class="post-info-entry">2491
+				<span class="post-info-entry">2486
 				</span>
 			
 		</div>
@@ -160,13 +160,13 @@ X^{(k+1)}=AY^{(k)}
 <p>规范运算的迭代序列一般有如下几种情况：</p>
 <ul>
 <li>如果$\lbrace X^{(k)} \rbrace$收敛，那么$A$的按模最大特征值只有一个，且$\lambda_1&gt;0$，对于充分大的$k$，按模最大分量$x_j^{(k)}$不变号，对应的$|y_j^{(k)}|=1, \lambda_1 \approx |x_j^{(k+1)}|$，即<script type="math/tex; mode=display">\lambda_1 \approx \max_{1 \leq i \leq n} |x_i^{(k+1)}|=|x_j^{(k+1)}|</script>相应的特征向量是$v_1 \approx Y^{(k)}$</li>
-<li>如果$\lbrace X^{(2k)} \rbrace, \lbrace X^{(2k+1)} \rbrace$分别收敛于互为反号的向量，那么按模最大的特征值也仅有一个单实根，且$\lambda_1 &lt;0$，即<script type="math/tex; mode=display">\lambda_1 \approx -\max_{1 \leq i \leq n} |x_i^{(k+1)}|=-|x_j^{(k+1)}|</script>相应的特征向量是$v_1 \approx Y^{(k)}$</li>
+<li>如果$\lbrace X^{(2k)} \rbrace, \lbrace X^{(2k+1)} \rbrace$分别收敛于互为反号的向量，那么按模最大的特征值也仅有一个单实根，且$\lambda_1 &lt;0$，即<script type="math/tex; mode=display">\lambda_1 \approx -\max_{1 \leq i \leq n} |x_i^{(k)}|=-|x_j^{(k)}|</script>相应的特征向量是$v_1 \approx Y^{(k)}$</li>
 <li>如果$\lbrace X^{(2k)} \rbrace, \lbrace X^{(2k+1)} \rbrace$分别收敛于两个不同的向量，那么按模最大的特征值有两个，它们是互为反号的一对实根。再做一次非规范的运算$X^{(k+1)}=AX^{(k)}$，则有<script type="math/tex; mode=display">\lambda_1 \approx \sqrt{x_i^{(k+1)}/y_i^{(k-1)}},\lambda_2=-\lambda_1</script>特征向量分别为<script type="math/tex; mode=display">
 \begin{cases}
 V_1=X^{(k+1)}+\lambda_1X^{(k)} \\
 V_2=X^{(k+1)}-\lambda_1X^{(k)}
 \end{cases}</script></li>
-<li>迭代序列的没有一定的规律，需要另行讨论</li>
+<li>迭代序列没有一定的规律，需要另行讨论</li>
 </ul>
 <p>通过原点位移的幂法可能会加速迭代。矩阵$B=A-pI$的特征值与矩阵$A$的特征值分别为$\lambda$与$\lambda-p$，通过计算矩阵$A-pI$的特征值得到矩阵$A$的特征值的方法称为原点位移法。</p>
 <p>如果取得的$p$满足</p>
