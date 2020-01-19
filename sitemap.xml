@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://mizunashi.me/2020/01/19/Numerical-Analysis-Notes-ODE/</loc>
+    
+    <lastmod>2020-01-19T14:40:07.404Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://mizunashi.me/2020/01/18/Numerical-Analysis-Notes-Matrix-Eigenvalues/</loc>
     
     <lastmod>2020-01-18T14:53:18.923Z</lastmod>
