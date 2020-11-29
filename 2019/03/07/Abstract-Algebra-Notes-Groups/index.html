@@ -108,7 +108,7 @@
 			
 			
 				<i class="iconfont icon-words"></i>
-				<span class="post-info-entry">4467
+				<span class="post-info-entry">4479
 				</span>
 			
 		</div>
@@ -156,7 +156,7 @@
 <li>若$G$是一个群，且$a \in G$满足$a \ast a=a$，那么$a=e$</li>
 <li>对任意$a \in G$，有$a \ast a’=e$</li>
 <li>对任意$a \in G$，有$a \ast e=a$</li>
-<li>若$e<em>{0} \in G$对所有$a \in G$都有$e</em>{0} \ast a=a$，那么$e_{0}=e$</li>
+<li>若$e_{0} \in G$对所有$a \in G$都有$e_{0} \ast a=a$，那么$e_{0}=e$</li>
 <li>令$a \in G$，如果$b \in G$满足$b \ast a=e$，那么$b=a’$(逆元唯一)</li>
 <li>若$a,b,x \in G$，且$x \ast a=x \ast b$或$a \ast x=b \ast x$，则$a=b$</li>
 <li>对所有$a \in G$，$(a^{-1})^{-1}=a$</li>
@@ -242,24 +242,24 @@
 <li>$\mathbb{I}_{m}$有m个元素，分别是$[0],[1], \cdots ,[m-1]$</li>
 </ul>
 <h3 id="费马小定理"><a href="#费马小定理" class="headerlink" title="费马小定理"></a>费马小定理</h3><p>若$p$是一个质数并且 $a \in \mathbb{Z}$,那么</p>
-<script type="math/tex; mode=display">a^{p} \equiv a \quad \mathrm{mod} \quad p</script><h2 id="同余加法"><a href="#同余加法" class="headerlink" title="同余加法"></a>同余加法</h2><p>若$m \geq 2$,那么定义函数$\alpha : \mathbb{I}<em>{m} \times \mathbb{I}</em>{m} \to \mathbb{I}_{m}$为</p>
+<script type="math/tex; mode=display">a^{p} \equiv a \quad \mathrm{mod} \quad p</script><h2 id="同余加法"><a href="#同余加法" class="headerlink" title="同余加法"></a>同余加法</h2><p>若$m \geq 2$,那么定义函数$\alpha : \mathbb{I}_{m} \times \mathbb{I}_{m} \to \mathbb{I}_{m}$为</p>
 <script type="math/tex; mode=display">\alpha ([a],[b])=[a+b]</script><p>此为同余加法</p>
 <h3 id="定理-7"><a href="#定理-7" class="headerlink" title="定理"></a>定理</h3><ul>
 <li>$\mathbb{I}_{m}$是一个阶为m的可加循环群，其生成元为$[1]$</li>
 <li>每一个阶$m \geq 2$的循环群与$\mathbb{I}_{m}$同构</li>
 </ul>
-<h2 id="同余乘法"><a href="#同余乘法" class="headerlink" title="同余乘法"></a>同余乘法</h2><p>定义函数$\mu : \mathbb{I}<em>{m} \times \mathbb{I}</em>{m} \to \mathbb{I}_{m}$为</p>
+<h2 id="同余乘法"><a href="#同余乘法" class="headerlink" title="同余乘法"></a>同余乘法</h2><p>定义函数$\mu : \mathbb{I}_{m} \times \mathbb{I}_{m} \to \mathbb{I}_{m}$为</p>
 <script type="math/tex; mode=display">\mu ([a],[b])=[ab]</script><p>为同余乘法<br>同余乘法具有结合性与交换性，其单位元为$[1]$</p>
 <h3 id="定理-8"><a href="#定理-8" class="headerlink" title="定理"></a>定理</h3><ul>
 <li>若$(a,m)=1$，那么$[a][x]=[b]$有解，解为$\mathbb{I}_{m}$中的$[x]$</li>
-<li>若p为质数，那么$\mathbb{I}^{\times}<em>{p}$，即$\mathbb{I}</em>{p}$中非零元素组成的集合，是一个可乘阿贝尔群，其阶为p-1</li>
+<li>若p为质数，那么$\mathbb{I}^{\times}_{p}$，即$\mathbb{I}_{p}$中非零元素组成的集合，是一个可乘阿贝尔群，其阶为p-1</li>
 </ul>
 <h2 id="商群"><a href="#商群" class="headerlink" title="商群"></a>商群</h2><p><b>引理</b>：若K是群G的正规子群，那么对每一个$b \in G$，有$bK=Kb$<br>令$G/K$表示子群K的所有陪集组成的集合，若K是正规子群，则</p>
 <script type="math/tex; mode=display">aKbK=abK</script><p>对任意$a,b \in G$，且$G/K$是在此运算下的一个群<br>$G/K$被称为商群，若G为有限群，那么$\mid G/K \mid = [G:K] =\mid G \mid / \mid K \mid$<br>每一个$K \vartriangleleft G$都是某个同态的核</p>
 <h3 id="第一同构定理"><a href="#第一同构定理" class="headerlink" title="第一同构定理"></a>第一同构定理</h3><p>若$f: G \to H$是一个同态，那么</p>
 <script type="math/tex; mode=display">\mathbf{ker} f \vartriangleleft G \quad \mathrm{and} \quad  G/ \mathbf{ker} f \cong \mathbf{im}f</script><h2 id="直积"><a href="#直积" class="headerlink" title="直积"></a>直积</h2><p>若H与K为群，那么他们的直积，用$H \times K$表示，是有序对$(h,k)$的集合，在其中定义的运算为</p>
-<script type="math/tex; mode=display">(h,k)(h',k')=(hh',kk')</script><p>$H \times K$是群，且其为阿贝尔群当且仅当H与K都是阿贝尔群<br>对于n个群$H<em>{1}, \cdots ,H</em>{n}$，把二元组推广到n元组</p>
-<h3 id="凯莱定理"><a href="#凯莱定理" class="headerlink" title="凯莱定理"></a>凯莱定理</h3><p>每一个群G都同构于对称群$S<em>{G}$的一个子群。<br>若$\mid G \mid = n$，那么G同构于$S</em>{n}$的一个子群</p>
+<script type="math/tex; mode=display">(h,k)(h',k')=(hh',kk')</script><p>$H \times K$是群，且其为阿贝尔群当且仅当H与K都是阿贝尔群<br>对于n个群$H_{1}, \cdots ,H_{n}$，把二元组推广到n元组</p>
+<h3 id="凯莱定理"><a href="#凯莱定理" class="headerlink" title="凯莱定理"></a>凯莱定理</h3><p>每一个群G都同构于对称群$S_{G}$的一个子群。<br>若$\mid G \mid = n$，那么G同构于$S_{n}$的一个子群</p>
   	
 					
 	  </div>     

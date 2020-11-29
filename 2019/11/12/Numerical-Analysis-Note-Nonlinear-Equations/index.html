@@ -108,7 +108,7 @@
 			
 			
 				<i class="iconfont icon-words"></i>
-				<span class="post-info-entry">1971
+				<span class="post-info-entry">1973
 				</span>
 			
 		</div>
@@ -152,7 +152,7 @@
 <h2 id="二分迭代"><a href="#二分迭代" class="headerlink" title="二分迭代"></a>二分迭代</h2><p>二分迭代是一个很简单直观的非线性方程求解算法，其理论基础是介值定理，即设函数$f(x)$在$[a,b]$上连续，且$f(a)f(b)&lt;0$，则$f(x)$在$[a,b]$上至少有一个零点。在计算中，可以通过对分区间，缩小区间范围来搜索零点。</p>
 <p>在实务中，常用$sgn(f(a)) \cdot sgn(f(x))&gt;0$替代$f(a) \cdot f(x)&gt;0$，以避免数值溢出。</p>
 <p>对分法算法较为简单，但是需要注意的是，即使$f(x)$在$[a,b]$上有零点，也未必有$f(a)f(b)&lt;0$，这限制了对分法的使用范围。</p>
-<h2 id="不动点迭代法"><a href="#不动点迭代法" class="headerlink" title="不动点迭代法"></a>不动点迭代法</h2><p>对于给定的方程$f(x)=0$，可以将其转化为等价形式$x=\varphi (x)$。给定初值$x<em>0$，由此构造迭代序列$x</em>{k+1}=\varphi(x_k),k=1,2, \cdots$，若$\varphi(x)$连续且迭代收敛，即</p>
+<h2 id="不动点迭代法"><a href="#不动点迭代法" class="headerlink" title="不动点迭代法"></a>不动点迭代法</h2><p>对于给定的方程$f(x)=0$，可以将其转化为等价形式$x=\varphi (x)$。给定初值$x_0$，由此构造迭代序列$x_{k+1}=\varphi(x_k),k=1,2, \cdots$，若$\varphi(x)$连续且迭代收敛，即</p>
 <script type="math/tex; mode=display">\lim_{k \to \infty} x_{k+1}=\lim_{k \to \infty} \varphi(x_k)=\alpha</script><p>则有$\alpha = \varphi (\alpha)$，而$\alpha$就是方程$f(x)=0$的根。</p>
 <p>若$\varphi$定义在$[a,b]$上，如果$\varphi$满足</p>
 <ul>

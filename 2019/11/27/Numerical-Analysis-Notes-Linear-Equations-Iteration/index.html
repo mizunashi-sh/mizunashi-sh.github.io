@@ -108,7 +108,7 @@
 			
 			
 				<i class="iconfont icon-words"></i>
-				<span class="post-info-entry">3922
+				<span class="post-info-entry">3946
 				</span>
 			
 		</div>
@@ -154,7 +154,7 @@
 <p>若迭代序列$\lbrace X^{(k)} \rbrace$收敛，设$\lbrace X^{(k-1)} \rbrace$的极限是$X^{\ast}$，可得</p>
 <script type="math/tex; mode=display">X^{\ast}=MX^{\ast}+g</script><p>$X^{\ast}$是方程组$Ax=b$的解，此时称迭代法收敛，否则称迭代法发散。</p>
 <p>计算中，给定控制精度$\epsilon$，当$||Ax-b||&lt; \epsilon$或者$||X^{(k)}-X^{(k-1)}||&lt; \epsilon$时，停止迭代计算，取$X^{\ast}=X^{(k)}$。</p>
-<p>由线性代数知识可知，$\lim<em>{k \to \infty}M^k = O$的充要条件是谱半径$\rho(M)&lt;1$。如果$||M||_p$是矩阵$M$的范数，则总有$||M||_p \geq \rho(M)$。因此若$||M||</em>{p} &lt; 1$，那么$M$必收敛，这是其充分条件。</p>
+<p>由线性代数知识可知，$\lim_{k \to \infty}M^k = O$的充要条件是谱半径$\rho(M)&lt;1$。如果$||M||_p$是矩阵$M$的范数，则总有$||M||_p \geq \rho(M)$。因此若$||M||_{p} &lt; 1$，那么$M$必收敛，这是其充分条件。</p>
 <p>可以看出，线性方程组的迭代收敛与否完全取决于迭代矩阵的性质，与迭代初始值的选取无关。</p>
 <h2 id="雅可比迭代法"><a href="#雅可比迭代法" class="headerlink" title="雅可比迭代法"></a>雅可比迭代法</h2><p>对于n元线性方程组$Ax=b$</p>
 <script type="math/tex; mode=display">
@@ -163,7 +163,7 @@ a_{11}x_1+a_{12}x_2+ \cdots +a_{1n}x_n=b_1 \\
 a_{21}x_1+a_{22}x_2+ \cdots +a_{2n}x_n=b_2 \\
 \vdots \\
 a_{n1}x_1+a_{n2}x_2+ \cdots +a_{nn}x_n=b_n \\
-\end{cases}</script><p>设$\lbrace a<em>{ii} \neq 0,i=1,2, \cdots ,n \rbrace$，将上式中每个方程组$a</em>{ii}x<em>i$留在方程的左边，其余各项移到方程的右边，方程两边除以$a</em>{ii}$，构造迭代格式</p>
+\end{cases}</script><p>设$\lbrace a_{ii} \neq 0,i=1,2, \cdots ,n \rbrace$，将上式中每个方程组$a_{ii}x_i$留在方程的左边，其余各项移到方程的右边，方程两边除以$a_{ii}$，构造迭代格式</p>
 <script type="math/tex; mode=display">
 \begin{cases}
 x_1^{(k+1)}=\frac{1}{a_{11}}(b_1-a_{12}x_2^{(k)}- \cdots -a_{1n}x_n^{(k)})\\
@@ -179,13 +179,13 @@ x_n^{(k+1)}=\frac{1}{a_{nn}}(b_n-a_{n1}x_1^{(k)}- a_{n2}x_2^{(k)}- \cdots -a_{n,
 <script type="math/tex; mode=display">X^{(k+1)}=RX^{(k)}+g</script><p>称$R$为雅可比迭代矩阵。</p>
 <h3 id="雅可比迭代的收敛条件"><a href="#雅可比迭代的收敛条件" class="headerlink" title="雅可比迭代的收敛条件"></a>雅可比迭代的收敛条件</h3><p>当迭代矩阵$R$的谱半径$\rho (R)=\max_{1 \leq i \leq n} \mid \lambda_i \mid &lt; 1$时，迭代收敛，这是其充要条件。</p>
 <p>迭代矩阵的某范数$|| R || &lt; 1$时，迭代收敛，这是其充分条件。</p>
-<p>设$M=(m<em>{ij})$是n阶复方阵，若对任意$i$都有$|m</em>{ii}| \geq \sum<em>{j \neq i}|m</em>{ij}|$，则$M$为行对角优，若有$|m<em>{ii}| &gt; \sum</em>{j \neq i}|m<em>{ij}|$，则$M$为严格行对角优。同样的，若对任意$j$都有$|m</em>{jj}| \geq \sum<em>{i \neq j}|m</em>{ij}|$，则$M$为列对角优，若有$|m<em>{jj}| &gt; \sum</em>{i \neq j}|m_{ij}|$，则$M$为严格列对角优。</p>
+<p>设$M=(m_{ij})$是n阶复方阵，若对任意$i$都有$|m_{ii}| \geq \sum_{j \neq i}|m_{ij}|$，则$M$为行对角优，若有$|m_{ii}| &gt; \sum_{j \neq i}|m_{ij}|$，则$M$为严格行对角优。同样的，若对任意$j$都有$|m_{jj}| \geq \sum_{i \neq j}|m_{ij}|$，则$M$为列对角优，若有$|m_{jj}| &gt; \sum_{i \neq j}|m_{ij}|$，则$M$为严格列对角优。</p>
 <p>对于雅可比迭代的收敛性，有以下理论结果</p>
 <ul>
 <li>若$M$为严格对角优，则$M$可逆</li>
 <li>当$A$为严格对角优时，雅可比迭代收敛</li>
 </ul>
-<h2 id="Gauss-Seidel迭代"><a href="#Gauss-Seidel迭代" class="headerlink" title="Gauss-Seidel迭代"></a>Gauss-Seidel迭代</h2><p>在雅可比迭代中，已经在计算$x<em>i^{(k+1)}$前得到了$x_1^{(k+1)}, \cdots , x</em>{i-1}^{(k+1)}$的值，因此，不妨将已经算出的分量直接代入迭代式中，及时使用最新计算出的分量值，这被称为Gauss-Seidel迭代。</p>
+<h2 id="Gauss-Seidel迭代"><a href="#Gauss-Seidel迭代" class="headerlink" title="Gauss-Seidel迭代"></a>Gauss-Seidel迭代</h2><p>在雅可比迭代中，已经在计算$x_i^{(k+1)}$前得到了$x_1^{(k+1)}, \cdots , x_{i-1}^{(k+1)}$的值，因此，不妨将已经算出的分量直接代入迭代式中，及时使用最新计算出的分量值，这被称为Gauss-Seidel迭代。</p>
 <p>即使用$\lbrace x_1^{(k)},x_2^{(k)}, \cdots ,x_n^{(k)} \rbrace$计算$x_1^{(k+1)}$的值，用$\lbrace x_1^{(k+1)},x_2^{(k)}, \cdots ,x_n^{(k)} \rbrace$计算$x_2^{(k+1)}$的值，一直进行下去，直到计算出$x_n^{(k+1)}$。</p>
 <p>构造迭代格式如下：</p>
 <script type="math/tex; mode=display">
@@ -234,7 +234,7 @@ x_1^{(k+1)}=(1-\omega)x_1^{(k)}+\omega(r_{12}x_2^{(k)}+r_{13}x_3^{(k)}+ \cdots +
 x_2^{(k+1)}=(1-\omega)x_2^{(k)}+\omega(r_{21}x_1^{(k+1)}+r_{23}x_3^{(k)}+ \cdots +r_{2n}x_n^{(k)}+g_2) \\
 \vdots \\
 x_{n}^{(k+1)}=(1-\omega)x_n^{(k)}+\omega(r_{n1}x_1^{(k+1)}+r_{n2}x_2^{(k+1)}+ \cdots +r_{n,n-1}x_{n-1}^{(k+1)}+g_n) \\
-\end{cases}</script><p>其中，$r<em>{ij}=-\frac{a</em>{ij}}{a<em>{ii}},g_i=\frac{b_i}{a</em>{ii}},r_{ii}=0$</p>
+\end{cases}</script><p>其中，$r_{ij}=-\frac{a_{ij}}{a_{ii}},g_i=\frac{b_i}{a_{ii}},r_{ii}=0$</p>
 <h3 id="松弛迭代矩阵"><a href="#松弛迭代矩阵" class="headerlink" title="松弛迭代矩阵"></a>松弛迭代矩阵</h3><p>令</p>
 <script type="math/tex; mode=display">S_{\omega}=(I+\omega D^{-1}L)^{-1}[(1-\omega)I-\omega D^{-1}U]</script><script type="math/tex; mode=display">f=\omega(I+\omega D^{-1}L)^{-1}D^{-1}b</script><p>则松弛因子为$\omega$的迭代矩阵为</p>
 <script type="math/tex; mode=display">X^{(k+1)}=S_{\omega}X^{(k)}+f</script>  	

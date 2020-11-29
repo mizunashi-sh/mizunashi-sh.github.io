@@ -108,7 +108,7 @@
 			
 			
 				<i class="iconfont icon-words"></i>
-				<span class="post-info-entry">3546
+				<span class="post-info-entry">3566
 				</span>
 			
 		</div>
@@ -163,7 +163,7 @@
 <p>而我们已经知道，只要$\mathrm{det} A \neq 0$，方程组$Ax=b$就有解，这揭示了高斯顺序消元法的一部分局限性。</p>
 <p>此外，即使高斯消元法能够进行，如果$| a_{kk}^{(k-1)} |$很小，在运算中作分母时会导致数量级的增长和舍入误差的扩散。</p>
 <p>解决这个问题的方法是对矩阵作初等变换，使得在运算中作分母的量的绝对值尽可能大。如果在一列中选择按模最大的元素，并将其调到主干方程位置再进行消元，这种方法称为列主元消元法。</p>
-<p>对于每一个$k,k=1,2, \cdots ,n-1$，在消元之前选出$\mid a<em>{kk}^{(k-1)} \mid , \mid a</em>{k+1,k}^{(k-1)} \mid , \cdots ,\mid a<em>{nk}^{(k-1)} \mid$中的值最大的元素$a</em>{mk}^{(k-1)}$，对k行和m行进行交换以后，再进行消元运算。由于$\det A \neq 0$，可证$a<em>{kk}^{(k-1)},a</em>{k+1,k}^{(k-1)}, \cdots ,a_{nk}^{(k-1)}$中至少有一个元素不为零，因此列主元消元法总是可行的。</p>
+<p>对于每一个$k,k=1,2, \cdots ,n-1$，在消元之前选出$\mid a_{kk}^{(k-1)} \mid , \mid a_{k+1,k}^{(k-1)} \mid , \cdots ,\mid a_{nk}^{(k-1)} \mid$中的值最大的元素$a_{mk}^{(k-1)}$，对k行和m行进行交换以后，再进行消元运算。由于$\det A \neq 0$，可证$a_{kk}^{(k-1)},a_{k+1,k}^{(k-1)}, \cdots ,a_{nk}^{(k-1)}$中至少有一个元素不为零，因此列主元消元法总是可行的。</p>
 <h2 id="LU分解法"><a href="#LU分解法" class="headerlink" title="LU分解法"></a>LU分解法</h2><p>在用直接分解法解方程$Ax=b$时，首先做出分解$A=LU$，那么线性方程组$Ax=b$可以转化为线性方程组$Ly=b$和$Ux=y$，分解以后再求解方程组只要$O(n^2)$的运算量即可解出$x$。</p>
 <p>LU分解有多种形式。设$A=LU$，其中L是下三角方阵，U是单位上三角方阵，是为Crout分解，可以看作是$A^T$的Doolittle分解。</p>
 <p>当A是正定实方阵时，$A=LDL^T$，其中$L$是单位下三角方阵，$D$是对角方阵，这种分解通常称为$LDL^T$分解。</p>
@@ -189,10 +189,10 @@ u_{11} & u_{12} & \cdots & u_{1n} \\
 & & & u_{nn} \\
 \end{bmatrix}</script><p>Doolittle分解可以按照如下顺序进行</p>
 <ul>
-<li>计算U的第一行元素，$u<em>{1j}=a</em>{1j},j=1,2, \cdots ,n$</li>
-<li>计算L的第一列元素，$l<em>{i1}=\frac{a</em>{i1}}{u_{11}},i=2,3, \cdots ,n$</li>
-<li>计算U的第k行元素，$u<em>{kj}=a</em>{kj}-\sum<em>{r=1}^{k-1}l</em>{kr}u_{rj},j=k,k+1, \cdots ,n$</li>
-<li>计算L的第k列元素，$l<em>{ik}=\frac{\left( a</em>{ik}-\sum<em>{r=1}^{k-1}l</em>{ir}u<em>{rk} \right)}{u</em>{kk}},i=k+1,k+2, \cdots ,n$</li>
+<li>计算U的第一行元素，$u_{1j}=a_{1j},j=1,2, \cdots ,n$</li>
+<li>计算L的第一列元素，$l_{i1}=\frac{a_{i1}}{u_{11}},i=2,3, \cdots ,n$</li>
+<li>计算U的第k行元素，$u_{kj}=a_{kj}-\sum_{r=1}^{k-1}l_{kr}u_{rj},j=k,k+1, \cdots ,n$</li>
+<li>计算L的第k列元素，$l_{ik}=\frac{\left( a_{ik}-\sum_{r=1}^{k-1}l_{ir}u_{rk} \right)}{u_{kk}},i=k+1,k+2, \cdots ,n$</li>
 </ul>
 <h3 id="Crout分解"><a href="#Crout分解" class="headerlink" title="Crout分解"></a>Crout分解</h3><p>矩阵$A=LU$的Crout分解形式为</p>
 <script type="math/tex; mode=display">

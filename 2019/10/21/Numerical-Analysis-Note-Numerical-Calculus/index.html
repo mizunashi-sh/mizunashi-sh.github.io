@@ -108,7 +108,7 @@
 			
 			
 				<i class="iconfont icon-words"></i>
-				<span class="post-info-entry">7553
+				<span class="post-info-entry">7575
 				</span>
 			
 		</div>
@@ -159,7 +159,7 @@
 <script type="math/tex; mode=display">E_n(x^{m+1}) \neq 0</script><p>则称$I_n(f)$具有$m$阶代数精度。</p>
 <p>当$I_n(f)$具有$m$阶代数精度时，对任意的不高于$m$次多项式$f(x)$都有$I(f)=I_n(f)$。</p>
 <h2 id="插值型数值积分"><a href="#插值型数值积分" class="headerlink" title="插值型数值积分"></a>插值型数值积分</h2><p>对给定的被积函数$f(x)$在$[a,b]$上的点列$\lbrace (x_i,f(x_i )),i=0,1, \cdots ,n \rbrace$，作Lagrange插值多项式$L_n(x)$进行近似，即</p>
-<script type="math/tex; mode=display">\int_{a}^b f(x)dx \approx \int_{a}^b L_n(x)dx = \int_{a}^b \sum_{i=0}^{n} l_i(x)f(x_i) dx=\sum_{i=0}^n \left[ \int_{a}^b l_i(x)dx \right]f(x_i)</script><p>记$\alpha<em>i = \int</em>{a}^{b} l_i(x)dx$，则</p>
+<script type="math/tex; mode=display">\int_{a}^b f(x)dx \approx \int_{a}^b L_n(x)dx = \int_{a}^b \sum_{i=0}^{n} l_i(x)f(x_i) dx=\sum_{i=0}^n \left[ \int_{a}^b l_i(x)dx \right]f(x_i)</script><p>记$\alpha_i = \int_{a}^{b} l_i(x)dx$，则</p>
 <script type="math/tex; mode=display">I_n(f)=\int_a^b L_n(x) dx = \sum_{i=0}^n \alpha_i f(x_i)</script><p>数值积分误差为</p>
 <script type="math/tex; mode=display">E_n(f)=\int_{a}^b R_n(x)dx=\frac{1}{(n+1)!} \int_{a}^{b} f^{(n+1)}(\xi(x)) \prod_{i=0}^n(x-x_i)dx</script><p>或者</p>
 <script type="math/tex; mode=display">E_n(f)=\int_{a}^{b} f[x_{0},x_1,\cdots, x_n,x] \prod_{i=0}^n(x-x_i)dx</script><p>若$f(x)$是一个不高于$n$次的多项式，由于$f^{(n+1)}(x)=0$，而有$E_n(f)=0$。因此$n$阶插值多项式形式的数值积分公式至少有$n$阶代数精度。</p>
@@ -179,18 +179,18 @@
 <script type="math/tex; mode=display">E_2(f)=-\frac{f^{(4)}(\eta)}{2880} (b-a)^5,a \leq \eta \leq b</script><h3 id="Newton-Cotes积分系数"><a href="#Newton-Cotes积分系数" class="headerlink" title="Newton-Cotes积分系数"></a>Newton-Cotes积分系数</h3><p>构造插值函数$L_n(x)$，得</p>
 <script type="math/tex; mode=display">\int_{a}^{b}L_n(x)dx=\sum_{i=0}^{n} \alpha_i f(x_i)</script><p>记</p>
 <script type="math/tex; mode=display">\alpha_i=(b-a)c_i^{(n)}</script><script type="math/tex; mode=display">c_i^{(n)}=\frac{(-1)^{n-i}}{i!(n-i)!n} \int_{0}^{n} t(t-1) \cdots (t-i+1)(t-i-1) \cdots (t-n) dt</script><p>为Newton-Cotes系数。在取等距节点时，$c_i^{(n)}$与积分节点和积分区间无直接关系，只与插值的节点总数有关。</p>
-<p>Newton-Cotes积分系数$\lbrace c<em>k^{(n)},k=0,1, \cdots ,n \rbrace$，当$n \leq 7$时数值积分公式$I_n(f)=(b-a) \sum</em>{k=0}^{n} c_k^{(n)}f(x_k)$是稳定的。</p>
+<p>Newton-Cotes积分系数$\lbrace c_k^{(n)},k=0,1, \cdots ,n \rbrace$，当$n \leq 7$时数值积分公式$I_n(f)=(b-a) \sum_{k=0}^{n} c_k^{(n)}f(x_k)$是稳定的。</p>
 <h2 id="复化数值积分"><a href="#复化数值积分" class="headerlink" title="复化数值积分"></a>复化数值积分</h2><h3 id="复化梯形积分"><a href="#复化梯形积分" class="headerlink" title="复化梯形积分"></a>复化梯形积分</h3><p>复化梯形积分是计算数值积分的最朴素方法。</p>
 <p>对$[a,b]$作等距分割，$h=\frac{b-a}{n}$，$\lbrace x_i=a+ih,i=0,1, \cdots ,n \rbrace$，记$n$等分的复化梯形公式为$T_n(f)$，则</p>
 <script type="math/tex; mode=display">T_n(f)=h \left[ \frac{1}{2} f(a)+ \sum_{i=1}^{n-1} f(a+ih)+\frac{1}{2}f(b) \right]</script><p>复化梯形公式的截断误差为</p>
 <script type="math/tex; mode=display">E_n(f)=-\frac{(b-a)^3}{12n^2}f''(\xi) ,a \leq \xi \leq b</script><p>可以看出截断误差按照$\frac{1}{n^2}$的下降速度下降，可以证明，只要$f(x)$在$(a,b)$上有界并黎曼可积，当分点无限增多时，复化梯形公式收敛到积分$I(f)=\int_a^b f(x) dx$。</p>
-<p>记$M<em>2=\max</em>{a \leq x \leq b} \mid f’’(x) \mid$，则</p>
+<p>记$M_2=\max_{a \leq x \leq b} \mid f’’(x) \mid$，则</p>
 <script type="math/tex; mode=display">\mid E_n(f) \mid \leq \frac{(b-a)^3}{12n^2}M_2 = O\left( \frac{1}{n^2} \right)</script><p>对于任意的误差控制小量$\epsilon &gt;0$，若</p>
 <script type="math/tex; mode=display">\frac{(b-a)^3}{12n^2}M_2< \epsilon \; \mathrm{or} \; n \geq \left[ \sqrt{\frac{(b-a)^3M_2}{12\epsilon}} \right]+1</script><p>则有$\mid E_n(f) \mid &lt; \epsilon$，$[\cdot ]$表示取其最大整数。</p>
-<h3 id="复化Simpson积分"><a href="#复化Simpson积分" class="headerlink" title="复化Simpson积分"></a>复化Simpson积分</h3><p>把积分区间$2m$等分，记$n=2m$，其中$n+1$为节点总数，$m$为积分子区间总数。记$h=\frac{b-a}{n},\lbrace x<em>i=a+ih,i=0,1, \cdots ,n \rbrace$，在每个子区间$[x</em>{2i},x_{2i+2}]$上使用Simpson积分公式，得到复化Simpson公式$S_n(f)$为</p>
+<h3 id="复化Simpson积分"><a href="#复化Simpson积分" class="headerlink" title="复化Simpson积分"></a>复化Simpson积分</h3><p>把积分区间$2m$等分，记$n=2m$，其中$n+1$为节点总数，$m$为积分子区间总数。记$h=\frac{b-a}{n},\lbrace x_i=a+ih,i=0,1, \cdots ,n \rbrace$，在每个子区间$[x_{2i},x_{2i+2}]$上使用Simpson积分公式，得到复化Simpson公式$S_n(f)$为</p>
 <script type="math/tex; mode=display">S_n(f)=\frac{h}{3} \left[ f(a)+4\sum_{i=0}^{m-1} f(x_{2i+1})+2\sum_{i=1}^{m-1} f(x_{2i})+f(b) \right]</script><p>复化Simpson积分的截断误差是</p>
 <script type="math/tex; mode=display">I(f)-S_n(f)=\frac{-(b-a)^5}{180n^4}f^{(4)}(\xi),a \leq \xi \leq b</script><p>可见截断误差按照$\frac{1}{n^4}$的下降速度下降。可以证明，只要$f(x)$在$(a,b)$上有界并黎曼可积，当分点无限增多时，复化Simpson公式收敛到积分$I(f)=\int_a^b f(x) dx$。</p>
-<p>记$M<em>4=\max</em>{a \leq x \leq b} \mid f^{4}(x) \mid$，则</p>
+<p>记$M_4=\max_{a \leq x \leq b} \mid f^{4}(x) \mid$，则</p>
 <script type="math/tex; mode=display">\mid E_n(f) \mid \leq \frac{(b-a)^5}{2880m^4}M_4 = O\left( \frac{1}{m^4} \right)</script><p>对于任意的误差控制小量$\epsilon &gt;0$，若</p>
 <script type="math/tex; mode=display">\frac{(b-a)^5}{2880m^4}M_4< \epsilon \; \mathrm{or} \; m \geq \left[ \sqrt[4]{\frac{(b-a)^5 M_4}{2880\epsilon}} \right]+1</script><p>则有$\mid E_n(f) \mid &lt; \epsilon$。</p>
 <h3 id="自动误差控制"><a href="#自动误差控制" class="headerlink" title="自动误差控制"></a>自动误差控制</h3><p>对于给定误差$\epsilon$，通过估计函数的导函数的界的方法能计算出$n$，然而这种方法较为繁琐。因此在实务中往往使用事后估计确定误差。</p>
@@ -200,10 +200,10 @@
 <script type="math/tex; mode=display">H_n(f)=h_n \sum_{i=0}^{n-1} f(x_{i+\frac{1}{2}})</script><p>或者表示为</p>
 <script type="math/tex; mode=display">T_{2n}(f)=\frac{1}{2} T_n(f)+h_{2n} \sum_{i=1}^{n}f(a+(2i-1)h_{2n})</script><p>其中</p>
 <script type="math/tex; mode=display">h_{2n}=\frac{b-a}{2n}</script><p>类似的，可以获得积分节点为$n$和$2n$的Simpson求积公式的关系式</p>
-<script type="math/tex; mode=display">S_{2n}(f)=\frac{1}{2} S_n(f)+\frac{1}{6}(4H_{2n}(f)-H_{n}(f))</script><p>对于任意的误差控制量$\epsilon &gt;0$，要$\mid I<em>n(f)-T</em>{2n}(f) \mid &lt; \epsilon$，只需$\mid T<em>{2n}(f)-T</em>{n}(f) \mid &lt; 3 \epsilon$即可，这种方法更加简单直接。</p>
+<script type="math/tex; mode=display">S_{2n}(f)=\frac{1}{2} S_n(f)+\frac{1}{6}(4H_{2n}(f)-H_{n}(f))</script><p>对于任意的误差控制量$\epsilon &gt;0$，要$\mid I_n(f)-T_{2n}(f) \mid &lt; \epsilon$，只需$\mid T_{2n}(f)-T_{n}(f) \mid &lt; 3 \epsilon$即可，这种方法更加简单直接。</p>
 <h3 id="Romberg积分"><a href="#Romberg积分" class="headerlink" title="Romberg积分"></a>Romberg积分</h3><p>Romberg算法从梯形积分逐步外推，在不增加计算量的前提下提高了误差精度。</p>
-<p>将$T<em>{n},S</em>{n},C<em>{n}, \cdots$分别用$R</em>{k,j}$表示，则Romberg计算公式为</p>
-<script type="math/tex; mode=display">R_{k,j}=R_{k,j-1}+\frac{R_{k,j-1}-R_{k-1,j-1}}{4^{j-1}-1},k=2,3, \cdots</script><p>持续迭代过程，直到$\mid R<em>{k,k}-R</em>{k-1,k-1} \mid$小于给定控制精度。</p>
+<p>将$T_{n},S_{n},C_{n}, \cdots$分别用$R_{k,j}$表示，则Romberg计算公式为</p>
+<script type="math/tex; mode=display">R_{k,j}=R_{k,j-1}+\frac{R_{k,j-1}-R_{k-1,j-1}}{4^{j-1}-1},k=2,3, \cdots</script><p>持续迭代过程，直到$\mid R_{k,k}-R_{k-1,k-1} \mid$小于给定控制精度。</p>
 <p>其中</p>
 <script type="math/tex; mode=display">R_{1,1}=h\frac{f(a)+f(b)}{2}</script><script type="math/tex; mode=display">R_{k,1}=\frac{R_{k-1,1}+h_{k-1}\sum_{i=1}^{2^{k-2}}f(a+(2i-1)h_k)}{2}</script><script type="math/tex; mode=display">h_k=\frac{h}{2^{k-1}}</script><script type="math/tex; mode=display">h=b-a</script><h2 id="重积分计算"><a href="#重积分计算" class="headerlink" title="重积分计算"></a>重积分计算</h2><p>以矩形域上的二重积分为例，讨论二重数值积分</p>
 <h3 id="二重积分的复化梯形公式"><a href="#二重积分的复化梯形公式" class="headerlink" title="二重积分的复化梯形公式"></a>二重积分的复化梯形公式</h3><p>对区间$[a,b]$和$[c,d]$分别选取正整数$m$和$n$，在$x$轴和$y$轴上分别有步长</p>
@@ -239,7 +239,7 @@
 <h3 id="设定最佳步长"><a href="#设定最佳步长" class="headerlink" title="设定最佳步长"></a>设定最佳步长</h3><p>在计算数值导数时，误差由截断误差与舍入误差组成。如果通过误差表达式确定步长，则可行性较差。因此，通常用事后估计的方法选取步长。</p>
 <p>例如，记$D(h,x),D \left( \frac{h}{2},x \right)$为步长为$h,\frac{h}{2}$的差商计算公式$f’(x)$，给定误差界$\epsilon$，当$| D(h,x)-D \left( \frac{h}{2},x \right)|&lt;\epsilon$时，步长$h$就是最合适的步长。</p>
 <h3 id="插值型数值微分"><a href="#插值型数值微分" class="headerlink" title="插值型数值微分"></a>插值型数值微分</h3><p>设$\lbrace x_i,i=0,1, \cdots ,n \rbrace$为$[a,b]$上的节点，给定$\lbrace(x_i,f(x_i)),i=0,1, \cdots ,n \rbrace$。以$(x_i,f(x_i))$为插值点构造插值多项式并近似导数。</p>
-<script type="math/tex; mode=display">f(x)=L_n(x)=\sum_{i=0}^nl_i(x)f(x_i)</script><script type="math/tex; mode=display">f'(x)=L_n'(x)=\sum_{i=0}^nl_i'(x)f(x_i)</script><p>当$x=x<em>j$时，$f’(x_j)=L_n’(x)=\sum</em>{i=0}^nl_i’(x_j)f(x_i),j=0,1,\cdots,n$</p>
+<script type="math/tex; mode=display">f(x)=L_n(x)=\sum_{i=0}^nl_i(x)f(x_i)</script><script type="math/tex; mode=display">f'(x)=L_n'(x)=\sum_{i=0}^nl_i'(x)f(x_i)</script><p>当$x=x_j$时，$f’(x_j)=L_n’(x)=\sum_{i=0}^nl_i’(x_j)f(x_i),j=0,1,\cdots,n$</p>
 <p>误差项为</p>
 <script type="math/tex; mode=display">R(x)=\frac{d}{dx}\left(\frac{f^{(n+1)}(\xi)}{(n+1)!} \prod_{i=0}^{n}(x-x_i) \right)</script><script type="math/tex; mode=display">R(x_j)=\prod_{i=0 \; \mathrm{and} \; i \neq j}^{n} (x_j-x_i) \frac{f^{(n+1)}(\xi)}{(n+1)!}</script>  	
 					

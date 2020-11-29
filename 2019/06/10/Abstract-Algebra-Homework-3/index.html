@@ -108,7 +108,7 @@
 			
 			
 				<i class="iconfont icon-words"></i>
-				<span class="post-info-entry">2101
+				<span class="post-info-entry">2105
 				</span>
 			
 		</div>
@@ -147,7 +147,7 @@
 <h2 id="2"><a href="#2" class="headerlink" title="2"></a>2</h2><p><b>题目:</b><br>Let $B$ be the set of positive integers that are divisors of 30. $a \preceq b$ on $B$ is defined by $a \mid b$. Prove that $B$ is a Boolean algebra. Find a set $X$ such that $B$ is isomorphic to $\mathcal{P} (X)$<br><b>解答:</b><br><b>(1)</b><br>易知，$B=\lbrace 1,2,3,5,6,10,15,30 \rbrace$<br>其中的最大元素$I=30$，最小元素$O=1$<br>定义$\vee$运算为$\mathbb{Z}$上的乘法运算，$\land$运算为$a \land b=gcd(a,b)$<br>则对任意$a \in B$，有$a \vee a’ = I$且$a \land a’=O$<br>由最大公约数的性质可知</p>
 <script type="math/tex; mode=display">a \cdot gcd(b,c)=gcd(ab,ac)</script><p>即$a \vee (b \land c)=(a \vee b) \land (a \vee c)$<br>因此$B$有补且满足分配律<br>综上，$B$是一个布尔代数<br><b>(2)</b><br>令$X=atom(B)=\lbrace 2,3,5 \rbrace$<br>由同构定理可知</p>
 <script type="math/tex; mode=display">B \cong \mathcal{P} (X)</script><h2 id="3"><a href="#3" class="headerlink" title="3"></a>3</h2><p><b>题目:</b><br>Show whether $\mathbb{Z}^{+}$ with $a \preceq b$ defined by $a \mid b$ is a lattice, and whether it is a Boolean algebra.<br><b>解答:</b><br><b>(1)</b><br>易知，关系$\mid$是一个偏序关系<br>且$\mathbb{Z}^{+}$是一个格<br>对任意$a,b \in \mathbb{Z}^{+}$，其上确界为$lcm(a,b)$，下确界为$gcd(a,b)$<br><b>(2)</b><br>$\mathbb{Z}^{+}$不是布尔代数<br>因为找不到最大值$I$，使得对任意$a \in \mathbb{Z}^{+}$，有$a \preceq I$</p>
-<h2 id="4"><a href="#4" class="headerlink" title="4"></a>4</h2><p><b>题目:</b><br>Let $G$ be an Abelian group and $X$ be the set of subgroups of $G$ ordered by $\subseteq$. Prove that the least upper bound of two subgroups $H$ and $K$ in Boolean algebra $X$ is $HK$.<br><b>解答:</b><br>对任意$h<em>{1},h</em>{2},h \in H,k<em>{1},k</em>{2},k \in K$，有</p>
+<h2 id="4"><a href="#4" class="headerlink" title="4"></a>4</h2><p><b>题目:</b><br>Let $G$ be an Abelian group and $X$ be the set of subgroups of $G$ ordered by $\subseteq$. Prove that the least upper bound of two subgroups $H$ and $K$ in Boolean algebra $X$ is $HK$.<br><b>解答:</b><br>对任意$h_{1},h_{2},h \in H,k_{1},k_{2},k \in K$，有</p>
 <script type="math/tex; mode=display">h_{1}h_{2},k_{1}k_{2} \in HK</script><script type="math/tex; mode=display">hk=kh \in HK</script><script type="math/tex; mode=display">k^{-1} h^{-1} = h^{-1} k^{-1} \in HK</script><p>因此$HK$也是一个阿贝尔群<br>易知$H,K \subset HK$，因此$HK$是$H$与$K$的上界<br>假设$H,K \subseteq P \subset HK$<br>令$i \in H,j \in K,i \neq j$且$ij \notin P$<br>由题意得$P$也是群，且$i,j \in P$<br>那么必有$ij \in P$<br>矛盾！<br>因此$H$与$K$的上确界是$HK$</p>
 <h2 id="5"><a href="#5" class="headerlink" title="5"></a>5</h2><p><b>题目:</b><br>The order of any finite Boolean algebra must be $2^{n}$ for some positive integer $n$.<br><b>解答:</b><br>令$A$是有限布尔代数$B$中所有原子组成的集合，且$\mid A \mid = n$<br>那么由幂集的性质可得$\mid \mathcal{P} (A) \mid = 2^{n}$<br>由同构定理可得</p>
 <script type="math/tex; mode=display">B \cong \mathcal{P} (A)</script><p>因此$\mid B \mid = 2^{n}$<br>即任意有限布尔代数的阶都是$2^{n}$，其中$n$是正数</p>
