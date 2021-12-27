@@ -1,0 +1,383 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html>
+  <head><meta name="generator" content="Hexo 3.9.0">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  
+  
+  <title>  抽象代数习题--格与布尔代数部分 |   Mizunashi&#39;s Blog </title>
+
+ 
+  
+    <link rel="icon" href="/images/favicon.png">
+  
+
+
+  <link rel="stylesheet" href="/nayo.min.css"> 
+</head>  
+  <body>   
+    
+      <link rel="stylesheet" type="text/css" href="/nayo.customized.css">
+
+<header class="header">
+	
+  <nav class="header-inner">        
+
+    <span class="iconfont icon-menu mobile-toggle"></span>   	
+
+    <div class="header-logo">
+      <a href="/">
+        <img class="header-logo-img" src="/images/logo.png">
+      </a>
+    </div>
+
+    <div class="header-menu">          
+              
+            
+                
+                    <a class="header-menu-link" id="header-menu-home" href="/">
+                        <i class="iconfont icon-home">  
+                    </i></a>   
+                  
+            
+              
+            
+                
+                    <a class="header-menu-link" id="header-menu-archives" href="/archives">
+                        <i class="iconfont icon-archives">  
+                    </i></a>   
+                  
+            
+              
+            
+                
+                    <a class="header-menu-link" id="header-menu-tags" href="/tags">
+                        <i class="iconfont icon-tags">  
+                    </i></a>   
+                  
+            
+              
+            
+                
+                    <a class="header-menu-link" id="header-menu-about" href="/about">
+                        <i class="iconfont icon-about">  
+                    </i></a>   
+                  
+            
+              
+            
+                
+                    <a class="header-menu-link" id="header-menu-guestbook" href="/guestbook">
+                        <i class="iconfont-custom icon-message">  
+                    </i></a> 
+                  
+            
+              
+            
+                <a class="header-menu-link" id="header-menu-search">
+                    <i class="iconfont icon-search">  
+                </i></a>
+            
+                  
+    </div>  
+    
+  </nav>
+</header>
+
+ 
+
+      <div class="container">       
+          
+          
+            <div class="container-inner">  
+          
+
+          <article class="post">
+  
+	
+<div class="post-header">
+	<div class="post-header-inner">
+		<p class="post-title">	
+			抽象代数习题--格与布尔代数部分
+		</p>
+		<div class="post-info">	
+			<span class="post-info-entry">
+				Jun 10, 2019
+			</span>
+
+			
+			
+				<i class="iconfont icon-words"></i>
+				<span class="post-info-entry">2105
+				</span>
+			
+		</div>
+	</div>
+</div> 
+	
+
+    <script type="text/x-mathjax-config">
+        var post = document.getElementsByClassName("post")[0];  
+        MathJax.Hub.Config({
+            showProcessingMessages: false,
+            messageStyle: "none",    
+            tex2jax: {
+                inlineMath:  [ ["$", "$"] , ["\\(","\\)"]],
+                displayMath: [ ["$$","$$"] , ["\\[","\\]"]],
+                skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code','a'],
+            },
+            "HTML-CSS": {            
+                showMathMenu: false
+            }
+        });
+        MathJax.Hub.Queue(["Typeset",MathJax.Hub,post]);
+    </script>
+    <style>.MathJax{outline:0;}</style>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS_CHTML"></script>
+ 
+
+	  <div class="typo post-content slideDownMin">
+
+		
+
+			
+					<p>如有疏漏，敬请指正<br><a id="more"></a></p>
+<h2 id="1"><a href="#1" class="headerlink" title="1"></a>1</h2><p><b>题目:</b><br>Draw the lattice diagram for the power set of $X = \lbrace a, b, c, d \rbrace$ with the set inclusion relation $\subseteq$.<br><b>解答:</b><br>示意图如下所示:<br><img src="https://mizunashi.me/image-hosting/blog/others/power-set-graph.png" alt="Graph"></p>
+<h2 id="2"><a href="#2" class="headerlink" title="2"></a>2</h2><p><b>题目:</b><br>Let $B$ be the set of positive integers that are divisors of 30. $a \preceq b$ on $B$ is defined by $a \mid b$. Prove that $B$ is a Boolean algebra. Find a set $X$ such that $B$ is isomorphic to $\mathcal{P} (X)$<br><b>解答:</b><br><b>(1)</b><br>易知，$B=\lbrace 1,2,3,5,6,10,15,30 \rbrace$<br>其中的最大元素$I=30$，最小元素$O=1$<br>定义$\vee$运算为$\mathbb{Z}$上的乘法运算，$\land$运算为$a \land b=gcd(a,b)$<br>则对任意$a \in B$，有$a \vee a’ = I$且$a \land a’=O$<br>由最大公约数的性质可知</p>
+<script type="math/tex; mode=display">a \cdot gcd(b,c)=gcd(ab,ac)</script><p>即$a \vee (b \land c)=(a \vee b) \land (a \vee c)$<br>因此$B$有补且满足分配律<br>综上，$B$是一个布尔代数<br><b>(2)</b><br>令$X=atom(B)=\lbrace 2,3,5 \rbrace$<br>由同构定理可知</p>
+<script type="math/tex; mode=display">B \cong \mathcal{P} (X)</script><h2 id="3"><a href="#3" class="headerlink" title="3"></a>3</h2><p><b>题目:</b><br>Show whether $\mathbb{Z}^{+}$ with $a \preceq b$ defined by $a \mid b$ is a lattice, and whether it is a Boolean algebra.<br><b>解答:</b><br><b>(1)</b><br>易知，关系$\mid$是一个偏序关系<br>且$\mathbb{Z}^{+}$是一个格<br>对任意$a,b \in \mathbb{Z}^{+}$，其上确界为$lcm(a,b)$，下确界为$gcd(a,b)$<br><b>(2)</b><br>$\mathbb{Z}^{+}$不是布尔代数<br>因为找不到最大值$I$，使得对任意$a \in \mathbb{Z}^{+}$，有$a \preceq I$</p>
+<h2 id="4"><a href="#4" class="headerlink" title="4"></a>4</h2><p><b>题目:</b><br>Let $G$ be an Abelian group and $X$ be the set of subgroups of $G$ ordered by $\subseteq$. Prove that the least upper bound of two subgroups $H$ and $K$ in Boolean algebra $X$ is $HK$.<br><b>解答:</b><br>对任意$h_{1},h_{2},h \in H,k_{1},k_{2},k \in K$，有</p>
+<script type="math/tex; mode=display">h_{1}h_{2},k_{1}k_{2} \in HK</script><script type="math/tex; mode=display">hk=kh \in HK</script><script type="math/tex; mode=display">k^{-1} h^{-1} = h^{-1} k^{-1} \in HK</script><p>因此$HK$也是一个阿贝尔群<br>易知$H,K \subset HK$，因此$HK$是$H$与$K$的上界<br>假设$H,K \subseteq P \subset HK$<br>令$i \in H,j \in K,i \neq j$且$ij \notin P$<br>由题意得$P$也是群，且$i,j \in P$<br>那么必有$ij \in P$<br>矛盾！<br>因此$H$与$K$的上确界是$HK$</p>
+<h2 id="5"><a href="#5" class="headerlink" title="5"></a>5</h2><p><b>题目:</b><br>The order of any finite Boolean algebra must be $2^{n}$ for some positive integer $n$.<br><b>解答:</b><br>令$A$是有限布尔代数$B$中所有原子组成的集合，且$\mid A \mid = n$<br>那么由幂集的性质可得$\mid \mathcal{P} (A) \mid = 2^{n}$<br>由同构定理可得</p>
+<script type="math/tex; mode=display">B \cong \mathcal{P} (A)</script><p>因此$\mid B \mid = 2^{n}$<br>即任意有限布尔代数的阶都是$2^{n}$，其中$n$是正数</p>
+<h2 id="6"><a href="#6" class="headerlink" title="6"></a>6</h2><p><b>题目:</b><br>Let $B$ be a Boolean algebra. Prove that</p>
+<ul>
+<li>$a=b$ iif $(a \land b’) \vee (a’ \land b)=O$ for $a,b \in B$</li>
+<li>$a=O$ iif $\forall b \in B, (a \land b’) \vee (a’ \land b)=b$</li>
+</ul>
+<p><b>解答:</b><br><b>(1)</b><br>当$a=b$时，有</p>
+<script type="math/tex; mode=display">(a \land b') \vee (a' \land b)=(a \land a') \vee (a' \land a) = O \vee O=O</script><p>当$(a \land b’) \vee (a’ \land b)=O$时，易知</p>
+<script type="math/tex; mode=display">a \land b'=O \; \mathrm{and} \; a' \land b=O</script><p>那么有</p>
+<script type="math/tex; mode=display">a \preceq b \; \mathrm{and} \; b \preceq a</script><p>因此由偏序关系的反对称性</p>
+<script type="math/tex; mode=display">a=b</script><p><b>(2)</b><br>当$a=O$时，有</p>
+<script type="math/tex; mode=display">(a \land b') \vee (a' \land b)=O \vee b=b</script><p>当$(a \land b’) \vee (a’ \land b)=b$时<br>因为该式对所有$b \in B$都适用，那么假设$b=O$<br>此时有</p>
+<script type="math/tex; mode=display">(a \land I) \vee (a' \land O)=O</script><script type="math/tex; mode=display">a \vee O=O</script><script type="math/tex; mode=display">a=O</script><p>综上，$a=O$当且仅当对任意$b \in B$，有$(a \land b’) \vee (a’ \land b)=b$</p>
+  	
+					
+	  </div>     
+	  
+
+	<div class="post-footer">
+
+
+  <div class="post-footer-other">
+       
+    
+      <span class="post-footer-item">
+        <span class="share-btn">
+	<span class="iconfont icon-share"></span>
+</span>
+<div class="-mob-share sildeUpMin">
+	<ul class="-mob-inner">
+	   			             
+        <li class="iconfont 
+		icon-share-weixin 
+		-mob-share-weixin 
+		-mob-share-link"></li>		
+   	   			             
+        <li class="iconfont 
+		icon-share-weibo 
+		-mob-share-weibo 
+		-mob-share-link"></li>		
+   	   			             
+        <li class="iconfont 
+		icon-share-facebook 
+		-mob-share-facebook 
+		-mob-share-link"></li>		
+   	   			             
+        <li class="iconfont 
+		icon-share-twitter 
+		-mob-share-twitter 
+		-mob-share-link"></li>		
+   	   
+	</ul>
+</div>	
+
+
+<script id="-mob-share" src="https://f1.webshare.mob.com/code/mob-share.js?appkey=2a31e660f849e"></script>
+      </span>  
+               
+  </div>  
+    
+
+
+  <div class="post-footer-meta">
+        	
+
+        
+          <i class="iconfont icon-tag"></i>     
+            <a class="tag-link" href="/tags/Abstract-Algebra/">Abstract Algebra</a>    
+        	
+  </div>
+
+</div>
+
+
+<nav class="post-footer-nav">
+  <div class="post-footer-link">
+  
+      <a href="/2019/05/20/Abstract-Algebra-Notes-Lattices-and-Boolean/" id="post-nav-older" class="post-nav-link-wrap">
+        <strong class="post-nav-caption">older</strong>
+        
+          <span class="post-nav-title">
+            抽象代数学习笔记--格与布尔代数
+          </span>
+      </a>
+  
+  </div>
+  <div class="post-footer-link">
+    
+        <a href="/2019/07/05/2019-ECNU-Math-Modelling-Contest/" id="post-nav-newer" class="post-nav-link-wrap">
+          <strong class="post-nav-caption">newer</strong>
+             
+            <span class="post-nav-title">
+              2019数学建模校内赛实录
+            </span>
+        </a>
+    
+  </div>
+
+</nav>
+ 
+	
+
+    <script src="//cdn.jsdelivr.net/npm/@waline/client"></script>
+
+    <div id="waline"></div>
+
+    <script>
+        Waline({
+          el: '#waline',
+          serverURL: 'https://blog-api.mizunashi.me/',
+          lang: 'en',
+          avatar: 'retro',
+          uploadImage: false,
+        });
+      </script>
+	
+</article>
+
+	<div class="toc-container">
+			<div class="toc-sidebar">
+			<p class="toc-title">
+				Contents
+			</p>
+			<div class="toc-list">
+				<ol class="toc-inner"><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#1"><span class="toc-inner-text">1</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#2"><span class="toc-inner-text">2</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#3"><span class="toc-inner-text">3</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#4"><span class="toc-inner-text">4</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#5"><span class="toc-inner-text">5</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#6"><span class="toc-inner-text">6</span></a></li></ol>
+			</div>
+		</div>
+	</div>
+
+          </div> 
+      </div>            
+    
+    <a id="page-backTop">
+      <span>
+        <i class="iconfont icon-backtotop"></i>
+      </span>
+    </a> 
+
+  
+    
+    <div class="search-container sildeUpMin">
+        <div class="search-header">
+            <input type="text" placeholder="Typing Something here." id="search-input" class="search-input">
+            <span class="search-cancel">
+                <i class="iconfont icon-cancel">
+            </i></span>
+        </div>
+        <div id="search-result" class="search-result"></div>
+    </div>
+ 
+     <div class="mobile-menu">      
+
+      
+      <img class="mobile-menu-icon" src="/images/favicon.png">  
+      
+
+         
+            
+
+            <a class="mobile-menu-link" href="/">Home
+            </a>
+            
+         
+            
+
+            <a class="mobile-menu-link" href="/archives">Archives
+            </a>
+            
+         
+            
+
+            <a class="mobile-menu-link" href="/tags">Tags
+            </a>
+            
+         
+            
+
+            <a class="mobile-menu-link" href="/about">About
+            </a>
+            
+         
+            
+
+            <a class="mobile-menu-link" href="/guestbook">Guestbook
+            </a>
+            
+         
+                          
+
+            <a class="mobile-menu-link mobile-menu-search" href="#">Search </a>                 
+            
+         
+      
+</div>
+        
+    
+
+
+
+     
+    
+
+
+
+
+<footer id="footer">	    
+
+		
+		<div class="footer-copyright">
+		&copy;
+				
+		2019-
+		
+		2021		
+	
+		Mizunashi&#39;s Blog
+        <br>
+        
+        <a href="/about">About</a> | <a href="/sitemap.xml">Sitemap</a> | <a href="/privacy.html">Privacy Policy</a> | 
+        <a href="/changelog.html">Changelog</a> | <a href="/atom.xml">RSS</a>
+
+        <br>
+
+		Theme  <a href="https://github.com/Lemonreds/hexo-theme-Nayo" target="_blank">Nayo</a>
+		</div>			
+	 
+</footer>   
+
+    <script src="/nayo.bundle.js"></script>           
+  </body>        
+</html>

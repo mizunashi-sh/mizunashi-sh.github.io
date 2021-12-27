@@ -1,0 +1,423 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html>
+  <head><meta name="generator" content="Hexo 3.9.0">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  
+  
+  <title>  抽象代数学习笔记--格与布尔代数 |   Mizunashi&#39;s Blog </title>
+
+ 
+  
+    <link rel="icon" href="/images/favicon.png">
+  
+
+
+  <link rel="stylesheet" href="/nayo.min.css"> 
+</head>  
+  <body>   
+    
+      <link rel="stylesheet" type="text/css" href="/nayo.customized.css">
+
+<header class="header">
+	
+  <nav class="header-inner">        
+
+    <span class="iconfont icon-menu mobile-toggle"></span>   	
+
+    <div class="header-logo">
+      <a href="/">
+        <img class="header-logo-img" src="/images/logo.png">
+      </a>
+    </div>
+
+    <div class="header-menu">          
+              
+            
+                
+                    <a class="header-menu-link" id="header-menu-home" href="/">
+                        <i class="iconfont icon-home">  
+                    </i></a>   
+                  
+            
+              
+            
+                
+                    <a class="header-menu-link" id="header-menu-archives" href="/archives">
+                        <i class="iconfont icon-archives">  
+                    </i></a>   
+                  
+            
+              
+            
+                
+                    <a class="header-menu-link" id="header-menu-tags" href="/tags">
+                        <i class="iconfont icon-tags">  
+                    </i></a>   
+                  
+            
+              
+            
+                
+                    <a class="header-menu-link" id="header-menu-about" href="/about">
+                        <i class="iconfont icon-about">  
+                    </i></a>   
+                  
+            
+              
+            
+                
+                    <a class="header-menu-link" id="header-menu-guestbook" href="/guestbook">
+                        <i class="iconfont-custom icon-message">  
+                    </i></a> 
+                  
+            
+              
+            
+                <a class="header-menu-link" id="header-menu-search">
+                    <i class="iconfont icon-search">  
+                </i></a>
+            
+                  
+    </div>  
+    
+  </nav>
+</header>
+
+ 
+
+      <div class="container">       
+          
+          
+            <div class="container-inner">  
+          
+
+          <article class="post">
+  
+	
+<div class="post-header">
+	<div class="post-header-inner">
+		<p class="post-title">	
+			抽象代数学习笔记--格与布尔代数
+		</p>
+		<div class="post-info">	
+			<span class="post-info-entry">
+				May 20, 2019
+			</span>
+
+			
+			
+				<i class="iconfont icon-words"></i>
+				<span class="post-info-entry">2467
+				</span>
+			
+		</div>
+	</div>
+</div> 
+	
+
+    <script type="text/x-mathjax-config">
+        var post = document.getElementsByClassName("post")[0];  
+        MathJax.Hub.Config({
+            showProcessingMessages: false,
+            messageStyle: "none",    
+            tex2jax: {
+                inlineMath:  [ ["$", "$"] , ["\\(","\\)"]],
+                displayMath: [ ["$$","$$"] , ["\\[","\\]"]],
+                skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code','a'],
+            },
+            "HTML-CSS": {            
+                showMathMenu: false
+            }
+        });
+        MathJax.Hub.Queue(["Typeset",MathJax.Hub,post]);
+    </script>
+    <style>.MathJax{outline:0;}</style>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS_CHTML"></script>
+ 
+
+	  <div class="typo post-content slideDownMin">
+
+		
+
+			
+					<p><img src="https://mizunashi.me/image-hosting/blog/others/Dianpu-River-Bridge.jpg" alt="Dianpu River Bridge"></p>
+<blockquote>
+<p>Dianpu River Bridge, Minhang</p>
+</blockquote>
+<p><b>适用教材:Advanced Modern Algebra</b><br>如有疏漏，敬请指正</p>
+<a id="more"></a>
+<h2 id="偏序集"><a href="#偏序集" class="headerlink" title="偏序集"></a>偏序集</h2><p>一个集合$X$是偏序集，如果在其上有一个二元关系$x \preceq y$，且该关系满足对所有$x,y,z \in X$，有</p>
+<ul>
+<li>自反性：$x \preceq x$</li>
+<li>反对称性：若$x \preceq y$，且$y \preceq x$，那么$x=y$</li>
+<li>传递性：若$x \preceq y$且$y \preceq z$，那么$x \preceq z$</li>
+</ul>
+<p>若对于任意$a,b \in X$，必有$a \preceq b$或$b \preceq a$，则$X$是一个全序集</p>
+<h2 id="上下界"><a href="#上下界" class="headerlink" title="上下界"></a>上下界</h2><p>令$Y$是偏序集$X$的子集</p>
+<p>元素$u$是$Y$的上界，如果对于所有$a \in Y$，都有$a \preceq u$<br>如果对所有上界$v$都有$u \preceq v$，那么$u$是上确界</p>
+<p>下界及下确界也可以类似定义</p>
+<h2 id="格"><a href="#格" class="headerlink" title="格"></a>格</h2><p>格是一个偏序集$\mathcal{L}$，且满足$\mathcal{L}$中的每一对元素都有上确界和下确界</p>
+<p>$a,b \in \mathcal{L}$的上确界被称为$a$和$b$的并，记作$a \vee b$<br>$a,b \in \mathcal{L}$的下确界被称为$a$和$b$的交，记作$a \land b$</p>
+<h3 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h3><ul>
+<li>所有全序集都是格</li>
+<li>$U$是一个集合，定义$A \preceq B$为$A \subseteq B$，那么$\mathcal{P}(U)$是一个格，且$A \land B=A \cap B,A \vee B=A \cup B$</li>
+<li>若$G$是一个群，定义$\mathcal{L}=Sub(G)$是$G$的所有子群组成的集合，定义$A \preceq B$为$A \leq B$，即$A$是$B$的子群。那么$\mathcal{L}$是一个格，有$A \land B=A \cap B$，$A \vee B$是由$A \cup B$生成的子群</li>
+<li>$\lbrace \varnothing , \lbrace 0 \rbrace ,\lbrace 1 \rbrace \rbrace$是偏序集，但不是格</li>
+</ul>
+<h3 id="定理"><a href="#定理" class="headerlink" title="定理"></a>定理</h3><ul>
+<li>对偶性:若命题对于一个格为真，则将命题与格中的$\preceq$和$\succeq$，$\vee$和$\land$互换后，命题依然为真</li>
+<li>交换律:$a \vee b=b \vee a, a \land b=b \land a$</li>
+<li>结合律:$a \vee (b \vee c)=(a \vee b) \vee c, a \land (b \land c)=(a \land b) \land c$</li>
+<li>幂等律:$a \vee a=a,a \land a=a$</li>
+<li>吸收律:$a \vee (a \land b)=a,a \land (a \vee b)=a$</li>
+</ul>
+<h2 id="布尔代数"><a href="#布尔代数" class="headerlink" title="布尔代数"></a>布尔代数</h2><p><b>引理:</b>一个偏序集$X$可能会有</p>
+<ul>
+<li>最大元素$I$:对任何$a \in X$，有$a \preceq I$</li>
+<li>最小元素$O$:对任何$a \in X$，有$O \preceq a$</li>
+</ul>
+<p>如果一个配备了这样的$I$和$O$的格$L$满足:<br>对任何$a \in L$，存在$a’ \in L$，使得$a \vee a’=I$且$a \land a’=O$<br>则称$L$是有补的</p>
+<p>如果一个格$L$满足:<br>对任意$a,b,c \in L$，满足$a \land (b \vee c)=(a \land b) \vee (a \land c)$(将每个位置的$\vee$与$\land$互换亦可)<br>则称这个格满足分配律</p>
+<p><b>定义:</b>布尔代数是一个配备了最大元素$I$与最小元素$O$的格$B$，且$B$有补并满足分配律<br>一个偏序集$B$是布尔代数当且仅当其满足交换律，结合律，分配律，并配备最大元素$I$和最小元素$O$，且有补</p>
+<h3 id="举例-1"><a href="#举例-1" class="headerlink" title="举例"></a>举例</h3><ul>
+<li>集合$X$的幂集$\mathcal{P} (X)$是布尔代数</li>
+<li>配备了关系$\leq$的整数集$\lbrace 0,1,2,3,4 \rbrace$是一个格，但不是布尔代数，因为其不是有补的</li>
+</ul>
+<h3 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h3><p>若$B$是布尔代数，那么有</p>
+<ul>
+<li>对任意$a,b,c \in B$，若$a \vee b=a \vee c$且$a \land b=a \land c$，那么$b=c$</li>
+<li>对任意$a \in B$，$a’$唯一，且有$(a’)’=a$</li>
+<li>$I’=O$且$O’=I$</li>
+<li>$(a \vee b)’ = a’ \land b’$且$(a \land b)’=a’ \vee b’$</li>
+<li>$a \preceq b \Leftrightarrow a \land b’ = O \Leftrightarrow a’ \vee b =I$，它的等价表示为$\urcorner (a \preceq b) \Leftrightarrow a \land b’ \neq O \Leftrightarrow a’ \vee b \neq I$</li>
+</ul>
+<h2 id="有限布尔代数"><a href="#有限布尔代数" class="headerlink" title="有限布尔代数"></a>有限布尔代数</h2><p>若一个布尔代数有有限个元素，那么它就是有限布尔代数</p>
+<h3 id="布尔同构"><a href="#布尔同构" class="headerlink" title="布尔同构"></a>布尔同构</h3><p>令$B$和$C$是布尔代数。若对所有$a,b \in B$，有</p>
+<script type="math/tex; mode=display">\phi (a \vee b)=\phi (a) \vee \phi (b)</script><script type="math/tex; mode=display">\phi (a \land b)=\phi (a) \land \phi (b)</script><p>那么双射$\phi : B \to C$是布尔同构</p>
+<h2 id="原子"><a href="#原子" class="headerlink" title="原子"></a>原子</h2><p>令$b \neq O$是有限布尔代数$B$中的元素。若对任意$a \neq O$且$a \preceq b$，有$a=b$，那么$b$是$B$的一个原子。<br>$B$中的原子组成的集合可表示为$atom(B)$</p>
+<h3 id="性质-1"><a href="#性质-1" class="headerlink" title="性质"></a>性质</h3><ul>
+<li>若$a,b \in atom(B)$并且$a \neq b$，那么$a \land b =O$</li>
+<li>若$b \neq O$，$\urcorner (b \preceq c)$当且仅当存在$a \in atom(B)$，有$a \preceq b$且$\urcorner (a \preceq c)$</li>
+<li>令$b \in B, A_{b}= \lbrace a_{i} : i=1, \cdots ,n \; \mathrm{and} \; a_{i} \preceq b \rbrace$是$B$中的原子组成的一个集合，那么$A_{b}$是$\preceq b$的所有原子组成的集合当且仅当$b= a_{1} \vee \cdots \vee a_{n}$ </li>
+</ul>
+<h3 id="布尔同构定理"><a href="#布尔同构定理" class="headerlink" title="布尔同构定理"></a>布尔同构定理</h3><p>令$B$是一个有限布尔代数且$A=atom(B)$，那么$B \cong \mathcal{P} (A)$</p>
+  	
+					
+	  </div>     
+	  
+
+	<div class="post-footer">
+
+
+  <div class="post-footer-other">
+       
+    
+      <span class="post-footer-item">
+        <span class="share-btn">
+	<span class="iconfont icon-share"></span>
+</span>
+<div class="-mob-share sildeUpMin">
+	<ul class="-mob-inner">
+	   			             
+        <li class="iconfont 
+		icon-share-weixin 
+		-mob-share-weixin 
+		-mob-share-link"></li>		
+   	   			             
+        <li class="iconfont 
+		icon-share-weibo 
+		-mob-share-weibo 
+		-mob-share-link"></li>		
+   	   			             
+        <li class="iconfont 
+		icon-share-facebook 
+		-mob-share-facebook 
+		-mob-share-link"></li>		
+   	   			             
+        <li class="iconfont 
+		icon-share-twitter 
+		-mob-share-twitter 
+		-mob-share-link"></li>		
+   	   
+	</ul>
+</div>	
+
+
+<script id="-mob-share" src="https://f1.webshare.mob.com/code/mob-share.js?appkey=2a31e660f849e"></script>
+      </span>  
+               
+  </div>  
+    
+
+
+  <div class="post-footer-meta">
+        	
+
+        
+          <i class="iconfont icon-tag"></i>     
+            <a class="tag-link" href="/tags/Abstract-Algebra/">Abstract Algebra</a>    
+        	
+  </div>
+
+</div>
+
+
+<nav class="post-footer-nav">
+  <div class="post-footer-link">
+  
+      <a href="/2019/05/14/Abstract-Algebra-Homework-2/" id="post-nav-older" class="post-nav-link-wrap">
+        <strong class="post-nav-caption">older</strong>
+        
+          <span class="post-nav-title">
+            抽象代数习题--交换环部分
+          </span>
+      </a>
+  
+  </div>
+  <div class="post-footer-link">
+    
+        <a href="/2019/06/10/Abstract-Algebra-Homework-3/" id="post-nav-newer" class="post-nav-link-wrap">
+          <strong class="post-nav-caption">newer</strong>
+             
+            <span class="post-nav-title">
+              抽象代数习题--格与布尔代数部分
+            </span>
+        </a>
+    
+  </div>
+
+</nav>
+ 
+	
+
+    <script src="//cdn.jsdelivr.net/npm/@waline/client"></script>
+
+    <div id="waline"></div>
+
+    <script>
+        Waline({
+          el: '#waline',
+          serverURL: 'https://blog-api.mizunashi.me/',
+          lang: 'en',
+          avatar: 'retro',
+          uploadImage: false,
+        });
+      </script>
+	
+</article>
+
+	<div class="toc-container">
+			<div class="toc-sidebar">
+			<p class="toc-title">
+				Contents
+			</p>
+			<div class="toc-list">
+				<ol class="toc-inner"><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#偏序集"><span class="toc-inner-text">偏序集</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#上下界"><span class="toc-inner-text">上下界</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#格"><span class="toc-inner-text">格</span></a><ol class="toc-inner-child"><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#举例"><span class="toc-inner-text">举例</span></a></li><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#定理"><span class="toc-inner-text">定理</span></a></li></ol></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#布尔代数"><span class="toc-inner-text">布尔代数</span></a><ol class="toc-inner-child"><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#举例-1"><span class="toc-inner-text">举例</span></a></li><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#性质"><span class="toc-inner-text">性质</span></a></li></ol></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#有限布尔代数"><span class="toc-inner-text">有限布尔代数</span></a><ol class="toc-inner-child"><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#布尔同构"><span class="toc-inner-text">布尔同构</span></a></li></ol></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#原子"><span class="toc-inner-text">原子</span></a><ol class="toc-inner-child"><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#性质-1"><span class="toc-inner-text">性质</span></a></li><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#布尔同构定理"><span class="toc-inner-text">布尔同构定理</span></a></li></ol></li></ol>
+			</div>
+		</div>
+	</div>
+
+          </div> 
+      </div>            
+    
+    <a id="page-backTop">
+      <span>
+        <i class="iconfont icon-backtotop"></i>
+      </span>
+    </a> 
+
+  
+    
+    <div class="search-container sildeUpMin">
+        <div class="search-header">
+            <input type="text" placeholder="Typing Something here." id="search-input" class="search-input">
+            <span class="search-cancel">
+                <i class="iconfont icon-cancel">
+            </i></span>
+        </div>
+        <div id="search-result" class="search-result"></div>
+    </div>
+ 
+     <div class="mobile-menu">      
+
+      
+      <img class="mobile-menu-icon" src="/images/favicon.png">  
+      
+
+         
+            
+
+            <a class="mobile-menu-link" href="/">Home
+            </a>
+            
+         
+            
+
+            <a class="mobile-menu-link" href="/archives">Archives
+            </a>
+            
+         
+            
+
+            <a class="mobile-menu-link" href="/tags">Tags
+            </a>
+            
+         
+            
+
+            <a class="mobile-menu-link" href="/about">About
+            </a>
+            
+         
+            
+
+            <a class="mobile-menu-link" href="/guestbook">Guestbook
+            </a>
+            
+         
+                          
+
+            <a class="mobile-menu-link mobile-menu-search" href="#">Search </a>                 
+            
+         
+      
+</div>
+        
+    
+
+
+
+     
+    
+
+
+
+
+<footer id="footer">	    
+
+		
+		<div class="footer-copyright">
+		&copy;
+				
+		2019-
+		
+		2021		
+	
+		Mizunashi&#39;s Blog
+        <br>
+        
+        <a href="/about">About</a> | <a href="/sitemap.xml">Sitemap</a> | <a href="/privacy.html">Privacy Policy</a> | 
+        <a href="/changelog.html">Changelog</a> | <a href="/atom.xml">RSS</a>
+
+        <br>
+
+		Theme  <a href="https://github.com/Lemonreds/hexo-theme-Nayo" target="_blank">Nayo</a>
+		</div>			
+	 
+</footer>   
+
+    <script src="/nayo.bundle.js"></script>           
+  </body>        
+</html>

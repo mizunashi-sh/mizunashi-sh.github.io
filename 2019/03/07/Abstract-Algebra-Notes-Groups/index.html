@@ -1,0 +1,469 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html>
+  <head><meta name="generator" content="Hexo 3.9.0">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  
+  
+  <title>  抽象代数学习笔记--群 |   Mizunashi&#39;s Blog </title>
+
+ 
+  
+    <link rel="icon" href="/images/favicon.png">
+  
+
+
+  <link rel="stylesheet" href="/nayo.min.css"> 
+</head>  
+  <body>   
+    
+      <link rel="stylesheet" type="text/css" href="/nayo.customized.css">
+
+<header class="header">
+	
+  <nav class="header-inner">        
+
+    <span class="iconfont icon-menu mobile-toggle"></span>   	
+
+    <div class="header-logo">
+      <a href="/">
+        <img class="header-logo-img" src="/images/logo.png">
+      </a>
+    </div>
+
+    <div class="header-menu">          
+              
+            
+                
+                    <a class="header-menu-link" id="header-menu-home" href="/">
+                        <i class="iconfont icon-home">  
+                    </i></a>   
+                  
+            
+              
+            
+                
+                    <a class="header-menu-link" id="header-menu-archives" href="/archives">
+                        <i class="iconfont icon-archives">  
+                    </i></a>   
+                  
+            
+              
+            
+                
+                    <a class="header-menu-link" id="header-menu-tags" href="/tags">
+                        <i class="iconfont icon-tags">  
+                    </i></a>   
+                  
+            
+              
+            
+                
+                    <a class="header-menu-link" id="header-menu-about" href="/about">
+                        <i class="iconfont icon-about">  
+                    </i></a>   
+                  
+            
+              
+            
+                
+                    <a class="header-menu-link" id="header-menu-guestbook" href="/guestbook">
+                        <i class="iconfont-custom icon-message">  
+                    </i></a> 
+                  
+            
+              
+            
+                <a class="header-menu-link" id="header-menu-search">
+                    <i class="iconfont icon-search">  
+                </i></a>
+            
+                  
+    </div>  
+    
+  </nav>
+</header>
+
+ 
+
+      <div class="container">       
+          
+          
+            <div class="container-inner">  
+          
+
+          <article class="post">
+  
+	
+<div class="post-header">
+	<div class="post-header-inner">
+		<p class="post-title">	
+			抽象代数学习笔记--群
+		</p>
+		<div class="post-info">	
+			<span class="post-info-entry">
+				Mar 07, 2019
+			</span>
+
+			
+			
+				<i class="iconfont icon-words"></i>
+				<span class="post-info-entry">4479
+				</span>
+			
+		</div>
+	</div>
+</div> 
+	
+
+    <script type="text/x-mathjax-config">
+        var post = document.getElementsByClassName("post")[0];  
+        MathJax.Hub.Config({
+            showProcessingMessages: false,
+            messageStyle: "none",    
+            tex2jax: {
+                inlineMath:  [ ["$", "$"] , ["\\(","\\)"]],
+                displayMath: [ ["$$","$$"] , ["\\[","\\]"]],
+                skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code','a'],
+            },
+            "HTML-CSS": {            
+                showMathMenu: false
+            }
+        });
+        MathJax.Hub.Queue(["Typeset",MathJax.Hub,post]);
+    </script>
+    <style>.MathJax{outline:0;}</style>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS_CHTML"></script>
+ 
+
+	  <div class="typo post-content slideDownMin">
+
+		
+
+			
+					<p><b>适用教材:A First Course in Abstract Algebra</b><br>如有疏漏，敬请指正<br><a id="more"></a></p>
+<h2 id="群"><a href="#群" class="headerlink" title="群"></a>群</h2><h3 id="二元运算"><a href="#二元运算" class="headerlink" title="二元运算"></a>二元运算</h3><p>集合$G$上的二元运算可被定义为函数的形式，且函数满足：</p>
+<script type="math/tex; mode=display">G \times G \rightarrow G</script><p>二元运算满足代换律，即如果$x=x’$且$y=y’$，那么$x \ast y=x’ \ast y’$</p>
+<h3 id="群的定义"><a href="#群的定义" class="headerlink" title="群的定义"></a>群的定义</h3><p>群是一个配备了运算$\ast$和特殊元素$e\in G$的集合$G$，且满足如下条件：</p>
+<ul>
+<li>对任意$a,b,c \in G$，都有$a \ast (b \ast c)=(a \ast b) \ast c$</li>
+<li>对所有$a \in G$，都有$e \ast a=a$</li>
+<li>对任意$a \in G$，都存在$a’ \in G$，使得$a’ \ast a=e$</li>
+</ul>
+<h3 id="阿贝尔群"><a href="#阿贝尔群" class="headerlink" title="阿贝尔群"></a>阿贝尔群</h3><p>服从交换律的群，即对任意$x,y \in G$，都有$x \ast y=y \ast x$成立</p>
+<h3 id="群的性质"><a href="#群的性质" class="headerlink" title="群的性质"></a>群的性质</h3><ul>
+<li>若$G$是一个群，且$a \in G$满足$a \ast a=a$，那么$a=e$</li>
+<li>对任意$a \in G$，有$a \ast a’=e$</li>
+<li>对任意$a \in G$，有$a \ast e=a$</li>
+<li>若$e_{0} \in G$对所有$a \in G$都有$e_{0} \ast a=a$，那么$e_{0}=e$</li>
+<li>令$a \in G$，如果$b \in G$满足$b \ast a=e$，那么$b=a’$(逆元唯一)</li>
+<li>若$a,b,x \in G$，且$x \ast a=x \ast b$或$a \ast x=b \ast x$，则$a=b$</li>
+<li>对所有$a \in G$，$(a^{-1})^{-1}=a$</li>
+<li>若$a,b \in G$，那么$(a \ast b)^{-1}=b^{-1} \ast a^{-1}$<br>一般地</li>
+</ul>
+<script type="math/tex; mode=display">(a_{1} \ast a_{2} \ast \cdots a_{n})^{-1}=a_{n}^{-1} \ast \cdots \ast a_{2}^{-1} \ast a_{1}^{-1}</script><h3 id="加法群"><a href="#加法群" class="headerlink" title="加法群"></a>加法群</h3><p>配备运算$+$和元素$0 \in G$的集合$G$，满足如下条件：</p>
+<ul>
+<li>对任意$a,b,c \in G$，$(a+b)+c=a+(b+c)$</li>
+<li>对任意$a \in G$，$0+a=a$</li>
+<li>对任意$a \in G$，存在$-a \in G$，使得$(-a)+a=0$</li>
+</ul>
+<h3 id="群的指数"><a href="#群的指数" class="headerlink" title="群的指数"></a>群的指数</h3><p>若$G$是一个群并且元素$a \in G$，定义$a^{n}$，其中$n \geq 1$如下：</p>
+<p><center>$a^{1}=a$且$a^{n+1}=aa^{n}$</center><br>定义$a^{0}=1$，且若n为正整数，则定义：</p>
+<script type="math/tex; mode=display">a^{-n}=(a^{-1})^{n}</script><h4 id="定理"><a href="#定理" class="headerlink" title="定理"></a>定理</h4><p>设$G$是一个群，令$a,b \in G$，且$m$和$n$为整数，则：</p>
+<ul>
+<li>若a和b是可交换的，那么$(ab)^{n}=a^{n}b^{n}$</li>
+<li>$(a^{n})^{m}=a^{nm}$</li>
+<li>$a^{m}a^{n}=a^{m+n}$</li>
+</ul>
+<h3 id="阶"><a href="#阶" class="headerlink" title="阶"></a>阶</h3><p>设$G$是一个群且$a \in G$，若存在一个$k \geq 1$，使得$a^{k}=1$，则最小的$k \geq 1$称为$a$的阶，如果$k$不存在，则称$a$的阶无穷大。</p>
+<h4 id="定理-1"><a href="#定理-1" class="headerlink" title="定理"></a>定理</h4><p>设$G$是一个群且$a \in G$有有限的阶$k$。若$a^{n}=1$，那么$k \mid n$。</p>
+<h2 id="子群"><a href="#子群" class="headerlink" title="子群"></a>子群</h2><p>设集合H是群G的子集，当满足以下条件时：</p>
+<ul>
+<li>$1 \in H$</li>
+<li>若$x,y \in H$，则$xy \in H$，即$H$对$\ast$封闭</li>
+<li>若$x \in H$，那么$x^{-1} \in H$</li>
+</ul>
+<p>若$H \neq G$，则称H为真子群；若$H \neq \lbrace 1 \rbrace$，则称H非平凡。</p>
+<h3 id="定理-2"><a href="#定理-2" class="headerlink" title="定理"></a>定理</h3><ul>
+<li>每一个子群$H \leq G$也是群</li>
+<li>群G的子集H是子群当且仅当H非空，且对任意$x,y \in H$，有$xy^{-1} \in H$</li>
+<li>有限群G的非空子集H是子群当且仅当H对于定义在G上的运算封闭</li>
+</ul>
+<h2 id="循环群"><a href="#循环群" class="headerlink" title="循环群"></a>循环群</h2><p>若G是一个群且$a \in G$，令</p>
+<script type="math/tex; mode=display">\langle a \rangle =\lbrace a^{n}:n \in \mathbb{Z} \rbrace</script><p>则$\langle a \rangle$是由a生成的G的循环子群<br>当存在$a \in G$使得$G=\langle a \rangle$，称G为循环的，a是G的一个生成元</p>
+<h3 id="定理-3"><a href="#定理-3" class="headerlink" title="定理"></a>定理</h3><ul>
+<li>若$G=\langle a \rangle$是一个阶为n的循环群，那么$a^{k}$为G的生成元当且仅当$gcd(k,n)=1$</li>
+<li>循环群的子群也是循环的</li>
+<li>令G为有限群且$a \in G$，那么a的阶是$\langle a \rangle$中元素的个数</li>
+</ul>
+<p>注意：若G是一个有限群，那么$\mid G \mid$就是G的阶</p>
+<h2 id="陪集"><a href="#陪集" class="headerlink" title="陪集"></a>陪集</h2><p>若H是群G的子群且$a \in G$，令</p>
+<script type="math/tex; mode=display">aH= \lbrace ah:h \in H \rbrace</script><p>为G的陪集aH，aH是G的子集<br>aH中所用的运算为定义在群G中的运算</p>
+<h3 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h3><p>令H是群G的子群，且$a,b \in G$</p>
+<ul>
+<li>$aH=bH$当且仅当$b^{-1}a \in H$。特别地，$aH=H$当且仅当$a \in H$</li>
+<li>若$aH \cap bH \neq \varnothing$，则$aH=bH$</li>
+<li>对所有$a \in G$，有$\mid aH \mid = \mid H \mid$</li>
+</ul>
+<h3 id="拉格朗日子群定理"><a href="#拉格朗日子群定理" class="headerlink" title="拉格朗日子群定理"></a>拉格朗日子群定理</h3><p>若H是有限群G的子群，那么$\mid H \mid$整除$\mid G \mid$</p>
+<h4 id="推论"><a href="#推论" class="headerlink" title="推论"></a>推论</h4><p>若H是有限群G的子群，那么$[G:H]=\mid G \mid / \mid H \mid$<br>注：The index of a subgroup H in G, denoted by $[G:H]$, is the number of cosets of H in G, that is, $\mid G \mid = [G:H] \mid H \mid$</p>
+<h2 id="群同态"><a href="#群同态" class="headerlink" title="群同态"></a>群同态</h2><p>若$(G, \ast )$和$(H, \circ )$，那么如果</p>
+<script type="math/tex; mode=display">f(x \ast y)=f(x) \circ f(y)</script><p>函数$f:G \to H$是一个同态<br>若f是双射，那么称f为一个同构，称G和H是同构的，用$G \cong H$表示<br>若$G \cong H$，则$H \cong G$</p>
+<h3 id="性质-1"><a href="#性质-1" class="headerlink" title="性质"></a>性质</h3><p>令$f:G \to H$是一个同态，则：</p>
+<ul>
+<li>$f(1)=1$</li>
+<li>$f(x^{-1})=f(x)^{-1}$</li>
+<li>对所有$n \in \mathbb{Z}$，有$f(x^{n})=f(x)^{n}$</li>
+</ul>
+<h3 id="核与像"><a href="#核与像" class="headerlink" title="核与像"></a>核与像</h3><p>令$f:G \to H$是一个同态，定义</p>
+<script type="math/tex; mode=display">\mathbf{kernel} f= \lbrace x \in G: f(x)=1 \rbrace</script><p>为核，简写为$\mathbf{ker} f$<br>定义</p>
+<script type="math/tex; mode=display">\mathbf{image} f= \lbrace h \in H: h= f(x) \quad \mathrm{for \quad some \quad} x \in G \rbrace</script><p>为像，简写为$\mathbf{im} f$</p>
+<h4 id="定理-4"><a href="#定理-4" class="headerlink" title="定理"></a>定理</h4><p>令$f:G \to H$是一个同态</p>
+<ul>
+<li>$\mathbf{ker} f$是G的子群且$\mathbf{im} f$是H的子群</li>
+<li>若$x \in \mathbf{ker} f$且$a \in G$，那么$axa^{-1} \in \mathbf{ker} f$</li>
+<li>f是单射当且仅当$\mathbf{ker} f = \lbrace 1 \rbrace$</li>
+</ul>
+<h2 id="共轭"><a href="#共轭" class="headerlink" title="共轭"></a>共轭</h2><p>对每一个$k \in K, g \in G$，若</p>
+<script type="math/tex; mode=display">gkg^{-1} \in K</script><p>则称那么子群K是群G的正规子群，记为$K \vartriangleleft G$<br>如果G是群且$a \in G$，那么a的共轭是具有如下形式的G的任何一个元素</p>
+<script type="math/tex; mode=display">gag^{-1},g \in G</script><p>注意：$a=hbh^{-1}$且$h=g^{-1}$<br>如果G是一个群且$g \in G$，定义共轭$\gamma_{g}:G \to G$如下</p>
+<script type="math/tex; mode=display">\gamma_{g}(a)=gag^{-1}</script><p>对于任意$a \in G$</p>
+<h3 id="定理-5"><a href="#定理-5" class="headerlink" title="定理"></a>定理</h3><ul>
+<li>若G是一个群且$g \in G$，那么共轭$\gamma_{g}:G \to G$是一个同构</li>
+<li>共轭元素有相同的阶</li>
+</ul>
+<h2 id="同余类"><a href="#同余类" class="headerlink" title="同余类"></a>同余类</h2><p>给定$m \geq 2$和$a \in \mathbb{Z}$，那么a模m的同余类是$\mathbb{Z}$的子集$[a]$</p>
+<script type="math/tex; mode=display">[a]=\lbrace b \in \mathbb{Z} : b \equiv a \quad \mathrm{mod} \quad m \rbrace = \lbrace a+km: k \in \mathbb{Z} \rbrace</script><p>所有这样的模m同余的同余类表示为$\mathbb{I}_{m}$</p>
+<p>$[a]=[b]$在$\mathbb{I}_{m}$中当且仅当$b \equiv a \quad \mathrm{mod} \quad m$</p>
+<h3 id="定理-6"><a href="#定理-6" class="headerlink" title="定理"></a>定理</h3><ul>
+<li>若$a \in \mathbb{Z}$，那么存在$0 \leq r&lt;m$，使得$[a]=[r]$</li>
+<li>若$0 \leq r’ &lt; r &lt; m$，那么$[r’] \neq [r]$</li>
+<li>$\mathbb{I}_{m}$有m个元素，分别是$[0],[1], \cdots ,[m-1]$</li>
+</ul>
+<h3 id="费马小定理"><a href="#费马小定理" class="headerlink" title="费马小定理"></a>费马小定理</h3><p>若$p$是一个质数并且 $a \in \mathbb{Z}$,那么</p>
+<script type="math/tex; mode=display">a^{p} \equiv a \quad \mathrm{mod} \quad p</script><h2 id="同余加法"><a href="#同余加法" class="headerlink" title="同余加法"></a>同余加法</h2><p>若$m \geq 2$,那么定义函数$\alpha : \mathbb{I}_{m} \times \mathbb{I}_{m} \to \mathbb{I}_{m}$为</p>
+<script type="math/tex; mode=display">\alpha ([a],[b])=[a+b]</script><p>此为同余加法</p>
+<h3 id="定理-7"><a href="#定理-7" class="headerlink" title="定理"></a>定理</h3><ul>
+<li>$\mathbb{I}_{m}$是一个阶为m的可加循环群，其生成元为$[1]$</li>
+<li>每一个阶$m \geq 2$的循环群与$\mathbb{I}_{m}$同构</li>
+</ul>
+<h2 id="同余乘法"><a href="#同余乘法" class="headerlink" title="同余乘法"></a>同余乘法</h2><p>定义函数$\mu : \mathbb{I}_{m} \times \mathbb{I}_{m} \to \mathbb{I}_{m}$为</p>
+<script type="math/tex; mode=display">\mu ([a],[b])=[ab]</script><p>为同余乘法<br>同余乘法具有结合性与交换性，其单位元为$[1]$</p>
+<h3 id="定理-8"><a href="#定理-8" class="headerlink" title="定理"></a>定理</h3><ul>
+<li>若$(a,m)=1$，那么$[a][x]=[b]$有解，解为$\mathbb{I}_{m}$中的$[x]$</li>
+<li>若p为质数，那么$\mathbb{I}^{\times}_{p}$，即$\mathbb{I}_{p}$中非零元素组成的集合，是一个可乘阿贝尔群，其阶为p-1</li>
+</ul>
+<h2 id="商群"><a href="#商群" class="headerlink" title="商群"></a>商群</h2><p><b>引理</b>：若K是群G的正规子群，那么对每一个$b \in G$，有$bK=Kb$<br>令$G/K$表示子群K的所有陪集组成的集合，若K是正规子群，则</p>
+<script type="math/tex; mode=display">aKbK=abK</script><p>对任意$a,b \in G$，且$G/K$是在此运算下的一个群<br>$G/K$被称为商群，若G为有限群，那么$\mid G/K \mid = [G:K] =\mid G \mid / \mid K \mid$<br>每一个$K \vartriangleleft G$都是某个同态的核</p>
+<h3 id="第一同构定理"><a href="#第一同构定理" class="headerlink" title="第一同构定理"></a>第一同构定理</h3><p>若$f: G \to H$是一个同态，那么</p>
+<script type="math/tex; mode=display">\mathbf{ker} f \vartriangleleft G \quad \mathrm{and} \quad  G/ \mathbf{ker} f \cong \mathbf{im}f</script><h2 id="直积"><a href="#直积" class="headerlink" title="直积"></a>直积</h2><p>若H与K为群，那么他们的直积，用$H \times K$表示，是有序对$(h,k)$的集合，在其中定义的运算为</p>
+<script type="math/tex; mode=display">(h,k)(h',k')=(hh',kk')</script><p>$H \times K$是群，且其为阿贝尔群当且仅当H与K都是阿贝尔群<br>对于n个群$H_{1}, \cdots ,H_{n}$，把二元组推广到n元组</p>
+<h3 id="凯莱定理"><a href="#凯莱定理" class="headerlink" title="凯莱定理"></a>凯莱定理</h3><p>每一个群G都同构于对称群$S_{G}$的一个子群。<br>若$\mid G \mid = n$，那么G同构于$S_{n}$的一个子群</p>
+  	
+					
+	  </div>     
+	  
+
+	<div class="post-footer">
+
+
+  <div class="post-footer-other">
+       
+    
+      <span class="post-footer-item">
+        <span class="share-btn">
+	<span class="iconfont icon-share"></span>
+</span>
+<div class="-mob-share sildeUpMin">
+	<ul class="-mob-inner">
+	   			             
+        <li class="iconfont 
+		icon-share-weixin 
+		-mob-share-weixin 
+		-mob-share-link"></li>		
+   	   			             
+        <li class="iconfont 
+		icon-share-weibo 
+		-mob-share-weibo 
+		-mob-share-link"></li>		
+   	   			             
+        <li class="iconfont 
+		icon-share-facebook 
+		-mob-share-facebook 
+		-mob-share-link"></li>		
+   	   			             
+        <li class="iconfont 
+		icon-share-twitter 
+		-mob-share-twitter 
+		-mob-share-link"></li>		
+   	   
+	</ul>
+</div>	
+
+
+<script id="-mob-share" src="https://f1.webshare.mob.com/code/mob-share.js?appkey=2a31e660f849e"></script>
+      </span>  
+               
+  </div>  
+    
+
+
+  <div class="post-footer-meta">
+        	
+
+        
+          <i class="iconfont icon-tag"></i>     
+            <a class="tag-link" href="/tags/Abstract-Algebra/">Abstract Algebra</a>    
+        	
+  </div>
+
+</div>
+
+
+<nav class="post-footer-nav">
+  <div class="post-footer-link">
+  
+      <a href="/2019/02/28/At-the-luodian-town/" id="post-nav-older" class="post-nav-link-wrap">
+        <strong class="post-nav-caption">older</strong>
+        
+          <span class="post-nav-title">
+            在罗店
+          </span>
+      </a>
+  
+  </div>
+  <div class="post-footer-link">
+    
+        <a href="/2019/03/24/Abstract-Algebra-Homework-1/" id="post-nav-newer" class="post-nav-link-wrap">
+          <strong class="post-nav-caption">newer</strong>
+             
+            <span class="post-nav-title">
+              抽象代数习题--群论部分
+            </span>
+        </a>
+    
+  </div>
+
+</nav>
+ 
+	
+
+    <script src="//cdn.jsdelivr.net/npm/@waline/client"></script>
+
+    <div id="waline"></div>
+
+    <script>
+        Waline({
+          el: '#waline',
+          serverURL: 'https://blog-api.mizunashi.me/',
+          lang: 'en',
+          avatar: 'retro',
+          uploadImage: false,
+        });
+      </script>
+	
+</article>
+
+          </div> 
+      </div>            
+    
+    <a id="page-backTop">
+      <span>
+        <i class="iconfont icon-backtotop"></i>
+      </span>
+    </a> 
+
+  
+    
+    <div class="search-container sildeUpMin">
+        <div class="search-header">
+            <input type="text" placeholder="Typing Something here." id="search-input" class="search-input">
+            <span class="search-cancel">
+                <i class="iconfont icon-cancel">
+            </i></span>
+        </div>
+        <div id="search-result" class="search-result"></div>
+    </div>
+ 
+     <div class="mobile-menu">      
+
+      
+      <img class="mobile-menu-icon" src="/images/favicon.png">  
+      
+
+         
+            
+
+            <a class="mobile-menu-link" href="/">Home
+            </a>
+            
+         
+            
+
+            <a class="mobile-menu-link" href="/archives">Archives
+            </a>
+            
+         
+            
+
+            <a class="mobile-menu-link" href="/tags">Tags
+            </a>
+            
+         
+            
+
+            <a class="mobile-menu-link" href="/about">About
+            </a>
+            
+         
+            
+
+            <a class="mobile-menu-link" href="/guestbook">Guestbook
+            </a>
+            
+         
+                          
+
+            <a class="mobile-menu-link mobile-menu-search" href="#">Search </a>                 
+            
+         
+      
+</div>
+        
+    
+
+
+
+     
+    
+
+
+
+
+<footer id="footer">	    
+
+		
+		<div class="footer-copyright">
+		&copy;
+				
+		2019-
+		
+		2021		
+	
+		Mizunashi&#39;s Blog
+        <br>
+        
+        <a href="/about">About</a> | <a href="/sitemap.xml">Sitemap</a> | <a href="/privacy.html">Privacy Policy</a> | 
+        <a href="/changelog.html">Changelog</a> | <a href="/atom.xml">RSS</a>
+
+        <br>
+
+		Theme  <a href="https://github.com/Lemonreds/hexo-theme-Nayo" target="_blank">Nayo</a>
+		</div>			
+	 
+</footer>   
+
+    <script src="/nayo.bundle.js"></script>           
+  </body>        
+</html>

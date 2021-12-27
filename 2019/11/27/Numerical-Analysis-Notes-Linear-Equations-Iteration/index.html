@@ -1,0 +1,457 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html>
+  <head><meta name="generator" content="Hexo 3.9.0">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  
+  
+  <title>  数值分析学习笔记--解线性方程组的迭代方法 |   Mizunashi&#39;s Blog </title>
+
+ 
+  
+    <link rel="icon" href="/images/favicon.png">
+  
+
+
+  <link rel="stylesheet" href="/nayo.min.css"> 
+</head>  
+  <body>   
+    
+      <link rel="stylesheet" type="text/css" href="/nayo.customized.css">
+
+<header class="header">
+	
+  <nav class="header-inner">        
+
+    <span class="iconfont icon-menu mobile-toggle"></span>   	
+
+    <div class="header-logo">
+      <a href="/">
+        <img class="header-logo-img" src="/images/logo.png">
+      </a>
+    </div>
+
+    <div class="header-menu">          
+              
+            
+                
+                    <a class="header-menu-link" id="header-menu-home" href="/">
+                        <i class="iconfont icon-home">  
+                    </i></a>   
+                  
+            
+              
+            
+                
+                    <a class="header-menu-link" id="header-menu-archives" href="/archives">
+                        <i class="iconfont icon-archives">  
+                    </i></a>   
+                  
+            
+              
+            
+                
+                    <a class="header-menu-link" id="header-menu-tags" href="/tags">
+                        <i class="iconfont icon-tags">  
+                    </i></a>   
+                  
+            
+              
+            
+                
+                    <a class="header-menu-link" id="header-menu-about" href="/about">
+                        <i class="iconfont icon-about">  
+                    </i></a>   
+                  
+            
+              
+            
+                
+                    <a class="header-menu-link" id="header-menu-guestbook" href="/guestbook">
+                        <i class="iconfont-custom icon-message">  
+                    </i></a> 
+                  
+            
+              
+            
+                <a class="header-menu-link" id="header-menu-search">
+                    <i class="iconfont icon-search">  
+                </i></a>
+            
+                  
+    </div>  
+    
+  </nav>
+</header>
+
+ 
+
+      <div class="container">       
+          
+          
+            <div class="container-inner">  
+          
+
+          <article class="post">
+  
+	
+<div class="post-header">
+	<div class="post-header-inner">
+		<p class="post-title">	
+			数值分析学习笔记--解线性方程组的迭代方法
+		</p>
+		<div class="post-info">	
+			<span class="post-info-entry">
+				Nov 27, 2019
+			</span>
+
+			
+			
+				<i class="iconfont icon-words"></i>
+				<span class="post-info-entry">3946
+				</span>
+			
+		</div>
+	</div>
+</div> 
+	
+
+    <script type="text/x-mathjax-config">
+        var post = document.getElementsByClassName("post")[0];  
+        MathJax.Hub.Config({
+            showProcessingMessages: false,
+            messageStyle: "none",    
+            tex2jax: {
+                inlineMath:  [ ["$", "$"] , ["\\(","\\)"]],
+                displayMath: [ ["$$","$$"] , ["\\[","\\]"]],
+                skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code','a'],
+            },
+            "HTML-CSS": {            
+                showMathMenu: false
+            }
+        });
+        MathJax.Hub.Queue(["Typeset",MathJax.Hub,post]);
+    </script>
+    <style>.MathJax{outline:0;}</style>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS_CHTML"></script>
+ 
+
+	  <div class="typo post-content slideDownMin">
+
+		
+
+			
+					<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/Vector_norms2.svg/500px-Vector_norms2.svg.png" alt></p>
+<blockquote>
+<p>不同p-范数下的单位球面</p>
+</blockquote>
+<a id="more"></a>
+<p>如有疏漏，敬请指正。</p>
+<p>迭代法求解线性方程组$Ax=b$和不动点迭代求解非线性方程组很类似，拆分$A=N-P$，设$N$可逆，则有</p>
+<script type="math/tex; mode=display">X=N^{-1}PX+N^{-1}b</script><p>令$M=N^{-1}P,g=N^{-1}b,X=MX+g$，构造迭代关系式</p>
+<script type="math/tex; mode=display">X^{(k)}=MX^{(k-1)}+g</script><p>称$M$为迭代矩阵。</p>
+<p>若迭代序列$\lbrace X^{(k)} \rbrace$收敛，设$\lbrace X^{(k-1)} \rbrace$的极限是$X^{\ast}$，可得</p>
+<script type="math/tex; mode=display">X^{\ast}=MX^{\ast}+g</script><p>$X^{\ast}$是方程组$Ax=b$的解，此时称迭代法收敛，否则称迭代法发散。</p>
+<p>计算中，给定控制精度$\epsilon$，当$||Ax-b||&lt; \epsilon$或者$||X^{(k)}-X^{(k-1)}||&lt; \epsilon$时，停止迭代计算，取$X^{\ast}=X^{(k)}$。</p>
+<p>由线性代数知识可知，$\lim_{k \to \infty}M^k = O$的充要条件是谱半径$\rho(M)&lt;1$。如果$||M||_p$是矩阵$M$的范数，则总有$||M||_p \geq \rho(M)$。因此若$||M||_{p} &lt; 1$，那么$M$必收敛，这是其充分条件。</p>
+<p>可以看出，线性方程组的迭代收敛与否完全取决于迭代矩阵的性质，与迭代初始值的选取无关。</p>
+<h2 id="雅可比迭代法"><a href="#雅可比迭代法" class="headerlink" title="雅可比迭代法"></a>雅可比迭代法</h2><p>对于n元线性方程组$Ax=b$</p>
+<script type="math/tex; mode=display">
+\begin{cases}
+a_{11}x_1+a_{12}x_2+ \cdots +a_{1n}x_n=b_1 \\
+a_{21}x_1+a_{22}x_2+ \cdots +a_{2n}x_n=b_2 \\
+\vdots \\
+a_{n1}x_1+a_{n2}x_2+ \cdots +a_{nn}x_n=b_n \\
+\end{cases}</script><p>设$\lbrace a_{ii} \neq 0,i=1,2, \cdots ,n \rbrace$，将上式中每个方程组$a_{ii}x_i$留在方程的左边，其余各项移到方程的右边，方程两边除以$a_{ii}$，构造迭代格式</p>
+<script type="math/tex; mode=display">
+\begin{cases}
+x_1^{(k+1)}=\frac{1}{a_{11}}(b_1-a_{12}x_2^{(k)}- \cdots -a_{1n}x_n^{(k)})\\
+x_2^{(k+1)}=\frac{1}{a_{22}}(b_2-a_{21}x_1^{(k)}- \cdots -a_{2n}x_n^{(k)})\\
+\vdots \\
+x_n^{(k+1)}=\frac{1}{a_{nn}}(b_n-a_{n1}x_1^{(k)}- a_{n2}x_2^{(k)}- \cdots -a_{n,n-1}x_{n-1}^{(k)})\\
+\end{cases}</script><p>以上迭代计算式称为简单迭代或雅可比迭代，初始向量可以任取。</p>
+<h3 id="雅可比迭代矩阵"><a href="#雅可比迭代矩阵" class="headerlink" title="雅可比迭代矩阵"></a>雅可比迭代矩阵</h3><p>令</p>
+<script type="math/tex; mode=display">D=diag \lbrace a_{11},a_{22} , \cdots ,a_{nn} \rbrace,AX=(D+A-D)X=b</script><p>得到等价方程组</p>
+<script type="math/tex; mode=display">DX=(D-A)X+b</script><p>设$D$可逆，有</p>
+<script type="math/tex; mode=display">X^{(k+1)}=D^{-1}(D-A)X^{(k)}+D^{-1}b</script><p>令</p>
+<script type="math/tex; mode=display">R=I-D^{-1}A,g=D^{-1}b</script><p>则有</p>
+<script type="math/tex; mode=display">X^{(k+1)}=RX^{(k)}+g</script><p>称$R$为雅可比迭代矩阵。</p>
+<h3 id="雅可比迭代的收敛条件"><a href="#雅可比迭代的收敛条件" class="headerlink" title="雅可比迭代的收敛条件"></a>雅可比迭代的收敛条件</h3><p>当迭代矩阵$R$的谱半径$\rho (R)=\max_{1 \leq i \leq n} \mid \lambda_i \mid &lt; 1$时，迭代收敛，这是其充要条件。</p>
+<p>迭代矩阵的某范数$|| R || &lt; 1$时，迭代收敛，这是其充分条件。</p>
+<p>设$M=(m_{ij})$是n阶复方阵，若对任意$i$都有$|m_{ii}| \geq \sum_{j \neq i}|m_{ij}|$，则$M$为行对角优，若有$|m_{ii}| &gt; \sum_{j \neq i}|m_{ij}|$，则$M$为严格行对角优。同样的，若对任意$j$都有$|m_{jj}| \geq \sum_{i \neq j}|m_{ij}|$，则$M$为列对角优，若有$|m_{jj}| &gt; \sum_{i \neq j}|m_{ij}|$，则$M$为严格列对角优。</p>
+<p>对于雅可比迭代的收敛性，有以下理论结果</p>
+<ul>
+<li>若$M$为严格对角优，则$M$可逆</li>
+<li>当$A$为严格对角优时，雅可比迭代收敛</li>
+</ul>
+<h2 id="Gauss-Seidel迭代"><a href="#Gauss-Seidel迭代" class="headerlink" title="Gauss-Seidel迭代"></a>Gauss-Seidel迭代</h2><p>在雅可比迭代中，已经在计算$x_i^{(k+1)}$前得到了$x_1^{(k+1)}, \cdots , x_{i-1}^{(k+1)}$的值，因此，不妨将已经算出的分量直接代入迭代式中，及时使用最新计算出的分量值，这被称为Gauss-Seidel迭代。</p>
+<p>即使用$\lbrace x_1^{(k)},x_2^{(k)}, \cdots ,x_n^{(k)} \rbrace$计算$x_1^{(k+1)}$的值，用$\lbrace x_1^{(k+1)},x_2^{(k)}, \cdots ,x_n^{(k)} \rbrace$计算$x_2^{(k+1)}$的值，一直进行下去，直到计算出$x_n^{(k+1)}$。</p>
+<p>构造迭代格式如下：</p>
+<script type="math/tex; mode=display">
+\begin{cases}
+x_1^{(k+1)}=\frac{1}{a_{11}}(b_1-a_{12}x_2^{(k)}- \cdots -a_{1n}x_n^{(k)})\\
+x_2^{(k+1)}=\frac{1}{a_{22}}(b_2-a_{21}x_1^{(k+1)}- \cdots -a_{2n}x_n^{(k)})\\
+\vdots \\
+x_n^{(k+1)}=\frac{1}{a_{nn}}(b_n-a_{n1}x_1^{(k+1)}- a_{n2}x_2^{(k+1)}- \cdots -a_{n,n-1}x_{n-1}^{(k+1)})\\
+\end{cases}</script><h3 id="Gauss-Seidel迭代矩阵"><a href="#Gauss-Seidel迭代矩阵" class="headerlink" title="Gauss-Seidel迭代矩阵"></a>Gauss-Seidel迭代矩阵</h3><p>设$A=D+L+U$，有</p>
+<script type="math/tex; mode=display">
+A=
+\begin{bmatrix}
+a_{11} & & & \\
+& a_{22} & & \\
+& & & \ddots & \\
+& & & & a_{nn} \\
+\end{bmatrix}
++\begin{bmatrix}
+0 & & & \\
+a_{21} & 0 & & \\
+\vdots & \vdots & \ddots & \\
+a_{n1} & \cdots & a_{n,n-1} & 0 \\
+\end{bmatrix}
++\begin{bmatrix}
+0 & a_{12} & \cdots & a_{1n} \\
+& 0 & \cdots & a_{2n} \\
+& & \ddots & \vdots \\
+& & & 0\\
+\end{bmatrix}</script><p>构造迭代格式</p>
+<script type="math/tex; mode=display">(D+L)X^{(k+1)}=-UX^{(k)}+b</script><p>有</p>
+<script type="math/tex; mode=display">X^{(k+1)}=-(D+L)^{-1}UX^{(k)}+(D+L)^{-1}b</script><p>令<br>$S=-(D+L)^{-1}U,f=(D+L)^{-1}b$<br>那么有</p>
+<script type="math/tex; mode=display">X^{(k+1)}=SX^{(k)}+f</script><p>称$S$为Gauss-Seidel迭代矩阵。</p>
+<h3 id="Gauss-Seidel迭代的收敛条件"><a href="#Gauss-Seidel迭代的收敛条件" class="headerlink" title="Gauss-Seidel迭代的收敛条件"></a>Gauss-Seidel迭代的收敛条件</h3><p>关于Gauss-Seidel迭代的收敛条件，有如下结论：</p>
+<ul>
+<li>当$A$严格对角优时，Gauss-Seidel迭代收敛</li>
+<li>当$A$正定时，Gauss-Seidel迭代收敛</li>
+</ul>
+<h2 id="松弛迭代"><a href="#松弛迭代" class="headerlink" title="松弛迭代"></a>松弛迭代</h2><p>设$A=D+L+U$，用矩阵表示Gauss-Seidel迭代形式为</p>
+<script type="math/tex; mode=display">X^{(k+1)}=-D^{-1}LX^{(k+1)}-D^{-1}UX^{(k)}+D^{-1}b</script><p>令</p>
+<script type="math/tex; mode=display">\tilde{L}=-D^{-1}L,\tilde{U}=-D^{-1}U,g=D^{-1}b</script><p>那么Gauss-Seidel迭代的计算公式为</p>
+<script type="math/tex; mode=display">X^{(k+1)}=\tilde{L}X^{(k+1)}+\tilde{U}X^{(k)}+g</script><p>对$X^{(k)}$和Gauss-Seidel迭代计算的$X^{(k+1)}$加权平均，得到的迭代格式为松弛迭代，$\omega$为松弛因子。</p>
+<script type="math/tex; mode=display">X^{(k+1)}=(1- \omega)X^{(k)}+\omega(\tilde{L}X^{(k+1)}+\tilde{U}X^{(k)}+g)</script><p>松弛迭代的迭代格式如下：</p>
+<script type="math/tex; mode=display">
+\begin{cases}
+x_1^{(k+1)}=(1-\omega)x_1^{(k)}+\omega(r_{12}x_2^{(k)}+r_{13}x_3^{(k)}+ \cdots +r_{1n}x_n^{(k)}+g_1)\\
+x_2^{(k+1)}=(1-\omega)x_2^{(k)}+\omega(r_{21}x_1^{(k+1)}+r_{23}x_3^{(k)}+ \cdots +r_{2n}x_n^{(k)}+g_2) \\
+\vdots \\
+x_{n}^{(k+1)}=(1-\omega)x_n^{(k)}+\omega(r_{n1}x_1^{(k+1)}+r_{n2}x_2^{(k+1)}+ \cdots +r_{n,n-1}x_{n-1}^{(k+1)}+g_n) \\
+\end{cases}</script><p>其中，$r_{ij}=-\frac{a_{ij}}{a_{ii}},g_i=\frac{b_i}{a_{ii}},r_{ii}=0$</p>
+<h3 id="松弛迭代矩阵"><a href="#松弛迭代矩阵" class="headerlink" title="松弛迭代矩阵"></a>松弛迭代矩阵</h3><p>令</p>
+<script type="math/tex; mode=display">S_{\omega}=(I+\omega D^{-1}L)^{-1}[(1-\omega)I-\omega D^{-1}U]</script><script type="math/tex; mode=display">f=\omega(I+\omega D^{-1}L)^{-1}D^{-1}b</script><p>则松弛因子为$\omega$的迭代矩阵为</p>
+<script type="math/tex; mode=display">X^{(k+1)}=S_{\omega}X^{(k)}+f</script>  	
+					
+	  </div>     
+	  
+
+	<div class="post-footer">
+
+
+  <div class="post-footer-other">
+       
+    
+      <span class="post-footer-item">
+        <span class="share-btn">
+	<span class="iconfont icon-share"></span>
+</span>
+<div class="-mob-share sildeUpMin">
+	<ul class="-mob-inner">
+	   			             
+        <li class="iconfont 
+		icon-share-weixin 
+		-mob-share-weixin 
+		-mob-share-link"></li>		
+   	   			             
+        <li class="iconfont 
+		icon-share-weibo 
+		-mob-share-weibo 
+		-mob-share-link"></li>		
+   	   			             
+        <li class="iconfont 
+		icon-share-facebook 
+		-mob-share-facebook 
+		-mob-share-link"></li>		
+   	   			             
+        <li class="iconfont 
+		icon-share-twitter 
+		-mob-share-twitter 
+		-mob-share-link"></li>		
+   	   
+	</ul>
+</div>	
+
+
+<script id="-mob-share" src="https://f1.webshare.mob.com/code/mob-share.js?appkey=2a31e660f849e"></script>
+      </span>  
+               
+  </div>  
+    
+
+
+  <div class="post-footer-meta">
+        	
+
+        
+          <i class="iconfont icon-tag"></i>     
+            <a class="tag-link" href="/tags/Numerical-Analysis/">Numerical Analysis</a>    
+        	
+  </div>
+
+</div>
+
+
+<nav class="post-footer-nav">
+  <div class="post-footer-link">
+  
+      <a href="/2019/11/20/Numerical-Analysis-Notes-Linear-Equations-Direct/" id="post-nav-older" class="post-nav-link-wrap">
+        <strong class="post-nav-caption">older</strong>
+        
+          <span class="post-nav-title">
+            数值分析学习笔记--线性方程组的直接解法
+          </span>
+      </a>
+  
+  </div>
+  <div class="post-footer-link">
+    
+        <a href="/2019/12/29/2019-Review/" id="post-nav-newer" class="post-nav-link-wrap">
+          <strong class="post-nav-caption">newer</strong>
+             
+            <span class="post-nav-title">
+              我的2019
+            </span>
+        </a>
+    
+  </div>
+
+</nav>
+ 
+	
+
+    <script src="//cdn.jsdelivr.net/npm/@waline/client"></script>
+
+    <div id="waline"></div>
+
+    <script>
+        Waline({
+          el: '#waline',
+          serverURL: 'https://blog-api.mizunashi.me/',
+          lang: 'en',
+          avatar: 'retro',
+          uploadImage: false,
+        });
+      </script>
+	
+</article>
+
+	<div class="toc-container">
+			<div class="toc-sidebar">
+			<p class="toc-title">
+				Contents
+			</p>
+			<div class="toc-list">
+				<ol class="toc-inner"><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#雅可比迭代法"><span class="toc-inner-text">雅可比迭代法</span></a><ol class="toc-inner-child"><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#雅可比迭代矩阵"><span class="toc-inner-text">雅可比迭代矩阵</span></a></li><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#雅可比迭代的收敛条件"><span class="toc-inner-text">雅可比迭代的收敛条件</span></a></li></ol></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#Gauss-Seidel迭代"><span class="toc-inner-text">Gauss-Seidel迭代</span></a><ol class="toc-inner-child"><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#Gauss-Seidel迭代矩阵"><span class="toc-inner-text">Gauss-Seidel迭代矩阵</span></a></li><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#Gauss-Seidel迭代的收敛条件"><span class="toc-inner-text">Gauss-Seidel迭代的收敛条件</span></a></li></ol></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#松弛迭代"><span class="toc-inner-text">松弛迭代</span></a><ol class="toc-inner-child"><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#松弛迭代矩阵"><span class="toc-inner-text">松弛迭代矩阵</span></a></li></ol></li></ol>
+			</div>
+		</div>
+	</div>
+
+          </div> 
+      </div>            
+    
+    <a id="page-backTop">
+      <span>
+        <i class="iconfont icon-backtotop"></i>
+      </span>
+    </a> 
+
+  
+    
+    <div class="search-container sildeUpMin">
+        <div class="search-header">
+            <input type="text" placeholder="Typing Something here." id="search-input" class="search-input">
+            <span class="search-cancel">
+                <i class="iconfont icon-cancel">
+            </i></span>
+        </div>
+        <div id="search-result" class="search-result"></div>
+    </div>
+ 
+     <div class="mobile-menu">      
+
+      
+      <img class="mobile-menu-icon" src="/images/favicon.png">  
+      
+
+         
+            
+
+            <a class="mobile-menu-link" href="/">Home
+            </a>
+            
+         
+            
+
+            <a class="mobile-menu-link" href="/archives">Archives
+            </a>
+            
+         
+            
+
+            <a class="mobile-menu-link" href="/tags">Tags
+            </a>
+            
+         
+            
+
+            <a class="mobile-menu-link" href="/about">About
+            </a>
+            
+         
+            
+
+            <a class="mobile-menu-link" href="/guestbook">Guestbook
+            </a>
+            
+         
+                          
+
+            <a class="mobile-menu-link mobile-menu-search" href="#">Search </a>                 
+            
+         
+      
+</div>
+        
+    
+
+
+
+     
+    
+
+
+
+
+<footer id="footer">	    
+
+		
+		<div class="footer-copyright">
+		&copy;
+				
+		2019-
+		
+		2021		
+	
+		Mizunashi&#39;s Blog
+        <br>
+        
+        <a href="/about">About</a> | <a href="/sitemap.xml">Sitemap</a> | <a href="/privacy.html">Privacy Policy</a> | 
+        <a href="/changelog.html">Changelog</a> | <a href="/atom.xml">RSS</a>
+
+        <br>
+
+		Theme  <a href="https://github.com/Lemonreds/hexo-theme-Nayo" target="_blank">Nayo</a>
+		</div>			
+	 
+</footer>   
+
+    <script src="/nayo.bundle.js"></script>           
+  </body>        
+</html>

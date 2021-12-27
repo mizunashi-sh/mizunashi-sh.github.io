@@ -1,0 +1,448 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html>
+  <head><meta name="generator" content="Hexo 3.9.0">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  
+  
+  <title>  抽象代数习题--交换环部分 |   Mizunashi&#39;s Blog </title>
+
+ 
+  
+    <link rel="icon" href="/images/favicon.png">
+  
+
+
+  <link rel="stylesheet" href="/nayo.min.css"> 
+</head>  
+  <body>   
+    
+      <link rel="stylesheet" type="text/css" href="/nayo.customized.css">
+
+<header class="header">
+	
+  <nav class="header-inner">        
+
+    <span class="iconfont icon-menu mobile-toggle"></span>   	
+
+    <div class="header-logo">
+      <a href="/">
+        <img class="header-logo-img" src="/images/logo.png">
+      </a>
+    </div>
+
+    <div class="header-menu">          
+              
+            
+                
+                    <a class="header-menu-link" id="header-menu-home" href="/">
+                        <i class="iconfont icon-home">  
+                    </i></a>   
+                  
+            
+              
+            
+                
+                    <a class="header-menu-link" id="header-menu-archives" href="/archives">
+                        <i class="iconfont icon-archives">  
+                    </i></a>   
+                  
+            
+              
+            
+                
+                    <a class="header-menu-link" id="header-menu-tags" href="/tags">
+                        <i class="iconfont icon-tags">  
+                    </i></a>   
+                  
+            
+              
+            
+                
+                    <a class="header-menu-link" id="header-menu-about" href="/about">
+                        <i class="iconfont icon-about">  
+                    </i></a>   
+                  
+            
+              
+            
+                
+                    <a class="header-menu-link" id="header-menu-guestbook" href="/guestbook">
+                        <i class="iconfont-custom icon-message">  
+                    </i></a> 
+                  
+            
+              
+            
+                <a class="header-menu-link" id="header-menu-search">
+                    <i class="iconfont icon-search">  
+                </i></a>
+            
+                  
+    </div>  
+    
+  </nav>
+</header>
+
+ 
+
+      <div class="container">       
+          
+          
+            <div class="container-inner">  
+          
+
+          <article class="post">
+  
+	
+<div class="post-header">
+	<div class="post-header-inner">
+		<p class="post-title">	
+			抽象代数习题--交换环部分
+		</p>
+		<div class="post-info">	
+			<span class="post-info-entry">
+				May 14, 2019
+			</span>
+
+			
+			
+				<i class="iconfont icon-words"></i>
+				<span class="post-info-entry">11563
+				</span>
+			
+		</div>
+	</div>
+</div> 
+	
+
+    <script type="text/x-mathjax-config">
+        var post = document.getElementsByClassName("post")[0];  
+        MathJax.Hub.Config({
+            showProcessingMessages: false,
+            messageStyle: "none",    
+            tex2jax: {
+                inlineMath:  [ ["$", "$"] , ["\\(","\\)"]],
+                displayMath: [ ["$$","$$"] , ["\\[","\\]"]],
+                skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code','a'],
+            },
+            "HTML-CSS": {            
+                showMathMenu: false
+            }
+        });
+        MathJax.Hub.Queue(["Typeset",MathJax.Hub,post]);
+    </script>
+    <style>.MathJax{outline:0;}</style>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS_CHTML"></script>
+ 
+
+	  <div class="typo post-content slideDownMin">
+
+		
+
+			
+					<p>如有疏漏，敬请指正<br><a id="more"></a></p>
+<h2 id="1"><a href="#1" class="headerlink" title="1"></a>1</h2><p><b>题目:</b><br>Find a subset of $\mathbb{Z}$ closed on $+$ and $\cdot$ , and it includes an integer $k&gt;0$, but is not a ring. What would happen if it’s a subset including $–k$?<br><b>解答:</b><br><b>(1)</b><br>可以构造集合$\langle k \rangle$或者$\mathbb{Z}^{+}$，它们都对$+$与$\cdot$封闭，但是找不到加法单位元<br><b>(2)</b><br>如果将$k$改为$-k$，则找不到这样的子集$S \subseteq \mathbb{Z}$满足题干中所述条件</p>
+<h2 id="2"><a href="#2" class="headerlink" title="2"></a>2</h2><p><b>题目:</b><br>Show whether a subring of a ring / integral domain / field is also a ring / integral domain / field.<br><b>解答:</b><br><b>(1)</b><br>设$R$是一个环，$S$是其任意一个子环<br>那么有$1_{R} \in S$<br>且对任意$a,b \in S$，都有$a-b \in S, a \cdot b \in S$<br>下证$(S,+)$是一个阿贝尔群<br>由于$1_{R} \in S$，则有$1_{R} - 1_{R} = 0_{R} \in S$<br>若$b \in S$，那么就有$0_{R}-b = -b \in S$<br>若$a \in S$，那么有</p>
+<script type="math/tex; mode=display">a-(-b)=a+(-1_{R})(-1_{R})b=a+b \in S</script><p>因此$S$对$+$封闭<br>因为$S \subseteq R$，因此对任意$a,b,c \in S \subseteq R$，都有</p>
+<script type="math/tex; mode=display">a+b=b+a \quad \mathrm{and} \quad a+(b+c)=(a+b)+c</script><p>对于每一个$b \in S$，已知$-b \in S$<br>那么有$b-b=b+(-b)=0_{R}$<br>因此$(S,+)$是一个阿贝尔群<br>因为$S \subseteq R$，因此对任意$a,b,c \in S \subseteq R$，都有</p>
+<script type="math/tex; mode=display">a \cdot (b+c) = a \cdot b+a \cdot c \quad \mathrm{and} \quad (b+c) \cdot a=b \cdot a+c \cdot a</script><p>已知$a \cdot b \in S$<br>由于$S \subseteq R$，同理可得$(S, \cdot )$满足结合律<br>综上所述，环的子环也是环<br><b>(2)</b><br>设$R$是一个整环，$S$是其任意一个子环<br>那么有$1_{R} \in S$<br>且对任意$a,b \in S$，都有$a-b \in S, a \cdot b \in S$<br>因为$R$是交换环，所以$S$也是交换环<br>由于$1_{R} \in S$，则有$1_{R} - 1_{R} = 0_{R} \in S$<br>由整环定义可知$1_{R} \neq 0_{R} \in S$<br>因为$S \subseteq R$，因此对任意$a,b,c \in S \subseteq R$，若$c \cdot a= c \cdot b$，有</p>
+<script type="math/tex; mode=display">a=b</script><p>因此整环的子环是整环<br><b>(3)</b><br>域的子环不一定是域<br>例如，$\mathbb{R}$是域，$\mathbb{Z}$是$\mathbb{R}$的子环，但是$\mathbb{Z}$不是域，因为对部分$a \in \mathbb{Z}$，不存在$a^{-1} \in \mathbb{Z}$使得$a^{-1} \cdot a=1$</p>
+<h2 id="3"><a href="#3" class="headerlink" title="3"></a>3</h2><p><b>题目:</b><br>Show that $F=( \lbrace a+b \sqrt{2} : a,b \in \mathbb{Q} \rbrace, +, \cdot )$ is a field<br><b>解答:</b><br>令$F$中的零元$0_{F}$为$0$，一元$1_{F}$为$1$<br>易知，$F$上定义的$+$和$\cdot$运算可交换，可结合且满足分配律<br>对每一个$p \in F$，不失一般性，令$p=x+y \sqrt{2}$<br>因此，存在$p’ = -x-y \sqrt{2} \in F$，使得$p’+p=0$<br>因此$F$是交换环<br>易知在$F$中$1_{F} \neq 0_{F}$<br>对每一个$p=x+y \sqrt{2} \neq 0 \in F$，存在</p>
+<script type="math/tex; mode=display">p^{-1}=\frac{x}{x^{2}-2y^{2}}-\frac{y}{x^{2}-2y^{2}} \sqrt{2} \in F</script><p>使得$p^{-1}p=1$<br>当$x = \sqrt{2} y$时，有$p=2y \sqrt{2}$，不符合定义<br>当$x=- \sqrt{2} y$时，有$p=0$，不符合定义<br>因此$x^{2}-2y^{2} \neq 0$<br>综上所述，$F$是一个域</p>
+<h2 id="4"><a href="#4" class="headerlink" title="4"></a>4</h2><p><b>题目:</b><br>If $R$ is an integral domain but not a field, and $S$ is a set satisfying $R \subset S \subset Frac(R)$, prove that $S$ is not a field.<br><b>解答:</b><br><b>方法一:</b><br>易知，$R$上的运算定义在$Frac(R)$上有相同定义<br>因为$Frac(R)$是域，因此$Frac(R)$也是一个整环<br>假设存在域$S$，使得$R \subset S \subset Frac(R)$<br>则$S$也是一个整环，可得$Frac(R)$中的运算对$S$封闭<br>则对任意$a,b \in Frac(R)$，有$a,b \in S$<br>对任意$a+b,ab,a/b \in Frac(R)$，有$a+b,ab,a/b \in S$<br>因此$Frac(R) \subseteq S$，与$S \subset Frac(R)$矛盾<br>综上:不存在域$S$，使得$R \subset S \subset Frac(R)$<br><b>方法二:</b><br>假设$S$是域，那么$S$就是$Frac(R)$的子域<br>因为$S \in Frac(R)$，令$[a,b] \in Frac(R)$且$[a,b] \notin S$<br>因为$[a,1],[b,1] \in R,R \subset S$，所以$[a,1],[b,1] \in S$<br>又由假设知$S$是域，那么有$[1,b]=([b,1])^{-1} \in S$<br>所以$[a,1][1,b]=[a,b] \in S$<br>矛盾！<br>综上:不存在域$S$，使得$R \subset S \subset Frac(R)$</p>
+<h2 id="5"><a href="#5" class="headerlink" title="5"></a>5</h2><p><b>题目:</b><br>Show that if $R$ is a nonzero commutative ring, then $R[x]$ is not a field.<br><b>解答:</b><br>假设$R[x]$是一个域<br>令$a_{0}+a_{1}x+ \cdots +a_{n}x^{n} \in R[x]$<br>由$R[x]$是一个域，有$x \in R[x]$使得</p>
+<script type="math/tex; mode=display">x(a_{0}+a_{1}x+ \cdots +a_{n}x^{n})=1</script><p>即</p>
+<script type="math/tex; mode=display">0+a_{0}x+a_{1}x^{2}+ \cdots +a_{n}x^{n+1}=1+0x+0x^{2}+ \cdots +0x^{n+1}</script><p>可得$a_{0}=a_{1}= \cdots =a_{n}=0,0=1$，矛盾！<br>因此若$R$是一个非零交换环，则$R[x]$不是一个域</p>
+<h2 id="6"><a href="#6" class="headerlink" title="6"></a>6</h2><p><b>题目:</b><br> If $R$ is a commutative ring and $f(x)=\sum a_{i}x^{i} \in R[x]$ has degree $n \geq 1$, define its derivative $f(x)’$ by: $f(x)’=a_{1}+2a_{2}x+ \cdots +na_{n}x^{n-1}$. Prove that the following rules hold:   </p>
+<ul>
+<li>$(f+g)’=f’+g’$</li>
+<li>$(rf)’=rf’$ if $r∈R$     </li>
+<li>$(fg)’=f’g+fg’$       </li>
+<li>$(f^{m})’=mf^{m-1}f’$ for all $m∈\mathbb{Z}^{+}$ </li>
+</ul>
+<p><b>解答:</b><br>可得</p>
+<script type="math/tex; mode=display">f'(x)=\sum_{i=0}^{n} i a_{i}x^{i-1}</script><p>令$g(x)=\sum_{i=0}^{m} b_{i}x^{i}$<br>则</p>
+<script type="math/tex; mode=display">g'(x)=\sum_{i=0}^{m} i b_{i}x^{i-1}</script><p><b>(1)</b><br>计算得</p>
+<script type="math/tex; mode=display">
+f(x)+g(x)= 
+\begin{cases}
+\sum_{i=0}^{min(m,n)} (a_{i}+b_{i})x^{i}+ \sum_{j=min(m,n)}^{m}  b_{j} x^{j}, m>n \\
+\sum_{i=0}^{min(m,n)} (a_{i}+b_{i})x^{i}+ \sum_{j=min(m,n)}^{n}  a_{j} x^{j}, m \leq n
+\end{cases}</script><p>因此</p>
+<script type="math/tex; mode=display">
+(f(x)+g(x))' = 
+\begin{cases}
+\sum_{i=0}^{min(m,n)} i(a_{i}+b_{i})x^{i-1}+ \sum_{j=min(m,n)}^{m}  jb_{j} x^{j-1}, m>n \\
+\sum_{i=0}^{min(m,n)} i(a_{i}+b_{i})x^{i-1}+ \sum_{j=min(m,n)}^{n}  ja_{j} x^{j-1}, m \leq n
+\end{cases} \\
+=\sum_{i=0}^{n} i a_{i}x^{i-1}+ \sum_{j=0}^{m} j b_{j}x^{j-1}\\
+=f'(x)+g'(x) \\</script><p>综上，$(f+g)’=f’+g’$<br><b>(2)</b><br>计算得</p>
+<script type="math/tex; mode=display">rf(x)=r \sum_{i=0}^{n} a_{i}x^{i}</script><p>则</p>
+<script type="math/tex; mode=display">(rf(x))'=(\sum_{i=0}^{n} ra_{i}x^{i})'=\sum_{i=0}^{n} i ra_{i}x^{i-1} = r\sum_{i=0}^{n} i a_{i}x^{i-1}=rf'(x)</script><p>综上，$(rf)’=rf’$<br><b>(3)</b><br>计算得</p>
+<script type="math/tex; mode=display">f(x)g(x)=\sum_{i=0}^{m+n} \left( \sum_{p+q=i} a_{p}b_{q} \right) x^{i}</script><p>因此</p>
+<script type="math/tex; mode=display">(f(x)g(x))'=\sum_{i=0}^{m+n} i \left( \sum_{p+q=i} a_{p}b_{q} \right) x^{i-1}</script><p>而</p>
+<script type="math/tex; mode=display">
+f'(x)g(x)+f(x)g'(x)
+=\sum_{i=0}^{n} ia_{i}x^{i-1} \sum_{j=0}^{m} b_{j}x^{j}+\sum_{i=0}^{n} a_{i}x^{i} \sum_{j=0}^{m} jb_{j}x^{j-1}\\
+=\sum_{i=0}^{m+n} i \left( \sum_{p+q=i} a_{p}b_{q} \right) x^{i-1}\\
+=(f(x)g(x))'</script><p>综上，$(fg)’=f’g+fg’$<br><b>(4)</b><br>当$m=1$时该等式为</p>
+<script type="math/tex; mode=display">f'=1f^{0}f'</script><p>显然成立<br>假设$m=k$时该等式成立，即</p>
+<script type="math/tex; mode=display">(f^{k})'=kf^{k-1}f'</script><p>则当$m=k+1$时有</p>
+<script type="math/tex; mode=display">
+(f^{k+1})'=(f^{k}f)' 
+=(f^{k})'f+f^{k}f'
+=kf^{k}f'+f^{k}f'
+=(k+1)f^{k}f'</script><p>满足该等式<br>综上，$(f^{m})’=mf^{m-1}f’$</p>
+<h2 id="7"><a href="#7" class="headerlink" title="7"></a>7</h2><p><b>题目:</b><br>Let $R$ be a commutative ring. Show that the function $\eta : R[x]→R$ defined by $\eta : a_{0}+a_{1}x+…+a_{n}x^{n} \to a_{0}$ is a ring homomorphism. Do functions in its kernel have any common root?<br><b>解答:</b><br>易知$R$和$R[x]$都是交换环<br>且有$\eta (1_{R[x]})=\eta (1)=1$<br>设$A=a_{0}+a_{1}x+ \cdots +a_{n}x^{n}, B=b_{0}+b_{1}x+ \cdots +b_{m}x^{m} \in R[x]$<br>那么有</p>
+<script type="math/tex; mode=display">\eta (A+B)=a_{0}+b_{0}=\eta (A)+ \eta (B)</script><p>因为$AB=\sum_{i=0}^{m+n} \left( \sum_{p+q=i} a_{p}b_{q} \right) x^{i}$<br>那么有</p>
+<script type="math/tex; mode=display">\eta (AB)=\eta \left( \sum_{i=0}^{m+n} \left( \sum_{p+q=i} a_{p}b_{q} \right) x^{i} \right)= \sum_{p+q=0} a_{p}b_{q}=a_{0}b_{0}= \eta (A) \eta (B)</script><p>因此$\eta$是一个环同态<br>可得$\mathbf{ker} \eta = \lbrace A \in R[x] \; \mathrm{and} \; a_{0}=0 \rbrace$<br>因此有共同根$x=0$</p>
+<h2 id="8"><a href="#8" class="headerlink" title="8"></a>8</h2><p><b>题目:</b><br>Two commutative rings $R$ and $S$ have a direct product $R \times S$, with $(r_{1},s_{1}) + (r_{2},s_{2}) = (r_{1}+r_{2}, s_{1}+s_{2}), (r_{1},s_{1}) (r_{2},s_{2}) = (r_{1}r_{2}, s_{1}s_{2})$ . Show that $R \times S$ is a commutative ring, and $R \times \lbrace 0 \rbrace$ is an ideal of it. Show that if neither $R$ nor $S$ is zero ring, $R \times S$ is not an integral domain.<br><b>解答:</b><br><b>(1)</b><br>对任意$(r_{1},s_{1}),(r_{2},s_{2}),(r_{3},s_{3}) \in R \times S$，因为$R$和$S$都是交换环<br>则有</p>
+<script type="math/tex; mode=display">(r_{1},s_{1})+(r_{2},s_{2})=(r_{1}+r_{2},s_{1}+s_{2})=(r_{2},s_{2})+(r_{1},s_{1})</script><script type="math/tex; mode=display">((r_{1},s_{1})+(r_{2},s_{2}))+(r_{3},s_{3})=(r_{1}+r_{2}+r_{3},s_{1}+s_{2}+s_{3})=(r_{1},s_{1})+((r_{2},s_{2})+(r_{3},s_{3}))</script><p>因此加法运算满足交换律与结合律，乘法运算的交换律与结合律同理<br>且有</p>
+<script type="math/tex; mode=display">(r_{1},s_{1})((r_{2},s_{2})+(r_{3}+s_{3}))=(r_{1}r_{2}+r_{1}r_{3},s_{1}s_{2}+s_{1}s_{3})=(r_{1},s_{1})(r_{2},s_{2})+(r_{1},s_{1})(r_{3},s_{3})</script><p>因为$R$和$S$为交换环，存在元素$(0,0) \in R \times S$，使得$(r,s) \in R \times S$，有$(0,0)+(r,s)=(r,s)$<br>对于任意$(r,s) \in R \times S$，设$(r’,s’)+(r,s)=(0,0)$，可得$(r’,s’)=(-r,-s)$<br>且存在元素$(1,1) \in R \times S$，使得对任意$(r,s) \in R \times S$，有$(r,s)(1,1)=(r,s)$<br>因此$R \times S$是交换环<br><b>(2)</b><br>易知：$R \times \lbrace 0 \rbrace \subseteq R \times S$<br>对任意$(r,0) \in R \times \lbrace 0 \rbrace$<br>当$r=0$时，有$(r,0)=(0,0) \in R \times \lbrace 0 \rbrace$<br>对任意$(r_{1},0),(r_{2},0) \in R \times \lbrace 0 \rbrace$，有</p>
+<script type="math/tex; mode=display">(r_{1},0)+(r_{2},0)=(r_{1}+r_{2},0)</script><p>因为$R$是交换环，所以$r_{1}+r_{2} \in R$，因此$(r_{1},0)+(r_{2},0) \in R \times \lbrace 0 \rbrace$<br>对任意$(a,0) \in R \times \lbrace 0 \rbrace$与$(r,s) \in R \times S$<br>有$(a,0)(r,s)=(ra,0) \in R \times \lbrace 0 \rbrace$<br>因此$R \times \lbrace 0 \rbrace$是$R \times S$上的理想<br><b>(3)</b><br>对任意$(r_{1},s_{1}),(r_{2},s_{2}),(r_{3},s_{3}) \in R \times S$<br>因为$R$和$S$都不是零环<br>因此$(0,0),(1,1) \in R \times S$，且$(1,1) \neq (0,0)$<br>对$r_{1},r_{2},r_{3} \in R,s_{1},s_{2},s_{3} \in R$<br>当$r_{2} \neq r_{3},s_{2} = s_{3},r_{1}=0,s_{1} \neq 0$，有$r_{1}r_{2} = r_{1}r_{3},s_{1}s_{2} = s_{1}s_{3}$<br>即$(r_{1}r_{2},s_{1}s_{2})=(r_{1}r_{3},s_{1}s_{3})$，即$(r_{1},s_{1})(r_{2},s_{2})=(r_{1},s_{1})(r_{3},s_{3})$<br>但此时$(r_{2},s_{2}) \neq (r_{3},s_{3})$且$(r_{1},s_{1}) \neq (0,0)$<br>因此$R \times S$不是整环</p>
+<h2 id="9"><a href="#9" class="headerlink" title="9"></a>9</h2><p><b>题目:</b><br>$A$ is the set of all matrices $[[a,b],[-b,a]]$, with $a,b$ being real numbers. Prove that $A$ is a field with matrix plus and product. Prove that it is isomorphic to the ring on complex number $\mathbb{C}$.<br><b>解答:</b><br><b>(1)</b><br>易知，矩阵加法具有交换律和结合律<br>存在零矩阵，使得对任意$\left( \begin{smallmatrix} a&amp;b \\ -b&amp;a \end{smallmatrix} \right) \in A$<br>有$\left( \begin{smallmatrix} 0&amp;0 \\ 0&amp;0 \end{smallmatrix} \right)+ \left( \begin{smallmatrix} a&amp;b \\ -b&amp;a \end{smallmatrix} \right)=\left( \begin{smallmatrix} a&amp;b \\ -b&amp;a \end{smallmatrix} \right)$<br>对任意$\left( \begin{smallmatrix} a&amp;b \\ -b&amp;a \end{smallmatrix} \right) \in A$，令$\left( \begin{smallmatrix} a&amp;b \\ -b&amp;a \end{smallmatrix} \right) +M’=\left( \begin{smallmatrix} 0&amp;0 \\ 0&amp;0 \end{smallmatrix} \right)$<br>有$M’=\left( \begin{smallmatrix} -a&amp;-b \\ b&amp;-a \end{smallmatrix} \right) \in A$<br>对任意$\left( \begin{smallmatrix} a&amp;b \\ -b&amp;a \end{smallmatrix} \right) ,\left( \begin{smallmatrix} c&amp;d \\ -d&amp;c \end{smallmatrix} \right) \in A$，有</p>
+<script type="math/tex; mode=display">\left( \begin{smallmatrix} a&b \\ -b&a \end{smallmatrix} \right) \left( \begin{smallmatrix} c&d \\ -d&c \end{smallmatrix} \right)=\left( \begin{smallmatrix} ac-bd&ad+bc \\ -bc-ad&-bd+ac \end{smallmatrix} \right)=\left( \begin{smallmatrix} c&d \\ -d&c \end{smallmatrix} \right) \left( \begin{smallmatrix} a&b \\ -b&a \end{smallmatrix} \right)</script><p>易知，矩阵乘法满足结合律<br>存在单位矩阵$E \in A$使得对每一个$X \in A$，有$EX=X$<br>易知，矩阵乘法和加法满足分配律<br>因此，$A$是交换环<br>对任意$\left( \begin{smallmatrix} a&amp;b \\ -b&amp;a \end{smallmatrix} \right) \in A$，设$\left( \begin{smallmatrix} x_{1}&amp;x_{2} \\ x_{3}&amp;x_{4} \end{smallmatrix} \right) \left( \begin{smallmatrix} a&amp;b \\ -b&amp;a \end{smallmatrix} \right) = \left( \begin{smallmatrix} 1&amp;0 \\ 0&amp;1 \end{smallmatrix} \right)$<br>解得</p>
+<script type="math/tex; mode=display">
+\begin{cases}
+    x_{1}= \frac{a}{a^{2}+b^{2}} \\
+    x_{2}= - \frac{b}{a^{2}+b^{2}} \\
+    x_{3}= \frac{b}{a^{2}+b^{2}} \\
+    x_{4}= \frac{a}{a^{2}+b^{2}}
+\end{cases}</script><p>因此$\left( \begin{smallmatrix} x_{1}&amp;x_{2} \\ x_{3}&amp;x_{4} \end{smallmatrix} \right) \in A$<br>因此$A$是一个域<br><b>(2)</b><br>定义$\varphi: A \to \mathbb{C}$为$\varphi (X)=a+bi$<br>那么有$\varphi(1_{A})= \varphi($$E)=1$<br>对任意$X,X’ \in A$，有</p>
+<script type="math/tex; mode=display">\varphi (X+X')=(a+a')+(b+b')i=\varphi(X)+\varphi(X')</script><script type="math/tex; mode=display">\varphi(XX')=(aa'-bb')+(ab'+a'b)i=\varphi(X) \varphi(X')</script><p>因此$\varphi$是一个同态<br>易知$\mathbf{ker} f= \left( \begin{smallmatrix} 0&amp;0 \\ 0&amp;0 \end{smallmatrix} \right)$，这是零矩阵<br>因此$\varphi$是一个单射<br>对任意$a+bi \in \mathbb{C}$，有$\varphi^{-1} (a+bi)= \left( \begin{smallmatrix} a&amp;b \\ -b&amp;a \end{smallmatrix} \right) \in A$<br>因此$\varphi$是一个满射<br>综上，$\varphi$是一个双射<br>因此$\varphi$是一个同构</p>
+<h2 id="10"><a href="#10" class="headerlink" title="10"></a>10</h2><p><b>题目:</b><br>$f(x)=x^{2}+1, g(x)=x^{3}+x+1 ∈ \mathbb{I}_{3} [x]$. Find $gcd(f,g)$ and the corresponding coefficients.<br><b>解答:</b><br>因为3是素数，因此$\mathbb{I}_{3}$是一个域<br>可得$gcd(f,g)=[1]$，其次数为0，对应系数为$[1]$</p>
+<h2 id="11"><a href="#11" class="headerlink" title="11"></a>11</h2><p><b>题目:</b><br>Let $R$ be a Euclidean ring with degree function $\vartheta$. </p>
+<ul>
+<li>prove that $\vartheta (1) \leq \vartheta (a)$ for all nonzero $a \in R$.   </li>
+<li>prove that a nonzero $u \in R$ is a unit iff $\vartheta (u)=\vartheta (1)$.</li>
+</ul>
+<p><b>解答:</b><br><b>(1)</b><br>已知$R$是一个欧氏环<br>那么由欧氏环定义可知，对所有不为零的$f,g \in R$，有$\vartheta (f) \leq \vartheta (fg)$<br>现在令$f=1,g=a$，其中$a$为属于$R$的任意非零元素<br>那么有$\vartheta (1) \leq \vartheta (a)$<br><b>(2)</b><br>若$u \in R$是可逆元，那么存在$u^{-1} \in R$使得$u^{-1} u=1$<br>则有$\vartheta (u) \leq \vartheta (u^{-1}u) = \vartheta (1)$<br>又由i得$\vartheta (1) \leq \vartheta (u)$<br>因此$\vartheta (u)= \vartheta (1)$<br>若$\vartheta (u)= \vartheta (1)$<br>易知，有$1=qu+r$，使得$r=0$或$r \neq 0$但$\vartheta (r) &lt; \vartheta (u)$<br>当$r=0$时，有$1=qu$，即$q=u^{-1}$，因此$u$是一个可逆元<br>当$r \neq 0$时，有$\vartheta (r) &lt; \vartheta (u) = \vartheta (1)$，这与i中的结论相矛盾<br>因此$u$是一个可逆元<br>综上，非零元素$u$是一个可逆元当且仅当$\vartheta (u) = \vartheta (1)$</p>
+<h2 id="12"><a href="#12" class="headerlink" title="12"></a>12</h2><p><b>题目:</b><br>For every commutative ring $R$, prove $R[x]/(x) \cong R$.<br><b>解答:</b><br>可以构造计值映射$\varphi : R[x] \to R$为$f \to f(0)$<br>那么有$\mathbf{ker} \varphi = (x)$，并且有$\mathbf{im} \varphi = R$<br>因为$\varphi$是一个同态，那么由第一同构定理，存在同构</p>
+<script type="math/tex; mode=display">\widetilde{\varphi} : R[x] / (x) \to R</script><p>因此$R[x]/(x) \cong R$</p>
+<h2 id="13"><a href="#13" class="headerlink" title="13"></a>13</h2><p><b>题目:</b><br>Find or describe all maximal ideals in (i)$\mathbb{Z}$, (ii)$R[x]$.<br><b>解答:</b><br><b>(1)</b>所有极大理想组成的集合是$\lbrace (k) \mid k \; \mathrm{is \; prime} \rbrace$<br><b>(2)</b>所有极大理想组成的集合是$\lbrace (f(x)) \mid f(x) \; \mathrm{is \; irreducible} \rbrace$</p>
+<h2 id="14"><a href="#14" class="headerlink" title="14"></a>14</h2><p><b>题目:</b><br>Let $f:A \to R$ be a surjective ring homomorphism between two commutative rings $A$ and $R$. Prove that:</p>
+<ul>
+<li>if $Q$ is a prime ideal in $R$, $f^{-1}(Q)$ is a prime ideal in $A$. </li>
+<li>if $R$ is a commutative ring, $J \subseteq R$, $I$ is an ideal in $R$, and let $J/I= \lbrace [j]_{\mathrm{mod} \; I}, j \in J \rbrace$. It is a prime ideal in $R/I$. Prove that $J$ is a prime ideal in $R$. </li>
+</ul>
+<p><b>解答:</b><br><b>(1)</b><br>已知$f$是一个同态，那么有$f(0)=0$<br>所以$f^{-1} (0)=0$<br>因此$0 \in f^{-1} (Q)$<br>对任意$a,b \in f^{-1} (Q)$，我们令$a=f^{-1} (r_{1}),b=f^{-1} (r_{2})$<br>那么有$r_{1}=f(a),r_{2}=f(b)$，由于$Q$是一个理想，因此$r_{1}+r_{2} \in Q$<br>根据同态定义，$r_{1}+r_{2}=f(a+b)$<br>因此$a+b=f^{-1} (r_{1}+r_{2})$<br>可得$a+b \in f^{-1} (Q)$<br>令$a \in f^{-1} (Q),r \in A$，令$a=f^{-1} (r_{1}),r=f^{-1} (r_{2})$<br>那么有$r_{1}=f(a),r_{2}=f(r)$，由于$Q$是一个理想，因此$r_{1} r_{2} \in Q$<br>根据同态定义，有$r_{1} r_{2}=f(ar)$<br>因此$ar=f^{-1}(r_{1} r_{2}) \in f^{-1} (Q)$<br>综上，$f^{-1} (Q)$是一个理想<br>对任意$ab \in f^{-1} (Q)$，令$ab=f^{-1} (r)$<br>那么有$r=f(ab)$，根据同态定义，有$r=f(a)f(b)$<br>因为$Q$是素理想，所以有$f(a) \in Q$或者$f(b) \in Q$<br>因此有$a \in f^{-1} (Q)$或$b \in f^{-1} (Q)$<br>因此$f^{-1} (Q)$是素理想<br><b>(2)</b><br>假设$J$不是$R$的素理想<br>那么存在$n=pq \in J$，使得$p \notin J$且$q \notin J$<br>因此$[p] \notin J/I$且$[q] \notin J/I$<br>但因为$J/I$是$R/I$上的素理想<br>因此对$n=pq \in J$，有$[n]=[pq]=[p][q] \in J/I$且有$[p] \in J/I$或$[q] \in J/I$<br>矛盾！<br>因此$J$是$R$上的素理想</p>
+  	
+					
+	  </div>     
+	  
+
+	<div class="post-footer">
+
+
+  <div class="post-footer-other">
+       
+    
+      <span class="post-footer-item">
+        <span class="share-btn">
+	<span class="iconfont icon-share"></span>
+</span>
+<div class="-mob-share sildeUpMin">
+	<ul class="-mob-inner">
+	   			             
+        <li class="iconfont 
+		icon-share-weixin 
+		-mob-share-weixin 
+		-mob-share-link"></li>		
+   	   			             
+        <li class="iconfont 
+		icon-share-weibo 
+		-mob-share-weibo 
+		-mob-share-link"></li>		
+   	   			             
+        <li class="iconfont 
+		icon-share-facebook 
+		-mob-share-facebook 
+		-mob-share-link"></li>		
+   	   			             
+        <li class="iconfont 
+		icon-share-twitter 
+		-mob-share-twitter 
+		-mob-share-link"></li>		
+   	   
+	</ul>
+</div>	
+
+
+<script id="-mob-share" src="https://f1.webshare.mob.com/code/mob-share.js?appkey=2a31e660f849e"></script>
+      </span>  
+               
+  </div>  
+    
+
+
+  <div class="post-footer-meta">
+        	
+
+        
+          <i class="iconfont icon-tag"></i>     
+            <a class="tag-link" href="/tags/Abstract-Algebra/">Abstract Algebra</a>    
+        	
+  </div>
+
+</div>
+
+
+<nav class="post-footer-nav">
+  <div class="post-footer-link">
+  
+      <a href="/2019/04/16/Abstract-Algebra-Notes-Commutative-Ring/" id="post-nav-older" class="post-nav-link-wrap">
+        <strong class="post-nav-caption">older</strong>
+        
+          <span class="post-nav-title">
+            抽象代数学习笔记--交换环
+          </span>
+      </a>
+  
+  </div>
+  <div class="post-footer-link">
+    
+        <a href="/2019/05/20/Abstract-Algebra-Notes-Lattices-and-Boolean/" id="post-nav-newer" class="post-nav-link-wrap">
+          <strong class="post-nav-caption">newer</strong>
+             
+            <span class="post-nav-title">
+              抽象代数学习笔记--格与布尔代数
+            </span>
+        </a>
+    
+  </div>
+
+</nav>
+ 
+	
+
+    <script src="//cdn.jsdelivr.net/npm/@waline/client"></script>
+
+    <div id="waline"></div>
+
+    <script>
+        Waline({
+          el: '#waline',
+          serverURL: 'https://blog-api.mizunashi.me/',
+          lang: 'en',
+          avatar: 'retro',
+          uploadImage: false,
+        });
+      </script>
+	
+</article>
+
+	<div class="toc-container">
+			<div class="toc-sidebar">
+			<p class="toc-title">
+				Contents
+			</p>
+			<div class="toc-list">
+				<ol class="toc-inner"><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#1"><span class="toc-inner-text">1</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#2"><span class="toc-inner-text">2</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#3"><span class="toc-inner-text">3</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#4"><span class="toc-inner-text">4</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#5"><span class="toc-inner-text">5</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#6"><span class="toc-inner-text">6</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#7"><span class="toc-inner-text">7</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#8"><span class="toc-inner-text">8</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#9"><span class="toc-inner-text">9</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#10"><span class="toc-inner-text">10</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#11"><span class="toc-inner-text">11</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#12"><span class="toc-inner-text">12</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#13"><span class="toc-inner-text">13</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#14"><span class="toc-inner-text">14</span></a></li></ol>
+			</div>
+		</div>
+	</div>
+
+          </div> 
+      </div>            
+    
+    <a id="page-backTop">
+      <span>
+        <i class="iconfont icon-backtotop"></i>
+      </span>
+    </a> 
+
+  
+    
+    <div class="search-container sildeUpMin">
+        <div class="search-header">
+            <input type="text" placeholder="Typing Something here." id="search-input" class="search-input">
+            <span class="search-cancel">
+                <i class="iconfont icon-cancel">
+            </i></span>
+        </div>
+        <div id="search-result" class="search-result"></div>
+    </div>
+ 
+     <div class="mobile-menu">      
+
+      
+      <img class="mobile-menu-icon" src="/images/favicon.png">  
+      
+
+         
+            
+
+            <a class="mobile-menu-link" href="/">Home
+            </a>
+            
+         
+            
+
+            <a class="mobile-menu-link" href="/archives">Archives
+            </a>
+            
+         
+            
+
+            <a class="mobile-menu-link" href="/tags">Tags
+            </a>
+            
+         
+            
+
+            <a class="mobile-menu-link" href="/about">About
+            </a>
+            
+         
+            
+
+            <a class="mobile-menu-link" href="/guestbook">Guestbook
+            </a>
+            
+         
+                          
+
+            <a class="mobile-menu-link mobile-menu-search" href="#">Search </a>                 
+            
+         
+      
+</div>
+        
+    
+
+
+
+     
+    
+
+
+
+
+<footer id="footer">	    
+
+		
+		<div class="footer-copyright">
+		&copy;
+				
+		2019-
+		
+		2021		
+	
+		Mizunashi&#39;s Blog
+        <br>
+        
+        <a href="/about">About</a> | <a href="/sitemap.xml">Sitemap</a> | <a href="/privacy.html">Privacy Policy</a> | 
+        <a href="/changelog.html">Changelog</a> | <a href="/atom.xml">RSS</a>
+
+        <br>
+
+		Theme  <a href="https://github.com/Lemonreds/hexo-theme-Nayo" target="_blank">Nayo</a>
+		</div>			
+	 
+</footer>   
+
+    <script src="/nayo.bundle.js"></script>           
+  </body>        
+</html>

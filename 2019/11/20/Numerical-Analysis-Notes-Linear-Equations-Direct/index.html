@@ -1,0 +1,500 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html>
+  <head><meta name="generator" content="Hexo 3.9.0">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  
+  
+  <title>  数值分析学习笔记--线性方程组的直接解法 |   Mizunashi&#39;s Blog </title>
+
+ 
+  
+    <link rel="icon" href="/images/favicon.png">
+  
+
+
+  <link rel="stylesheet" href="/nayo.min.css"> 
+</head>  
+  <body>   
+    
+      <link rel="stylesheet" type="text/css" href="/nayo.customized.css">
+
+<header class="header">
+	
+  <nav class="header-inner">        
+
+    <span class="iconfont icon-menu mobile-toggle"></span>   	
+
+    <div class="header-logo">
+      <a href="/">
+        <img class="header-logo-img" src="/images/logo.png">
+      </a>
+    </div>
+
+    <div class="header-menu">          
+              
+            
+                
+                    <a class="header-menu-link" id="header-menu-home" href="/">
+                        <i class="iconfont icon-home">  
+                    </i></a>   
+                  
+            
+              
+            
+                
+                    <a class="header-menu-link" id="header-menu-archives" href="/archives">
+                        <i class="iconfont icon-archives">  
+                    </i></a>   
+                  
+            
+              
+            
+                
+                    <a class="header-menu-link" id="header-menu-tags" href="/tags">
+                        <i class="iconfont icon-tags">  
+                    </i></a>   
+                  
+            
+              
+            
+                
+                    <a class="header-menu-link" id="header-menu-about" href="/about">
+                        <i class="iconfont icon-about">  
+                    </i></a>   
+                  
+            
+              
+            
+                
+                    <a class="header-menu-link" id="header-menu-guestbook" href="/guestbook">
+                        <i class="iconfont-custom icon-message">  
+                    </i></a> 
+                  
+            
+              
+            
+                <a class="header-menu-link" id="header-menu-search">
+                    <i class="iconfont icon-search">  
+                </i></a>
+            
+                  
+    </div>  
+    
+  </nav>
+</header>
+
+ 
+
+      <div class="container">       
+          
+          
+            <div class="container-inner">  
+          
+
+          <article class="post">
+  
+	
+<div class="post-header">
+	<div class="post-header-inner">
+		<p class="post-title">	
+			数值分析学习笔记--线性方程组的直接解法
+		</p>
+		<div class="post-info">	
+			<span class="post-info-entry">
+				Nov 20, 2019
+			</span>
+
+			
+			
+				<i class="iconfont icon-words"></i>
+				<span class="post-info-entry">3566
+				</span>
+			
+		</div>
+	</div>
+</div> 
+	
+
+    <script type="text/x-mathjax-config">
+        var post = document.getElementsByClassName("post")[0];  
+        MathJax.Hub.Config({
+            showProcessingMessages: false,
+            messageStyle: "none",    
+            tex2jax: {
+                inlineMath:  [ ["$", "$"] , ["\\(","\\)"]],
+                displayMath: [ ["$$","$$"] , ["\\[","\\]"]],
+                skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code','a'],
+            },
+            "HTML-CSS": {            
+                showMathMenu: false
+            }
+        });
+        MathJax.Hub.Queue(["Typeset",MathJax.Hub,post]);
+    </script>
+    <style>.MathJax{outline:0;}</style>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS_CHTML"></script>
+ 
+
+	  <div class="typo post-content slideDownMin">
+
+		
+
+			
+					<p><img src="https://upload.wikimedia.org/wikipedia/commons/c/cd/Secretsharing-3-point.png" alt></p>
+<blockquote>
+<p>三变量的线性系统确定的一组平面</p>
+</blockquote>
+<a id="more"></a>
+<p>如有疏漏，敬请指正。</p>
+<p>对于一个线性方程组，可表示为如下形式</p>
+<script type="math/tex; mode=display">Ax=b</script><p>其中，$A$被称为系数矩阵，$x$是解向量，$b$是系数向量。当且仅当$A$是一个可逆方阵时，线性方程组存在唯一的解。</p>
+<p>尽管克莱姆法则给出了线性方程组的公式解，但是由于其运算量过大，不适合在实务中应用。</p>
+<p>线性方程组的解法分为直接解法与迭代解法，直接解法没有系统误差，但是对计算机硬件的要求较高。</p>
+<h2 id="高斯顺序消元法"><a href="#高斯顺序消元法" class="headerlink" title="高斯顺序消元法"></a>高斯顺序消元法</h2><p>高斯消元法的基本思路是通过矩阵的初等变换，把方程组变换为上三角方程组，然后再回代求解。</p>
+<p>还有一个算法是Gauss-Jordan消元法，这个方法把线性方程组变换为对角形方程组，直接求解得出结果。</p>
+<h2 id="高斯列主元消元法"><a href="#高斯列主元消元法" class="headerlink" title="高斯列主元消元法"></a>高斯列主元消元法</h2><p>以下三个命题等价：</p>
+<ul>
+<li>高斯消元过程可以顺利进行</li>
+<li>矩阵存在LU分解</li>
+<li>矩阵的各阶顺序主子式均不为0</li>
+</ul>
+<p>而我们已经知道，只要$\mathrm{det} A \neq 0$，方程组$Ax=b$就有解，这揭示了高斯顺序消元法的一部分局限性。</p>
+<p>此外，即使高斯消元法能够进行，如果$| a_{kk}^{(k-1)} |$很小，在运算中作分母时会导致数量级的增长和舍入误差的扩散。</p>
+<p>解决这个问题的方法是对矩阵作初等变换，使得在运算中作分母的量的绝对值尽可能大。如果在一列中选择按模最大的元素，并将其调到主干方程位置再进行消元，这种方法称为列主元消元法。</p>
+<p>对于每一个$k,k=1,2, \cdots ,n-1$，在消元之前选出$\mid a_{kk}^{(k-1)} \mid , \mid a_{k+1,k}^{(k-1)} \mid , \cdots ,\mid a_{nk}^{(k-1)} \mid$中的值最大的元素$a_{mk}^{(k-1)}$，对k行和m行进行交换以后，再进行消元运算。由于$\det A \neq 0$，可证$a_{kk}^{(k-1)},a_{k+1,k}^{(k-1)}, \cdots ,a_{nk}^{(k-1)}$中至少有一个元素不为零，因此列主元消元法总是可行的。</p>
+<h2 id="LU分解法"><a href="#LU分解法" class="headerlink" title="LU分解法"></a>LU分解法</h2><p>在用直接分解法解方程$Ax=b$时，首先做出分解$A=LU$，那么线性方程组$Ax=b$可以转化为线性方程组$Ly=b$和$Ux=y$，分解以后再求解方程组只要$O(n^2)$的运算量即可解出$x$。</p>
+<p>LU分解有多种形式。设$A=LU$，其中L是下三角方阵，U是单位上三角方阵，是为Crout分解，可以看作是$A^T$的Doolittle分解。</p>
+<p>当A是正定实方阵时，$A=LDL^T$，其中$L$是单位下三角方阵，$D$是对角方阵，这种分解通常称为$LDL^T$分解。</p>
+<h3 id="Doolittle分解"><a href="#Doolittle分解" class="headerlink" title="Doolittle分解"></a>Doolittle分解</h3><p>设A的各阶主子式不为零，$A=LU$，其中L是单位下三角阵，U为上三角阵。</p>
+<script type="math/tex; mode=display">
+\begin{bmatrix}
+a_{11} & a_{12} & \cdots & a_{1n} \\
+a_{21} & a_{22} & \cdots & a_{2n} \\
+\vdots & \vdots & & \vdots \\
+a_{n1} & a_{n2} & \cdots & a_{nn}\\
+\end{bmatrix}
+=
+\begin{bmatrix}
+1 & & & \\
+l_{21} & 1 & & \\
+\vdots & \vdots & \ddots & \\ 
+l_{n1} & l_{n2} & \cdots & 1 \\
+\end{bmatrix}
+\begin{bmatrix}
+u_{11} & u_{12} & \cdots & u_{1n} \\
+& u_{22} & \cdots & u_{2n} \\
+& & \ddots & \vdots \\
+& & & u_{nn} \\
+\end{bmatrix}</script><p>Doolittle分解可以按照如下顺序进行</p>
+<ul>
+<li>计算U的第一行元素，$u_{1j}=a_{1j},j=1,2, \cdots ,n$</li>
+<li>计算L的第一列元素，$l_{i1}=\frac{a_{i1}}{u_{11}},i=2,3, \cdots ,n$</li>
+<li>计算U的第k行元素，$u_{kj}=a_{kj}-\sum_{r=1}^{k-1}l_{kr}u_{rj},j=k,k+1, \cdots ,n$</li>
+<li>计算L的第k列元素，$l_{ik}=\frac{\left( a_{ik}-\sum_{r=1}^{k-1}l_{ir}u_{rk} \right)}{u_{kk}},i=k+1,k+2, \cdots ,n$</li>
+</ul>
+<h3 id="Crout分解"><a href="#Crout分解" class="headerlink" title="Crout分解"></a>Crout分解</h3><p>矩阵$A=LU$的Crout分解形式为</p>
+<script type="math/tex; mode=display">
+\begin{bmatrix}
+a_{11} & a_{12} & \cdots & a_{1n} \\
+a_{21} & a_{22} & \cdots & a_{2n} \\
+\vdots & \vdots & & \vdots \\
+a_{n1} & a_{n2} & \cdots & a_{nn}\\
+\end{bmatrix}
+=
+\begin{bmatrix}
+l_{11} & & & \\
+l_{21} & l_{22} & & \\
+\vdots & \vdots & \ddots & \\ 
+l_{n1} & l_{n2} & \cdots & l_{nn} \\
+\end{bmatrix}
+\begin{bmatrix}
+1 & u_{12} & \cdots & u_{1n} \\
+& 1 & \cdots & u_{2n} \\
+& & \ddots & \vdots \\
+& & & 1 \\
+\end{bmatrix}</script><p>其中，$L_{k}$的分量形式为</p>
+<script type="math/tex; mode=display">l_{ik}=a_{ik}-\sum_{r=1}^{k-1}l_{ir}u_{rk},i=k,k+1, \cdots ,n</script><p>$U_k$的分量形式为为</p>
+<script type="math/tex; mode=display">u_{kj}=\frac{\left( a_{kj}-\sum_{r=1}^{k-1} l_{kr}u_{rj} \right)}{l_{kk}},j=k+1,k+2, \cdots ,n</script><h2 id="求解特殊线性方程组的方法"><a href="#求解特殊线性方程组的方法" class="headerlink" title="求解特殊线性方程组的方法"></a>求解特殊线性方程组的方法</h2><h3 id="追赶法"><a href="#追赶法" class="headerlink" title="追赶法"></a>追赶法</h3><p>形如</p>
+<script type="math/tex; mode=display">
+\begin{bmatrix}
+a_1 & b_1 & & & \\
+c_2 & a_2 & b_2 & & \\
+& \ddots & \ddots & \ddots & \\
+& & c_{n-1} & a_{n-1} & b_{n-1} \\
+& & & c_n & a_n \\
+\end{bmatrix}</script><p>的矩阵称为三对角矩阵，追赶法可以用于求解此类方程组。</p>
+<p>容易验证L,U具有如下形式</p>
+<script type="math/tex; mode=display">
+\begin{bmatrix}
+a_1 & b_1 & & & \\
+c_2 & a_2 & b_2 & & \\
+& \ddots & \ddots & \ddots & \\
+& & c_{n-1} & a_{n-1} & b_{n-1} \\
+& & & c_n & a_n \\
+\end{bmatrix}
+=
+\begin{bmatrix}
+u_1 & & & \\
+w_2 & u_2 & & \\
+& \ddots & \ddots & \\
+& & w_n & u_n \\
+\end{bmatrix}
+\begin{bmatrix}
+1 & v_1 & & \\
+& 1 & \ddots & \\
+& & \ddots & v_{n-1} \\
+& & & 1 \\ 
+\end{bmatrix}</script><p>比较$A=LU$两边元素，可得到$w_i=c_i,i=2,3, \cdots ,n$</p>
+<p>若规定$c_1=0$，可得到三角阵分解的计算公式</p>
+<script type="math/tex; mode=display">u_k=a_k-c_kv_{k-1}</script><script type="math/tex; mode=display">v_{k}=\frac{b_k}{u_k}</script><p>其中$k=1,2, \cdots ,n$</p>
+<p>再解线性方程组$Ly=f,Ux=y$</p>
+<script type="math/tex; mode=display">y_i=\frac{f_i-c_iy_{i-1}}{u_i},i=1,2, \cdots ,n</script><p>设</p>
+<script type="math/tex; mode=display">v_n=0,x_i=y_i-v_ix_{i+1},i=n,n-1, \cdots ,2,1</script><p>以上方法被称为追赶法。</p>
+<h3 id="LDL-T-分解"><a href="#LDL-T-分解" class="headerlink" title="$LDL^T$分解"></a>$LDL^T$分解</h3><p>对于对称正定矩阵，常用的方法是$LDL^T$分解。</p>
+<p>对$A$作$LDL^T$分解可得</p>
+<script type="math/tex; mode=display">
+A=
+\begin{bmatrix}
+1 & & & \\
+l_{21} & 1 & & \\
+\vdots & \vdots & \ddots & \\
+l_{n1} & l_{n2} & \cdots & 1 \\
+\end{bmatrix}
+\begin{bmatrix}
+d_1 & & & \\
+& d_2 & & \\
+& & \ddots & \\
+& & & d_n \\
+\end{bmatrix}
+\begin{bmatrix}
+1 & l_{12} & \cdots & l_{1n} \\
+& 1 & \cdots & l_{2n} \\
+& & \ddots & \vdots \\
+& & & 1 \\
+\end{bmatrix}</script><p>进行$LDL^T$分解的步骤如下所示</p>
+<script type="math/tex; mode=display">d_{k}=a_{kk}-\sum_{r=1}^{k-1} l_{kr}^2d_r</script><script type="math/tex; mode=display">l_{ik}=\frac{a_{ik}-\sum_{r=1}^{k-1} d_rl_{ir}l_{kr}}{d_k}</script><p>有$(LDL^T)X=b$，解方程组$Ax=b$可分三步完成</p>
+<ul>
+<li>解方程组$Lz=b$</li>
+<li>解方程组$Dy=z$</li>
+<li>解方程组$L^Tx=y$</li>
+</ul>
+  	
+					
+	  </div>     
+	  
+
+	<div class="post-footer">
+
+
+  <div class="post-footer-other">
+       
+    
+      <span class="post-footer-item">
+        <span class="share-btn">
+	<span class="iconfont icon-share"></span>
+</span>
+<div class="-mob-share sildeUpMin">
+	<ul class="-mob-inner">
+	   			             
+        <li class="iconfont 
+		icon-share-weixin 
+		-mob-share-weixin 
+		-mob-share-link"></li>		
+   	   			             
+        <li class="iconfont 
+		icon-share-weibo 
+		-mob-share-weibo 
+		-mob-share-link"></li>		
+   	   			             
+        <li class="iconfont 
+		icon-share-facebook 
+		-mob-share-facebook 
+		-mob-share-link"></li>		
+   	   			             
+        <li class="iconfont 
+		icon-share-twitter 
+		-mob-share-twitter 
+		-mob-share-link"></li>		
+   	   
+	</ul>
+</div>	
+
+
+<script id="-mob-share" src="https://f1.webshare.mob.com/code/mob-share.js?appkey=2a31e660f849e"></script>
+      </span>  
+               
+  </div>  
+    
+
+
+  <div class="post-footer-meta">
+        	
+
+        
+          <i class="iconfont icon-tag"></i>     
+            <a class="tag-link" href="/tags/Numerical-Analysis/">Numerical Analysis</a>    
+        	
+  </div>
+
+</div>
+
+
+<nav class="post-footer-nav">
+  <div class="post-footer-link">
+  
+      <a href="/2019/11/12/Numerical-Analysis-Note-Nonlinear-Equations/" id="post-nav-older" class="post-nav-link-wrap">
+        <strong class="post-nav-caption">older</strong>
+        
+          <span class="post-nav-title">
+            数值分析学习笔记--非线性方程求解
+          </span>
+      </a>
+  
+  </div>
+  <div class="post-footer-link">
+    
+        <a href="/2019/11/27/Numerical-Analysis-Notes-Linear-Equations-Iteration/" id="post-nav-newer" class="post-nav-link-wrap">
+          <strong class="post-nav-caption">newer</strong>
+             
+            <span class="post-nav-title">
+              数值分析学习笔记--解线性方程组的迭代方法
+            </span>
+        </a>
+    
+  </div>
+
+</nav>
+ 
+	
+
+    <script src="//cdn.jsdelivr.net/npm/@waline/client"></script>
+
+    <div id="waline"></div>
+
+    <script>
+        Waline({
+          el: '#waline',
+          serverURL: 'https://blog-api.mizunashi.me/',
+          lang: 'en',
+          avatar: 'retro',
+          uploadImage: false,
+        });
+      </script>
+	
+</article>
+
+	<div class="toc-container">
+			<div class="toc-sidebar">
+			<p class="toc-title">
+				Contents
+			</p>
+			<div class="toc-list">
+				<ol class="toc-inner"><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#高斯顺序消元法"><span class="toc-inner-text">高斯顺序消元法</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#高斯列主元消元法"><span class="toc-inner-text">高斯列主元消元法</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#LU分解法"><span class="toc-inner-text">LU分解法</span></a><ol class="toc-inner-child"><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#Doolittle分解"><span class="toc-inner-text">Doolittle分解</span></a></li><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#Crout分解"><span class="toc-inner-text">Crout分解</span></a></li></ol></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#求解特殊线性方程组的方法"><span class="toc-inner-text">求解特殊线性方程组的方法</span></a><ol class="toc-inner-child"><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#追赶法"><span class="toc-inner-text">追赶法</span></a></li><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#LDL-T-分解"><span class="toc-inner-text">$LDL^T$分解</span></a></li></ol></li></ol>
+			</div>
+		</div>
+	</div>
+
+          </div> 
+      </div>            
+    
+    <a id="page-backTop">
+      <span>
+        <i class="iconfont icon-backtotop"></i>
+      </span>
+    </a> 
+
+  
+    
+    <div class="search-container sildeUpMin">
+        <div class="search-header">
+            <input type="text" placeholder="Typing Something here." id="search-input" class="search-input">
+            <span class="search-cancel">
+                <i class="iconfont icon-cancel">
+            </i></span>
+        </div>
+        <div id="search-result" class="search-result"></div>
+    </div>
+ 
+     <div class="mobile-menu">      
+
+      
+      <img class="mobile-menu-icon" src="/images/favicon.png">  
+      
+
+         
+            
+
+            <a class="mobile-menu-link" href="/">Home
+            </a>
+            
+         
+            
+
+            <a class="mobile-menu-link" href="/archives">Archives
+            </a>
+            
+         
+            
+
+            <a class="mobile-menu-link" href="/tags">Tags
+            </a>
+            
+         
+            
+
+            <a class="mobile-menu-link" href="/about">About
+            </a>
+            
+         
+            
+
+            <a class="mobile-menu-link" href="/guestbook">Guestbook
+            </a>
+            
+         
+                          
+
+            <a class="mobile-menu-link mobile-menu-search" href="#">Search </a>                 
+            
+         
+      
+</div>
+        
+    
+
+
+
+     
+    
+
+
+
+
+<footer id="footer">	    
+
+		
+		<div class="footer-copyright">
+		&copy;
+				
+		2019-
+		
+		2021		
+	
+		Mizunashi&#39;s Blog
+        <br>
+        
+        <a href="/about">About</a> | <a href="/sitemap.xml">Sitemap</a> | <a href="/privacy.html">Privacy Policy</a> | 
+        <a href="/changelog.html">Changelog</a> | <a href="/atom.xml">RSS</a>
+
+        <br>
+
+		Theme  <a href="https://github.com/Lemonreds/hexo-theme-Nayo" target="_blank">Nayo</a>
+		</div>			
+	 
+</footer>   
+
+    <script src="/nayo.bundle.js"></script>           
+  </body>        
+</html>

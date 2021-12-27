@@ -1,0 +1,39 @@
+.friend-wrap {
+    margin: 3px 2px;
+    padding: .5rem .825rem;
+    line-height: 1.825rem;
+    font-size: .825rem;
+    border: 1px solid #d5dce5;
+    border-radius: 999em;
+    -webkit-transition: all .2s ease;
+    -o-transition: all .2s ease;
+    transition: all .2s ease;
+}
+
+.friend-wrap:hover {
+    background: hsla(0, 0%, 100%, .2);
+    color: #e26d6d;
+    border: 1px solid #e26d6d
+}
+
+.friend-wrap {
+    display: inline-block;
+    margin: .4rem .3rem;
+    padding: 2px 12px
+}
+
+.friend-wrap>.friend-name {
+    font-size: .9rem;
+    font-style: normal;
+    color: #727272;
+}
+
+.friend-wrap>.friend-name:hover {
+    font-size: .9rem;
+    font-style: normal;
+    color: #e26d6d;
+}
+
+.friend-wrap {
+    margin: 3px 0 8px
+}

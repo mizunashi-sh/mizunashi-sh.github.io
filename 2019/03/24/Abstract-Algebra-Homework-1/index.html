@@ -1,0 +1,476 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html>
+  <head><meta name="generator" content="Hexo 3.9.0">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  
+  
+  <title>  抽象代数习题--群论部分 |   Mizunashi&#39;s Blog </title>
+
+ 
+  
+    <link rel="icon" href="/images/favicon.png">
+  
+
+
+  <link rel="stylesheet" href="/nayo.min.css"> 
+</head>  
+  <body>   
+    
+      <link rel="stylesheet" type="text/css" href="/nayo.customized.css">
+
+<header class="header">
+	
+  <nav class="header-inner">        
+
+    <span class="iconfont icon-menu mobile-toggle"></span>   	
+
+    <div class="header-logo">
+      <a href="/">
+        <img class="header-logo-img" src="/images/logo.png">
+      </a>
+    </div>
+
+    <div class="header-menu">          
+              
+            
+                
+                    <a class="header-menu-link" id="header-menu-home" href="/">
+                        <i class="iconfont icon-home">  
+                    </i></a>   
+                  
+            
+              
+            
+                
+                    <a class="header-menu-link" id="header-menu-archives" href="/archives">
+                        <i class="iconfont icon-archives">  
+                    </i></a>   
+                  
+            
+              
+            
+                
+                    <a class="header-menu-link" id="header-menu-tags" href="/tags">
+                        <i class="iconfont icon-tags">  
+                    </i></a>   
+                  
+            
+              
+            
+                
+                    <a class="header-menu-link" id="header-menu-about" href="/about">
+                        <i class="iconfont icon-about">  
+                    </i></a>   
+                  
+            
+              
+            
+                
+                    <a class="header-menu-link" id="header-menu-guestbook" href="/guestbook">
+                        <i class="iconfont-custom icon-message">  
+                    </i></a> 
+                  
+            
+              
+            
+                <a class="header-menu-link" id="header-menu-search">
+                    <i class="iconfont icon-search">  
+                </i></a>
+            
+                  
+    </div>  
+    
+  </nav>
+</header>
+
+ 
+
+      <div class="container">       
+          
+          
+            <div class="container-inner">  
+          
+
+          <article class="post">
+  
+	
+<div class="post-header">
+	<div class="post-header-inner">
+		<p class="post-title">	
+			抽象代数习题--群论部分
+		</p>
+		<div class="post-info">	
+			<span class="post-info-entry">
+				Mar 24, 2019
+			</span>
+
+			
+			
+				<i class="iconfont icon-words"></i>
+				<span class="post-info-entry">8175
+				</span>
+			
+		</div>
+	</div>
+</div> 
+	
+
+    <script type="text/x-mathjax-config">
+        var post = document.getElementsByClassName("post")[0];  
+        MathJax.Hub.Config({
+            showProcessingMessages: false,
+            messageStyle: "none",    
+            tex2jax: {
+                inlineMath:  [ ["$", "$"] , ["\\(","\\)"]],
+                displayMath: [ ["$$","$$"] , ["\\[","\\]"]],
+                skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code','a'],
+            },
+            "HTML-CSS": {            
+                showMathMenu: false
+            }
+        });
+        MathJax.Hub.Queue(["Typeset",MathJax.Hub,post]);
+    </script>
+    <style>.MathJax{outline:0;}</style>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS_CHTML"></script>
+ 
+
+	  <div class="typo post-content slideDownMin">
+
+		
+
+			
+					<p>如有疏漏，敬请指正<br><a id="more"></a></p>
+<h2 id="1"><a href="#1" class="headerlink" title="1"></a>1</h2><p><b>题目：</b><br>Compute the order and inverse of $(12)(43)(13542)(15)(13)(23)$.<br><b>解答：</b><br>化简得$(12)(43)(13542)(15)(13)(23)=(154)(23)$<br>故阶为$k=lcm(3,2)=6$<br>逆为$((154)(23))^{-1}=(32)(451)$<br>注意：默认为从右向左运算</p>
+<h2 id="2"><a href="#2" class="headerlink" title="2"></a>2</h2><p><b>题目：</b><br>How many permutations of order 2 are there in $S_{n}$?<br><b>解答：</b></p>
+<script type="math/tex; mode=display">\sum\limits_{k=1}^{\left \lfloor \frac{n}{2} \right \rfloor}\frac{n!}{(n-2k)!k!2^{k}}</script><h2 id="3"><a href="#3" class="headerlink" title="3"></a>3</h2><p><b>题目：</b><br>$GL(2,Q)$ denotes the set of the nonsingular (having nonzero determinant, 行列式非 0) rational square matrix of length 2 under matrix product.     </p>
+<ol>
+<li>Show that it’s a group.     </li>
+<li>Compute the order of A=[0, -1; 1, 0] and B=[0, 1; -1, 1] .     </li>
+<li>What’s the order of AB ? </li>
+</ol>
+<p><b>解答：</b><br><b>(1)</b><br>令$A,B \in GL(2,Q)$，在$GL(2,Q)$中定义的运算为矩阵乘法</p>
+<p>易证：$\mid AB \mid = \mid A \mid \mid B \mid$，由于$\mid A \mid \neq 0, \mid B \mid \neq 0$，因此$\mid AB \mid \neq 0$，因此$AB \in GL(2,Q)$</p>
+<p>令A,B,C为$m \times m$矩阵</p>
+<p>由矩阵乘法的定义不难得出$(AB)C$和$A(BC)$为$m \times m$矩阵，A(BC)第i行第j列元素为</p>
+<script type="math/tex; mode=display">\sum\limits_{s=1}^{m}a_{is} \left(\sum\limits_{t=1}^{m}b_{st}c_{tj} \right)=\sum\limits_{t=1}^{m} \left(\sum_{s=1}^{m}a_{is}b_{st}\right) c_{tj}, i=1,2, \cdots ,m,j=1,2, \cdots ,m</script><p>即为(AB)C的第i行第j列元素</p>
+<p>因此方阵乘法具有结合性</p>
+<p>存在单位矩阵$E$，使得$\forall A \in GL(2,Q),EA=A$</p>
+<p>$\forall A \in GL(2,Q),\mid A \mid \neq 0$，且A为方阵，因此存在$A^{-1}$，使得$A^{-1}A=E$<br>又因为$\mid A^{-1} \mid = \frac{1}{\mid A \mid}$且$\mid A \mid \neq 0$，所以$A^{-1} \in GL(2,Q)$</p>
+<p>因此，$GL(2,Q)$是群<br><b>(2)</b><br>A的阶为4<br>B的阶为6<br><b>(3)</b><br>用数学归纳法容易证明：</p>
+<script type="math/tex; mode=display">(AB)^{n}=
+\begin {bmatrix}
+1 & -n \\\
+0 & 1
+\end {bmatrix}</script><p>因此阶为无穷大</p>
+<h2 id="4"><a href="#4" class="headerlink" title="4"></a>4</h2><p><b>题目：</b><br>Under matrix product, the special linear group is defined as:                    </p>
+<script type="math/tex; mode=display">SL(2,R) =\lbrace A∈GL(2,R) :det(A)=1 \rbrace</script><p>Prove that it’s a subgroup of $GL(2,R)$.<br><b>解答：</b><br>对任意$X \in SL(2,R)$，有$X \in GL(2,R)$，因而$SL(2,R) \subseteq GL(2,R)$<br>因为单位矩阵$E$的行列式值$\mid E \mid = 1$<br>所以$E \in SL(2,R)$<br>对任意$X,Y \in SL(2,R)$，有$\mid XY \mid = \mid X \mid \mid Y \mid =1$<br>所以$XY \in SL(2,R)$<br>对任意$X \in SL(2,R)$，有$\mid X^{-1} \mid = \frac{1}{\mid X \mid}=1$<br>所以$X^{-1} \in SL(2,R)$<br>综上：$SL(2,R)$是$GL(2,R)$的子群</p>
+<h2 id="5"><a href="#5" class="headerlink" title="5"></a>5</h2><p><b>题目：</b></p>
+<ol>
+<li>The stochastic group $\sum (n,R)$ is a subset of $GL(n,R)$ that each column sums to 1. Prove that it’s a group. </li>
+<li>The doubly stochastic group $\sum ‘(n,R)$ is a subset of $GL(n,R)$ that each column and each row sum to 1. Prove that it’s a subgroup of $\sum (n,R)$. </li>
+</ol>
+<p><b>解答：</b><br><b>(1)</b><br>不失一般性，定义</p>
+<script type="math/tex; mode=display">
+A=
+\begin{bmatrix}
+a_{11} & a_{12} & \cdots & a_{1n} \\\
+a_{21} & a_{22} & \cdots & a_{2n} \\\
+\vdots & \vdots & \ddots & \vdots \\\
+a_{n1} & a_{n2} & \cdots & a_{nn}
+\end{bmatrix}</script><script type="math/tex; mode=display">
+B=
+\begin{bmatrix}
+b_{11} & b_{12} & \cdots & b_{1n} \\\
+b_{21} & b_{22} & \cdots & b_{2n} \\\
+\vdots & \vdots & \ddots & \vdots \\\
+b_{n1} & b_{n2} & \cdots & b_{nn}
+\end{bmatrix}</script><p>在集合$\sum (n,R)$上定义矩阵乘法运算<br>因此，矩阵AB的每列之和为</p>
+<script type="math/tex; mode=display">\sum_{j=1}^{n} \sum_{i=1}^{n} a_{ij} b_{jk} , k=1,2, \cdots ,n</script><p>化简得</p>
+<script type="math/tex; mode=display">\sum_{j=1}^{n} b_{jk} \sum_{i=1}^{n} a_{ij} =1</script><p>因此矩阵乘法对$\sum (n,R)$封闭<br>易知，矩阵乘法具有结合性<br>易知，对所有矩阵$A \in \sum (n,R)$，有单位矩阵$E \in \sum (n,R)$使得EA=E<br>因为$\sum (n,R)$是$GL(n,R)$的子集，因此对于任意$A \in \sum (n,R)$，存在$A^{-1}$使得$A^{-1}A=E$<br>易知存在$A^{-1} \in \sum (n,R)$<br>综上，$\sum (n,R)$是群<br><b>(2)</b></p>
+<script type="math/tex; mode=display">
+A=
+\begin{bmatrix}
+a_{11} & a_{12} & \cdots & a_{1n} \\\
+a_{21} & a_{22} & \cdots & a_{2n} \\\
+\vdots & \vdots & \ddots & \vdots \\\
+a_{n1} & a_{n2} & \cdots & a_{nn}
+\end{bmatrix}</script><script type="math/tex; mode=display">
+B=
+\begin{bmatrix}
+b_{11} & b_{12} & \cdots & b_{1n} \\\
+b_{21} & b_{22} & \cdots & b_{2n} \\\
+\vdots & \vdots & \ddots & \vdots \\\
+b_{n1} & b_{n2} & \cdots & b_{nn}
+\end{bmatrix}</script><p>在集合$\sum ‘ (n,R)$上定义矩阵乘法运算<br>因此，矩阵AB的每列之和为</p>
+<script type="math/tex; mode=display">\sum_{j=1}^{n} \sum_{i=1}^{n} a_{ij} b_{jk} , k=1,2, \cdots ,n</script><p>化简得</p>
+<script type="math/tex; mode=display">\sum_{j=1}^{n} b_{jk} \sum_{i=1}^{n} a_{ij} =1</script><p>同理，每行之和为1<br>因此矩阵乘法对$\sum ‘ (n,R)$封闭<br>易知，矩阵乘法具有结合性<br>易知，对所有矩阵$A \in \sum ‘ (n,R)$，有单位矩阵$E \in \sum ‘ (n,R)$使得EA=E<br>因为$\sum ‘ (n,R)$是$GL(n,R)$的子集，因此对于任意$A \in \sum ‘ (n,R)$，存在$A^{-1}$使得$A^{-1}A=E$<br>易知存在$A^{-1} \in \sum ‘ (n,R)$<br>由定义可知$\sum ‘ (n,R) \subseteq \sum (n,R)$<br>综上，$\sum ‘ (n,R)$是$\sum (n,R)$的子群</p>
+<h2 id="6"><a href="#6" class="headerlink" title="6"></a>6</h2><p><b>题目：</b><br>已知</p>
+<script type="math/tex; mode=display">\alpha=
+\begin{pmatrix}
+1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 \\\
+6 & 4 & 7 & 2 & 5 & 1 & 8 & 9 & 3
+\end{pmatrix}</script><p>求$\alpha^{-1}$和$\alpha^{3}$<br><b>解答：</b></p>
+<script type="math/tex; mode=display">\alpha^{-1}=(5)(9873)(42)(61)</script><script type="math/tex; mode=display">\alpha^{3}=(16)(24)(3987)(5)</script><h2 id="7"><a href="#7" class="headerlink" title="7"></a>7</h2><p><b>题目：</b><br>Show that determinant is a surjective (but not injective) homomorphism, from matrix product on non-singular $k \times k$ matrices to multiplication on non-zero real numbers</p>
+<script type="math/tex; mode=display">det:GL(k, \mathbb{R} ) \to \mathbb{R}^{\times}</script><p>Note: $\mathbf{ker} det$ is the special linear group $SL(k, \mathbb{R} ) = \lbrace A \in GL(k, \mathbb{R} ):det(A)=1 \rbrace$.<br><b>解答：</b><br>在$GL(k, \mathbb{R} )$中定义运算为矩阵乘法，在$\mathbb{R}$中定义运算为乘法运算<br>对任意$X,Y \in GL(k, \mathbb{R} )$<br>有$det(XY)= \mid XY \mid$<br>由分块矩阵的性质可得</p>
+<script type="math/tex; mode=display">\mid XY \mid = \mid X \mid \mid Y \mid</script><p>即$det(XY)=det(X)det(Y)$<br>因此函数$det$是一个同态<br>对于任意$r \in \mathbb{R}$，都存在$x \in GL(k, \mathbb{R} )$使得$det(x)=r$，其中</p>
+<script type="math/tex; mode=display">
+x= \begin{bmatrix}
+1 & 0 & \cdots & 0 \\\
+0 & 1 & \cdots & 0 \\\
+\vdots & \vdots & \ddots & \vdots \\\
+0 & 0 & \cdots & r 
+\end{bmatrix}</script><p>因此$det$是满射<br>又因为$\mathbf{ker} det=SL(k, \mathbb{R} ) \neq \lbrace E \rbrace$<br>所以$det$不是单射</p>
+<h2 id="8"><a href="#8" class="headerlink" title="8"></a>8</h2><p><b>题目：</b><br>The real addition group $(\mathbb{R},+)$ is mapped to $H=((0,1),*)$ on interval $(0,1)$ by sigmoid function $f(x)= \frac{1}{1+e^{-x}}$, where the operation $\ast$ is:</p>
+<script type="math/tex; mode=display">a \ast b=\frac{1}{1+\frac{(1-a)(1-b)}{ab}}</script><ol>
+<li>Does H have the 1-element? What is it? </li>
+<li>Does every element in H have an inverse element? </li>
+<li>Is the sigmoid function between G and H an isomorphism? </li>
+</ol>
+<p><b>解答：</b><br><b>(1)</b><br>假设单位元$1_{H}$存在，即存在$1_{H} \in H$，对任意$b \in H$使得</p>
+<script type="math/tex; mode=display">1_{H} \ast b=\frac{1}{1+\frac{(1-1_{H})(1-b)}{1_{H}b}}=b</script><p>解得$1_{H}=\frac{1}{2} \in H$<br>因此，存在单位元$1_{H}=\frac{1}{2}$<br><b>(2)</b><br>假设对任意$a \in H$，都存在$a’ \in H$，使得$a \ast a’ = 1_{H}$<br>即</p>
+<script type="math/tex; mode=display">a \ast a'=\frac{1}{1+\frac{(1-a)(1-a')}{aa'}}=\frac{1}{2}</script><p>解得$a’=1-a$<br>因为$a \in (0,1)$，所以$1-a \in (0,1)$，即$a’ \in (0,1)$<br>所以，对任意$a \in H$，都存在$a’ \in H$，使得$a \ast a’ = 1_{H}$<br><b>(3)</b><br>求得</p>
+<script type="math/tex; mode=display">f(a+b)=\frac{1}{1+e^{-a-b}}</script><p>而</p>
+<script type="math/tex; mode=display">
+f(a) \ast f(b)= \frac{1}{2+(1+e^{-a})(1+e^{-b})-(1+e^{-a})-(1+e^{-b})}= \frac{1}{1+e^{-a-b}}</script><p>因此$f(a+b)=f(a) \ast f(b)$，即$f$是一个同态<br>对任意$y \in (0,1)$，都有$x=-ln(\frac{1}{y}-1)$<br>计算可得$x \in \mathbb{R}$<br>因此$f$是满射<br>解方程$\frac{1}{1+e^{-x}}= \frac{1}{2}$<br>可得$x=0$，这是$(\mathbb{R},+)$的单位元<br>因此$\mathbf{ker} f={1_{\mathbb{R}}}$，即$f$是单射<br>综上，$f$是双射，即$f$是一个同构</p>
+<h2 id="9"><a href="#9" class="headerlink" title="9"></a>9</h2><p><b>题目：</b><br>Group $( \mathbb{R} ,+)$ is mapped to $K=(\mathbb{R}^{+}, \&amp;)$ by softplus function $f(x)=ln(1+e^{x})$. </p>
+<ol>
+<li>Find a proper operation &amp; which makes it a homomorphism. </li>
+<li>Prove that K is an abelian group with the above &amp;. </li>
+</ol>
+<p><b>解答：</b><br><b>(1)</b></p>
+<script type="math/tex; mode=display">a \& b=ln(e^{a+b}-e^{a}-e^{b}+2)</script><p><b>(2)</b><br>对任意$a,b \in K$，因为$a,b &gt; 0$，$e^{a},e^{b} &gt; 1$，即$(1-e^{a})(1-e^{b})&gt;0$<br>所以$1-e^{a}-e^{b}+e^{a+b} &gt; 0$，即$e^{a+b}-e^{a}-e^{b}+2 &gt; 1$<br>所以$a \&amp; b=ln(e^{a+b}-e^{a}-e^{b}+2)&gt;0$<br>可得运算$\&amp;$对$K$封闭<br>根据运算$\&amp;$的定义</p>
+<script type="math/tex; mode=display">(a \& b) \& c =ln(e^{a+b+c}-e^{a+b}-e^{a+c}-e^{b+c}+e^{a}+e^{b}+e^{c}) =a \& (b \& c)</script><p>因此运算$\&amp;$满足结合律<br>存在单位元$1_{K}=ln2$，使得对所有$a \in K$，都有$1_{K} \&amp; a=a$<br>对任意$a \in K$，假设逆元存在，即存在$a’ \in K$，使得$a \&amp; a’ = ln2$<br>解得</p>
+<script type="math/tex; mode=display">a' = ln \left( \frac{e^{a}}{e^{a}-1} \right)</script><p>因为$a \in \mathbb{R}^{+}$，所以$e^{a}-1&gt;0$<br>又因为$e^{a}&gt;e^{a}-1$，所以$\frac{e^{a}}{e^{a}-1} &gt; 1$，所以$a’ \in \mathbb{R}^{+}$<br>即对任意$a \in K$，都有$a’ \in K$<br>综上所述，$K$是群<br>因为$a \&amp; b =ln(e^{a+b}-e^{a}-e^{b}+2) =b \&amp; a$<br>所以$K$也是阿贝尔群</p>
+<h2 id="10"><a href="#10" class="headerlink" title="10"></a>10</h2><p><b>题目：</b><br>Show that for any $n \in \mathbb{Z}$,  $(n \mathbb{Z},+) \vartriangleleft (\mathbb{Z},+)$,  and $\mathbb{Z} /n \mathbb{Z}$ is $\mathbb{I}_{n}$<br><b>解答：</b><br>易知，$n \mathbb{Z}$和$\mathbb{Z}$的单位元为$0$<br>则对每一个$k \in n \mathbb{Z}$和$g \in \mathbb{Z}$,都有</p>
+<script type="math/tex; mode=display">g+k+(-g)=k \in n \mathbb{Z}</script><p>因此，$n \mathbb{Z} \vartriangleleft \mathbb{Z}$，即$n \mathbb{Z}$是$\mathbb{Z}$的正规子群<br>又因为</p>
+<script type="math/tex; mode=display">\mathbb{Z} = n \mathbb{Z} \cup (n \mathbb{Z} +1) \cup (n \mathbb{Z} +2) \cup \cdots \cup (n \mathbb{Z} +n-1)</script><p>因此$\mathbb{Z} /n \mathbb{Z}$ is $\mathbb{I}_{n}$</p>
+<h2 id="11"><a href="#11" class="headerlink" title="11"></a>11</h2><p><b>题目：</b><br>If $N \vartriangleleft G$, then for any subgroup H of group G, HN is also a subgroup.<br><b>解答：</b><br>若$hn \in HN$，那么$n’ = hnh^{-1} \in N$<br>因为$N \vartriangleleft G$，且$hn=hnh^{-1}h=n’h \in NH$<br>因此$HN \subseteq NH$<br>同理$NH \subseteq HN$<br>因此$HN=NH$<br>因为$1 \in H$且$1 \in N$，所以有$1=1 \cdot 1 \in HN$<br>若$hn \in HN$，那么有$(hn)^{-1}=n^{-1}h^{-1} \in NH =HN$<br>若$hn,h_{1}n_{1} \in HN$<br>那么$h_{1}^{-1}nh_{1}=n’ \in N$并且</p>
+<script type="math/tex; mode=display">hnh_{1}n_{1}=hh_{1}(h_{1}^{-1}nh_{1})n_{1}=(hh_{1})(n'n_{1}) \in HN</script><p>因此$HN$是$G$的子群</p>
+<h2 id="12"><a href="#12" class="headerlink" title="12"></a>12</h2><p><b>题目：</b><br>If H and K are subgroups of a group G, then </p>
+<ol>
+<li>HK is a subgroup iff HK=KH </li>
+<li>If G is an abelian group, and $H \cap K= \lbrace 1 \rbrace$ , then $HK \cong H \times K$</li>
+</ol>
+<p><b>解答：</b><br><b>(1)</b><br>若$HK &lt; G$，下证$HK=KH$<br>对任意$h \in H, k \in K$，有$(kh)^{-1} = h^{-1}k^{-1} \in HK$<br>由$HK &lt; G$之$HK$对逆元封闭，所以$kh=(h^{-1}k^{-1})^{-1} \in HK$<br>由$kh$的任意性，$KH \subseteq HK$<br>对任意$h \in H, k \in K$，由$HK &lt; G$知$k^{-1} h^{-1} \in HK$<br>特别地，存在$x \in H, y \in K, xy=k^{-1}h^{-1}$<br>两边同时取逆，$hk=y^{-1}x^{-1} \in KH$，由$hk$的任意性知$HK \subseteq KH$<br>因此$HK=KH$<br>若$HK = KH$，下证$HK &lt; G$<br>对于任意$h_{1}k_{1},h_{2}k_{2} \in HK$，有$h_{1}k_{1}(h_{2}k_{2})^{-1}=h_{1}k_{1}k_{2}^{-1}h_{2}^{-1}$<br>由$HK = KH$知，存在$h \in H, k \in K$使得$hk=k_{1}k_{2}^{-1}h_{2}^{-1}$<br>所以$h_{1}k_{1}(h_{2}k_{2})^{-1}=h_{1}hk \in HK$<br>特别地，$HK &lt; G$<br>综上，$HK$是子群当且仅当$HK=KH$<br><b>(2)</b><br>因为$G$是一个阿贝尔群<br>所以$H$和$K$都是$G$的正规子群<br>若$hk=h’k’$，那么$h’^{-1}h=k’k^{-1} \in H \cap K = \lbrace 1 \rbrace$<br>因此$h’=h,k’=k$<br>令$g=hk \in G=HK,h \in H,k \in K$<br>定义函数$\varphi : G \to H \times K$，其中$\varphi (g)=(h,k)$<br>令$g’=h’k’$，那么$gg’=hkh’k’=hh’kk’$<br>因此</p>
+<script type="math/tex; mode=display">\varphi (gg') = \varphi (hkh'k')=\varphi(hh'kk') = (hh',kk')=(h,k)(h',k')= \varphi(g) \varphi(g')</script><p>因此函数$\varphi$是一个同态<br>由于$K$是一个正规子群，那么有$(hkh^{-1})k^{-1} \in K$<br>由于$H$是一个正规子群，那么有$h(kh^{-1}k^{-1}) \in H$<br>但因为$H \cap K = \lbrace 1 \rbrace$，所以$hkh^{-1}k^{-1}=1$且$hk=kh$<br>若$(h,k) \in H \times K$，那么$\varphi (h)=(h,k)$<br>因此$\varphi$满射<br>若$\varphi (g)=(1,1)$，那么$g=1$<br>因此$\mathbf{ker} \varphi =1$，$\varphi$单射<br>综上所述，$\varphi$是一个同构，即可得$HK \cong H \times K$</p>
+  	
+					
+	  </div>     
+	  
+
+	<div class="post-footer">
+
+
+  <div class="post-footer-other">
+       
+    
+      <span class="post-footer-item">
+        <span class="share-btn">
+	<span class="iconfont icon-share"></span>
+</span>
+<div class="-mob-share sildeUpMin">
+	<ul class="-mob-inner">
+	   			             
+        <li class="iconfont 
+		icon-share-weixin 
+		-mob-share-weixin 
+		-mob-share-link"></li>		
+   	   			             
+        <li class="iconfont 
+		icon-share-weibo 
+		-mob-share-weibo 
+		-mob-share-link"></li>		
+   	   			             
+        <li class="iconfont 
+		icon-share-facebook 
+		-mob-share-facebook 
+		-mob-share-link"></li>		
+   	   			             
+        <li class="iconfont 
+		icon-share-twitter 
+		-mob-share-twitter 
+		-mob-share-link"></li>		
+   	   
+	</ul>
+</div>	
+
+
+<script id="-mob-share" src="https://f1.webshare.mob.com/code/mob-share.js?appkey=2a31e660f849e"></script>
+      </span>  
+               
+  </div>  
+    
+
+
+  <div class="post-footer-meta">
+        	
+
+        
+          <i class="iconfont icon-tag"></i>     
+            <a class="tag-link" href="/tags/Abstract-Algebra/">Abstract Algebra</a>    
+        	
+  </div>
+
+</div>
+
+
+<nav class="post-footer-nav">
+  <div class="post-footer-link">
+  
+      <a href="/2019/03/07/Abstract-Algebra-Notes-Groups/" id="post-nav-older" class="post-nav-link-wrap">
+        <strong class="post-nav-caption">older</strong>
+        
+          <span class="post-nav-title">
+            抽象代数学习笔记--群
+          </span>
+      </a>
+  
+  </div>
+  <div class="post-footer-link">
+    
+        <a href="/2019/04/14/RSS-Collections/" id="post-nav-newer" class="post-nav-link-wrap">
+          <strong class="post-nav-caption">newer</strong>
+             
+            <span class="post-nav-title">
+              RSS源收藏夹
+            </span>
+        </a>
+    
+  </div>
+
+</nav>
+ 
+	
+
+    <script src="//cdn.jsdelivr.net/npm/@waline/client"></script>
+
+    <div id="waline"></div>
+
+    <script>
+        Waline({
+          el: '#waline',
+          serverURL: 'https://blog-api.mizunashi.me/',
+          lang: 'en',
+          avatar: 'retro',
+          uploadImage: false,
+        });
+      </script>
+	
+</article>
+
+	<div class="toc-container">
+			<div class="toc-sidebar">
+			<p class="toc-title">
+				Contents
+			</p>
+			<div class="toc-list">
+				<ol class="toc-inner"><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#1"><span class="toc-inner-text">1</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#2"><span class="toc-inner-text">2</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#3"><span class="toc-inner-text">3</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#4"><span class="toc-inner-text">4</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#5"><span class="toc-inner-text">5</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#6"><span class="toc-inner-text">6</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#7"><span class="toc-inner-text">7</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#8"><span class="toc-inner-text">8</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#9"><span class="toc-inner-text">9</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#10"><span class="toc-inner-text">10</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#11"><span class="toc-inner-text">11</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#12"><span class="toc-inner-text">12</span></a></li></ol>
+			</div>
+		</div>
+	</div>
+
+          </div> 
+      </div>            
+    
+    <a id="page-backTop">
+      <span>
+        <i class="iconfont icon-backtotop"></i>
+      </span>
+    </a> 
+
+  
+    
+    <div class="search-container sildeUpMin">
+        <div class="search-header">
+            <input type="text" placeholder="Typing Something here." id="search-input" class="search-input">
+            <span class="search-cancel">
+                <i class="iconfont icon-cancel">
+            </i></span>
+        </div>
+        <div id="search-result" class="search-result"></div>
+    </div>
+ 
+     <div class="mobile-menu">      
+
+      
+      <img class="mobile-menu-icon" src="/images/favicon.png">  
+      
+
+         
+            
+
+            <a class="mobile-menu-link" href="/">Home
+            </a>
+            
+         
+            
+
+            <a class="mobile-menu-link" href="/archives">Archives
+            </a>
+            
+         
+            
+
+            <a class="mobile-menu-link" href="/tags">Tags
+            </a>
+            
+         
+            
+
+            <a class="mobile-menu-link" href="/about">About
+            </a>
+            
+         
+            
+
+            <a class="mobile-menu-link" href="/guestbook">Guestbook
+            </a>
+            
+         
+                          
+
+            <a class="mobile-menu-link mobile-menu-search" href="#">Search </a>                 
+            
+         
+      
+</div>
+        
+    
+
+
+
+     
+    
+
+
+
+
+<footer id="footer">	    
+
+		
+		<div class="footer-copyright">
+		&copy;
+				
+		2019-
+		
+		2021		
+	
+		Mizunashi&#39;s Blog
+        <br>
+        
+        <a href="/about">About</a> | <a href="/sitemap.xml">Sitemap</a> | <a href="/privacy.html">Privacy Policy</a> | 
+        <a href="/changelog.html">Changelog</a> | <a href="/atom.xml">RSS</a>
+
+        <br>
+
+		Theme  <a href="https://github.com/Lemonreds/hexo-theme-Nayo" target="_blank">Nayo</a>
+		</div>			
+	 
+</footer>   
+
+    <script src="/nayo.bundle.js"></script>           
+  </body>        
+</html>

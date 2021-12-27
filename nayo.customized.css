@@ -1,0 +1,32 @@
+@font-face {
+    font-family: iconfont-custom;
+    src: url(fonts/iconfont.custom.eot);
+    src: url(fonts/iconfont.custom.eot?#iefix) format("embedded-opentype"), url(fonts/iconfont.custom.woff) format("woff"), url(fonts/iconfont.custom.ttf) format("truetype"), url(fonts/iconfont.custom.svg#iconfont) format("svg")
+}
+
+.iconfont-custom {
+  font-family: "iconfont-custom" !important;
+  font-size: .95rem;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: .2px;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-mail:before {
+  content: "\e637";
+}
+
+.icon-rss:before {
+  content: "\e66c";
+}
+
+.icon-message:before {
+  content: "\e841";
+}
+
+.icon-playstation:before {
+  content: "\e6df";
+}
+
+

@@ -1,0 +1,496 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html>
+  <head><meta name="generator" content="Hexo 3.9.0">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  
+  
+  <title>  数值分析学习笔记--常微分方程初值问题的数值解法 |   Mizunashi&#39;s Blog </title>
+
+ 
+  
+    <link rel="icon" href="/images/favicon.png">
+  
+
+
+  <link rel="stylesheet" href="/nayo.min.css"> 
+</head>  
+  <body>   
+    
+      <link rel="stylesheet" type="text/css" href="/nayo.customized.css">
+
+<header class="header">
+	
+  <nav class="header-inner">        
+
+    <span class="iconfont icon-menu mobile-toggle"></span>   	
+
+    <div class="header-logo">
+      <a href="/">
+        <img class="header-logo-img" src="/images/logo.png">
+      </a>
+    </div>
+
+    <div class="header-menu">          
+              
+            
+                
+                    <a class="header-menu-link" id="header-menu-home" href="/">
+                        <i class="iconfont icon-home">  
+                    </i></a>   
+                  
+            
+              
+            
+                
+                    <a class="header-menu-link" id="header-menu-archives" href="/archives">
+                        <i class="iconfont icon-archives">  
+                    </i></a>   
+                  
+            
+              
+            
+                
+                    <a class="header-menu-link" id="header-menu-tags" href="/tags">
+                        <i class="iconfont icon-tags">  
+                    </i></a>   
+                  
+            
+              
+            
+                
+                    <a class="header-menu-link" id="header-menu-about" href="/about">
+                        <i class="iconfont icon-about">  
+                    </i></a>   
+                  
+            
+              
+            
+                
+                    <a class="header-menu-link" id="header-menu-guestbook" href="/guestbook">
+                        <i class="iconfont-custom icon-message">  
+                    </i></a> 
+                  
+            
+              
+            
+                <a class="header-menu-link" id="header-menu-search">
+                    <i class="iconfont icon-search">  
+                </i></a>
+            
+                  
+    </div>  
+    
+  </nav>
+</header>
+
+ 
+
+      <div class="container">       
+          
+          
+            <div class="container-inner">  
+          
+
+          <article class="post">
+  
+	
+<div class="post-header">
+	<div class="post-header-inner">
+		<p class="post-title">	
+			数值分析学习笔记--常微分方程初值问题的数值解法
+		</p>
+		<div class="post-info">	
+			<span class="post-info-entry">
+				Jan 19, 2020
+			</span>
+
+			
+			
+				<i class="iconfont icon-words"></i>
+				<span class="post-info-entry">4013
+				</span>
+			
+		</div>
+	</div>
+</div> 
+	
+
+    <script type="text/x-mathjax-config">
+        var post = document.getElementsByClassName("post")[0];  
+        MathJax.Hub.Config({
+            showProcessingMessages: false,
+            messageStyle: "none",    
+            tex2jax: {
+                inlineMath:  [ ["$", "$"] , ["\\(","\\)"]],
+                displayMath: [ ["$$","$$"] , ["\\[","\\]"]],
+                skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code','a'],
+            },
+            "HTML-CSS": {            
+                showMathMenu: false
+            }
+        });
+        MathJax.Hub.Queue(["Typeset",MathJax.Hub,post]);
+    </script>
+    <style>.MathJax{outline:0;}</style>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS_CHTML"></script>
+ 
+
+	  <div class="typo post-content slideDownMin">
+
+		
+
+			
+					<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Airflow-Obstructed-Duct.png/720px-Airflow-Obstructed-Duct.png" alt></p>
+<blockquote>
+<p>应用纳维-斯托克斯方程对导管中的气流进行模拟</p>
+</blockquote>
+<a id="more"></a>
+<p>如有疏漏，敬请指正。</p>
+<p>对于一个常微分方程(ODE)</p>
+<script type="math/tex; mode=display">
+\begin{cases}
+\frac{\mathbf{d}y}{\mathbf{d}x}=f(x,y) \\
+y(a)=y_0 \\ 
+\end{cases}
+,a \leq x \leq b</script><p>只有一些特殊形式的$f(x,y)$，才可以求它的解析解。对于大多数常微分方程的初值问题，只可以计算其数值解。</p>
+<p>对区间$[a,b]$进行一个剖分，确定点列$\lbrace x_n,n=1,2, \cdots ,m \rbrace$，使用函数在这一组点列上的函数值$\lbrace y(x_n), n=1,2, \cdots ,m \rbrace$描述$y(x)$，求解$y(x_n)$的数值方法，是为有限差分方法。</p>
+<p>约定$y(x_n)$是常微分方程准确解的值，$y_n$是$y(x_n)$的近似值。把区间分割为小区间的形式，称为数值离散方法。</p>
+<p>除了有限差分方法外，有限元方法与有限体积方法也可以求解ODE的数值解。</p>
+<h2 id="欧拉公式"><a href="#欧拉公式" class="headerlink" title="欧拉公式"></a>欧拉公式</h2><p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Euler_method.png/981px-Euler_method.png" alt></p>
+<blockquote>
+<p>欧拉方法的图示，待求的曲线为蓝色，它的折线近似为红色。</p>
+</blockquote>
+<p>对区间$[a,b]$进行等距剖分，记步长$h=\frac{b-a}{m}$，那么$\lbrace x_n=a+nh,n=0,1, \cdots ,m \rbrace$。可以使用差商近似导数来求解ODE。</p>
+<ul>
+<li>向前差商<br>作出$y’(x)$在$x=x_n$处的一阶向前差商<script type="math/tex; mode=display">y'(x_n) \approx \frac{y(x_{n+1})-y(x_n)}{h}</script>而由微分方程可得<script type="math/tex; mode=display">y'(x_n)=f(x_n,y(x_n))</script>这样就可以得到计算$y_{n+1}$的向前欧拉公式<script type="math/tex; mode=display">y_{n+1}=y_n+hf(x_n,y_n)</script>不难发现，向前欧拉公式是一个显式求解格式。</li>
+<li>向后差商<br>作出$y’(x)$在$x=x_{n+1}$处的一阶向后差商<script type="math/tex; mode=display">y'(x_{n+1}) \approx \frac{y(x_{n+1})-y(x_n)}{h}</script>又因为$y’(x_{n+1})=f(x_{n+1},y(x_{n+1}))$，得到向后欧拉公式<script type="math/tex; mode=display">y_{n+1}=y_n+hf(x_{n+1},y_{n+1})</script>不难发现，这是一个隐式求解格式。设$f(x,y)$对$y$满足Lipschitz条件，那么可以使用Picard格式求解向后欧拉公式。在实务中，一般先用显式格式先算出初始值，再用隐式公式进行进一步的迭代。这样的过程被称为预估-校正过程。向后欧拉公式的预估-校正式如下所示：<script type="math/tex; mode=display">
+\begin{cases}
+\bar{y}_{n+1}=y_n+hf(x_n,y_n) \\
+y_{n+1}=y_n+hf(x_{n+1},\bar{y}_{n+1}) \\
+\end{cases}</script></li>
+<li>中心差商<br>类似前面的方法，可得中心差商式为<script type="math/tex; mode=display">y_{n+1}=y_{n-1}+2hf(x_n,y_n)</script>这不是一个稳定的格式，因此在实务中不予采用。</li>
+</ul>
+<h3 id="欧拉公式的局部截断误差"><a href="#欧拉公式的局部截断误差" class="headerlink" title="欧拉公式的局部截断误差"></a>欧拉公式的局部截断误差</h3><p>对$y(x_{n+1})$在$x_n$进行泰勒展开</p>
+<script type="math/tex; mode=display">y(x_{n+1})=y(x_n)+hf(x_n,y(x_n))+\frac{h^2}{2!}y''(\zeta_n),x_n \leq \zeta_n \leq x_{n+1}</script><p>不难发现局部截断误差是</p>
+<script type="math/tex; mode=display">T_{n+1}=\frac{h^2}{2!}y''(\zeta_n)</script><h2 id="欧拉公式的改进"><a href="#欧拉公式的改进" class="headerlink" title="欧拉公式的改进"></a>欧拉公式的改进</h2><p>对于方程$\frac{\mathbf{d}y}{\mathbf{d}x}=f(x,y)$在区间$[x_n,x_{n+1}]$上进行积分再移项</p>
+<script type="math/tex; mode=display">y(x_{n+1})=y(x_n)+\int_{x_n}^{x_{n+1}}f(x,y(x))\mathrm{d}x</script><p>取梯形公式计算数值积分</p>
+<script type="math/tex; mode=display">\int_{x_n}^{x_{n+1}}f(x,y) \mathrm{d}x=\frac{h}{2}(f(x_n,y(x_n))+f(x_{n+1},y(x_{n+1})))</script><p>得到梯形公式</p>
+<script type="math/tex; mode=display">y_{n+1}=y_n+\frac{h}{2}(f(x_n,y_n)+f(x_{n+1},y_{n+1}))</script><p>使用显式欧拉公式与梯形公式组成预估-校正公式</p>
+<script type="math/tex; mode=display">
+\begin{cases}
+\bar{y}_{n+1}=y_n+hf(x_n,y_n) \\
+y_{n+1}=y_n+\frac{h}{2}(f(x_n,y_n)+f(x_{n+1},\bar{y}_{n+1}))
+\end{cases}</script><p>这被称为改进的欧拉公式。</p>
+<h2 id="Runge-Kutta方法"><a href="#Runge-Kutta方法" class="headerlink" title="Runge-Kutta方法"></a>Runge-Kutta方法</h2><p>在二阶Runge-Kutta方法中，使用$f(x,y)$在点$(x_n,y(x_n))$以及其附近的点$(x_n+ah,y(x_n)+bhf(x_n,y(x_n)))$上的值的线性组合得到数值公式</p>
+<script type="math/tex; mode=display">y_{n+1}=y_n+h(c_1f(x_n,y(x_n))+c_2f(x_n+ah,y_n+bhf(x_n,y(x_n))))</script><p>这时，需要满足</p>
+<script type="math/tex; mode=display">
+\begin{cases}
+c_1+c_2=1 \\
+2c_2a=1 \\
+2c_2b=1 \\
+\end{cases}</script><p>不难看出，这个方程组有无数多组解。</p>
+<p>一个比较常用的二阶Runge-Kutta公式为</p>
+<script type="math/tex; mode=display">
+\begin{cases}
+y_{n+1}=y_n+\frac{h}{2}(k_1+k_2) \\
+k_1=f(x_n,y_n) \\
+k_2=f(x_n+h,y_n+hk_1) 
+\end{cases}</script><p>一个比较常用的三阶Runge-Kutta公式为</p>
+<script type="math/tex; mode=display">
+\begin{cases}
+y_{n+1}=y_n+\frac{h}{6}(k_1+4k_2+k_3) \\
+k_1=f(x_n,y_n) \\
+k_2=f(x_n+\frac{h}{2},y_n+\frac{hk_1}{2}) \\
+k_3=f(x_n+h,y_n-hk_1+2hk_2)
+\end{cases}</script><p>一个比较常用的四阶Runge-Kutta公式为</p>
+<script type="math/tex; mode=display">
+\begin{cases}
+y_{n+1}=y_n+\frac{h}{6}(k_1+2k_2+2k_3+k_4) \\
+k_1=f(x_n,y_n) \\
+k_2=f(x_n+\frac{h}{2},y_n+\frac{hk_1}{2}) \\
+k_3=f(x_n+\frac{h}{2},y_n+\frac{hk_2}{2}) \\
+k_3=f(x_n+h,y_n+hk_3)
+\end{cases}</script><p>Runge-Kutta方法是一个在工程中应用很广泛的算法。</p>
+<h2 id="线性多步法"><a href="#线性多步法" class="headerlink" title="线性多步法"></a>线性多步法</h2><p>对于方程$\frac{\mathbf{d}y}{\mathbf{d}x}=f(x,y)$在区间$[x_{n-p},x_{n+1}]$上进行积分得</p>
+<script type="math/tex; mode=display">y(x_{n+1})=y(x_{n-p})+\int_{x_{n-p}}^{x_{n+1}}f(x,y)\mathrm{d}x</script><p>使用数值积分进行近似，从而构造线性多步格式。</p>
+<p>如果使用积分节点$\lbrace x_n,x_{n-1}, \cdots ,x_{n-q} \rbrace$进行近似计算(详见插值型数值积分)，那么这就是一个显式求解格式。如果积分节点是$\lbrace x_{n+1},x_n,x_{n-1}, \cdots ,x_{n+1-q} \rbrace$，那么这就是一个隐式求解格式。</p>
+<p>把$p=0$的格式称为Adams公式。</p>
+<h2 id="常微分方程组的数值解法"><a href="#常微分方程组的数值解法" class="headerlink" title="常微分方程组的数值解法"></a>常微分方程组的数值解法</h2><p>对于一个常微分方程组，可以把解常微分方程的各种方法平行地应用到方程组的求解中。</p>
+<p>例如，对于下面一个方程组</p>
+<script type="math/tex; mode=display">
+\begin{cases}
+\frac{\mathbf{d}y}{\mathbf{d}x}=f(x,y,z) \\
+\frac{\mathbf{d}z}{\mathbf{d}x}=g(x,y,z) \\
+y(a)=y_0 \\
+z(a)=z_0 \\
+\end{cases}</script><p>其改进的欧拉公式为</p>
+<script type="math/tex; mode=display">
+\begin{pmatrix}
+\bar{y}_{n+1} \\
+\bar{z}_{n+1} \\  
+\end{pmatrix}
+=
+\begin{pmatrix}
+y_n \\
+z_n
+\end{pmatrix}
++h
+\begin{pmatrix}
+f(x_n,y_n,z_n) \\
+g(x_n,y_n,z_n) \\
+\end{pmatrix}
+\\
+\begin{pmatrix}
+y_{n+1} \\
+z_{n+1}
+\end{pmatrix}
+=
+\begin{pmatrix}
+y_n \\
+z_n
+\end{pmatrix}
++\frac{h}{2}\left[
+\begin{pmatrix}
+f(x_n,y_n,z_n) \\
+g(x_n,y_n,z_n) \\
+\end{pmatrix}
++
+\begin{pmatrix}
+f(x_{n+1},\bar{y}_{n+1},\bar{z}_{n+1}) \\
+g(x_{n+1},\bar{y}_{n+1},\bar{z}_{n+1}) \\
+\end{pmatrix}
+\right]</script><h2 id="高阶常微分方程的数值方法"><a href="#高阶常微分方程的数值方法" class="headerlink" title="高阶常微分方程的数值方法"></a>高阶常微分方程的数值方法</h2><p>对于高阶常微分方程，可以将其转换为一阶常微分方程组。</p>
+<p>考虑一个二阶常微分方程</p>
+<script type="math/tex; mode=display">
+\begin{cases}
+\frac{\mathbf{d}^2y}{\mathbf{d}x^2}=f(x,y,y')\\
+y(a)=\eta^{(0)} \\
+y'(a)=\eta^{(1)} \\
+\end{cases}</script><p>可以将其转换为</p>
+<script type="math/tex; mode=display">
+\begin{cases}
+\frac{\mathbf{d}y_1}{\mathbf{d}x}=y_2(x)\\
+\frac{\mathbf{d}y_2}{\mathbf{d}x}=f(x,y_1(x),y_2(x)) \\
+y_1(a)=\eta^{(0)} \\
+y_2(a)=\eta^{(1)} \\
+\end{cases}</script><p>对于更高阶的方程，也可以进行类似的转换。</p>
+  	
+					
+	  </div>     
+	  
+
+	<div class="post-footer">
+
+
+  <div class="post-footer-other">
+       
+    
+      <span class="post-footer-item">
+        <span class="share-btn">
+	<span class="iconfont icon-share"></span>
+</span>
+<div class="-mob-share sildeUpMin">
+	<ul class="-mob-inner">
+	   			             
+        <li class="iconfont 
+		icon-share-weixin 
+		-mob-share-weixin 
+		-mob-share-link"></li>		
+   	   			             
+        <li class="iconfont 
+		icon-share-weibo 
+		-mob-share-weibo 
+		-mob-share-link"></li>		
+   	   			             
+        <li class="iconfont 
+		icon-share-facebook 
+		-mob-share-facebook 
+		-mob-share-link"></li>		
+   	   			             
+        <li class="iconfont 
+		icon-share-twitter 
+		-mob-share-twitter 
+		-mob-share-link"></li>		
+   	   
+	</ul>
+</div>	
+
+
+<script id="-mob-share" src="https://f1.webshare.mob.com/code/mob-share.js?appkey=2a31e660f849e"></script>
+      </span>  
+               
+  </div>  
+    
+
+
+  <div class="post-footer-meta">
+        	
+
+        
+          <i class="iconfont icon-tag"></i>     
+            <a class="tag-link" href="/tags/Numerical-Analysis/">Numerical Analysis</a>    
+        	
+  </div>
+
+</div>
+
+
+<nav class="post-footer-nav">
+  <div class="post-footer-link">
+  
+      <a href="/2020/01/18/Numerical-Analysis-Notes-Matrix-Eigenvalues/" id="post-nav-older" class="post-nav-link-wrap">
+        <strong class="post-nav-caption">older</strong>
+        
+          <span class="post-nav-title">
+            数值分析学习笔记--矩阵的特征值和特征向量
+          </span>
+      </a>
+  
+  </div>
+  <div class="post-footer-link">
+    
+        <a href="/2020/02/09/MathTool-Evaluation/" id="post-nav-newer" class="post-nav-link-wrap">
+          <strong class="post-nav-caption">newer</strong>
+             
+            <span class="post-nav-title">
+              欢迎评估Mizunashi&#39;s MathTool
+            </span>
+        </a>
+    
+  </div>
+
+</nav>
+ 
+	
+
+    <script src="//cdn.jsdelivr.net/npm/@waline/client"></script>
+
+    <div id="waline"></div>
+
+    <script>
+        Waline({
+          el: '#waline',
+          serverURL: 'https://blog-api.mizunashi.me/',
+          lang: 'en',
+          avatar: 'retro',
+          uploadImage: false,
+        });
+      </script>
+	
+</article>
+
+	<div class="toc-container">
+			<div class="toc-sidebar">
+			<p class="toc-title">
+				Contents
+			</p>
+			<div class="toc-list">
+				<ol class="toc-inner"><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#欧拉公式"><span class="toc-inner-text">欧拉公式</span></a><ol class="toc-inner-child"><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#欧拉公式的局部截断误差"><span class="toc-inner-text">欧拉公式的局部截断误差</span></a></li></ol></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#欧拉公式的改进"><span class="toc-inner-text">欧拉公式的改进</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#Runge-Kutta方法"><span class="toc-inner-text">Runge-Kutta方法</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#线性多步法"><span class="toc-inner-text">线性多步法</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#常微分方程组的数值解法"><span class="toc-inner-text">常微分方程组的数值解法</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#高阶常微分方程的数值方法"><span class="toc-inner-text">高阶常微分方程的数值方法</span></a></li></ol>
+			</div>
+		</div>
+	</div>
+
+          </div> 
+      </div>            
+    
+    <a id="page-backTop">
+      <span>
+        <i class="iconfont icon-backtotop"></i>
+      </span>
+    </a> 
+
+  
+    
+    <div class="search-container sildeUpMin">
+        <div class="search-header">
+            <input type="text" placeholder="Typing Something here." id="search-input" class="search-input">
+            <span class="search-cancel">
+                <i class="iconfont icon-cancel">
+            </i></span>
+        </div>
+        <div id="search-result" class="search-result"></div>
+    </div>
+ 
+     <div class="mobile-menu">      
+
+      
+      <img class="mobile-menu-icon" src="/images/favicon.png">  
+      
+
+         
+            
+
+            <a class="mobile-menu-link" href="/">Home
+            </a>
+            
+         
+            
+
+            <a class="mobile-menu-link" href="/archives">Archives
+            </a>
+            
+         
+            
+
+            <a class="mobile-menu-link" href="/tags">Tags
+            </a>
+            
+         
+            
+
+            <a class="mobile-menu-link" href="/about">About
+            </a>
+            
+         
+            
+
+            <a class="mobile-menu-link" href="/guestbook">Guestbook
+            </a>
+            
+         
+                          
+
+            <a class="mobile-menu-link mobile-menu-search" href="#">Search </a>                 
+            
+         
+      
+</div>
+        
+    
+
+
+
+     
+    
+
+
+
+
+<footer id="footer">	    
+
+		
+		<div class="footer-copyright">
+		&copy;
+				
+		2019-
+		
+		2021		
+	
+		Mizunashi&#39;s Blog
+        <br>
+        
+        <a href="/about">About</a> | <a href="/sitemap.xml">Sitemap</a> | <a href="/privacy.html">Privacy Policy</a> | 
+        <a href="/changelog.html">Changelog</a> | <a href="/atom.xml">RSS</a>
+
+        <br>
+
+		Theme  <a href="https://github.com/Lemonreds/hexo-theme-Nayo" target="_blank">Nayo</a>
+		</div>			
+	 
+</footer>   
+
+    <script src="/nayo.bundle.js"></script>           
+  </body>        
+</html>

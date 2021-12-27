@@ -1,0 +1,465 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html>
+  <head><meta name="generator" content="Hexo 3.9.0">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  
+  
+  <title>  数值分析学习笔记--插值 |   Mizunashi&#39;s Blog </title>
+
+ 
+  
+    <link rel="icon" href="/images/favicon.png">
+  
+
+
+  <link rel="stylesheet" href="/nayo.min.css"> 
+</head>  
+  <body>   
+    
+      <link rel="stylesheet" type="text/css" href="/nayo.customized.css">
+
+<header class="header">
+	
+  <nav class="header-inner">        
+
+    <span class="iconfont icon-menu mobile-toggle"></span>   	
+
+    <div class="header-logo">
+      <a href="/">
+        <img class="header-logo-img" src="/images/logo.png">
+      </a>
+    </div>
+
+    <div class="header-menu">          
+              
+            
+                
+                    <a class="header-menu-link" id="header-menu-home" href="/">
+                        <i class="iconfont icon-home">  
+                    </i></a>   
+                  
+            
+              
+            
+                
+                    <a class="header-menu-link" id="header-menu-archives" href="/archives">
+                        <i class="iconfont icon-archives">  
+                    </i></a>   
+                  
+            
+              
+            
+                
+                    <a class="header-menu-link" id="header-menu-tags" href="/tags">
+                        <i class="iconfont icon-tags">  
+                    </i></a>   
+                  
+            
+              
+            
+                
+                    <a class="header-menu-link" id="header-menu-about" href="/about">
+                        <i class="iconfont icon-about">  
+                    </i></a>   
+                  
+            
+              
+            
+                
+                    <a class="header-menu-link" id="header-menu-guestbook" href="/guestbook">
+                        <i class="iconfont-custom icon-message">  
+                    </i></a> 
+                  
+            
+              
+            
+                <a class="header-menu-link" id="header-menu-search">
+                    <i class="iconfont icon-search">  
+                </i></a>
+            
+                  
+    </div>  
+    
+  </nav>
+</header>
+
+ 
+
+      <div class="container">       
+          
+          
+            <div class="container-inner">  
+          
+
+          <article class="post">
+  
+	
+<div class="post-header">
+	<div class="post-header-inner">
+		<p class="post-title">	
+			数值分析学习笔记--插值
+		</p>
+		<div class="post-info">	
+			<span class="post-info-entry">
+				Oct 02, 2019
+			</span>
+
+			
+			
+				<i class="iconfont icon-words"></i>
+				<span class="post-info-entry">6444
+				</span>
+			
+		</div>
+	</div>
+</div> 
+	
+
+    <script type="text/x-mathjax-config">
+        var post = document.getElementsByClassName("post")[0];  
+        MathJax.Hub.Config({
+            showProcessingMessages: false,
+            messageStyle: "none",    
+            tex2jax: {
+                inlineMath:  [ ["$", "$"] , ["\\(","\\)"]],
+                displayMath: [ ["$$","$$"] , ["\\[","\\]"]],
+                skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code','a'],
+            },
+            "HTML-CSS": {            
+                showMathMenu: false
+            }
+        });
+        MathJax.Hub.Queue(["Typeset",MathJax.Hub,post]);
+    </script>
+    <style>.MathJax{outline:0;}</style>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS_CHTML"></script>
+ 
+
+	  <div class="typo post-content slideDownMin">
+
+		
+
+			
+					<p><img src="https://mizunashi.me/image-hosting/blog/Numerical-Analysis-Note-Interpolation/interpolation-example.png" alt></p>
+<blockquote>
+<p>一组离散数据点在一个外延的插值</p>
+</blockquote>
+<a id="more"></a>
+<p>如有疏漏，敬请指正。</p>
+<p>插值是一种常用的函数逼近方法，上图是一个插值的例子。</p>
+<h2 id="Lagrange插值"><a href="#Lagrange插值" class="headerlink" title="Lagrange插值"></a>Lagrange插值</h2><p>Lagrange插值从线性插值出发，并逐步推广到n次多项式插值，免除了解方程组的计算。</p>
+<h3 id="插值多项式"><a href="#插值多项式" class="headerlink" title="插值多项式"></a>插值多项式</h3><p>对于$n+1$个不同的插值节点$\lbrace (x_{i},f(x_{i})), i=0,1,2, \cdots ,n \rbrace$，由n次插值多项式的唯一性(用待定系数法证明)，对每一个插值节点$x_{i}$作出相应的插值基函数，得到插值多项式如下</p>
+<script type="math/tex; mode=display">L_{n}(x)=\sum_{i=0}^{n} l_{i}(x)f(x_{i})</script><p>其中</p>
+<script type="math/tex; mode=display">l_{i}(x)=\frac{(x-x_{0})\cdots (x-x_{i-1})(x-x_{i+1})\cdots (x-x_{n})}{(x_{i}-x_{n})\cdots (x_{i}-x_{i-1})(x_{i}-x_{i+1})\cdots (x_{i}-x_{n})}</script><p>写得简单一点就是这样</p>
+<script type="math/tex; mode=display">l_{i}(x)=\prod_{ 0 \leq j \leq n \; and \; j \neq i } \frac{x-x_{j}}{x_{i}-x_{j}}</script><h3 id="插值误差"><a href="#插值误差" class="headerlink" title="插值误差"></a>插值误差</h3><p>设$L_{n}(x)$是$[a,b]$上过$\lbrace (x_{i},f(x_{i})), i=0,1,2, \cdots ,n \rbrace$的n次插值多项式，$x_{i} \in [a,b]$且互不相同，当$f \in C^{n+1}[a,b]$时，插值多项式的误差</p>
+<script type="math/tex; mode=display">R_{n}(x)=\frac{f^{(n+1)}(\zeta )}{(n+1)!}(x-x_{0})(x-x_{1}) \cdots (x-x_{n})</script><p>其中$\zeta \in [a,b]$</p>
+<p>证明略去</p>
+<h2 id="Newton插值"><a href="#Newton插值" class="headerlink" title="Newton插值"></a>Newton插值</h2><p>Newton插值多项式是Lagrange插值多项式在不同基下的不同表达形式，Newton插值克服了Lagrange插值没有承袭性质的缺点。</p>
+<p>Newton插值需要使用差商计算。</p>
+<h3 id="差商"><a href="#差商" class="headerlink" title="差商"></a>差商</h3><p>函数$f(x)$关于点的零阶到k阶差商分别定义如下：</p>
+<script type="math/tex; mode=display">f[x_{0}]=f(x_{0})</script><script type="math/tex; mode=display">f[x_{0},x_{1}]=\frac{f(x_{1})-f(x_{0})}{x_{1}-x_{0}}</script><script type="math/tex; mode=display">f[x_{0},x_{1},x_{2}]=\frac{f[x_{1},x_{2}]-f[x_{0},x_{1}]}{x_{2}-x_{0}}</script><script type="math/tex; mode=display">\cdots</script><script type="math/tex; mode=display">f[x_{0},x_{1},\cdots ,x_{k}]=\frac{f[x_{1},x_{2},\cdots ,x_{k}]-f[x_{0},x_{1}, \cdots ,x_{k-1}]}{x_{k}-x_{0}}</script><p>设$f(x)$在包含$x_{0}$和$x_{1}$的区间上可微，则由中值定理得</p>
+<script type="math/tex; mode=display">f[x_{0},x_{1}]=f'(\zeta ),\zeta \in [x_{0},x_{1}]</script><p>这里列举差商的如下三条性质：</p>
+<ul>
+<li>k阶差商$f[x_{0},x_{1}, \cdots ,x_{k}]$是由函数值$f(x_{0}),f(x_{1}), \cdots ,f(x_{k})$线性组合而成<script type="math/tex; mode=display">f[x_{0},x_{1}, \cdots ,x_{k}]=\sum_{i=0}^{k} \frac{1}{(x_{i}-x_{0})\cdots (x_{i}-x_{i-1})(x_{i}-x_{i+1})\cdots (x_{i}-x_{k})} f(x_{i})</script></li>
+<li>若$\lbrace i_{0},i_{1}, \cdots i_{k} \rbrace$是$\lbrace 0,1,\cdots ,k \rbrace$的任一排列，则<script type="math/tex; mode=display">f[x_{0},x_{1},\cdots ,x_{k}]=f[x_{i_{0}},x_{i_{1}}, \cdots ,x_{i_{k}}]</script></li>
+<li>若$f(x)$为m次多项式，则$f[x_{0},x_{1},\cdots,x_{k-1},x]$为$m-k$次多项式</li>
+</ul>
+<p>差商可以使用<strong>差商表</strong>进行计算</p>
+<p><img src="https://mizunashi.me/image-hosting/blog/Numerical-Analysis-Note-Interpolation/chashang.png" alt></p>
+<blockquote>
+<p>差商表</p>
+</blockquote>
+<h3 id="插值多项式与余项"><a href="#插值多项式与余项" class="headerlink" title="插值多项式与余项"></a>插值多项式与余项</h3><p>对于$n+1$个不同的插值节点$\lbrace (x_{i},f(x_{i})), i=0,1,2, \cdots ,n \rbrace$，其n次Newton插值多项式为</p>
+<script type="math/tex; mode=display">N_{n}(x)=f(x_{0})+(x-x_{0})f[x_{0},x_{1}]+ \cdots +(x-x_{0})(x-x_{1}) \cdots (x-x_{n-1})f[x_{0},x_{1}, \cdots ,x_{n}]</script><p>余项为</p>
+<script type="math/tex; mode=display">R_{n}(x)=(x-x_{0})(x-x_{1})\cdots (x-x_{n})f[x,x_{0},x_{1},\cdots ,x_{n}]</script><p>Lagrange插值多项式的余项与Newton插值多项式的余项完全相等。</p>
+<h2 id="Hermite插值"><a href="#Hermite插值" class="headerlink" title="Hermite插值"></a>Hermite插值</h2><p>Hermite插值可以让在节点处的插值函数与被插函数的一阶导数或更高阶导数值也相等。</p>
+<h3 id="插值多项式-1"><a href="#插值多项式-1" class="headerlink" title="插值多项式"></a>插值多项式</h3><p>$f(x)$关于节点$\lbrace x_{i},i=0,1, \cdots ,n \rbrace$的$n+1$个节点的$2n+1$次Hermite插值多项式为</p>
+<script type="math/tex; mode=display">H_{2n+1}(x)=\sum_{i=0}^{n} h_{i}(x)f(x_{i})+\sum_{i=0}^{n}g_{i}(x)f'(x_{i})</script><p>其中</p>
+<script type="math/tex; mode=display">h_{i}(x)=\left( 1-2(x-x_{i})\sum_{j \neq i} \frac{1}{x_{i}-x_{j}} \right)l_{i}^{2}(x)</script><script type="math/tex; mode=display">g_{i}(x)=(x-x_{i})l_{i}^{2}(x)</script><p>其中$l_{i}(x)$是关于节点$\lbrace x_{i},i=0,1, \cdots , n \rbrace$的Lagrange基函数。</p>
+<h3 id="插值误差-1"><a href="#插值误差-1" class="headerlink" title="插值误差"></a>插值误差</h3><p>当$f \in C^{2n+2}[a,b]$时，误差为</p>
+<script type="math/tex; mode=display">R(x)=\frac{f^{(2n+2)}(\zeta )}{(2n+2)!}(x-x_{0})^{2}(x-x_{1})^{2} \cdots (x-x_{n})^{2}, \zeta \in [a,b]</script><h3 id="扩展Newton插值"><a href="#扩展Newton插值" class="headerlink" title="扩展Newton插值"></a>扩展Newton插值</h3><p>这里引入推广的差商定义。</p>
+<p>设$f(x)$充分可微，定义</p>
+<script type="math/tex; mode=display">f[x_{0},x_{0}]=f'(x)</script><script type="math/tex; mode=display">f[x_{0}, \cdots ,x_{0}]=\frac{1}{n!}f^{(n)}(x_{0})</script><p>对于一部分节点相同的情况，则按如下定义</p>
+<script type="math/tex; mode=display">f[x_{0},x_{0},x_{1}]=\frac{f[x_{0},x_{1}]-f'(x_{0})}{x_{1}-x_{0}}</script><p>对给定的插值点的函数值和一阶导数值$(x_{i},f(x_{i}),f’(x_{i})),i=0,1,\cdots ,n$，定义序列$\lbrace z_{2i}=z_{2i+1}=x_{i},i=0,1, \cdots ,n \rbrace$，用Newton插值构造Hermite插值多项式，其中</p>
+<script type="math/tex; mode=display">z_{0}=z_{1}=x_{0},z_{2}=z_{3}=x_{1}, \cdots ,z_{2n}=z_{2n+1}=x_{n}</script><script type="math/tex; mode=display">f[z_{2i-1},z_{2i}]=\frac{f(z_{2i})-f(z_{2i-1})}{z_{2i}-z_{2i-1}}</script><script type="math/tex; mode=display">f[z_{2i},z_{2i+1}]=f'(x_{i}),i=0,1, \cdots ,n</script><p>在差商表中用$f’(x_{0}),f’(x_{1}), \cdots ,f’(x_{n})$代替$f[z_{0},z_{1}],f[z_{2},z_{3}], \cdots ,f[z_{2n},z_{2n+1}]$，其余差商公式不变，得到差商型Hermite插值公式</p>
+<script type="math/tex; mode=display">H_{2n+1}(x)=f[z_{0}]+\sum_{k=1}^{2n+1}f[z_{0},z_{1},\cdots ,z_{k}](x-z_{0})(x-z_{1}) \cdots (x-z_{k-1})</script><h2 id="分段插值"><a href="#分段插值" class="headerlink" title="分段插值"></a>分段插值</h2><h3 id="Runge现象"><a href="#Runge现象" class="headerlink" title="Runge现象"></a>Runge现象</h3><p>插值多项式在插值区间内发生剧烈震荡的现象称为Runge现象，Runge现象揭示了高次插值多项式的缺陷。</p>
+<p>下图是Runge现象的一个例子，其中红色曲线是Runge函数，蓝色曲线是5阶多项式，绿色曲线是9阶多项式。随着阶次的增加，误差逐渐变大。</p>
+<p><img src="https://mizunashi.me/image-hosting/blog/Numerical-Analysis-Note-Interpolation/runge.png" alt></p>
+<blockquote>
+<p>Runge现象</p>
+</blockquote>
+<h3 id="分段线性插值"><a href="#分段线性插值" class="headerlink" title="分段线性插值"></a>分段线性插值</h3><p>在每个小区间$[x_{i},x_{i+1}]$上作以$\lbrace x_{i},x_{i+1} \rbrace$的线性插值$p_{i}(x)$，则</p>
+<script type="math/tex; mode=display">p_{i}(x)=\frac{x-x_{i+1}}{x_{i}-x_{i+1}}f(x_{i})+\frac{x-x_{i}}{x_{i+1}-x_{i}}f(x_{i+1})</script><p>然后，将线性插值函数连接即可，其误差为</p>
+<script type="math/tex; mode=display">\mid f(x)-p(x) \mid \leq \frac{M_{2}}{8}(x_{i+1}-x_{i})^{2}</script><p>其中</p>
+<script type="math/tex; mode=display">M_{2}=\max_{a \leq x \leq b} \mid f^{(2)}(x) \mid</script><p>当区间分割加密时，分段线性插值收敛于$f(x)$。</p>
+<p>分段线性插值算法简单，其缺点是在插值节点处不光滑。</p>
+<h3 id="三次样条插值的M关系式"><a href="#三次样条插值的M关系式" class="headerlink" title="三次样条插值的M关系式"></a>三次样条插值的M关系式</h3><p>给定区间$[a,b]$上n+1个节点$a=x_{0}&lt;x_{1}&lt; \cdots &lt;x_{n}=b$和这些点上的函数值$\lbrace f(x_{i})=y_{i} ,i=0,1, \cdots ,n \rbrace$，要在每个子区间$[x_{i},x_{i+1}]$上构造三次多项式</p>
+<script type="math/tex; mode=display">S(x)=S_{i}(x)=a_{i}x^3+b_{i}x^2+c_{i}x+d_{i},x \in [x_{i},x_{i+1}],i=0,1, \cdots ,n-1</script><p>共需要4n个条件，由插值条件$\lbrace S(x_{i})=y_i,i=0,1, \cdots ,n \rbrace$提供了n+1个条件，用每个内点的关系建立条件</p>
+<script type="math/tex; mode=display">S(x_{i}+0)=S(x_{i}-0)</script><script type="math/tex; mode=display">S'(x_{i}+0)=S'(x_{i}-0)</script><script type="math/tex; mode=display">S''(x_{i}+0)=S''(x_{i}-0),i=1,\cdots ,n-1</script><p>又得到3n-3个条件，再附加两个边界条件，即可唯一确定样条函数了，样条函数的存在性与唯一性可用待定系数法证明。</p>
+<p>引入记号$M_{i}=S’’(x_{i})，m_{i}=S’(x_{i}),i=0,1, \cdots ,n$。用节点处的二阶导数表示样条插值函数时称为大M关系式，用一阶导数表示样条插值函数时称为小m关系式。</p>
+<p>M关系式可以表示为如下形式</p>
+<script type="math/tex; mode=display">S(x)=\frac{(x_{i+1}-x)^3M_{i}+(x-x_{i})^{3}M_{i+1}}{6h_{i}}+\frac{(x_{i+1}-x)y_{i}+(x-x_{i})y_{i+1}}{h_{i}}
+\\
+-\frac{h_{i}}{6}[(x_{i+1}-x)M_{i}+(x-x_{i})M_{i+1}]</script><p>其中$x \in [x_{i},x_{i+1}],h_{i}=x_{i+1}-x_{i}$</p>
+<p>样条插值的M关系方程组是</p>
+<script type="math/tex; mode=display">\mu_{i}M_{i-1}+2M_{i}+ \lambda_{i}M_{i+1} =d_{i},i=1,2, \cdots ,n-1</script><p>其中</p>
+<script type="math/tex; mode=display">\lambda_{i} = \frac{h_{i}}{h_{i}+h_{i-i}}, \mu_{i}=1-\lambda_{1}</script><script type="math/tex; mode=display">d_{i}=\frac{6}{h_{i}+h_{i+1}}\left( \frac{y_{i+1}-y_{i}}{h_{i}}-\frac{y_{i}-y_{i-1}}{h_{i-1}} \right)=6f(x_{i-1},x_{i},x_{i+1})</script><p>下面讨论边界条件</p>
+<ul>
+<li>如果给定$M_{0},M_{1}$的值，此时方程组有n-1个未知量$\lbrace M_{i},i=1,2, \cdots ,n-1 \rbrace$。当$M_{0}=0,M_{n}=0$时，称为自然边界条件。<script type="math/tex; mode=display">
+\begin{bmatrix}
+2 & \lambda_{1} &  &   \\
+\mu_{2} & 2 & \lambda_{2} & & \\
+& \ddots & \ddots & \ddots & \\
+& & \mu_{n-2} & 2 & \lambda_{n-2} \\
+& & & \mu_{n-1} & 2
+\end{bmatrix}
+\begin{bmatrix}
+M_{1} \\ M_{2} \\ \vdots \\ M_{n-2} \\ M_{n-1}
+\end{bmatrix}
+=
+\begin{bmatrix}
+d_{1}-\mu_{1}M_{0} \\ d_{2} \\ \vdots \\ d_{n-2} \\ d_{n-1}-\lambda_{n-1}M_{n}
+\end{bmatrix}</script></li>
+<li>如果给定$S’(x_{0})=m_{0},S’(x_{n})=m_{n}$，将其分别代入$S’(x)$在$[x_{0},x_{1}],[x_{n-1},x_{n}]$中的表达式，得到<script type="math/tex; mode=display">2M_{0}+M_{1}=\frac{6}{h_{0}}[f[x_{0},x_{1}]-m_{0}]=d_{0}</script><script type="math/tex; mode=display">M_{n-1}+2M_{n}=\frac{6}{h_{n-1}}[m_{n}-f[x_{n-1},x_{n}]]=d_{n}</script>得到n+1个未知量<script type="math/tex; mode=display">
+\begin{bmatrix}
+2 & 1 &  & & &  \\
+\mu_{1} & 2 & \lambda_{1} & & &\\
+& \mu_{2} & 2 & \lambda_{2} & & \\
+& & \ddots & \ddots & \ddots &  &\\
+& & & \mu_{n-2} & 2 & \lambda_{n-1} \\
+& & & & 1 & 2
+\end{bmatrix}
+\begin{bmatrix}
+M_{0}\\ M_{1} \\ M_{2} \\ \vdots \\ M_{n-1} \\ M_{n}
+\end{bmatrix}
+=
+\begin{bmatrix}
+d_{0} \\ d_{1} \\ d_{2} \\ \vdots \\ d_{n-1} \\ d_{n}
+\end{bmatrix}</script></li>
+<li>被插函数以$x_{n}-x_{0}$为基本周期时，即$f(x_{0})=f(x_{n})$时，即<script type="math/tex; mode=display">S(x_{0})=S(x_{n}),S'(x_{0})=S'(x_{n}),S''(x_{0})=S''(x_{n})</script>即$m_{0}=m_{n},M_{0}=M_{n}$，将$S’(x_{0})=S’(x_{n})$加入方程组，此时化为n个变量。</li>
+</ul>
+<h3 id="三次样条插值的m关系式"><a href="#三次样条插值的m关系式" class="headerlink" title="三次样条插值的m关系式"></a>三次样条插值的m关系式</h3><p>m关系式可表示为如下形式</p>
+<script type="math/tex; mode=display">S(x)=\left( 1-2\frac{x-x_{i}}{x_{i}-x_{i+1}} \right)\left( \frac{x-x_{i+1}}{x_{i}-x_{i+1}} \right)^{2}y_{i}+(x-x_{i})\left( \frac{x-x_{i+1}}{x_{i}-x_{i+1}} \right)^{2}m_{i}
+\\
++\left( 1-2\frac{x-x_{i+1}}{x_{i+1}-x_{i}} \right)\left( \frac{x-x_{i}}{x_{i+1}-x_{i}} \right)^{2}y_{i+1}+(x-x_{i+1})\left( \frac{x-x_{i}}{x_{i+1}-x_{i}} \right)^{2}m_{i+1}</script><p>样条插值的m关系方程组是</p>
+<script type="math/tex; mode=display">\lambda_{i}m_{i-1}+2m_{i}+\mu_{i}m_{i+1}=c_{i},i=1,2,\cdots ,n-1</script><script type="math/tex; mode=display">\lambda_{i}=\frac{h_{i}}{h_{i}+h_{i-1}},\mu_{i}=1-\lambda_{i},c_{i}=3[\lambda_{i}y[x_{i-1},x_{i}]+\mu_{i}y[x_{i},x_{i+1}]]</script><p>再附加两个边界条件，即可解出$m_{i}$的值。</p>
+  	
+					
+	  </div>     
+	  
+
+	<div class="post-footer">
+
+
+  <div class="post-footer-other">
+       
+    
+      <span class="post-footer-item">
+        <span class="share-btn">
+	<span class="iconfont icon-share"></span>
+</span>
+<div class="-mob-share sildeUpMin">
+	<ul class="-mob-inner">
+	   			             
+        <li class="iconfont 
+		icon-share-weixin 
+		-mob-share-weixin 
+		-mob-share-link"></li>		
+   	   			             
+        <li class="iconfont 
+		icon-share-weibo 
+		-mob-share-weibo 
+		-mob-share-link"></li>		
+   	   			             
+        <li class="iconfont 
+		icon-share-facebook 
+		-mob-share-facebook 
+		-mob-share-link"></li>		
+   	   			             
+        <li class="iconfont 
+		icon-share-twitter 
+		-mob-share-twitter 
+		-mob-share-link"></li>		
+   	   
+	</ul>
+</div>	
+
+
+<script id="-mob-share" src="https://f1.webshare.mob.com/code/mob-share.js?appkey=2a31e660f849e"></script>
+      </span>  
+               
+  </div>  
+    
+
+
+  <div class="post-footer-meta">
+        	
+
+        
+          <i class="iconfont icon-tag"></i>     
+            <a class="tag-link" href="/tags/Numerical-Analysis/">Numerical Analysis</a>    
+        	
+  </div>
+
+</div>
+
+
+<nav class="post-footer-nav">
+  <div class="post-footer-link">
+  
+      <a href="/2019/07/05/2019-ECNU-Math-Modelling-Contest/" id="post-nav-older" class="post-nav-link-wrap">
+        <strong class="post-nav-caption">older</strong>
+        
+          <span class="post-nav-title">
+            2019数学建模校内赛实录
+          </span>
+      </a>
+  
+  </div>
+  <div class="post-footer-link">
+    
+        <a href="/2019/10/13/Migrate-AnyConnect-to-OpenConnect/" id="post-nav-newer" class="post-nav-link-wrap">
+          <strong class="post-nav-caption">newer</strong>
+             
+            <span class="post-nav-title">
+              从Cisco AnyConnect迁移到OpenConnect
+            </span>
+        </a>
+    
+  </div>
+
+</nav>
+ 
+	
+
+    <script src="//cdn.jsdelivr.net/npm/@waline/client"></script>
+
+    <div id="waline"></div>
+
+    <script>
+        Waline({
+          el: '#waline',
+          serverURL: 'https://blog-api.mizunashi.me/',
+          lang: 'en',
+          avatar: 'retro',
+          uploadImage: false,
+        });
+      </script>
+	
+</article>
+
+	<div class="toc-container">
+			<div class="toc-sidebar">
+			<p class="toc-title">
+				Contents
+			</p>
+			<div class="toc-list">
+				<ol class="toc-inner"><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#Lagrange插值"><span class="toc-inner-text">Lagrange插值</span></a><ol class="toc-inner-child"><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#插值多项式"><span class="toc-inner-text">插值多项式</span></a></li><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#插值误差"><span class="toc-inner-text">插值误差</span></a></li></ol></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#Newton插值"><span class="toc-inner-text">Newton插值</span></a><ol class="toc-inner-child"><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#差商"><span class="toc-inner-text">差商</span></a></li><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#插值多项式与余项"><span class="toc-inner-text">插值多项式与余项</span></a></li></ol></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#Hermite插值"><span class="toc-inner-text">Hermite插值</span></a><ol class="toc-inner-child"><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#插值多项式-1"><span class="toc-inner-text">插值多项式</span></a></li><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#插值误差-1"><span class="toc-inner-text">插值误差</span></a></li><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#扩展Newton插值"><span class="toc-inner-text">扩展Newton插值</span></a></li></ol></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#分段插值"><span class="toc-inner-text">分段插值</span></a><ol class="toc-inner-child"><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#Runge现象"><span class="toc-inner-text">Runge现象</span></a></li><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#分段线性插值"><span class="toc-inner-text">分段线性插值</span></a></li><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#三次样条插值的M关系式"><span class="toc-inner-text">三次样条插值的M关系式</span></a></li><li class="toc-inner-item toc-inner-level-3"><a class="toc-inner-link" href="#三次样条插值的m关系式"><span class="toc-inner-text">三次样条插值的m关系式</span></a></li></ol></li></ol>
+			</div>
+		</div>
+	</div>
+
+          </div> 
+      </div>            
+    
+    <a id="page-backTop">
+      <span>
+        <i class="iconfont icon-backtotop"></i>
+      </span>
+    </a> 
+
+  
+    
+    <div class="search-container sildeUpMin">
+        <div class="search-header">
+            <input type="text" placeholder="Typing Something here." id="search-input" class="search-input">
+            <span class="search-cancel">
+                <i class="iconfont icon-cancel">
+            </i></span>
+        </div>
+        <div id="search-result" class="search-result"></div>
+    </div>
+ 
+     <div class="mobile-menu">      
+
+      
+      <img class="mobile-menu-icon" src="/images/favicon.png">  
+      
+
+         
+            
+
+            <a class="mobile-menu-link" href="/">Home
+            </a>
+            
+         
+            
+
+            <a class="mobile-menu-link" href="/archives">Archives
+            </a>
+            
+         
+            
+
+            <a class="mobile-menu-link" href="/tags">Tags
+            </a>
+            
+         
+            
+
+            <a class="mobile-menu-link" href="/about">About
+            </a>
+            
+         
+            
+
+            <a class="mobile-menu-link" href="/guestbook">Guestbook
+            </a>
+            
+         
+                          
+
+            <a class="mobile-menu-link mobile-menu-search" href="#">Search </a>                 
+            
+         
+      
+</div>
+        
+    
+
+
+
+     
+    
+
+
+
+
+<footer id="footer">	    
+
+		
+		<div class="footer-copyright">
+		&copy;
+				
+		2019-
+		
+		2021		
+	
+		Mizunashi&#39;s Blog
+        <br>
+        
+        <a href="/about">About</a> | <a href="/sitemap.xml">Sitemap</a> | <a href="/privacy.html">Privacy Policy</a> | 
+        <a href="/changelog.html">Changelog</a> | <a href="/atom.xml">RSS</a>
+
+        <br>
+
+		Theme  <a href="https://github.com/Lemonreds/hexo-theme-Nayo" target="_blank">Nayo</a>
+		</div>			
+	 
+</footer>   
+
+    <script src="/nayo.bundle.js"></script>           
+  </body>        
+</html>

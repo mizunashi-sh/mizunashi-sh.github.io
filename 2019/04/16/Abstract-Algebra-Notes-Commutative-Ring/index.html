@@ -1,0 +1,572 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html>
+  <head><meta name="generator" content="Hexo 3.9.0">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  
+  
+  <title>  抽象代数学习笔记--交换环 |   Mizunashi&#39;s Blog </title>
+
+ 
+  
+    <link rel="icon" href="/images/favicon.png">
+  
+
+
+  <link rel="stylesheet" href="/nayo.min.css"> 
+</head>  
+  <body>   
+    
+      <link rel="stylesheet" type="text/css" href="/nayo.customized.css">
+
+<header class="header">
+	
+  <nav class="header-inner">        
+
+    <span class="iconfont icon-menu mobile-toggle"></span>   	
+
+    <div class="header-logo">
+      <a href="/">
+        <img class="header-logo-img" src="/images/logo.png">
+      </a>
+    </div>
+
+    <div class="header-menu">          
+              
+            
+                
+                    <a class="header-menu-link" id="header-menu-home" href="/">
+                        <i class="iconfont icon-home">  
+                    </i></a>   
+                  
+            
+              
+            
+                
+                    <a class="header-menu-link" id="header-menu-archives" href="/archives">
+                        <i class="iconfont icon-archives">  
+                    </i></a>   
+                  
+            
+              
+            
+                
+                    <a class="header-menu-link" id="header-menu-tags" href="/tags">
+                        <i class="iconfont icon-tags">  
+                    </i></a>   
+                  
+            
+              
+            
+                
+                    <a class="header-menu-link" id="header-menu-about" href="/about">
+                        <i class="iconfont icon-about">  
+                    </i></a>   
+                  
+            
+              
+            
+                
+                    <a class="header-menu-link" id="header-menu-guestbook" href="/guestbook">
+                        <i class="iconfont-custom icon-message">  
+                    </i></a> 
+                  
+            
+              
+            
+                <a class="header-menu-link" id="header-menu-search">
+                    <i class="iconfont icon-search">  
+                </i></a>
+            
+                  
+    </div>  
+    
+  </nav>
+</header>
+
+ 
+
+      <div class="container">       
+          
+          
+            <div class="container-inner">  
+          
+
+          <article class="post">
+  
+	
+<div class="post-header">
+	<div class="post-header-inner">
+		<p class="post-title">	
+			抽象代数学习笔记--交换环
+		</p>
+		<div class="post-info">	
+			<span class="post-info-entry">
+				Apr 16, 2019
+			</span>
+
+			
+			
+				<i class="iconfont icon-words"></i>
+				<span class="post-info-entry">11182
+				</span>
+			
+		</div>
+	</div>
+</div> 
+	
+
+    <script type="text/x-mathjax-config">
+        var post = document.getElementsByClassName("post")[0];  
+        MathJax.Hub.Config({
+            showProcessingMessages: false,
+            messageStyle: "none",    
+            tex2jax: {
+                inlineMath:  [ ["$", "$"] , ["\\(","\\)"]],
+                displayMath: [ ["$$","$$"] , ["\\[","\\]"]],
+                skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code','a'],
+            },
+            "HTML-CSS": {            
+                showMathMenu: false
+            }
+        });
+        MathJax.Hub.Queue(["Typeset",MathJax.Hub,post]);
+    </script>
+    <style>.MathJax{outline:0;}</style>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS_CHTML"></script>
+ 
+
+	  <div class="typo post-content slideDownMin">
+
+		
+
+			
+					<p><b>适用教材:A First Course in Abstract Algebra</b><br>如有疏漏，敬请指正<br><a id="more"></a></p>
+<h2 id="交换环"><a href="#交换环" class="headerlink" title="交换环"></a>交换环</h2><p>一个交换环$R$是一个集合，这个集合配备了两个运算$+$和$\cdot$，且满足如下性质:</p>
+<ul>
+<li>对所有$a,b \in R$，有$a+b=b+a$</li>
+<li>对所有$a,b,c \in R$，有$a+(b+c)=(a+b)+c$</li>
+<li>存在元素$0 \in R$，使得对所有$a \in R$，有$0+a=a$</li>
+<li>对每一个$a \in R$，都有$a’ \in R$使得$a’+a=0$(即$(R,+)$是一个阿贝尔群)</li>
+<li>对所有$a,b \in R$，有$a \cdot b=b \cdot a$</li>
+<li>对所有$a,b,c \in R$，有$a \cdot (b \cdot c)=(a \cdot b) \cdot c$</li>
+<li>存在元素$1 \in R$，使得对每一个$a \in R$，都有$1 \cdot a=a$</li>
+<li>对所有$a,b,c \in R$，都有$a \cdot (b+c) = a \cdot b+a \cdot c$</li>
+</ul>
+<h3 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h3><ul>
+<li>对每一个$a \in R$，有$0 \cdot a=0$</li>
+<li>若$-a$满足$-a+a=0$，那么$(-1) \cdot (-a) = a$</li>
+<li>对每一个$a \in R$，有$(-1) \cdot a =-a$</li>
+<li>对所有$a,b \in R$，定义$a-b = a+(-b)$</li>
+</ul>
+<h2 id="环"><a href="#环" class="headerlink" title="环"></a>环</h2><p>一个环$R$是一个集合，这个集合配备了两个运算$+$和$\cdot$，且满足如下性质:</p>
+<ul>
+<li>$(R,+)$是一个阿贝尔群，且运算$+$的单位元是$0$</li>
+<li>对所有$a,b,c \in R$，都有$a \cdot (b+c) = a \cdot b+a \cdot c,(b+c) \cdot a=b \cdot a+c \cdot a$</li>
+<li>$(R, \cdot )$满足结合律(但不一定可交换)</li>
+</ul>
+<h2 id="适用于交换环的二项式定理"><a href="#适用于交换环的二项式定理" class="headerlink" title="适用于交换环的二项式定理"></a>适用于交换环的二项式定理</h2><p>若$a,b \in R$，且$R$一个交换环，对所有$n \geq 0$，有</p>
+<script type="math/tex; mode=display">(a+b)^{n}=\sum^{n}_{r=0} C^{r}_{n} a^{r} b^{n-r}</script><p>注意:$C^{r}_{n} a^{r} b^{n-r}$指$a^{r} b^{n-r}$进行加运算$C^{r}_{n}$次</p>
+<h2 id="零环与整环"><a href="#零环与整环" class="headerlink" title="零环与整环"></a>零环与整环</h2><p>定义交换环$R$为零环，满足如下性质</p>
+<script type="math/tex; mode=display">1=0 \quad \mathrm{and} \quad R = \lbrace 0 \rbrace</script><p>定义交换环$R$为整环，满足如下性质</p>
+<ul>
+<li>$1 \neq 0$</li>
+<li>若$c \cdot a=c \cdot b$，且$c \neq 0$，则$a=b$(消去律)</li>
+</ul>
+<p><b>定理:</b>交换环$R$是整环当且仅当其不是零环，且$R$中任何两个非零元素的乘积是非零的</p>
+<h2 id="子环"><a href="#子环" class="headerlink" title="子环"></a>子环</h2><p>交换环$R$的子集$S$是$R$的子环，满足如下性质：</p>
+<ul>
+<li>$1 \in S$</li>
+<li>若$a,b \in S$，那么$a-b \in S$</li>
+<li>若$a,b \in S$，那么$ab \in S$</li>
+</ul>
+<p><b>定理:</b>交换环$R$的子环$S$也是交换环<br><b>提示:</b>把子环$S$视为$(R,+)$的子群并且$0 \in S$，那么$S$的结合性，交换性和分配性可由对$+$与$\cdot$的封闭性确保</p>
+<h2 id="函数上的交换环"><a href="#函数上的交换环" class="headerlink" title="函数上的交换环"></a>函数上的交换环</h2><p>在这一部分，我们用两个例题来了解函数上的交换环<br><b>例1:</b><br>令$\mathcal{F} (\mathbb{R})$为所有$\mathbb{R} \to \mathbb{R}$上的所有函数组成的集合，这个集合配备了<b>逐点加法</b>和<b>逐点乘法</b>运算<br>对于函数$f,g \in \mathcal{F} (\mathbb{R})$，逐点加法和逐点乘法定义如下:</p>
+<script type="math/tex; mode=display">f+g: a \mapsto f(a)+g(a) \quad \mathrm{and} \quad fg: a \mapsto f(a)g(a)</script><p>逐点加法与逐点乘法恰适用于微积分学研究的函数，举个例子:</p>
+<script type="math/tex; mode=display">(fg)'=f'g+fg'</script><p>其中，$+$运算即是逐点加法运算，而式子中的$f’g$也是$f’$和$g$的逐点乘积<br>下面证明$\mathcal{F} (\mathbb{R})$是交换环<br>$\mathcal{F} (\mathbb{R})$中的0元为$z(a)=0, a \in \mathbb{R}$<br>$\mathcal{F} (\mathbb{R})$中的1元为$\epsilon (a)=1, a \in \mathbb{R}$<br>其余请自行证明<br>下面证明$\mathcal{F} (\mathbb{R})$不是整环<br>定义$f$为</p>
+<script type="math/tex; mode=display">f(a)=\begin{cases} a,a \leq 0 \\\ 0,a \geq 0 \end{cases}</script><p>定义$g$为</p>
+<script type="math/tex; mode=display">g(a)=\begin{cases} 0,a \leq 0 \\\ a,a \geq 0 \end{cases}</script><p>显然，f和g都不是零元<br>对每一个$a \in \mathbb{R}$，有</p>
+<script type="math/tex; mode=display">fg:a \mapsto f(a)g(a) =0</script><p>因此$fg=z$<br>因此$\mathcal{F} (\mathbb{R})$不是整环<br><b>例2:</b><br>若对所有$a \in \mathbb{R}$，都有$f’(a)$存在的话，则$f: \mathbb{R} \to \mathbb{R}$是可微的<br>令$\mathcal{D} (\mathbb{R})$为$\mathbb{R} \to \mathbb{R}$上所有可微函数组成的集合<br>下证$\mathcal{D} (\mathbb{R})$是$\mathcal{F} (\mathbb{R})$的子环<br>已知$\epsilon$在$\mathcal{D} (\mathbb{R})$中，因为$\epsilon ‘ = z$<br>若$f,g \in \mathcal{D} (\mathbb{R})$，那么$f+g \in \mathcal{D} (\mathbb{R})$，因为$(f+g)’=f’+g’$<br>同理$fg \in \mathcal{D} (\mathbb{R})$，因为$(fg)’=f’g+fg’$<br>因此$\mathcal{D} (\mathbb{R})$是$\mathcal{F} (\mathbb{R})$的子环</p>
+<h2 id="同余类上的交换环"><a href="#同余类上的交换环" class="headerlink" title="同余类上的交换环"></a>同余类上的交换环</h2><p>满足如下性质:</p>
+<ul>
+<li>$\mathbb{I}_{m}$是一个交换环</li>
+<li>$\mathbb{I}_{m}$是整环当且仅当$m$是质数</li>
+</ul>
+<h2 id="交换环除法"><a href="#交换环除法" class="headerlink" title="交换环除法"></a>交换环除法</h2><p>若$a,b \in R$，若存在$a \in R$，使得$b=ca$，则称a整除b，用$a \mid b$表示</p>
+<h3 id="性质-1"><a href="#性质-1" class="headerlink" title="性质"></a>性质</h3><p>令$R$是交换环，且$a,b,c \in R$，则</p>
+<ul>
+<li>若$a \mid b$且$b \mid c$，那么$a \mid c$</li>
+<li>若$a \mid b$且$a \mid c$，那么$a$可以整除每一个可以用$sb+tc$表示的元素，其中$s,t \in R$</li>
+</ul>
+<h2 id="可逆元"><a href="#可逆元" class="headerlink" title="可逆元"></a>可逆元</h2><p>元素$u \in R$，若$u \mid 1$，即存在$v \in R$使得$uv=1$，$v$被称为$u$的逆，可被表示为$u^{-1}$</p>
+<h3 id="性质-2"><a href="#性质-2" class="headerlink" title="性质"></a>性质</h3><ul>
+<li>可逆元的逆唯一</li>
+<li>若u是可逆元，则对任何$w \neq 0$，有$uw \neq 0$</li>
+<li>R中的可逆元组成的集合对运算$\cdot$形成阿贝尔群</li>
+</ul>
+<h3 id="定理"><a href="#定理" class="headerlink" title="定理"></a>定理</h3><ul>
+<li>设$R$是一个整环，若元素$a,b \in R$非零，那么$a \mid b$且$b \mid a$当且仅当对某个可逆元$u \in R$，有$b=ua$</li>
+<li>若a是整数，则$[a]$是$\mathbb{I}_{m}$的可逆元当且仅当$gcd(a,m)=1$</li>
+<li>若$p$是质数，那么$\mathbb{I}_{p}$每一个非零的$[a]$都是可逆元</li>
+</ul>
+<p><b>注:</b>若$sa+tm=1$，那么$[a]^{-1}=[s]$</p>
+<h2 id="域"><a href="#域" class="headerlink" title="域"></a>域</h2><p>一个域F是一个交换环，在域中$1 \neq 0$，且每一个非零元素$a$都是一个可逆元<br>即存在$a^{-1} \in F$使得$a^{-1} a=1$</p>
+<h3 id="定理-1"><a href="#定理-1" class="headerlink" title="定理"></a>定理</h3><ul>
+<li>每一个域$F$都是一个整环</li>
+<li>交换环$\mathbb{I}_{m}$是一个域当且仅当$m$是质数<br><b>注:</b>当$p$为质数时，$\mathbb{I}_{p}$也可表示为$\mathbb{F}_{p}$</li>
+</ul>
+<h3 id="分式域"><a href="#分式域" class="headerlink" title="分式域"></a>分式域</h3><p><b>引理:</b><br>若$R$是一个域并且$X=\lbrace (a,b) \in R \times R:b \neq 0 \rbrace$，那么$X$上的关系$\equiv$可如下定义:</p>
+<script type="math/tex; mode=display">(a,b) \equiv (c,d) \quad \mathrm{if} \quad ad=bc</script><p>关系$\equiv$是一个等价关系</p>
+<p>由一个整环$R$定义一个域$F$:</p>
+<ul>
+<li>对所有$a,b \in R, b \neq 0$，定义$F={[a,b]}$</li>
+<li>定义相等:若$ad=bc$，则$[a,b]=[c,d]$</li>
+<li>定义$+$运算为$[a,b]+[c,d]=[ad+bc,bd]$</li>
+<li>定义$\cdot$运算为$[a,b] \cdot [c,d]=[ac,bd]$</li>
+<li>定义$[0,1]$，或$[0,b],b \neq 0$为零元</li>
+<li>定义$[1,1]$，或$[b,b],b \neq 0$为一元</li>
+</ul>
+<p>$F$是域请自行证明<br>由$R$生成的分式域表示为$Frac(R)$<br>元素$[a,b] \in Frac(R)$可用$a/b$表示，类似的，$a/1$可被化简为$a$，$0/a(a \neq 0)$可被化简为0，$1/a(a \neq 0)$可被表示为$a^{-1}$<br>$Frac(\mathbb{Z})=\mathbb{Q}$</p>
+<h2 id="子域"><a href="#子域" class="headerlink" title="子域"></a>子域</h2><p>域$K$的子域是$K$的一个子环，并且这个子环也是一个域</p>
+<h3 id="定理-2"><a href="#定理-2" class="headerlink" title="定理"></a>定理</h3><ul>
+<li>域$K$的子集$k$是一个子域，当且仅当$k$是一个对逆元运算封闭的子环，即若$a \in k$并且$a \neq 0$，那么$a^{-1} \in k$</li>
+<li>若$\lbrace F_{i}:i \in I \rbrace$是域$K$的任何子域所构成的集合簇，那么$k=\bigcap_{i \in I} F_{i}$也是$K$的一个子域<br><b>注:</b>若$K$是一个域，那么$K$的所有子域的交集$k$被称作$K$的素域</li>
+</ul>
+<h2 id="多项式"><a href="#多项式" class="headerlink" title="多项式"></a>多项式</h2><p><b>引理:</b>若$R$是一个交换环，那么在$R$上的一个序列可被定义为一个函数$\sigma :\mathbb{N} \to R$<br>一个序列$\sigma$可由它的值定义，对每一个$i \in \mathbb{N}$，令$\sigma (i)=s_{i} \in R$，那么</p>
+<script type="math/tex; mode=display">\sigma = (s_{0},s_{1},s_{2}, \cdots ,s_{i} , \cdots)</script><p>$s_{i} \in R$被称为序列的系数，序列$\sigma = \tau$当且仅当$\sigma (i)= \tau (i),i \geq 0$<br>这样的话，很容易把多项式$s_{0}+s_{1}x+s_{2}x^{2}+ \cdots +s_{n}x^{n}$对应到序列$(s_{0},s_{1},s_{2}, \cdots ,s_{n} ,0,0, \cdots)$<br><b>下面给出多项式的定义</b></p>
+<p>若存在整数$n \geq 0$，使得对所有$i &gt; n$都有$s_{i} = 0$，则称交换环$R$上的序列$\sigma = (s_{0}, s_{1}, s_{2}, \cdots, s_{i}, \cdots)$为一个多项式，即</p>
+<script type="math/tex; mode=display">\sigma = (s_{0}, s_{1}, \cdots, s_{n},0,0, \cdots)</script><p>一个多项式只有有限个非零系数<br>序列$\sigma=(0,0,0, \cdots)$被称为零多项式，可表示为$\sigma=0$<br>若多项式$\sigma \neq 0$，那么存在自然数$n$使得$s_{n} \neq 0$，且对任何$i &gt; n$有$s_{i}=0$，那么称$s_{n}$是$\sigma$的最高系数，$n$是$\sigma$的次数，用$deg(\sigma)$表示<br><b>注意:$deg(\sigma)=0$表示$s_{0} \neq 0$</b><br>若最高系数$s_{n}=1$，则称该多项式是首一的</p>
+<h3 id="多项式乘法"><a href="#多项式乘法" class="headerlink" title="多项式乘法"></a>多项式乘法</h3><p>若$R$是一个交换环，且对$i \geq 0, j \geq 0$有$r, s_{i}, t_{j} \in R$，那么</p>
+<script type="math/tex; mode=display">(s_{0}+s_{1}r+ \cdots )(t_{0}+t_{1}r+ \cdots)=a_{0}+a_{1}r+ \cdots +a_{k}r^{k}+ \cdots</script><p>其中$a_{k}= \sum_{i+j=k} s_{i}t_{j}$，对所有$k \geq 0$</p>
+<h2 id="多项式环"><a href="#多项式环" class="headerlink" title="多项式环"></a>多项式环</h2><p>若$R$是一个交换环，那么由$R$中元素作为系数的所有多项式的集合可用$R[x]$表示<br>多项式环中加法定义如下:</p>
+<script type="math/tex; mode=display">(s_{0},s_{1}, \cdots ,s_{m}, 0 , \cdots)+(t_{0},t_{1}, \cdots ,t_{n}, 0 , \cdots)=(s_{0}+t_{0},s_{1}+t_{1}, \cdots)</script><p>多项式乘法的定义见上<br>环中的零元为$(0,0, \cdots )$，一元为$(1,0, \cdots)$</p>
+<h3 id="定理-3"><a href="#定理-3" class="headerlink" title="定理"></a>定理</h3><ul>
+<li>若$R$是交换环，那么$R[x]$也是交换环且$R$是其子环</li>
+<li>若$R$是整环，那么$R[x]$也是整环</li>
+</ul>
+<p>令$R$是一个交换环，且令$\sigma, \tau \in R[x]$是非零多项式，则</p>
+<ul>
+<li>Either $\sigma \tau =0$ or $deg(\sigma \tau) \leq deg(\sigma) + deg(\tau)$</li>
+<li>若$R$是一个整环，那么$\sigma \tau \neq 0$且$deg(\sigma \tau) = deg(\sigma) +deg(\tau)$</li>
+</ul>
+<h2 id="未知数"><a href="#未知数" class="headerlink" title="未知数"></a>未知数</h2><p>令未知数为元素</p>
+<script type="math/tex; mode=display">x=(0,1,0,0, \cdots) \in R[x]</script><h3 id="定理-4"><a href="#定理-4" class="headerlink" title="定理"></a>定理</h3><ul>
+<li>若$\sigma=(s_{0},s_{1}, \cdots,s_{j},\cdots)$，那么$x \sigma=(0,s_{0},s_{1}, \cdots, s_{j}, \cdots)$</li>
+<li>若$n \geq 1$，则$x^{n}$的各个元素全是0，除了第n个元素为1</li>
+<li>若$r \in R$，则$(r,0,0, \cdots)(s_{0},s_{1}, \cdots ,s_{j}, \cdots)=(rs_{0},rs_{1}, \cdots ,rs_{j}, \cdots)$</li>
+</ul>
+<h2 id="多项式函数"><a href="#多项式函数" class="headerlink" title="多项式函数"></a>多项式函数</h2><p>每个多项式$f(x)=s_{0}+s_{1}x+s_{2}x^{2}+ \cdots +s_{n}x^{n} \in R[n]$都定义了一个函数$f:R \to R$:若$r \in R$，有$f(r)=s_{0}+s_{1}r+s_{2}r^{2}+ \cdots +s_{n}r^{n} \in R$<br>多项式$f(x)=s_{0}+s_{1}x+s_{2}x^{2}+ \cdots +s_{n}x^{n}$和$g(x)=t_{0}+t_{1}x+t_{2}x^{2}+ \cdots +t_{m}x^{m}$相等当且仅当对所有$i \in \mathbb{N}$，有$s_{i}=t_{i}$<br>令$F$为域，则$F[x]$的分式域，用$F(x)$表示，被称为$F$上的有理函数域</p>
+<h3 id="定理-5"><a href="#定理-5" class="headerlink" title="定理"></a>定理</h3><ul>
+<li>$F(x)$中的元素有$f(x)/g(x)$的形式，其中$f(x),g(x) \in F[x]$且$g(x) \neq 0$</li>
+<li>若$p$是素数，那么有理函数域$\mathbb{F}_{p} (x)$是一个有限域，其素域为$\mathbb{F}_{p}$</li>
+</ul>
+<h2 id="多变量多项式"><a href="#多变量多项式" class="headerlink" title="多变量多项式"></a>多变量多项式</h2><p>令$A=R[x]$，那么多项式环$A[y]$可被称为定义在$R$上的多变量多项式环，可表示为$R[x,y]$<br>例如，多项式$cy^{2}+(bx+e)y+(ax^{2}+dx+f)$，是一个由$R[x]$中元素作为系数的多项式<br>$R[x_{1},x_{2}, \cdots, x_{n}]$也类似</p>
+<h2 id="环同态"><a href="#环同态" class="headerlink" title="环同态"></a>环同态</h2><p>若$A$和$R$是交换环，那么一个环同态就是一个函数$f:A \to R$，且有</p>
+<ul>
+<li>$f(1)=1$</li>
+<li>对所有$a,a’ \in A$有$f(a+a’)=f(a)+f(a’)$</li>
+<li>对所有$a,a’ \in A$有$f(aa’)=f(a)f(a’)$</li>
+</ul>
+<p>如果一个同态也是双射，则这个同态也是一个同构。交换环$A$和$R$同构可表示为$A \cong R$</p>
+<h3 id="性质-3"><a href="#性质-3" class="headerlink" title="性质"></a>性质</h3><p>若$f: A \to R$是一个环同构，那么对所有$a \in A$有</p>
+<ul>
+<li>对所有$n \geq 0$，有$f(a^{n})=f(a)^{n}$</li>
+<li>若$a$是一个可逆元，那么$f(a)$也是一个可逆元并且$f(a^{-1})=f(a)^{-1}$</li>
+<li>若$a$是一个可逆元，那么对所有$n \geq 1$有$f(a^{-n})=f(a)^{-n}$</li>
+<li>若定义$U(A)$为$A$中的可逆元组成的群，有$f(U(A)) \subseteq U(R)$，且若$f$是一个同构，有$U(A) \cong U(R)$</li>
+</ul>
+<h3 id="计值映射"><a href="#计值映射" class="headerlink" title="计值映射"></a>计值映射</h3><p>若$R$是一个交换环并且$s \in R$，那么计值映射$e_{s}:R[x] \to R$是同态<br>计值映射$e_{s}$定义为$e_{s}(f(x))=f(s)$，即$e_{s}(\sum_{i}r_{i}x^{i})=\sum_{i}r_{i}s^{i}$</p>
+<h3 id="核与像"><a href="#核与像" class="headerlink" title="核与像"></a>核与像</h3><p>若$f: A \to R$是一个环同态，那么它的核为</p>
+<script type="math/tex; mode=display">\mathbf{ker}f=\lbrace a \in A \quad \mathrm{with} \quad f(a)=0 \rbrace</script><p>它的像为</p>
+<script type="math/tex; mode=display">\mathbf{im} f=\lbrace r \in R:r=f(a) \quad \mathrm{for} \quad \mathrm{some} \quad a \in A \rbrace</script><p>核与像满足如下性质:若$f: A \to R$是一个环同态，且$R$是一个非零环，那么$\mathbf{im}f$是$R$的子环且$\mathbf{ker} f$是$A$的真子集，满足如下条件</p>
+<ul>
+<li>$0 \in \mathbf{ker}f$</li>
+<li>若$x,y \in \mathbf{ker} f$，有$x+y \in \mathbf{ker} f$</li>
+<li>若$x \in \mathbf{ker} f$且$a \in A$，有$ax \in \mathbf{ker}f$</li>
+</ul>
+<h2 id="理想"><a href="#理想" class="headerlink" title="理想"></a>理想</h2><p>交换环$R$上的理想$I$是$R$的子集且有</p>
+<ul>
+<li>$0 \in I$</li>
+<li>若$a,b \in I$，那么$a+b \in I$</li>
+<li>若$a \in I$且$r \in R$，那么$ra \in I$</li>
+</ul>
+<p>理想$I \neq R$称为真理想<br>若$ab \in I$，则有$a \in I$或$b \in I$，且$I$为真理想，则$I$为素理想</p>
+<h3 id="主理想"><a href="#主理想" class="headerlink" title="主理想"></a>主理想</h3><p>若$b_{1},b_{2}, \cdots ,b_{n}$在$R$中，那么它们所有线性组合的集合</p>
+<script type="math/tex; mode=display">I= \lbrace r_{1}b_{1}+r_{2}b_{2}+ \cdots + r_{n}b_{n}:r_{i} \in R \quad \mathrm{for} \quad \mathrm{all} \quad i \rbrace</script><p>是$R$上的一个理想，可以写作$I=(b_{1},b_{2},\cdots,b_{n})$<br>特殊的，如果$n=1$，那么</p>
+<script type="math/tex; mode=display">I=(b)=\lbrace rb:r \in R \rbrace</script><p>是$R$上的一个理想，称为由$b$生成的主理想<br>很显然$R=(1)$且$\lbrace 0 \rbrace =(0)$，在整数集$\mathbb{Z}$上，主理想$(2)$是所有偶数组成的集合<br>$\mathbb{Z}$上的每一个理想都是主理想<br><b>拓展:</b>证明$\lbrace r_{1}b_{1}+r_{2}b_{2}:r_{1},r_{2} \in \mathbb{Z} \rbrace = \lbrace rd : r \in \mathbb{Z} \rbrace$，其中$d=gcd(b_{1},b_{2})$</p>
+<h3 id="推论"><a href="#推论" class="headerlink" title="推论"></a>推论</h3><ul>
+<li>环同态$f: A \to R$是单射当且仅当$\mathbf{ker} f =\lbrace 0 \rbrace$</li>
+<li>若$f:k \to R$是环同态，且$R$不是一个零环，且当$k$是一个域，那么$f$是一个单射</li>
+</ul>
+<h3 id="理想与环"><a href="#理想与环" class="headerlink" title="理想与环"></a>理想与环</h3><ul>
+<li>若$R$是交换环，且存在可逆元$u \in R$使得$a=ub$，那么$(a)=(b)$</li>
+<li>若$R$是一个整环，那么$(a)=(b)$可以推出存在可逆元$u \in R$使得$a=ub$</li>
+<li>非零交换环$R$是一个域，当且仅当它仅有的理想是$\lbrace 0 \rbrace$和$R$</li>
+<li>交换环$R$上的理想$\lbrace 0 \rbrace$是一个素理想，当且仅当$R$是整环</li>
+<li>$(p)$为$\mathbb{Z}$上的素理想，且有$p=0$或$p$是一个素数</li>
+</ul>
+<h2 id="多项式除法算法"><a href="#多项式除法算法" class="headerlink" title="多项式除法算法"></a>多项式除法算法</h2><p><b>引理:</b>若$f(x)=s_{n}x^{n}+ \cdots +s_{1}x+s_{0}$是一个次数为$n$的多项式，那么它的首项是</p>
+<script type="math/tex; mode=display">LT(f)=s_{n}x^{n}</script><p>令$k$是一个域，令$f(x)=s_{n}x^{n}+ \cdots +s_{1}x+s_{0}$和$g(x)=t_{m}x^{m}+ \cdots +t_{1}x+t_{0}$是$k[x]$上的多项式，满足$deg(f) \leq deg(g)$，即$n \leq m$<br>那么有$s_{n}^{-1} \in k$，因为$k$是一个域，且</p>
+<script type="math/tex; mode=display">\frac{LT(g)}{LT(f)}=s_{n}^{-1}t_{m}x^{m-n} \in k[x]</script><p>这样可得出$LT(f) \mid LT(g)$</p>
+<p><b>算法的证明:</b>令$R$是一个交换环，令$f(x),g(x) \in R[x]$，并令$f(x)$的最高系数是$R$上的可逆元，有</p>
+<ul>
+<li>有多项式$q(x),r(x) \in R[x]$使得$g(x)=q(x)f(x)+r(x)$，其中有$r(x)=0$或$deg(r) &lt; deg(f)$</li>
+<li>若$R$是一个整环，那么上文中提到的$q(x)$和$r(x)$是独特的</li>
+</ul>
+<p>证明从略</p>
+<p><b>算法的实现:</b><br>以下是伪代码实现</p>
+<center><img src="https://mizunashi.me/image-hosting/blog/others/polynomial-division-algorithm.PNG"></center>
+
+<h2 id="多项式的根"><a href="#多项式的根" class="headerlink" title="多项式的根"></a>多项式的根</h2><p>若$f(x) \in k[x]$，且$k$是一个域，那么在$k$上的$f(x)$的根是一个元素$a \in k$，且有$f(a)=0$<br>对任何$a \in k$，都存在$q(x) \in k[x]$使得</p>
+<script type="math/tex; mode=display">f(x)=q(x)(x-a)+f(a)</script><p>若$f(x) \in k[x]$，且$k$是一个域，那么$a \in k$是$f(x)$的根当且仅当$x-a$整除$f(x)$</p>
+<h3 id="定理-6"><a href="#定理-6" class="headerlink" title="定理"></a>定理</h3><p>令$k$是一个域且$f(x) \in k[x]$，有</p>
+<ul>
+<li>若$f(x)$的次数为$n$，那么$f(x)$在$k$上最多有$n$个根</li>
+<li>若$f(x)$的次数为$n$，并且$a_{1},a_{2}, \cdots ,a_{n} \in k$是$f(x)$的独特的根，那么有$c \in k$满足$f(x)=c(x-a_{1})(x-a_{2}) \cdots (x-a_{n})$</li>
+</ul>
+<h2 id="多项式的最大公约式"><a href="#多项式的最大公约式" class="headerlink" title="多项式的最大公约式"></a>多项式的最大公约式</h2><p>若$k$是一个域，$f(x),g(x) \in k[x]$，那么公约式$c(x) \in k[x]$满足$c(x) \mid f(x)$和$c(x) \mid g(x)$<br>若$f(x)=0=g(x)$，那么它们的最大公约式为0，若两个多项式中至少有一个非零，那么它们的最大公约式(用$(f,g)$表示)，是一个首一的公约式$d(x) \in k[x]$，且对每一个公约式$c(x)$，有$deg(c) \leq deg(d)$<br>若$k$是一个域，且$f(x),g(x) \in k[x]$，那么它们的最大公约式是$f(x)$和$g(x)$的线性组合(可被表示为$h(x)=s(x)f(x)+t(x)g(x)$，且$s(x),t(x) \in k[x]$)</p>
+<h3 id="定理-7"><a href="#定理-7" class="headerlink" title="定理"></a>定理</h3><p>令$k$是一个域，且$f(x),g(x) \in k[x]$，有</p>
+<ul>
+<li>一个首一的公约式$d(x)$是最大公约式，当且仅当$d(x)$能整除每一个公约式</li>
+<li>任何两个多项式$f(x)$和$g(x)$都有唯一的最大公约式</li>
+</ul>
+<h3 id="欧几里得算法"><a href="#欧几里得算法" class="headerlink" title="欧几里得算法"></a>欧几里得算法</h3><p>若$k$是一个域且$f(x),g(x) \in k[x]$，那么存在一个计算$gcd(f(x),g(x))$的算法，也存在一个计算最大公约式的线性组合表示的算法<br>以下是伪代码实现：</p>
+<center><img src="https://mizunashi.me/image-hosting/blog/others/euclidean-algorithm-polynomial.png"></center>
+
+<h2 id="多项式的理想"><a href="#多项式的理想" class="headerlink" title="多项式的理想"></a>多项式的理想</h2><p>若$k$是一个域，那么$k[x]$上的每一个理想$I$都是主理想。若$I \neq 0$，那么有一个首一的多项式可以生成$I$<br>一个交换环$R$是一个主理想整环，如果$R$是一个整环，且在这个整环里每个理想都是主理想。主理想整环可以简写为PID(<b>principal ideal domain</b>)</p>
+<h2 id="不可约简项"><a href="#不可约简项" class="headerlink" title="不可约简项"></a>不可约简项</h2><p>交换环$R$上的元素$p$是不可约简项，若$p$既不是0也不是可逆元。如果在$R$上有$p=ab$，那么$a$或$b$是可逆元<br>若$k$是一个域，那么一个非常数多项式$p(x) \in k[x]$是不可约简项，当且仅当$p(x)$不能以$p(x)=f(x)g(x)$的形式被分解，其中$f(x)$和$g(x)$的次数均小于$p(x)$的次数，且$f(x)$和$g(x)$也是非常数多项式</p>
+<h2 id="欧氏环"><a href="#欧氏环" class="headerlink" title="欧氏环"></a>欧氏环</h2><p>交换环$R$是一个欧氏环当其为一个整环并且有一个函数</p>
+<script type="math/tex; mode=display">\vartheta: R^{\times} \to \mathbb{N}</script><p>这个函数被称为<b>degree function</b>，且满足</p>
+<ul>
+<li>对所有$f,g \in R^{\times}$，有$\vartheta (f) \leq \vartheta (fg)$</li>
+<li>对所有$f,g \in R$，其中$f \in R^{\times}$，那么存在$q,r \in R$满足$g=qf+r$，且有$r=0$或$\vartheta (r) &lt; \vartheta (f)$</li>
+</ul>
+<p>$R^{\times}$表示$R$中所有非零元素组成的集合</p>
+<h3 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h3><ul>
+<li>每一个域$R$都是欧氏环，且$\vartheta =0$</li>
+<li>$\mathbb{Z}$是欧氏环，且对$m \in \mathbb{Z}$，有$\vartheta (m)= \mid m \mid$</li>
+<li>对一个域$k$，$k[x]$是欧氏环，且对$f \in k[x]$，有$\vartheta(f)=deg(f)$</li>
+</ul>
+<h2 id="唯一分解"><a href="#唯一分解" class="headerlink" title="唯一分解"></a>唯一分解</h2><p>若$k$是一个域，那么每一个次数大于等于1的多项式$f(x) \in k[x]$是一个非零常数和(多个)首一不可约简项的乘积。此外，如果</p>
+<script type="math/tex; mode=display">f(x)=ap_{1}(x) \cdots p_{m}(x) \quad \mathrm{and} \quad f(x)=bq_{1}(x) \cdots q_{n}(x)</script><p>其中$a$和$b$是非零常数并且$p$和$q$是首一不可约简项，那么有$a=b,m=n$，且对所有$i$，有$q_{i}=p_{i}$</p>
+<h2 id="交换环上的同余类"><a href="#交换环上的同余类" class="headerlink" title="交换环上的同余类"></a>交换环上的同余类</h2><p>给定交换环$R$和理想$I$，在$R$上定义模$I$的同余关系如下</p>
+<script type="math/tex; mode=display">a \equiv b \; \mathrm{mod} \; I \quad \mathrm{iif} \quad a-b \in I</script><p><b>定理:</b>模$I$的同余关系是$R$上的等价关系</p>
+<p>给定交换环$R$和$R$上的理想$I$，定义$a$模$I$的同余类如下</p>
+<script type="math/tex; mode=display">[a]=\lbrace b \in R:b \equiv a \; \mathrm{mod} \; I \rbrace</script><p>这是$a$关于$R$的等价类<br>所有模$I$的同余类组成的集合可以表示为$R/I$</p>
+<h2 id="商环"><a href="#商环" class="headerlink" title="商环"></a>商环</h2><p>如果$I$是交换环$R$上的理想，那么$R/I$是交换环<br>$R/I$上的加法和乘法运算定义如下:</p>
+<script type="math/tex; mode=display">[a]+[b]=[a+b] \quad \mathrm{and} \quad [a] \cdot [b]=[ab]</script><p>这个$R/I$被称为$R$模$I$的商环<br>$\mathbb{I}_{m}$上的同余类也可以用如下形式表示:</p>
+<script type="math/tex; mode=display">[a]=\lbrace b \in \mathbb{Z}:b=a+km \; \mathrm{for} \; k \in \mathbb{Z} \rbrace =a+(m)</script><h3 id="第一环同构定理"><a href="#第一环同构定理" class="headerlink" title="第一环同构定理"></a>第一环同构定理</h3><p>若$\varphi:R \to S$是一个环同态，那么$\mathbf{ker} \varphi$是$R$上的理想，$\mathbf{im} \varphi$是$S$的子环，并且存在一个同构</p>
+<script type="math/tex; mode=display">\widetilde{\varphi}:R/ \mathbf{ker} \varphi \to \mathbf{im} \varphi</script><p>这个同构定义为$\widetilde{\varphi}(a+ \mathbf{ker} \varphi)=\varphi(a)$</p>
+<h2 id="极大理想"><a href="#极大理想" class="headerlink" title="极大理想"></a>极大理想</h2><p>交换环$R$上的理想$I$是极大理想，如果$I$是一个真理想并且没有理想$J$使得$I \subset J \subset R$</p>
+<h3 id="举例-1"><a href="#举例-1" class="headerlink" title="举例"></a>举例</h3><ul>
+<li>$\lbrace 0 \rbrace$是$R$上的极大理想，当且仅当$R$是域</li>
+<li>如果$R$是一个主理想整环，那么每一个非零素理想都是极大理想</li>
+</ul>
+  	
+					
+	  </div>     
+	  
+
+	<div class="post-footer">
+
+
+  <div class="post-footer-other">
+       
+    
+      <span class="post-footer-item">
+        <span class="share-btn">
+	<span class="iconfont icon-share"></span>
+</span>
+<div class="-mob-share sildeUpMin">
+	<ul class="-mob-inner">
+	   			             
+        <li class="iconfont 
+		icon-share-weixin 
+		-mob-share-weixin 
+		-mob-share-link"></li>		
+   	   			             
+        <li class="iconfont 
+		icon-share-weibo 
+		-mob-share-weibo 
+		-mob-share-link"></li>		
+   	   			             
+        <li class="iconfont 
+		icon-share-facebook 
+		-mob-share-facebook 
+		-mob-share-link"></li>		
+   	   			             
+        <li class="iconfont 
+		icon-share-twitter 
+		-mob-share-twitter 
+		-mob-share-link"></li>		
+   	   
+	</ul>
+</div>	
+
+
+<script id="-mob-share" src="https://f1.webshare.mob.com/code/mob-share.js?appkey=2a31e660f849e"></script>
+      </span>  
+               
+  </div>  
+    
+
+
+  <div class="post-footer-meta">
+        	
+
+        
+          <i class="iconfont icon-tag"></i>     
+            <a class="tag-link" href="/tags/Abstract-Algebra/">Abstract Algebra</a>    
+        	
+  </div>
+
+</div>
+
+
+<nav class="post-footer-nav">
+  <div class="post-footer-link">
+  
+      <a href="/2019/04/14/RSS-Collections/" id="post-nav-older" class="post-nav-link-wrap">
+        <strong class="post-nav-caption">older</strong>
+        
+          <span class="post-nav-title">
+            RSS源收藏夹
+          </span>
+      </a>
+  
+  </div>
+  <div class="post-footer-link">
+    
+        <a href="/2019/05/14/Abstract-Algebra-Homework-2/" id="post-nav-newer" class="post-nav-link-wrap">
+          <strong class="post-nav-caption">newer</strong>
+             
+            <span class="post-nav-title">
+              抽象代数习题--交换环部分
+            </span>
+        </a>
+    
+  </div>
+
+</nav>
+ 
+	
+
+    <script src="//cdn.jsdelivr.net/npm/@waline/client"></script>
+
+    <div id="waline"></div>
+
+    <script>
+        Waline({
+          el: '#waline',
+          serverURL: 'https://blog-api.mizunashi.me/',
+          lang: 'en',
+          avatar: 'retro',
+          uploadImage: false,
+        });
+      </script>
+	
+</article>
+
+          </div> 
+      </div>            
+    
+    <a id="page-backTop">
+      <span>
+        <i class="iconfont icon-backtotop"></i>
+      </span>
+    </a> 
+
+  
+    
+    <div class="search-container sildeUpMin">
+        <div class="search-header">
+            <input type="text" placeholder="Typing Something here." id="search-input" class="search-input">
+            <span class="search-cancel">
+                <i class="iconfont icon-cancel">
+            </i></span>
+        </div>
+        <div id="search-result" class="search-result"></div>
+    </div>
+ 
+     <div class="mobile-menu">      
+
+      
+      <img class="mobile-menu-icon" src="/images/favicon.png">  
+      
+
+         
+            
+
+            <a class="mobile-menu-link" href="/">Home
+            </a>
+            
+         
+            
+
+            <a class="mobile-menu-link" href="/archives">Archives
+            </a>
+            
+         
+            
+
+            <a class="mobile-menu-link" href="/tags">Tags
+            </a>
+            
+         
+            
+
+            <a class="mobile-menu-link" href="/about">About
+            </a>
+            
+         
+            
+
+            <a class="mobile-menu-link" href="/guestbook">Guestbook
+            </a>
+            
+         
+                          
+
+            <a class="mobile-menu-link mobile-menu-search" href="#">Search </a>                 
+            
+         
+      
+</div>
+        
+    
+
+
+
+     
+    
+
+
+
+
+<footer id="footer">	    
+
+		
+		<div class="footer-copyright">
+		&copy;
+				
+		2019-
+		
+		2021		
+	
+		Mizunashi&#39;s Blog
+        <br>
+        
+        <a href="/about">About</a> | <a href="/sitemap.xml">Sitemap</a> | <a href="/privacy.html">Privacy Policy</a> | 
+        <a href="/changelog.html">Changelog</a> | <a href="/atom.xml">RSS</a>
+
+        <br>
+
+		Theme  <a href="https://github.com/Lemonreds/hexo-theme-Nayo" target="_blank">Nayo</a>
+		</div>			
+	 
+</footer>   
+
+    <script src="/nayo.bundle.js"></script>           
+  </body>        
+</html>

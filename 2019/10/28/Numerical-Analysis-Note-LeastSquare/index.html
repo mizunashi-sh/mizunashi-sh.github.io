@@ -1,0 +1,438 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html>
+  <head><meta name="generator" content="Hexo 3.9.0">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  
+  
+  <title>  数值分析学习笔记--最小二乘拟合 |   Mizunashi&#39;s Blog </title>
+
+ 
+  
+    <link rel="icon" href="/images/favicon.png">
+  
+
+
+  <link rel="stylesheet" href="/nayo.min.css"> 
+</head>  
+  <body>   
+    
+      <link rel="stylesheet" type="text/css" href="/nayo.customized.css">
+
+<header class="header">
+	
+  <nav class="header-inner">        
+
+    <span class="iconfont icon-menu mobile-toggle"></span>   	
+
+    <div class="header-logo">
+      <a href="/">
+        <img class="header-logo-img" src="/images/logo.png">
+      </a>
+    </div>
+
+    <div class="header-menu">          
+              
+            
+                
+                    <a class="header-menu-link" id="header-menu-home" href="/">
+                        <i class="iconfont icon-home">  
+                    </i></a>   
+                  
+            
+              
+            
+                
+                    <a class="header-menu-link" id="header-menu-archives" href="/archives">
+                        <i class="iconfont icon-archives">  
+                    </i></a>   
+                  
+            
+              
+            
+                
+                    <a class="header-menu-link" id="header-menu-tags" href="/tags">
+                        <i class="iconfont icon-tags">  
+                    </i></a>   
+                  
+            
+              
+            
+                
+                    <a class="header-menu-link" id="header-menu-about" href="/about">
+                        <i class="iconfont icon-about">  
+                    </i></a>   
+                  
+            
+              
+            
+                
+                    <a class="header-menu-link" id="header-menu-guestbook" href="/guestbook">
+                        <i class="iconfont-custom icon-message">  
+                    </i></a> 
+                  
+            
+              
+            
+                <a class="header-menu-link" id="header-menu-search">
+                    <i class="iconfont icon-search">  
+                </i></a>
+            
+                  
+    </div>  
+    
+  </nav>
+</header>
+
+ 
+
+      <div class="container">       
+          
+          
+            <div class="container-inner">  
+          
+
+          <article class="post">
+  
+	
+<div class="post-header">
+	<div class="post-header-inner">
+		<p class="post-title">	
+			数值分析学习笔记--最小二乘拟合
+		</p>
+		<div class="post-info">	
+			<span class="post-info-entry">
+				Oct 28, 2019
+			</span>
+
+			
+			
+				<i class="iconfont icon-words"></i>
+				<span class="post-info-entry">3001
+				</span>
+			
+		</div>
+	</div>
+</div> 
+	
+
+    <script type="text/x-mathjax-config">
+        var post = document.getElementsByClassName("post")[0];  
+        MathJax.Hub.Config({
+            showProcessingMessages: false,
+            messageStyle: "none",    
+            tex2jax: {
+                inlineMath:  [ ["$", "$"] , ["\\(","\\)"]],
+                displayMath: [ ["$$","$$"] , ["\\[","\\]"]],
+                skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code','a'],
+            },
+            "HTML-CSS": {            
+                showMathMenu: false
+            }
+        });
+        MathJax.Hub.Queue(["Typeset",MathJax.Hub,post]);
+    </script>
+    <style>.MathJax{outline:0;}</style>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS_CHTML"></script>
+ 
+
+	  <div class="typo post-content slideDownMin">
+
+		
+
+			
+					<p><img src="https://mizunashi.me/image-hosting/blog/others/hirotugu-akaike.png" alt></p>
+<blockquote>
+<p>Google Doodles in memory of Akaike Hirotugu(赤池弘次), a Japanese statistician</p>
+</blockquote>
+<a id="more"></a>
+<p>如有疏漏，敬请指正。</p>
+<p>如果一组数据点含有噪声或误差，无法同时满足某个特定函数，那么只能要求逼近函数尽量靠近数据点。按照误差最小的原则构造的逼近函数称为拟合函数。</p>
+<p>误差可以用各种向量范数来定义</p>
+<script type="math/tex; mode=display">||Z-Y||_1=\sum_{i=1}^{m}|\varphi(x_i)-y_i|</script><script type="math/tex; mode=display">||Z-Y||_2=\sqrt{\sum_{i=1}^m(\varphi(x_i)-y_i)^2}</script><script type="math/tex; mode=display">||Z-Y||_{\infty}=\max_{1 \leq i \leq n}|\varphi(x_i)-y_i|</script><p>特别地，定义</p>
+<script type="math/tex; mode=display">Q=||Z-Y||_2^2=\sum_{i=1}^m(\varphi(x_i)-y_i)^2</script><p>为误差平方和，使误差平方和最小的方法称为最小二乘法。</p>
+<p>最小二乘法的思想不仅可用于离散函数的拟合，也可用于连续函数的逼近。</p>
+<h2 id="多项式拟合"><a href="#多项式拟合" class="headerlink" title="多项式拟合"></a>多项式拟合</h2><p>给定一组数据$\lbrace (x_i,y_i),i=1,2, \cdots ,m \rbrace$，当拟合函数$\varphi(x)$形如$a_0+a_1x+ \cdots +a_nx^n$时，拟合称为n次多项式拟合，即求$\alpha=(a_0,a_1, \cdots ,a_n)$使得</p>
+<script type="math/tex; mode=display">Q(\alpha)=\sum_{i=1}^{m}(a_0+a_ix_i+ \cdots +a_nx_i^n-y_i)^2</script><p>达到最小。</p>
+<p>令最小值点$\alpha$满足</p>
+<script type="math/tex; mode=display">\frac{\partial Q}{\partial a_j}=2 \sum_{i=1}^{m} (a_0+a_1x_i+ \cdots +a_nx_i^n-y_i)x_i^j=0</script><p>其中$j=0,1, \cdots ,n$</p>
+<p>整理得多项式拟合的法方程</p>
+<script type="math/tex; mode=display">
+\begin{bmatrix}
+m & \sum_{i=1}^{m} x_i & \cdots & \sum_{i=1}^m x_i^n \\
+\sum_{i=1}^m x_i & \sum_{i=1}^{m} x_i^2 & \cdots & \sum_{i=1}^m x_i^{n+1} \\
+\vdots & \vdots & & \vdots \\
+\sum_{i=1}^m x_i^n & \sum_{i=1}^{m} x_i^{n+1} & \cdots & \sum_{i=1}^m x_i^{2n}
+\end{bmatrix}
+\begin{bmatrix}
+a_0 \\ a_1 \\ \vdots \\ a_n \\
+\end{bmatrix}
+=
+\begin{bmatrix}
+\sum_{i=1}^m y_i \\
+\sum_{i=1}^m x_iy_i \\
+\vdots \\
+\sum_{i=1}^m x_i^n y_i
+\end{bmatrix}</script><p>这个方程的系数矩阵显然是对称的，此外还是半正定的。这个线性方程组也对任意$y_1,y_2, \cdots ,y_m$都有解。</p>
+<p>在实际应用中，特别是进行高次多项式拟合时，系数矩阵很有可能是病态的，因此需要使用一些专门算法保证解的稳定性。</p>
+<p>多项式拟合的方法可以推广到其它类型的函数拟合。</p>
+<p>例如，对一组数据点作形如$\varphi (x)=ab^x$的函数拟合时，可以对数据作预处理，进行形如$ln \varphi(x) =lna+x lnb$的线性拟合，然后再求出a与b。</p>
+<p>同样地，当进行双曲函数拟合$\varphi(x) =\frac{1}{a+bx}$时，不妨令</p>
+<script type="math/tex; mode=display">Q=\sum_{i=1}^{m} \left( a+bx_i-\frac{1}{y_i} \right)^2</script><p>如果进行有理函数拟合$\varphi(x)=\frac{a_0+a_1x+ \cdots +a_px^p}{1+b_1x+ \cdots +b_qx^q}$，则需要令</p>
+<script type="math/tex; mode=display">Q=\sum_{i=1}^{m}(a_0+a_1x_i+ \cdots +a_px_i^p-b_1x_iy_i- \cdots -b_qx_i^qy_i-y_i)^2</script><p>预处理的目的是提高求解效率，但是也有可能会降低求解精度。</p>
+<h2 id="矛盾方程组"><a href="#矛盾方程组" class="headerlink" title="矛盾方程组"></a>矛盾方程组</h2><p>给定一组数据$\lbrace (x_i,y_i),i=1,2, \cdots ,m \rbrace$，假设拟合函数有</p>
+<script type="math/tex; mode=display">\varphi (x)=\alpha_1 \varphi_1(x)+\alpha_2 \varphi_2(x)+ \cdots +\alpha_n\varphi_n(x)</script><p>的形式，其中$\varphi_i(x),1 \leq i \leq n$是已知参数，$\alpha_i ,1 \leq i \leq n$是未知参数。<br>令</p>
+<script type="math/tex; mode=display">
+A=
+\begin{bmatrix}
+\varphi_1(x_1) & \varphi_2(x_1) & \cdots & \varphi_n(x_1) \\
+\varphi_1(x_2) & \varphi_2(x_2) & \cdots & \varphi_n(x_2) \\
+\vdots & \vdots & & \vdots \\
+\varphi_1(x_m) & \varphi_2(x_m) & \cdots & \varphi_n(x_m)
+\end{bmatrix}</script><script type="math/tex; mode=display">
+\alpha =
+\begin{bmatrix}
+\alpha_1 \\
+\alpha_2 \\
+\vdots \\
+\alpha_n
+\end{bmatrix}
+,
+Y=
+\begin{bmatrix}
+y_1 \\
+y_2 \\
+\vdots \\
+y_m
+\end{bmatrix}</script><p>那么误差平方和</p>
+<script type="math/tex; mode=display">Q(\alpha)=\sum_{i=1}^{m}(\varphi(x_i)-y_i)^2=||A \alpha -Y ||_2^2</script><p>这样拟合问题就可以转化为：已知矩阵$A \in \mathbb{R}^{m \times n}$和向量$Y \in \mathbb{R}^m$，求向量$\alpha \in \mathbb{R}^n$使得$||A \alpha -Y||_2$最小。</p>
+<p>当线性方程组$A \alpha=Y$有解$\alpha$时，拟合函数$\varphi(x)$经过所有数据点。无解时，称为矛盾方程组，使得$||A \alpha -Y||_2$最小当$\alpha$称为这个矛盾方程组的最小二乘解。</p>
+<p>如果给定矩阵$A \in \mathbb{R}^{m \times n}$和向量$Y \in \mathbb{R}^m$，那么</p>
+<ul>
+<li>$\mathrm{rank} A^T A= \mathrm{rank} A^T$</li>
+<li>线性方程组$A^T A \alpha = A^T Y$恒有解$\alpha$</li>
+<li>$||A \alpha -Y||_2$最小，当且仅当$A^T A \alpha = A^T Y$</li>
+<li>使$||A \alpha -Y||_2$最小的$\alpha$是唯一的，当且仅当$\mathrm{rank}A=n$</li>
+</ul>
+<p>线性方程组$A^T A \alpha = A^T Y$称为矛盾方程组$A \alpha =Y$的法方程。</p>
+<p>通常情况下，若$m&gt;&gt;n$且$\mathrm{rank} A=n$，那么$A^T A$是正定的，矛盾方程组有唯一的最小二乘解。而有时$A^T A$是近似奇异的，这说明$\varphi_i(x),1 \leq i \leq n$之间存在一定的相关性，需要修改拟合函数$\varphi(x)$的形式。</p>
+<p>如果重新考察多项式拟合问题的话，可以发现多项式拟合的过程与解矛盾方程组的过程本质上是一致的。</p>
+  	
+					
+	  </div>     
+	  
+
+	<div class="post-footer">
+
+
+  <div class="post-footer-other">
+       
+    
+      <span class="post-footer-item">
+        <span class="share-btn">
+	<span class="iconfont icon-share"></span>
+</span>
+<div class="-mob-share sildeUpMin">
+	<ul class="-mob-inner">
+	   			             
+        <li class="iconfont 
+		icon-share-weixin 
+		-mob-share-weixin 
+		-mob-share-link"></li>		
+   	   			             
+        <li class="iconfont 
+		icon-share-weibo 
+		-mob-share-weibo 
+		-mob-share-link"></li>		
+   	   			             
+        <li class="iconfont 
+		icon-share-facebook 
+		-mob-share-facebook 
+		-mob-share-link"></li>		
+   	   			             
+        <li class="iconfont 
+		icon-share-twitter 
+		-mob-share-twitter 
+		-mob-share-link"></li>		
+   	   
+	</ul>
+</div>	
+
+
+<script id="-mob-share" src="https://f1.webshare.mob.com/code/mob-share.js?appkey=2a31e660f849e"></script>
+      </span>  
+               
+  </div>  
+    
+
+
+  <div class="post-footer-meta">
+        	
+
+        
+          <i class="iconfont icon-tag"></i>     
+            <a class="tag-link" href="/tags/Numerical-Analysis/">Numerical Analysis</a>    
+        	
+  </div>
+
+</div>
+
+
+<nav class="post-footer-nav">
+  <div class="post-footer-link">
+  
+      <a href="/2019/10/21/Numerical-Analysis-Note-Numerical-Calculus/" id="post-nav-older" class="post-nav-link-wrap">
+        <strong class="post-nav-caption">older</strong>
+        
+          <span class="post-nav-title">
+            数值分析学习笔记--数值积分与数值微分
+          </span>
+      </a>
+  
+  </div>
+  <div class="post-footer-link">
+    
+        <a href="/2019/11/12/Numerical-Analysis-Note-Nonlinear-Equations/" id="post-nav-newer" class="post-nav-link-wrap">
+          <strong class="post-nav-caption">newer</strong>
+             
+            <span class="post-nav-title">
+              数值分析学习笔记--非线性方程求解
+            </span>
+        </a>
+    
+  </div>
+
+</nav>
+ 
+	
+
+    <script src="//cdn.jsdelivr.net/npm/@waline/client"></script>
+
+    <div id="waline"></div>
+
+    <script>
+        Waline({
+          el: '#waline',
+          serverURL: 'https://blog-api.mizunashi.me/',
+          lang: 'en',
+          avatar: 'retro',
+          uploadImage: false,
+        });
+      </script>
+	
+</article>
+
+	<div class="toc-container">
+			<div class="toc-sidebar">
+			<p class="toc-title">
+				Contents
+			</p>
+			<div class="toc-list">
+				<ol class="toc-inner"><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#多项式拟合"><span class="toc-inner-text">多项式拟合</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#矛盾方程组"><span class="toc-inner-text">矛盾方程组</span></a></li></ol>
+			</div>
+		</div>
+	</div>
+
+          </div> 
+      </div>            
+    
+    <a id="page-backTop">
+      <span>
+        <i class="iconfont icon-backtotop"></i>
+      </span>
+    </a> 
+
+  
+    
+    <div class="search-container sildeUpMin">
+        <div class="search-header">
+            <input type="text" placeholder="Typing Something here." id="search-input" class="search-input">
+            <span class="search-cancel">
+                <i class="iconfont icon-cancel">
+            </i></span>
+        </div>
+        <div id="search-result" class="search-result"></div>
+    </div>
+ 
+     <div class="mobile-menu">      
+
+      
+      <img class="mobile-menu-icon" src="/images/favicon.png">  
+      
+
+         
+            
+
+            <a class="mobile-menu-link" href="/">Home
+            </a>
+            
+         
+            
+
+            <a class="mobile-menu-link" href="/archives">Archives
+            </a>
+            
+         
+            
+
+            <a class="mobile-menu-link" href="/tags">Tags
+            </a>
+            
+         
+            
+
+            <a class="mobile-menu-link" href="/about">About
+            </a>
+            
+         
+            
+
+            <a class="mobile-menu-link" href="/guestbook">Guestbook
+            </a>
+            
+         
+                          
+
+            <a class="mobile-menu-link mobile-menu-search" href="#">Search </a>                 
+            
+         
+      
+</div>
+        
+    
+
+
+
+     
+    
+
+
+
+
+<footer id="footer">	    
+
+		
+		<div class="footer-copyright">
+		&copy;
+				
+		2019-
+		
+		2021		
+	
+		Mizunashi&#39;s Blog
+        <br>
+        
+        <a href="/about">About</a> | <a href="/sitemap.xml">Sitemap</a> | <a href="/privacy.html">Privacy Policy</a> | 
+        <a href="/changelog.html">Changelog</a> | <a href="/atom.xml">RSS</a>
+
+        <br>
+
+		Theme  <a href="https://github.com/Lemonreds/hexo-theme-Nayo" target="_blank">Nayo</a>
+		</div>			
+	 
+</footer>   
+
+    <script src="/nayo.bundle.js"></script>           
+  </body>        
+</html>

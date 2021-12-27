@@ -1,0 +1,422 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html>
+  <head><meta name="generator" content="Hexo 3.9.0">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  
+  
+  <title>  数值分析学习笔记--矩阵的特征值和特征向量 |   Mizunashi&#39;s Blog </title>
+
+ 
+  
+    <link rel="icon" href="/images/favicon.png">
+  
+
+
+  <link rel="stylesheet" href="/nayo.min.css"> 
+</head>  
+  <body>   
+    
+      <link rel="stylesheet" type="text/css" href="/nayo.customized.css">
+
+<header class="header">
+	
+  <nav class="header-inner">        
+
+    <span class="iconfont icon-menu mobile-toggle"></span>   	
+
+    <div class="header-logo">
+      <a href="/">
+        <img class="header-logo-img" src="/images/logo.png">
+      </a>
+    </div>
+
+    <div class="header-menu">          
+              
+            
+                
+                    <a class="header-menu-link" id="header-menu-home" href="/">
+                        <i class="iconfont icon-home">  
+                    </i></a>   
+                  
+            
+              
+            
+                
+                    <a class="header-menu-link" id="header-menu-archives" href="/archives">
+                        <i class="iconfont icon-archives">  
+                    </i></a>   
+                  
+            
+              
+            
+                
+                    <a class="header-menu-link" id="header-menu-tags" href="/tags">
+                        <i class="iconfont icon-tags">  
+                    </i></a>   
+                  
+            
+              
+            
+                
+                    <a class="header-menu-link" id="header-menu-about" href="/about">
+                        <i class="iconfont icon-about">  
+                    </i></a>   
+                  
+            
+              
+            
+                
+                    <a class="header-menu-link" id="header-menu-guestbook" href="/guestbook">
+                        <i class="iconfont-custom icon-message">  
+                    </i></a> 
+                  
+            
+              
+            
+                <a class="header-menu-link" id="header-menu-search">
+                    <i class="iconfont icon-search">  
+                </i></a>
+            
+                  
+    </div>  
+    
+  </nav>
+</header>
+
+ 
+
+      <div class="container">       
+          
+          
+            <div class="container-inner">  
+          
+
+          <article class="post">
+  
+	
+<div class="post-header">
+	<div class="post-header-inner">
+		<p class="post-title">	
+			数值分析学习笔记--矩阵的特征值和特征向量
+		</p>
+		<div class="post-info">	
+			<span class="post-info-entry">
+				Jan 18, 2020
+			</span>
+
+			
+			
+				<i class="iconfont icon-words"></i>
+				<span class="post-info-entry">2486
+				</span>
+			
+		</div>
+	</div>
+</div> 
+	
+
+    <script type="text/x-mathjax-config">
+        var post = document.getElementsByClassName("post")[0];  
+        MathJax.Hub.Config({
+            showProcessingMessages: false,
+            messageStyle: "none",    
+            tex2jax: {
+                inlineMath:  [ ["$", "$"] , ["\\(","\\)"]],
+                displayMath: [ ["$$","$$"] , ["\\[","\\]"]],
+                skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code','a'],
+            },
+            "HTML-CSS": {            
+                showMathMenu: false
+            }
+        });
+        MathJax.Hub.Queue(["Typeset",MathJax.Hub,post]);
+    </script>
+    <style>.MathJax{outline:0;}</style>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS_CHTML"></script>
+ 
+
+	  <div class="typo post-content slideDownMin">
+
+		
+
+			
+					<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Eigenvalue_equation.svg/500px-Eigenvalue_equation.svg.png" alt></p>
+<blockquote>
+<p>特征值与特征向量的图解</p>
+</blockquote>
+<a id="more"></a>
+<p>如有疏漏，敬请指正。</p>
+<h2 id="幂法"><a href="#幂法" class="headerlink" title="幂法"></a>幂法</h2><p>在很多情况下，我们需要计算矩阵的按模最大特征值。幂法是计算按模最大特征值及其特征向量的数值方法。</p>
+<p>任取初始向量$X^{(0)}$，进行迭代计算</p>
+<script type="math/tex; mode=display">X^{(k+1)}=AX^{(k)}</script><p>得到的迭代序列$\lbrace X^{(k)} \rbrace$，分析$X^{(k+1)}$与$X^{(k)}$之间的关系，就可以得到$A$的按模最大特征值及其特征向量的近似解。</p>
+<p>在计算机运算的过程中，如果$X^{(k)}$的某个分量过大或者过小，都有可能导致运算失败。因此在实际计算中通常采用规范运算格式，规范运算可以按下面公式进行</p>
+<script type="math/tex; mode=display">
+\begin{cases}
+Y^{(k)}=X^{(k)}/||X^{(k)}||_\infty \\
+X^{(k+1)}=AY^{(k)}
+\end{cases}</script><p>这样就可以保证$Y^{(k)}$的按模最大分量的值保持1或者-1。</p>
+<p>规范运算的迭代序列一般有如下几种情况：</p>
+<ul>
+<li>如果$\lbrace X^{(k)} \rbrace$收敛，那么$A$的按模最大特征值只有一个，且$\lambda_1&gt;0$，对于充分大的$k$，按模最大分量$x_j^{(k)}$不变号，对应的$|y_j^{(k)}|=1, \lambda_1 \approx |x_j^{(k+1)}|$，即<script type="math/tex; mode=display">\lambda_1 \approx \max_{1 \leq i \leq n} |x_i^{(k+1)}|=|x_j^{(k+1)}|</script>相应的特征向量是$v_1 \approx Y^{(k)}$</li>
+<li>如果$\lbrace X^{(2k)} \rbrace, \lbrace X^{(2k+1)} \rbrace$分别收敛于互为反号的向量，那么按模最大的特征值也仅有一个单实根，且$\lambda_1 &lt;0$，即<script type="math/tex; mode=display">\lambda_1 \approx -\max_{1 \leq i \leq n} |x_i^{(k)}|=-|x_j^{(k)}|</script>相应的特征向量是$v_1 \approx Y^{(k)}$</li>
+<li>如果$\lbrace X^{(2k)} \rbrace, \lbrace X^{(2k+1)} \rbrace$分别收敛于两个不同的向量，那么按模最大的特征值有两个，它们是互为反号的一对实根。再做一次非规范的运算$X^{(k+1)}=AX^{(k)}$，则有<script type="math/tex; mode=display">\lambda_1 \approx \sqrt{x_i^{(k+1)}/y_i^{(k-1)}},\lambda_2=-\lambda_1</script>特征向量分别为<script type="math/tex; mode=display">
+\begin{cases}
+V_1=X^{(k+1)}+\lambda_1X^{(k)} \\
+V_2=X^{(k+1)}-\lambda_1X^{(k)}
+\end{cases}</script></li>
+<li>迭代序列没有一定的规律，需要另行讨论</li>
+</ul>
+<p>通过原点位移的幂法可能会加速迭代。矩阵$B=A-pI$的特征值与矩阵$A$的特征值分别为$\lambda$与$\lambda-p$，通过计算矩阵$A-pI$的特征值得到矩阵$A$的特征值的方法称为原点位移法。</p>
+<p>如果取得的$p$满足</p>
+<script type="math/tex; mode=display">\Big| \frac{\lambda_2-p}{\lambda_1-p} \Big| < \Big| \frac{\lambda_2}{\lambda_1} \Big|</script><p>那么对矩阵$B$的幂法，收敛会比$A$的幂法快。选取有效的$p$需要大致了解该矩阵的特征值分布。</p>
+<h2 id="反幂法"><a href="#反幂法" class="headerlink" title="反幂法"></a>反幂法</h2><p>反幂法是计算按模最小特征值及其特征向量的数值方法。</p>
+<p>不难证明，$A^{-1}$的按模最大特征值是$A$的按模最小特征值的倒数。使用幂法计算$A^{-1}$的按模最大特征值从而得到$A$的按模最小特征值的方法，称为反幂法。反幂法的规范迭代格式如下：</p>
+<script type="math/tex; mode=display">
+\begin{cases}
+Y^{(k)}=X^{(k)}/||X^{(k)}||_\infty \\
+X^{(k+1)}=A^{-1}Y^{(k)}
+\end{cases}</script><p>在实务中，一般不会计算$A$的逆矩阵。而是求解线性方程组$AX^{(k+1)}=Y^{(k)}$，从而求得$X^{(k+1)}$，因此迭代格式可以改写如下：</p>
+<script type="math/tex; mode=display">
+\begin{cases}
+Y^{(k)}=X^{(k)}/||X^{(k)}||_\infty \\
+AX^{(k+1)}=Y^{(k)}
+\end{cases}</script><p>如果想求解最接近$p$的特征值$\lambda_i$，那么可以用带原点位移的反幂法</p>
+<script type="math/tex; mode=display">
+\begin{cases}
+Y^{(k)}=X^{(k)}/||X^{(k)}||_\infty \\
+(A-pI)X^{(k+1)}=Y^{(k)}
+\end{cases}</script><p>计算得到特征值$\mu$，那么$\lambda_i=p+\frac{1}{\mu}$，这是一个非常不错的性质。</p>
+<h2 id="QR方法初步"><a href="#QR方法初步" class="headerlink" title="QR方法初步"></a>QR方法初步</h2><p>QR方法能够有效的计算中小型矩阵的特征值与特征向量。</p>
+<p>对于n阶矩阵$Q$，若满足$QQ^T=I$，那么称$Q$为正交矩阵，具有如下性质：</p>
+<ul>
+<li>$|\det Q|=1$</li>
+<li>若$Q_1,Q_2$为正交阵，那么$Q=Q_1Q_2$也是正交矩阵</li>
+</ul>
+<p>如果A为n阶实矩阵，那么存在正交矩阵$Q$，上三角矩阵$R$，使得</p>
+<script type="math/tex; mode=display">A=QR</script><p>将$A$这样分解的过程被称为QR分解。</p>
+<p>$A$为给定的n阶实矩阵，令$A_1=A$，对$A_1$作QR分解$A_1=Q_1R_1$。然后，对$A_2=R_1Q_1$作QR分解$A_2=Q_2R_2$，记$A_3=R_2Q_2$。一直进行下去，可以得到n阶矩阵序列$\lbrace A_k \rbrace$，满足：</p>
+<ul>
+<li>$\lbrace A_k \rbrace$为相似正交矩阵序列</li>
+<li>记$A_k$的元素$(a_{ij}^{(k)})_{n \times n}$，若$A$满足一定的条件，则有<script type="math/tex; mode=display">a_{ij}^{(k)} \to 0,k \to \infty, 1 \leq i < j \leq n</script><script type="math/tex; mode=display">a_{ii}^{(k)} \to \lambda_i,k \to \infty,i=1,2, \cdots ,n</script>$\lambda_i$就是$A$的特征值。</li>
+</ul>
+<p>利用矩阵的QR分解得到特征值的方法称为QR方法。有多种方法可以进行QR分解，例如施密特正交化与Householder变换。</p>
+  	
+					
+	  </div>     
+	  
+
+	<div class="post-footer">
+
+
+  <div class="post-footer-other">
+       
+    
+      <span class="post-footer-item">
+        <span class="share-btn">
+	<span class="iconfont icon-share"></span>
+</span>
+<div class="-mob-share sildeUpMin">
+	<ul class="-mob-inner">
+	   			             
+        <li class="iconfont 
+		icon-share-weixin 
+		-mob-share-weixin 
+		-mob-share-link"></li>		
+   	   			             
+        <li class="iconfont 
+		icon-share-weibo 
+		-mob-share-weibo 
+		-mob-share-link"></li>		
+   	   			             
+        <li class="iconfont 
+		icon-share-facebook 
+		-mob-share-facebook 
+		-mob-share-link"></li>		
+   	   			             
+        <li class="iconfont 
+		icon-share-twitter 
+		-mob-share-twitter 
+		-mob-share-link"></li>		
+   	   
+	</ul>
+</div>	
+
+
+<script id="-mob-share" src="https://f1.webshare.mob.com/code/mob-share.js?appkey=2a31e660f849e"></script>
+      </span>  
+               
+  </div>  
+    
+
+
+  <div class="post-footer-meta">
+        	
+
+        
+          <i class="iconfont icon-tag"></i>     
+            <a class="tag-link" href="/tags/Numerical-Analysis/">Numerical Analysis</a>    
+        	
+  </div>
+
+</div>
+
+
+<nav class="post-footer-nav">
+  <div class="post-footer-link">
+  
+      <a href="/2019/12/29/2019-Review/" id="post-nav-older" class="post-nav-link-wrap">
+        <strong class="post-nav-caption">older</strong>
+        
+          <span class="post-nav-title">
+            我的2019
+          </span>
+      </a>
+  
+  </div>
+  <div class="post-footer-link">
+    
+        <a href="/2020/01/19/Numerical-Analysis-Notes-ODE/" id="post-nav-newer" class="post-nav-link-wrap">
+          <strong class="post-nav-caption">newer</strong>
+             
+            <span class="post-nav-title">
+              数值分析学习笔记--常微分方程初值问题的数值解法
+            </span>
+        </a>
+    
+  </div>
+
+</nav>
+ 
+	
+
+    <script src="//cdn.jsdelivr.net/npm/@waline/client"></script>
+
+    <div id="waline"></div>
+
+    <script>
+        Waline({
+          el: '#waline',
+          serverURL: 'https://blog-api.mizunashi.me/',
+          lang: 'en',
+          avatar: 'retro',
+          uploadImage: false,
+        });
+      </script>
+	
+</article>
+
+	<div class="toc-container">
+			<div class="toc-sidebar">
+			<p class="toc-title">
+				Contents
+			</p>
+			<div class="toc-list">
+				<ol class="toc-inner"><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#幂法"><span class="toc-inner-text">幂法</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#反幂法"><span class="toc-inner-text">反幂法</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#QR方法初步"><span class="toc-inner-text">QR方法初步</span></a></li></ol>
+			</div>
+		</div>
+	</div>
+
+          </div> 
+      </div>            
+    
+    <a id="page-backTop">
+      <span>
+        <i class="iconfont icon-backtotop"></i>
+      </span>
+    </a> 
+
+  
+    
+    <div class="search-container sildeUpMin">
+        <div class="search-header">
+            <input type="text" placeholder="Typing Something here." id="search-input" class="search-input">
+            <span class="search-cancel">
+                <i class="iconfont icon-cancel">
+            </i></span>
+        </div>
+        <div id="search-result" class="search-result"></div>
+    </div>
+ 
+     <div class="mobile-menu">      
+
+      
+      <img class="mobile-menu-icon" src="/images/favicon.png">  
+      
+
+         
+            
+
+            <a class="mobile-menu-link" href="/">Home
+            </a>
+            
+         
+            
+
+            <a class="mobile-menu-link" href="/archives">Archives
+            </a>
+            
+         
+            
+
+            <a class="mobile-menu-link" href="/tags">Tags
+            </a>
+            
+         
+            
+
+            <a class="mobile-menu-link" href="/about">About
+            </a>
+            
+         
+            
+
+            <a class="mobile-menu-link" href="/guestbook">Guestbook
+            </a>
+            
+         
+                          
+
+            <a class="mobile-menu-link mobile-menu-search" href="#">Search </a>                 
+            
+         
+      
+</div>
+        
+    
+
+
+
+     
+    
+
+
+
+
+<footer id="footer">	    
+
+		
+		<div class="footer-copyright">
+		&copy;
+				
+		2019-
+		
+		2021		
+	
+		Mizunashi&#39;s Blog
+        <br>
+        
+        <a href="/about">About</a> | <a href="/sitemap.xml">Sitemap</a> | <a href="/privacy.html">Privacy Policy</a> | 
+        <a href="/changelog.html">Changelog</a> | <a href="/atom.xml">RSS</a>
+
+        <br>
+
+		Theme  <a href="https://github.com/Lemonreds/hexo-theme-Nayo" target="_blank">Nayo</a>
+		</div>			
+	 
+</footer>   
+
+    <script src="/nayo.bundle.js"></script>           
+  </body>        
+</html>

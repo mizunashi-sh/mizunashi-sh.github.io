@@ -1,0 +1,401 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html>
+  <head><meta name="generator" content="Hexo 3.9.0">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  
+  
+  <title>  数值分析学习笔记--非线性方程求解 |   Mizunashi&#39;s Blog </title>
+
+ 
+  
+    <link rel="icon" href="/images/favicon.png">
+  
+
+
+  <link rel="stylesheet" href="/nayo.min.css"> 
+</head>  
+  <body>   
+    
+      <link rel="stylesheet" type="text/css" href="/nayo.customized.css">
+
+<header class="header">
+	
+  <nav class="header-inner">        
+
+    <span class="iconfont icon-menu mobile-toggle"></span>   	
+
+    <div class="header-logo">
+      <a href="/">
+        <img class="header-logo-img" src="/images/logo.png">
+      </a>
+    </div>
+
+    <div class="header-menu">          
+              
+            
+                
+                    <a class="header-menu-link" id="header-menu-home" href="/">
+                        <i class="iconfont icon-home">  
+                    </i></a>   
+                  
+            
+              
+            
+                
+                    <a class="header-menu-link" id="header-menu-archives" href="/archives">
+                        <i class="iconfont icon-archives">  
+                    </i></a>   
+                  
+            
+              
+            
+                
+                    <a class="header-menu-link" id="header-menu-tags" href="/tags">
+                        <i class="iconfont icon-tags">  
+                    </i></a>   
+                  
+            
+              
+            
+                
+                    <a class="header-menu-link" id="header-menu-about" href="/about">
+                        <i class="iconfont icon-about">  
+                    </i></a>   
+                  
+            
+              
+            
+                
+                    <a class="header-menu-link" id="header-menu-guestbook" href="/guestbook">
+                        <i class="iconfont-custom icon-message">  
+                    </i></a> 
+                  
+            
+              
+            
+                <a class="header-menu-link" id="header-menu-search">
+                    <i class="iconfont icon-search">  
+                </i></a>
+            
+                  
+    </div>  
+    
+  </nav>
+</header>
+
+ 
+
+      <div class="container">       
+          
+          
+            <div class="container-inner">  
+          
+
+          <article class="post">
+  
+	
+<div class="post-header">
+	<div class="post-header-inner">
+		<p class="post-title">	
+			数值分析学习笔记--非线性方程求解
+		</p>
+		<div class="post-info">	
+			<span class="post-info-entry">
+				Nov 12, 2019
+			</span>
+
+			
+			
+				<i class="iconfont icon-words"></i>
+				<span class="post-info-entry">1973
+				</span>
+			
+		</div>
+	</div>
+</div> 
+	
+
+    <script type="text/x-mathjax-config">
+        var post = document.getElementsByClassName("post")[0];  
+        MathJax.Hub.Config({
+            showProcessingMessages: false,
+            messageStyle: "none",    
+            tex2jax: {
+                inlineMath:  [ ["$", "$"] , ["\\(","\\)"]],
+                displayMath: [ ["$$","$$"] , ["\\[","\\]"]],
+                skipTags: ['script', 'noscript', 'style', 'textarea', 'pre','code','a'],
+            },
+            "HTML-CSS": {            
+                showMathMenu: false
+            }
+        });
+        MathJax.Hub.Queue(["Typeset",MathJax.Hub,post]);
+    </script>
+    <style>.MathJax{outline:0;}</style>
+
+    <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js?config=TeX-AMS_CHTML"></script>
+ 
+
+	  <div class="typo post-content slideDownMin">
+
+		
+
+			
+					<p><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Cosine_fixed_point.svg/500px-Cosine_fixed_point.svg.png" alt></p>
+<blockquote>
+<p>不动点迭代</p>
+</blockquote>
+<a id="more"></a>
+<p>如有疏漏，敬请指正。</p>
+<p>对于非线性方程，我们往往可以通过迭代法计算其近似数值解。由于非线性方程的根一般不止一个。因此在求解非线性方程时，要给定初始值或求解范围。</p>
+<h2 id="二分迭代"><a href="#二分迭代" class="headerlink" title="二分迭代"></a>二分迭代</h2><p>二分迭代是一个很简单直观的非线性方程求解算法，其理论基础是介值定理，即设函数$f(x)$在$[a,b]$上连续，且$f(a)f(b)&lt;0$，则$f(x)$在$[a,b]$上至少有一个零点。在计算中，可以通过对分区间，缩小区间范围来搜索零点。</p>
+<p>在实务中，常用$sgn(f(a)) \cdot sgn(f(x))&gt;0$替代$f(a) \cdot f(x)&gt;0$，以避免数值溢出。</p>
+<p>对分法算法较为简单，但是需要注意的是，即使$f(x)$在$[a,b]$上有零点，也未必有$f(a)f(b)&lt;0$，这限制了对分法的使用范围。</p>
+<h2 id="不动点迭代法"><a href="#不动点迭代法" class="headerlink" title="不动点迭代法"></a>不动点迭代法</h2><p>对于给定的方程$f(x)=0$，可以将其转化为等价形式$x=\varphi (x)$。给定初值$x_0$，由此构造迭代序列$x_{k+1}=\varphi(x_k),k=1,2, \cdots$，若$\varphi(x)$连续且迭代收敛，即</p>
+<script type="math/tex; mode=display">\lim_{k \to \infty} x_{k+1}=\lim_{k \to \infty} \varphi(x_k)=\alpha</script><p>则有$\alpha = \varphi (\alpha)$，而$\alpha$就是方程$f(x)=0$的根。</p>
+<p>若$\varphi$定义在$[a,b]$上，如果$\varphi$满足</p>
+<ul>
+<li>当$x \in [a,b]$时有$a \leq \varphi(x) \leq b$</li>
+<li>$\varphi (x)$在$[a,b]$上可导，且存在正数$L&lt;1$，使得对任意的$x \in [a,b]$，有$| \varphi’(x) | \leq L$</li>
+</ul>
+<p>则在$[a,b]$上有唯一的点$x^{\ast}$满足$x^*=\varphi(x^{\ast})$，称$x^{\ast}$为$\varphi(x)$的不动点。迭代格式$x_{k+1}=\varphi(x_k)$对任意初值$x_0 \in [a,b]$均收敛于$x^{\ast}$，误差估计式为</p>
+<script type="math/tex; mode=display">| x^{\ast}-x_k | \leq \frac{L^k}{1-L} |x_1-x_0|</script><p>构造收敛迭代格式，有两个要素：</p>
+<ul>
+<li>等价形式$x=\varphi (x)$应该满足$| \varphi’(x^{\ast}) |&lt;1$</li>
+<li>初值必须取自$x^{\ast}$的充分小邻域，这个邻域大小决定于函数$f(x)$以及等价形式$x = \varphi (x)$</li>
+</ul>
+<h2 id="牛顿迭代"><a href="#牛顿迭代" class="headerlink" title="牛顿迭代"></a>牛顿迭代</h2><p>牛顿迭代是一种常用的不动点迭代方式。</p>
+<p>首先，对$f(x)$在$x_0$进行泰勒展开，有</p>
+<script type="math/tex; mode=display">f(x)=f(x_0)+f'(x_0)(x-x_0)+\frac{f''(x_0)}{2!} (x-x_0)^2 + \cdots</script><p>取上式线性部分作为$f(x) \approx 0$的近似值，有</p>
+<script type="math/tex; mode=display">x_1=x_0-\frac{f(x_0)}{f'(x_0)}</script><p>其中我们设$f’(x_0) \neq 0$。</p>
+<p>一直迭代下去，可得</p>
+<script type="math/tex; mode=display">x_{k+1}=x_k-\frac{f(x_k)}{f'(x_k)}</script><p>对应于$f(x)=0$的Newton迭代方程是$\varphi (x)=x-\frac{f(x)}{f’(x)}$</p>
+<script type="math/tex; mode=display">\varphi '(x)=\frac{f(x)f''(x)}{(f'(x))^2}</script><p>若$\alpha$是$f(x)$的单根，有$| \varphi  ‘(\alpha) |=0$，且只要初值$x_0$充分接近$\alpha$，就有$| \varphi ‘(x_0) |&lt;1$，牛顿迭代收敛。</p>
+<p>如果存在$M&gt;0$，使得</p>
+<script type="math/tex; mode=display">\lim_{k \to \infty} \frac{|e_{k+1}|}{|e_k|^n}=\lim_{k \to \infty} \frac{|x_{k+1}- \alpha|}{|x_k - \alpha|^n}=M</script><p>那么记迭代收敛的阶为n。</p>
+<p>分析可知，牛顿迭代是二阶迭代方法。</p>
+<p>若$\alpha$是$f(x)$的p重根，以下迭代格式是二阶方法</p>
+<script type="math/tex; mode=display">x_{k+1}=x_k-p\frac{f(x_k)}{f'(x_k)},k=1,2, \cdots</script><p>牛顿迭代格式的收敛与否和初始值密切相关，当初始值在某根附近时迭代才能收敛到这个根。</p>
+<p>如果方程没有实数根，那么迭代也不收敛。</p>
+<h2 id="弦截法"><a href="#弦截法" class="headerlink" title="弦截法"></a>弦截法</h2><p>在牛顿迭代格式中，用差商替代导数，并且给定两个初始值$x_0$和$x_1$，得到弦截法的迭代格式：</p>
+<script type="math/tex; mode=display">x_{k+1}=x_k-\frac{f(x_k)(x_k-x_{k-1})}{f(x_k)-f(x_{k-1})},k=1,2, \cdots</script><p>使用这个方法迭代求根，每次只需计算一次函数值，但这个方法的迭代速度慢于牛顿迭代法。</p>
+<p>弦截法为1.618阶迭代方法。</p>
+  	
+					
+	  </div>     
+	  
+
+	<div class="post-footer">
+
+
+  <div class="post-footer-other">
+       
+    
+      <span class="post-footer-item">
+        <span class="share-btn">
+	<span class="iconfont icon-share"></span>
+</span>
+<div class="-mob-share sildeUpMin">
+	<ul class="-mob-inner">
+	   			             
+        <li class="iconfont 
+		icon-share-weixin 
+		-mob-share-weixin 
+		-mob-share-link"></li>		
+   	   			             
+        <li class="iconfont 
+		icon-share-weibo 
+		-mob-share-weibo 
+		-mob-share-link"></li>		
+   	   			             
+        <li class="iconfont 
+		icon-share-facebook 
+		-mob-share-facebook 
+		-mob-share-link"></li>		
+   	   			             
+        <li class="iconfont 
+		icon-share-twitter 
+		-mob-share-twitter 
+		-mob-share-link"></li>		
+   	   
+	</ul>
+</div>	
+
+
+<script id="-mob-share" src="https://f1.webshare.mob.com/code/mob-share.js?appkey=2a31e660f849e"></script>
+      </span>  
+               
+  </div>  
+    
+
+
+  <div class="post-footer-meta">
+        	
+
+        
+          <i class="iconfont icon-tag"></i>     
+            <a class="tag-link" href="/tags/Numerical-Analysis/">Numerical Analysis</a>    
+        	
+  </div>
+
+</div>
+
+
+<nav class="post-footer-nav">
+  <div class="post-footer-link">
+  
+      <a href="/2019/10/28/Numerical-Analysis-Note-LeastSquare/" id="post-nav-older" class="post-nav-link-wrap">
+        <strong class="post-nav-caption">older</strong>
+        
+          <span class="post-nav-title">
+            数值分析学习笔记--最小二乘拟合
+          </span>
+      </a>
+  
+  </div>
+  <div class="post-footer-link">
+    
+        <a href="/2019/11/20/Numerical-Analysis-Notes-Linear-Equations-Direct/" id="post-nav-newer" class="post-nav-link-wrap">
+          <strong class="post-nav-caption">newer</strong>
+             
+            <span class="post-nav-title">
+              数值分析学习笔记--线性方程组的直接解法
+            </span>
+        </a>
+    
+  </div>
+
+</nav>
+ 
+	
+
+    <script src="//cdn.jsdelivr.net/npm/@waline/client"></script>
+
+    <div id="waline"></div>
+
+    <script>
+        Waline({
+          el: '#waline',
+          serverURL: 'https://blog-api.mizunashi.me/',
+          lang: 'en',
+          avatar: 'retro',
+          uploadImage: false,
+        });
+      </script>
+	
+</article>
+
+	<div class="toc-container">
+			<div class="toc-sidebar">
+			<p class="toc-title">
+				Contents
+			</p>
+			<div class="toc-list">
+				<ol class="toc-inner"><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#二分迭代"><span class="toc-inner-text">二分迭代</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#不动点迭代法"><span class="toc-inner-text">不动点迭代法</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#牛顿迭代"><span class="toc-inner-text">牛顿迭代</span></a></li><li class="toc-inner-item toc-inner-level-2"><a class="toc-inner-link" href="#弦截法"><span class="toc-inner-text">弦截法</span></a></li></ol>
+			</div>
+		</div>
+	</div>
+
+          </div> 
+      </div>            
+    
+    <a id="page-backTop">
+      <span>
+        <i class="iconfont icon-backtotop"></i>
+      </span>
+    </a> 
+
+  
+    
+    <div class="search-container sildeUpMin">
+        <div class="search-header">
+            <input type="text" placeholder="Typing Something here." id="search-input" class="search-input">
+            <span class="search-cancel">
+                <i class="iconfont icon-cancel">
+            </i></span>
+        </div>
+        <div id="search-result" class="search-result"></div>
+    </div>
+ 
+     <div class="mobile-menu">      
+
+      
+      <img class="mobile-menu-icon" src="/images/favicon.png">  
+      
+
+         
+            
+
+            <a class="mobile-menu-link" href="/">Home
+            </a>
+            
+         
+            
+
+            <a class="mobile-menu-link" href="/archives">Archives
+            </a>
+            
+         
+            
+
+            <a class="mobile-menu-link" href="/tags">Tags
+            </a>
+            
+         
+            
+
+            <a class="mobile-menu-link" href="/about">About
+            </a>
+            
+         
+            
+
+            <a class="mobile-menu-link" href="/guestbook">Guestbook
+            </a>
+            
+         
+                          
+
+            <a class="mobile-menu-link mobile-menu-search" href="#">Search </a>                 
+            
+         
+      
+</div>
+        
+    
+
+
+
+     
+    
+
+
+
+
+<footer id="footer">	    
+
+		
+		<div class="footer-copyright">
+		&copy;
+				
+		2019-
+		
+		2021		
+	
+		Mizunashi&#39;s Blog
+        <br>
+        
+        <a href="/about">About</a> | <a href="/sitemap.xml">Sitemap</a> | <a href="/privacy.html">Privacy Policy</a> | 
+        <a href="/changelog.html">Changelog</a> | <a href="/atom.xml">RSS</a>
+
+        <br>
+
+		Theme  <a href="https://github.com/Lemonreds/hexo-theme-Nayo" target="_blank">Nayo</a>
+		</div>			
+	 
+</footer>   
+
+    <script src="/nayo.bundle.js"></script>           
+  </body>        
+</html>
