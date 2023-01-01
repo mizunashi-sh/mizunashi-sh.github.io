@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://mizunashi.me/"/>
-  <updated>2021-12-27T14:00:47.890Z</updated>
+  <updated>2023-01-01T09:19:51.925Z</updated>
   <id>https://mizunashi.me/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>我的2022</title>
+    <link href="https://mizunashi.me/2023/01/01/2022-Review/"/>
+    <id>https://mizunashi.me/2023/01/01/2022-Review/</id>
+    <published>2023-01-01T09:18:05.000Z</published>
+    <updated>2023-01-01T09:19:51.925Z</updated>
+    
+    <content type="html"><![CDATA[<p><img src="https://mizunashi.me/image-hosting/blog/2022-Review/taihu.jpg" alt></p><blockquote><p>Taihu Lake, Suzhou</p></blockquote><a id="more"></a><center><iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="330" height="86" src="//music.163.com/outchain/player?type=2&id=2003705918&auto=0&height=66"></iframe></center><p>2022年是很平淡的一年，也没有遇到什么特别印象深刻的事情，虽然可能遇到一点波折，但是最后也都能够成功地解决，生活也越来越幸福美满。</p><p>一生中经历波动实属正常，但是如果能保证自己不受波及，这些经历将会是我们不可多得的财富，这样让我们面对未来的风险挑战时，能够更有底气。</p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;&lt;img src=&quot;https://mizunashi.me/image-hosting/blog/2022-Review/taihu.jpg&quot; alt&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Taihu Lake, Suzhou&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+      <category term="Desultory Essay" scheme="https://mizunashi.me/tags/Desultory-Essay/"/>
+    
+  </entry>
   
   <entry>
     <title>我的2021</title>
@@ -447,26 +470,6 @@
     
     
       <category term="Numerical Analysis" scheme="https://mizunashi.me/tags/Numerical-Analysis/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>从Cisco AnyConnect迁移到OpenConnect</title>
-    <link href="https://mizunashi.me/2019/10/13/Migrate-AnyConnect-to-OpenConnect/"/>
-    <id>https://mizunashi.me/2019/10/13/Migrate-AnyConnect-to-OpenConnect/</id>
-    <published>2019-10-13T14:01:57.000Z</published>
-    <updated>2019-10-13T14:10:44.731Z</updated>
-    
-    <content type="html"><![CDATA[<p>本文简单介绍了如何从Cisco AnyConnect迁移到OpenConnect。</p><a id="more"></a><p>Cisco AnyConnect是一个成熟的安全解决方案，但是在使用过程中可能会遇到一些不便，比如，用户无法直接从Cisco获得AnyConnect客户端，必须从所在企业的IT支持部门获得，否则只能从互联网上下载来路不明的客户端。</p><p>OpenConnect是一个兼容Cisco AnyConnect的开源虚拟专用网实现，其源代码可以轻易获得，一些包管理软件也提供OpenConnect。</p><p>OpenConnect支持大多数操作系统。</p><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>这里以macOS为例，介绍OpenConnect的安装。</p><h3 id="使用包管理器安装"><a href="#使用包管理器安装" class="headerlink" title="使用包管理器安装"></a>使用包管理器安装</h3><p>macOS上的brew包管理器提供OpenConnect，在终端执行以下命令即可安装<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install openconnect</span><br></pre></td></tr></table></figure></p><p>需要注意的是，macOS并不预装brew，brew的安装及使用说明在<a href="https://brew.sh" target="_blank" rel="noopener">这里</a>。</p><p>其它操作系统请至对应的包管理器自行寻找。</p><h3 id="源码编译安装"><a href="#源码编译安装" class="headerlink" title="源码编译安装"></a>源码编译安装</h3><p>如果没有包管理器，或者包管理器没有提供OpenConnect，那么需要使用源码编译安装。</p><p>相对于使用包管理器安装，源码编译安装较为繁琐。源码编译安装的说明在<a href="http://www.infradead.org/openconnect/building.html" target="_blank" rel="noopener">这里</a>。</p><h2 id="连接"><a href="#连接" class="headerlink" title="连接"></a>连接</h2><p>在终端执行以下命令即可连接<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openconnect SERVER_ADDR</span><br></pre></td></tr></table></figure></p><p>请将SERVER_ADDR替换为服务器的地址，连接时会要求提供用户名和密码。</p><p>如果不使用用户名密码方式而使用证书进行连接，那么就要使用<code>-c</code>选项提供证书所在位置。<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openconnect -c certificate.pem SERVER_ADDR</span><br></pre></td></tr></table></figure></p><p>请将certificate.pem替换为证书所在位置。</p><p>对于*nix系操作系统，如果当前账户不是root，那么直接用上面的命令连接可能会出现问题，解决方案是在命令的最前端添加<code>sudo</code>临时提权。<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo openconnect SERVER_ADDR</span><br></pre></td></tr></table></figure></p><p>如果不知道当前是什么账户，请在终端执行<code>whoami</code>命令，输出即是当前账户。</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;本文简单介绍了如何从Cisco AnyConnect迁移到OpenConnect。&lt;/p&gt;
-    
-    </summary>
-    
-    
-      <category term="Tutorial" scheme="https://mizunashi.me/tags/Tutorial/"/>
     
   </entry>
   
